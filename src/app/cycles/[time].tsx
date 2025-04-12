@@ -1,3 +1,4 @@
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { useLocalSearchParams } from "expo-router";
 import { Text, View } from "react-native";
 
@@ -7,7 +8,11 @@ const cycles = () => {
     <View>
       <Text>Cycles</Text>
       <Text>You should wake up at</Text>
-      <View className="border-2 "></View>
+      <View className="px-8">
+        <View className="border-2">
+          <MaterialCommunityIcons name="emoticon-dead-outline" size={24} />
+        </View>
+      </View>
     </View>
   );
 };

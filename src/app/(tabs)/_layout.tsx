@@ -4,7 +4,13 @@ import { Tabs } from "expo-router";
 
 export default function RootLayout() {
   return (
-    <Tabs tabBar={(props) => <TabBar {...props} />}>
+    <Tabs
+      initialRouteName="sounds"
+      tabBar={(props) => <TabBar {...props} />}
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Tabs.Screen
         name="sounds"
         options={{ title: "Sounds", headerShown: false }}

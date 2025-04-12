@@ -32,7 +32,7 @@ export default function Index() {
   };
 
   return (
-    <View className="h-screen bg-[#04052e]">
+    <View className="flex-1 pb-24 pt-16 px-16 justify-center items-center">
       <View className="flex justify-center items-center">
         <View className="mt-40 w-1/2">
           <View className="mb-12">
