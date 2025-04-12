@@ -1,3 +1,4 @@
+import icon from "@/src/constants/icon";
 import React, { useEffect } from "react";
 import { Pressable } from "react-native";
 import Animated, {
@@ -6,7 +7,6 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
-import icon from "../constants/icon";
 
 type Props = {
   onPress: () => void;
@@ -44,6 +44,9 @@ const TabBarButton = ({
 
     return { transform: [{ scale: scaleValue }], top };
   });
+
+  console.log(routeName);
+  // console.log(icon[routeName as keyof typeof icon](color));
 
   return (
     <Pressable
