@@ -2,6 +2,7 @@ import SoundCard from "@/src/components/SoundCard.";
 import { Text, View } from "react-native";
 
 const sounds = () => {
+  // to put in a single file like the icon
   const sounds = [
     { title: "Rainfall", value: "rainfall" },
     { title: "Ocean Waves", value: "oceanWaves" },
