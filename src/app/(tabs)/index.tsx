@@ -43,7 +43,7 @@ export default function Index() {
         </Text>
       </View>
 
-      <View className="flex-1 gap-12 justify-center w-full">
+      <View className="flex-1 gap-12 justify-center">
         <View className="gap-6">
           <View className="gap-3">
             <Text className="text-2xl text-center">Wake Up At</Text>
