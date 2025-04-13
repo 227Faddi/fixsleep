@@ -81,6 +81,7 @@ export default function Index() {
         styles={{
           modalTitle: {
             paddingInline: 25,
+            fontWeight: "400",
           },
           contentContainer: {
             borderWidth: 1,

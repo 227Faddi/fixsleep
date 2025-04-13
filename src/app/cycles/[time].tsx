@@ -5,7 +5,7 @@ import React from "react";
 import { Pressable, Text, View } from "react-native";
 
 const cycles = () => {
-  const { time } = useLocalSearchParams();
+  const { time } = useLocalSearchParams<{ time: string }>();
 
   const calcTime = (time: string, cycle: number) => {
     const hr = time.split("").slice(0, 2);
@@ -52,7 +52,7 @@ const cycles = () => {
     },
   ];
   return (
-    <View className="flex-1 pb-32 pt-20 px-16 gap-4 items-center">
+    <View className="flex-1 py-20 px-16 gap-4 items-center">
       <Pressable
         onPress={() => router.back()}
         className="absolute left-6 top-16"

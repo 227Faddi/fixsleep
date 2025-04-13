@@ -15,10 +15,10 @@ const icon = {
   ),
   moon: (props?: object) => <FontAwesome5 name="moon" size={24} {...props} />,
   bed: (props?: object) => <Ionicons name="bed-outline" size={24} {...props} />,
-  rain: (props?: object) => (
+  rainfall: (props?: object) => (
     <Ionicons name="rainy-outline" size={24} {...props} />
   ),
-  oceanWave: (props?: object) => (
+  oceanWaves: (props?: object) => (
     <Ionicons name="water-outline" size={24} {...props} />
   ),
   brownNoise: (props?: object) => (
@@ -26,6 +26,12 @@ const icon = {
   ),
   arrowBack: (props?: object) => (
     <Ionicons name="chevron-back" size={24} {...props} />
+  ),
+  play: (props?: object) => (
+    <Ionicons name="play-outline" size={24} {...props} />
+  ),
+  stop: (props?: object) => (
+    <Ionicons name="stop-outline" size={24} {...props} />
   ),
   sleep: (props?: object) => (
     <MaterialCommunityIcons name="sleep" size={24} {...props} />

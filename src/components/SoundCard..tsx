@@ -1,19 +1,19 @@
-import { ReactNode } from "react";
+import { router } from "expo-router";
 import { Pressable, Text } from "react-native";
+import icon from "../constants/icon";
 
 type Props = {
   title: string;
-  icon: ReactNode;
-  onPress: () => void;
+  value: string;
 };
 
-const SoundCard = ({ title, icon, onPress }: Props) => {
+const SoundCard = ({ title, value }: Props) => {
   return (
     <Pressable
-      onPress={onPress}
+      onPress={() => router.push(`/sounds/${value}`)}
       className="border p-6 rounded-3xl flex-row gap-4"
     >
-      {icon}
+      {icon[value as keyof typeof icon]()}
       <Text className="text-xl">{title}</Text>
     </Pressable>
   );
