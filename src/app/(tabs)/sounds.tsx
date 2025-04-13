@@ -1,8 +1,6 @@
-import CycleCard from "@/src/components/CycleCard";
 import icon from "@/src/constants/icon";
-import { router } from "expo-router";
 import React from "react";
-import { Pressable, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 const sounds = () => {
   const time = "07:00";
@@ -53,32 +51,8 @@ const sounds = () => {
   ];
 
   return (
-    <View className="flex-1 pb-24 pt-8 px-16 gap-6 justify-center items-center">
-      <Pressable
-        onPress={() => router.back()}
-        className="absolute left-6 top-16"
-      >
-        {icon["arrowBack"]()}
-      </Pressable>
-      <View className="gap-2">
-        <Text className="text-center text-4xl">
-          Sleep Cycles {icon["sleep"]()}
-        </Text>
-        <Text className="text-center text-xl">
-          Wake up at the best time after your sleep cycle.
-        </Text>
-      </View>
-      <View className=" gap-4">
-        {data.map((item, index) => (
-          <CycleCard
-            key={index}
-            cycle={item.cycle}
-            hrSleep={item.hrSleep}
-            time={item.time}
-            icon={item.icon}
-          />
-        ))}
-      </View>
+    <View className="flex-1 pb-32 pt-20 px-16 gap-4 items-center">
+      <Text>Sounds</Text>
     </View>
   );
 };

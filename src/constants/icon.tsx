@@ -1,5 +1,6 @@
 import Entypo from "@expo/vector-icons/Entypo";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
@@ -8,6 +9,7 @@ const icon = {
   sounds: (props?: object) => <Entypo name="sound" size={24} {...props} />,
   settings: (props?: object) => <Entypo name="cog" size={24} {...props} />,
   moon: (props?: object) => <FontAwesome5 name="moon" size={24} {...props} />,
+  bed: (props?: object) => <Ionicons name="bed-outline" size={24} {...props} />,
   arrowBack: (props?: object) => (
     <MaterialIcons name="arrow-back-ios-new" size={24} {...props} />
   ),

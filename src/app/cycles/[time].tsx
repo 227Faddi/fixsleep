@@ -15,44 +15,44 @@ const cycles = () => {
 
   const data = [
     {
-      cycle: "Cycle 6",
+      cycle: "6 Cycles",
       hrSleep: 1.5,
       time: "14:02",
       icon: icon["emojiVibe"]({ size: 35 }),
     },
     {
-      cycle: "Cycle 5",
+      cycle: "5 Cycles",
       hrSleep: 1.5,
       time: "14:02",
       icon: icon["emojiHappy"]({ size: 35 }),
     },
     {
-      cycle: "Cycle 4",
+      cycle: "4 Cycles",
       hrSleep: 1.5,
       time: "14:02",
       icon: icon["emojiNeutral"]({ size: 35 }),
     },
     {
-      cycle: "Cycle 3",
+      cycle: "3 Cycles",
       hrSleep: 1.5,
       time: "14:02",
       icon: icon["emojiConfused"]({ size: 35 }),
     },
     {
-      cycle: "Cycle 2",
+      cycle: "2 Cycles",
       hrSleep: 1.5,
       time: "14:02",
       icon: icon["emojiSad"]({ size: 35 }),
     },
     {
-      cycle: "Cycle 1",
+      cycle: "1 Cycle",
       hrSleep: 16,
       time: "14:07",
       icon: icon["emojiDead"]({ size: 35 }),
     },
   ];
   return (
-    <View className="flex-1 pb-24 pt-8 px-16 gap-6 justify-center items-center">
+    <View className="flex-1 pb-32 pt-20 px-16 gap-4 items-center">
       <Pressable
         onPress={() => router.back()}
         className="absolute left-6 top-16"
@@ -67,7 +67,7 @@ const cycles = () => {
           Wake up at the best time after your sleep cycle.
         </Text>
       </View>
-      <View className=" gap-4">
+      <View className="flex-1 justify-center gap-4">
         {data.map((item, index) => (
           <CycleCard
             key={index}

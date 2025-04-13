@@ -12,9 +12,9 @@ const MainButton = ({ onPress, containerClass, textClass, text }: Props) => {
   return (
     <Pressable
       onPress={onPress}
-      className={`border-2 border-[#140152] p-4 bg-[#22007c] rounded-lg ${containerClass}`}
+      className={`border-2 p-4 rounded-lg ${containerClass}`}
     >
-      <Text className={`text-center text-white ${textClass}`}>{text}</Text>
+      <Text className={`text-center text-xl ${textClass}`}>{text}</Text>
     </Pressable>
   );
 };
