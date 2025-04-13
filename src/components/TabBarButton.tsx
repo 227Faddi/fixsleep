@@ -45,9 +45,6 @@ const TabBarButton = ({
     return { transform: [{ scale: scaleValue }], top };
   });
 
-  console.log(routeName);
-  // console.log(icon[routeName as keyof typeof icon](color));
-
   return (
     <Pressable
       onPress={onPress}

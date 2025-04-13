@@ -1,8 +1,21 @@
 import MainButton from "@/src/components/MainButton";
+import icon from "@/src/constants/icon";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Text, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
+
+export const formatTime = ({
+  hours,
+  minutes,
+}: {
+  hours: number;
+  minutes: number;
+}) => {
+  const h = hours?.toString().padStart(2, "0");
+  const m = minutes?.toString().padStart(2, "0");
+  return `${h}:${m}`;
+};
 
 export default function Index() {
   const router = useRouter();
@@ -19,40 +32,31 @@ export default function Index() {
     router.navigate(`/cycles/${time}`);
   };
 
-  const formatTime = ({
-    hours,
-    minutes,
-  }: {
-    hours: number;
-    minutes: number;
-  }) => {
-    const h = hours?.toString().padStart(2, "0");
-    const m = minutes?.toString().padStart(2, "0");
-    return `${h}:${m}`;
-  };
-
   return (
-    <View className="flex-1 pb-24 pt-16 px-16 justify-center items-center">
-      <View className="flex justify-center items-center">
-        <View className="mt-40 w-1/2">
-          <View className="mb-12">
-            <Text className="text-xl mb-6 text-white text-center">
-              Wake up Time
-            </Text>
-            <MainButton onPress={() => setShowWakeTime(true)} text="Set" />
-          </View>
-          <View>
-            <Text className="text-xl mb-6 text-white text-center">
-              Sleep Time
-            </Text>
-            <MainButton onPress={() => setShowSleepTime(true)} text="Set" />
-          </View>
+    <View className="flex-1 pb-32 pt-24 px-16 gap-6 items-center">
+      <View className="gap-3">
+        <Text className="text-4xl text-center">Sleep Now {icon["moon"]()}</Text>
+        <Text className="text-xl text-center">
+          Helping you catch better zzz’s, one cycle at a time.
+        </Text>
+      </View>
+      <View className="w-full">
+        <View className="mb-8">
+          <Text className="text-xl mb-6 text-center">Wake up Time</Text>
+          <MainButton onPress={() => setShowWakeTime(true)} text="Wake Up At" />
         </View>
-        <View className="mt-20">
+        <View>
+          <Text className="text-xl mb-6 text-center">Sleep Time</Text>
+          <MainButton
+            onPress={() => setShowSleepTime(true)}
+            text="Fall Asleep At"
+          />
+        </View>
+        <View className="">
           <MainButton
             onPress={() => calcSleep(Date.now())}
             text="Sleep Now 🌟"
-            textClass="text-3xl text-center text-white"
+            textClass="text-3xl text-center"
             containerClass="p-6"
           />
         </View>
