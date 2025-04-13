@@ -18,7 +18,7 @@ const cycles = () => {
       cycle: "6 Cycles",
       hrSleep: 1.5,
       time: "14:02",
-      icon: icon["emojiVibe"]({ size: 35 }),
+      icon: icon["emojiHappy"]({ size: 35 }),
     },
     {
       cycle: "5 Cycles",
@@ -36,7 +36,7 @@ const cycles = () => {
       cycle: "3 Cycles",
       hrSleep: 1.5,
       time: "14:02",
-      icon: icon["emojiConfused"]({ size: 35 }),
+      icon: icon["emojiNeutral"]({ size: 35 }),
     },
     {
       cycle: "2 Cycles",
@@ -48,7 +48,7 @@ const cycles = () => {
       cycle: "1 Cycle",
       hrSleep: 16,
       time: "14:07",
-      icon: icon["emojiDead"]({ size: 35 }),
+      icon: icon["emojiSad"]({ size: 35 }),
     },
   ];
   return (
