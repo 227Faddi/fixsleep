@@ -79,7 +79,12 @@ export default function Index() {
         onCancel={() => setShowWakeTime(false)}
         closeOnOverlayPress
         styles={{
-          theme: "dark",
+          modalTitle: {
+            paddingInline: 25,
+          },
+          contentContainer: {
+            borderWidth: 1,
+          },
         }}
         modalProps={{
           overlayOpacity: 0.2,

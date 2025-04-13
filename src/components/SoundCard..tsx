@@ -11,7 +11,7 @@ const SoundCard = ({ title, icon, onPress }: Props) => {
   return (
     <Pressable
       onPress={onPress}
-      className="border-2 p-6 rounded-3xl flex-row gap-4"
+      className="border p-6 rounded-3xl flex-row gap-4"
     >
       {icon}
       <Text className="text-xl">{title}</Text>

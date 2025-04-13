@@ -10,7 +10,13 @@ const sounds = () => {
   ];
   return (
     <View className="flex-1 pb-32 pt-20 px-16 gap-4 items-center">
-      <Text className="text-4xl">Soothing Sounds</Text>
+      <View className="gap-3">
+        <Text className="text-4xl text-center">Soothing Sounds</Text>
+        <Text className="text-xl text-center">
+          Create your perfect sleep atmosphere. Pick a sound, close your eyes,
+          and relax.
+        </Text>
+      </View>
       <View className="flex-1 w-full gap-4 justify-center">
         {cards.map((card, index) => (
           <SoundCard
