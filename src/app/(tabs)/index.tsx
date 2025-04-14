@@ -17,7 +17,7 @@ export const formatTime = ({
   return `${h}:${m}`;
 };
 
-export default function Index() {
+const HomeScreen = () => {
   const router = useRouter();
   const [showWakeTime, setShowWakeTime] = useState(false);
 
@@ -97,4 +97,6 @@ export default function Index() {
       />
     </View>
   );
-}
+};
+
+export default HomeScreen;

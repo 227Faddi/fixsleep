@@ -4,7 +4,7 @@ import { router, useLocalSearchParams } from "expo-router";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
 
-const cycles = () => {
+const CyclesScreen = () => {
   const { time } = useLocalSearchParams<{ time: string }>();
 
   const calcTime = (time: string, cycle: number) => {
@@ -82,4 +82,4 @@ const cycles = () => {
   );
 };
 
-export default cycles;
+export default CyclesScreen;

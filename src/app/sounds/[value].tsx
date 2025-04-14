@@ -1,18 +1,23 @@
-import audio from "@/src/constants/audio";
 import icon from "@/src/constants/icon";
+import sounds from "@/src/constants/sounds";
 import { Audio } from "expo-av";
+import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 
 const SoundPlayer = () => {
-  const { name } = useLocalSearchParams<{ name: string }>();
+  const { value } = useLocalSearchParams<{ value: string }>();
   const [sound, setSound] = useState<Audio.Sound | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const title = name
-    .replace(/([A-Z])/g, " $1")
-    .replace(/^./, (c) => c.toUpperCase());
+  const selectedSound = sounds.find((item) => item.value === value);
+
+  if (!selectedSound) {
+    alert("Sound not found");
+    router.back();
+    return;
+  }
 
   const playSound = async () => {
     try {
@@ -25,8 +30,10 @@ const SoundPlayer = () => {
 
       await Audio.setAudioModeAsync({ playsInSilentModeIOS: true });
       const { sound: newSound } = await Audio.Sound.createAsync(
-        audio[name as keyof typeof audio],
-        { isLooping: true }
+        selectedSound?.src,
+        {
+          isLooping: true,
+        }
       );
       setSound(newSound);
       await newSound.playAsync();
@@ -53,11 +60,16 @@ const SoundPlayer = () => {
         {icon["arrowBack"]()}
       </Pressable>
       <View className="flex-row justify-center items-center gap-1">
-        <Text className="text-4xl">{title}</Text>
-        {icon[name as keyof typeof icon]()}
+        <Text className="text-4xl">{selectedSound?.title}</Text>
+        {icon[selectedSound?.value as keyof typeof icon]()}
       </View>
       <View className="w-full flex-1 flex-col justify-between items-center gap-8">
-        <View className="border w-full flex-1 rounded-3xl"></View>
+        <Image
+          style={{ flex: 1, width: "100%", borderRadius: 24 }}
+          source={selectedSound?.img}
+          contentFit="cover"
+          transition={600}
+        />
         <View className="flex-row gap-6">
           <Pressable
             className="border p-6 rounded-3xl justify-center"

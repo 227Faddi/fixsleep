@@ -1,14 +1,8 @@
 import SoundCard from "@/src/components/SoundCard.";
+import sounds from "@/src/constants/sounds";
 import { Text, View } from "react-native";
 
-const sounds = () => {
-  // to put in a single file like the icon
-  const sounds = [
-    { title: "Rainfall", value: "rainfall" },
-    { title: "Ocean Waves", value: "oceanWaves" },
-    { title: "Brown Noise", value: "brownNoise" },
-  ];
-
+const SoundsScreen = () => {
   return (
     <View className="flex-1 pb-32 pt-20 px-16 gap-4 items-center">
       <View className="gap-3">
@@ -27,4 +21,4 @@ const sounds = () => {
   );
 };
 
-export default sounds;
+export default SoundsScreen;
