@@ -7,9 +7,18 @@ import React from "react";
 import { Pressable, Text, View } from "react-native";
 
 const CyclesScreen = () => {
-  const { time } = useLocalSearchParams<{ time: string }>();
+  const { mode, query: time } = useLocalSearchParams<{
+    mode: "sleep" | "wake";
+    query: string;
+  }>();
 
-  const timeCycles = calcCycles.sleep(time);
+  if (mode !== "sleep" && mode !== "wake") {
+    router.back();
+    return alert("Error, Please try again");
+  }
+
+  const timeCycles =
+    mode === "sleep" ? calcCycles.sleep(time) : calcCycles.wake(time);
 
   return (
     <View className="flex-1 py-20 px-16 gap-4 items-center">
