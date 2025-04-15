@@ -1,11 +1,4 @@
-type Sounds = {
-  title: string;
-  value: string;
-  src: number;
-  img: string;
-};
-
-const sounds: Sounds[] = [
+const sounds = [
   {
     title: "Rainfall",
     value: "rainfall",

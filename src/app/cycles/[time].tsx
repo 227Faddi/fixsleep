@@ -1,4 +1,5 @@
 import CycleCard from "@/src/components/CycleCard";
+import cyclesData from "@/src/constants/cyclesData";
 import icon from "@/src/constants/icon";
 import { router, useLocalSearchParams } from "expo-router";
 import React from "react";
@@ -7,50 +8,50 @@ import { Pressable, Text, View } from "react-native";
 const CyclesScreen = () => {
   const { time } = useLocalSearchParams<{ time: string }>();
 
-  const calcTime = (time: string, cycle: number) => {
-    const hr = time.split("").slice(0, 2);
-    const min = time.split("").slice(0, 2);
-    return hr;
+  const cycleDuration = 90;
+
+  const cycles = {
+    sleep: function (startTime) {
+      const startMinutes = timeToMinutes(startTime);
+      const result = {};
+
+      for (let i = 1; i <= 6; i++) {
+        const cycleTime = startMinutes + i * cycleDuration;
+        result[i] = minutesToTime(cycleTime);
+      }
+
+      return result;
+    },
+
+    wake: function (startTime) {
+      const startMinutes = timeToMinutes(startTime);
+      const result = {};
+
+      for (let i = 1; i <= 6; i++) {
+        const cycleTime = startMinutes - i * cycleDuration;
+        result[i] = minutesToTime(cycleTime);
+      }
+
+      return result;
+    },
   };
 
-  const data = [
-    {
-      cycle: "6 Cycles",
-      hrSleep: 1.5,
-      time: "14:02",
-      icon: icon["emojiHappy"]({ size: 35 }),
-    },
-    {
-      cycle: "5 Cycles",
-      hrSleep: 1.5,
-      time: "14:02",
-      icon: icon["emojiHappy"]({ size: 35 }),
-    },
-    {
-      cycle: "4 Cycles",
-      hrSleep: 1.5,
-      time: "14:02",
-      icon: icon["emojiNeutral"]({ size: 35 }),
-    },
-    {
-      cycle: "3 Cycles",
-      hrSleep: 1.5,
-      time: "14:02",
-      icon: icon["emojiNeutral"]({ size: 35 }),
-    },
-    {
-      cycle: "2 Cycles",
-      hrSleep: 1.5,
-      time: "14:02",
-      icon: icon["emojiSad"]({ size: 35 }),
-    },
-    {
-      cycle: "1 Cycle",
-      hrSleep: 16,
-      time: "14:07",
-      icon: icon["emojiSad"]({ size: 35 }),
-    },
-  ];
+  // Helper functions for time conversion
+  function timeToMinutes(time) {
+    const [hours, minutes] = time.split(":").map(Number);
+    return hours * 60 + minutes;
+  }
+
+  function minutesToTime(totalMinutes) {
+    const minsInDay = 24 * 60;
+    const minutes = ((totalMinutes % minsInDay) + minsInDay) % minsInDay; // wrap negative values
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+    return `${String(hours).padStart(2, "0")}:${String(mins).padStart(2, "0")}`;
+  }
+
+  const timeCycles = cycles.sleep(time);
+
   return (
     <View className="flex-1 py-20 px-16 gap-4 items-center">
       <Pressable
@@ -68,16 +69,17 @@ const CyclesScreen = () => {
         </Text>
       </View>
       <View className="flex-1 justify-center gap-4">
-        {data.map((item, index) => (
+        {cyclesData.map((item) => (
           <CycleCard
-            key={index}
+            key={item.id}
             cycle={item.cycle}
             hrSleep={item.hrSleep}
-            time={item.time}
+            time={timeCycles[item.id as keyof typeof timeCycles]}
             icon={item.icon}
           />
         ))}
       </View>
+      <Text>Aim to this ⬆️</Text>
     </View>
   );
 };
