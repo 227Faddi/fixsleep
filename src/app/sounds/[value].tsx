@@ -1,5 +1,5 @@
-import icon from "@/src/constants/icon";
-import sounds from "@/src/constants/sounds";
+import icon from "@/src/constants/iconsData";
+import sounds from "@/src/constants/soundsData";
 import { Audio } from "expo-av";
 import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";

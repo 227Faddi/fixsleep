@@ -1,5 +1,5 @@
 import MainButton from "@/src/components/MainButton";
-import icon from "@/src/constants/icon";
+import iconsData from "@/src/constants/iconsData";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Text, View } from "react-native";
@@ -36,7 +36,7 @@ const HomeScreen = () => {
       <View className="gap-3">
         <View className="flex-row justify-center items-center gap-1">
           <Text className="text-4xl">Sleepnow</Text>
-          {icon["bed"]()}
+          {iconsData["bed"]()}
         </View>
         <Text className="text-xl text-center">
           Helping you catch better zzz’s, one cycle at a time.

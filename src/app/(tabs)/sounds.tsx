@@ -1,5 +1,5 @@
 import SoundCard from "@/src/components/SoundCard.";
-import sounds from "@/src/constants/sounds";
+import sounds from "@/src/constants/soundsData";
 import { Text, View } from "react-native";
 
 const SoundsScreen = () => {

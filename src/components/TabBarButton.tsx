@@ -1,4 +1,4 @@
-import icon from "@/src/constants/icon";
+import icon from "@/src/constants/iconsData";
 import React, { useEffect } from "react";
 import { Pressable } from "react-native";
 import Animated, {

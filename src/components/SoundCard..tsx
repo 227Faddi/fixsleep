@@ -1,6 +1,6 @@
 import { router } from "expo-router";
 import { Pressable, Text } from "react-native";
-import icon from "../constants/icon";
+import icon from "../constants/iconsData";
 
 type Props = {
   title: string;
