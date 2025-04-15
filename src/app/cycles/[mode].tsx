@@ -20,6 +20,8 @@ const CyclesScreen = () => {
   const timeCycles =
     mode === "sleep" ? calcCycles.sleep(time) : calcCycles.wake(time);
 
+  const cycles = mode === "sleep" ? cyclesData : cyclesData.reverse();
+
   return (
     <View className="flex-1 py-20 px-16 gap-4 items-center">
       <Pressable
@@ -33,11 +35,13 @@ const CyclesScreen = () => {
           Sleep Cycles {iconsData["sleep"]()}
         </Text>
         <Text className="text-center text-xl">
-          Wake up at the best time after your sleep cycle.
+          {mode === "sleep"
+            ? `Wake up at the best time after your sleep cycle.`
+            : `Go to bed at one of these time to wake up relaxed at ${time}`}
         </Text>
       </View>
       <View className="flex-1 justify-center gap-4">
-        {cyclesData.map((item) => (
+        {cycles.map((item) => (
           <CycleCard
             key={item.id}
             cycle={item.cycle}
