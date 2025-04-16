@@ -34,18 +34,19 @@ const SoundPlayer = () => {
         return;
       }
 
-      await Audio.setAudioModeAsync({ playsInSilentModeIOS: true });
       const { sound: newSound } = await Audio.Sound.createAsync(
         selectedSound?.src,
         {
           isLooping: true,
         }
       );
+
       setSound(newSound);
       await newSound.playAsync();
       setIsPlaying(true);
     } catch (err) {
-      alert(err);
+      alert("Error playing sound");
+      console.error(err);
     }
   };
 

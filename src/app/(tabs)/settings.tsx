@@ -1,9 +1,12 @@
 import { router } from "expo-router";
 import { Pressable, Text, View } from "react-native";
-import { PanGestureHandler } from "react-native-gesture-handler";
+import {
+  PanGestureHandler,
+  PanGestureHandlerGestureEvent,
+} from "react-native-gesture-handler";
 
 const SettingsScreen = () => {
-  const onGestureEvent = (event) => {
+  const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {
     const { translationX } = event.nativeEvent;
     if (translationX > 50) {
       router.push("/sounds");

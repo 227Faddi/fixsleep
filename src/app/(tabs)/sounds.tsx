@@ -1,6 +1,8 @@
 import SoundCard from "@/src/components/SoundCard.";
 import sounds from "@/src/constants/soundsData";
+import { Audio } from "expo-av";
 import { router } from "expo-router";
+import { useEffect } from "react";
 import { Text, View } from "react-native";
 import {
   PanGestureHandler,
@@ -17,6 +19,24 @@ const SoundsScreen = () => {
       router.push("/settings");
     }
   };
+
+  useEffect(() => {
+    const configureAudio = async () => {
+      try {
+        await Audio.setAudioModeAsync({
+          allowsRecordingIOS: false,
+          staysActiveInBackground: true,
+          playsInSilentModeIOS: true,
+          shouldDuckAndroid: false,
+          playThroughEarpieceAndroid: false,
+        });
+      } catch (error) {
+        console.warn("Failed to set audio mode", error);
+      }
+    };
+    configureAudio();
+  }, []);
+
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
       <View className="flex-1 pb-32 pt-20 px-16 gap-4 items-center">
