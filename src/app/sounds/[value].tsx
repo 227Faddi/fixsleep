@@ -10,6 +10,12 @@ const SoundPlayer = () => {
   const { value } = useLocalSearchParams<{ value: string }>();
   const [sound, setSound] = useState<Audio.Sound | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [soundTimer, setSoundTimer] = useState<number | null>();
+  const [timerIsStarted, setTimerIsStarted] = useState(false);
+
+  const startSoundTimer = (minutes: number) => {
+    setTimerIsStarted(true);
+  };
 
   const selectedSound = sounds.find((item) => item.value === value);
 
@@ -73,13 +79,13 @@ const SoundPlayer = () => {
         <View className="flex-row gap-6">
           <Pressable
             className="border p-6 rounded-3xl justify-center"
-            onPress={() => console.log("timer")}
+            onPress={() => startSoundTimer(15)}
           >
-            <Text>1 h to end</Text>
+            <Text>{timerIsStarted ? `${soundTimer}` : "15 m to end"}</Text>
           </Pressable>
           <Pressable
             className="border p-6 rounded-3xl justify-center"
-            onPress={() => console.log("timer")}
+            onPress={() => startSoundTimer(30)}
           >
             <Text>30 m to end</Text>
           </Pressable>
