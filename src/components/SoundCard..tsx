@@ -1,5 +1,6 @@
 import { router } from "expo-router";
 import { Pressable, Text } from "react-native";
+import color from "../constants/colors";
 import icon from "../constants/iconsData";
 
 type Props = {
@@ -10,11 +11,12 @@ type Props = {
 const SoundCard = ({ title, value }: Props) => {
   return (
     <Pressable
-      onPress={() => router.push(`/sounds/${value}`)}
-      className="border p-6 rounded-3xl flex-row gap-4"
+      onPress={() => router.push(`/play/${value}`)}
+      className="border border-white p-6 rounded-3xl flex-row gap-4"
+      style={{ backgroundColor: color.primary }}
     >
-      {icon[value as keyof typeof icon]()}
-      <Text className="text-xl">{title}</Text>
+      {icon[value as keyof typeof icon]({ color: "white" })}
+      <Text className="text-xl text-white">{title}</Text>
     </Pressable>
   );
 };

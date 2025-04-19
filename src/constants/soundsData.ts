@@ -1,4 +1,4 @@
-const sounds = [
+const soundsData = [
   {
     title: "Rainfall",
     value: "rainfall",
@@ -19,4 +19,4 @@ const sounds = [
   },
 ];
 
-export default sounds;
+export default soundsData;

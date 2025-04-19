@@ -6,6 +6,7 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
+import color from "../constants/colors";
 import TabBarButton from "./TabBarButton";
 
 const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
@@ -36,7 +37,8 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   return (
     <View
       onLayout={onTabBarLayout}
-      className="flex-row absolute bottom-7 justify-between items-center bg-white mx-[80] py-[15] rounded-[35] shadow-black border"
+      className="flex-row absolute bottom-7 justify-between items-center mx-[80] py-[15] rounded-[35] border border-white"
+      style={{ backgroundColor: color.primary }}
     >
       <Animated.View
         style={[
@@ -44,9 +46,10 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
           {
             height: dimensions.height - 15,
             width: buttonWidth - 25,
+            backgroundColor: "white",
           },
         ]}
-        className={`absolute bg-gray-800 rounded-[30] mx-[12]`}
+        className={`absolute rounded-[30] mx-[12]`}
       />
       {state.routes.map((route, index: number) => {
         const { options } = descriptors[route.key];
@@ -58,6 +61,8 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
             : route.name;
 
         const isFocused = state.index === index;
+
+        const sanitizedRouteName = route.name.replace(/[()]/g, "");
 
         const onPress = () => {
           const event = navigation.emit({
@@ -83,8 +88,8 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
             key={route.name}
             onPress={onPress}
             onLongPress={onLongPress}
-            routeName={route.name}
-            color={{ color: isFocused ? "#fff" : "#0e0e52" }}
+            routeName={sanitizedRouteName}
+            color={{ color: isFocused ? color.background : "#fff" }}
             label={label as string}
             isFocused={isFocused}
           />

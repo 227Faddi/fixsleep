@@ -1,4 +1,5 @@
 import CycleCard from "@/src/components/CycleCard";
+import color from "@/src/constants/colors";
 import cyclesData from "@/src/constants/cyclesData";
 import iconsData from "@/src/constants/iconsData";
 import calcCycles from "@/src/lib/calcCycles";
@@ -23,18 +24,18 @@ const CyclesScreen = () => {
   const cycles = mode === "sleep" ? cyclesData : cyclesData.reverse();
 
   return (
-    <View className="flex-1 py-20 px-16 gap-4 items-center">
+    <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
       <Pressable
         onPress={() => router.back()}
         className="absolute left-6 top-16"
       >
-        {iconsData["arrowBack"]()}
+        {iconsData["arrowBack"]({ color: "white" })}
       </Pressable>
       <View className="gap-2">
-        <Text className="text-center text-4xl">
+        <Text className="text-center text-4xl" style={{ color: color.white }}>
           Sleep Cycles {iconsData["sleep"]()}
         </Text>
-        <Text className="text-center text-xl">
+        <Text className="text-center text-xl" style={{ color: color.white }}>
           {mode === "sleep"
             ? `Wake up at the best time after your sleep cycle.`
             : `Go to bed at one of these time to wake up relaxed at ${time}`}
@@ -51,7 +52,6 @@ const CyclesScreen = () => {
           />
         ))}
       </View>
-      <Text>Aim to this ⬆️</Text>
     </View>
   );
 };

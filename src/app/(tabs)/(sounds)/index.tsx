@@ -14,9 +14,9 @@ const SoundsScreen = () => {
     const { translationX } = event.nativeEvent;
 
     if (translationX > 50) {
-      router.push("/");
+      router.push("/(tabs)/(home)");
     } else if (translationX < -50) {
-      router.push("/settings");
+      router.push("/(tabs)/(settings)");
     }
   };
 
@@ -39,10 +39,12 @@ const SoundsScreen = () => {
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <View className="flex-1 pb-32 pt-20 px-16 gap-4 items-center">
+      <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
         <View className="gap-3">
-          <Text className="text-4xl text-center">Soothing Sounds</Text>
-          <Text className="text-xl text-center">
+          <Text className="text-4xl text-center text-white">
+            Soothing Sounds
+          </Text>
+          <Text className="text-xl text-center text-white">
             Create your perfect sleep atmosphere. Pick a sound, close your eyes,
             and relax.
           </Text>

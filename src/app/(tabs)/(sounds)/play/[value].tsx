@@ -1,3 +1,4 @@
+import color from "@/src/constants/colors";
 import icon from "@/src/constants/iconsData";
 import sounds from "@/src/constants/soundsData";
 import { Audio } from "expo-av";
@@ -59,16 +60,16 @@ const SoundPlayer = () => {
   }, [sound]);
 
   return (
-    <View className="flex-1 py-20 px-16 gap-4 items-center">
+    <View className="flex-1 gap-4 pb-32 pt-24 px-16 items-center">
       <Pressable
         onPress={() => router.back()}
         className="absolute left-6 top-16"
       >
-        {icon["arrowBack"]()}
+        {icon["arrowBack"]({ color: "white" })}
       </Pressable>
       <View className="flex-row justify-center items-center gap-1">
-        <Text className="text-4xl">{selectedSound?.title}</Text>
-        {icon[selectedSound?.value as keyof typeof icon]()}
+        <Text className="text-4xl text-white">{selectedSound?.title}</Text>
+        {icon[selectedSound?.value as keyof typeof icon]({ color: "white" })}
       </View>
       <View className="w-full flex-1 flex-col justify-between items-center gap-8">
         <Image
@@ -77,25 +78,31 @@ const SoundPlayer = () => {
           contentFit="cover"
           transition={600}
         />
-        <View className="flex-row gap-6">
+        {/* <View className="flex-row gap-6">
           <Pressable
-            className="border p-6 rounded-3xl justify-center"
+            className="border border-white p-6 rounded-3xl justify-center"
+            style={{ backgroundColor: color.primary }}
             onPress={() => startSoundTimer(15)}
           >
             <Text>{timerIsStarted ? `${soundTimer}` : "15 m to end"}</Text>
           </Pressable>
           <Pressable
-            className="border p-6 rounded-3xl justify-center"
+            className="border border-white p-6 rounded-3xl justify-center"
+            style={{ backgroundColor: color.primary }}
             onPress={() => startSoundTimer(30)}
           >
             <Text>30 m to end</Text>
           </Pressable>
-        </View>
+        </View> */}
         <View>
-          <Pressable className="border p-6 rounded-full" onPress={playSound}>
+          <Pressable
+            className="border p-6 rounded-full border-white"
+            style={{ backgroundColor: color.primary }}
+            onPress={playSound}
+          >
             {isPlaying
-              ? icon["stop"]({ size: 40 })
-              : icon["play"]({ size: 40 })}
+              ? icon["stop"]({ size: 40, color: "white" })
+              : icon["play"]({ size: 40, color: "white" })}
           </Pressable>
         </View>
       </View>

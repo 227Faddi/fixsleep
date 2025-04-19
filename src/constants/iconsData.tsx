@@ -3,8 +3,8 @@ import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
-const icon = {
-  index: (props?: object) => (
+const iconsData = {
+  home: (props?: object) => (
     <Ionicons name="home-outline" size={24} {...props} />
   ),
   sounds: (props?: object) => (
@@ -41,4 +41,4 @@ const icon = {
   emojiSad: (props?: object) => <Feather name="frown" size={24} {...props} />,
 };
 
-export default icon;
+export default iconsData;

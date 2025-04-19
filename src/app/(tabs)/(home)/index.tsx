@@ -1,5 +1,6 @@
 import MainButton from "@/src/components/MainButton";
 import TimerPicker from "@/src/components/TimerPicker";
+import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
 import { formatTime, formatTimeNow } from "@/src/lib/formatTime";
 import { useRouter } from "expo-router";
@@ -31,33 +32,37 @@ const HomeScreen = () => {
   const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {
     const { translationX } = event.nativeEvent;
     if (translationX < -50) {
-      router.push("/sounds");
+      router.push("/(tabs)/(sounds)");
     }
   };
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <View className="flex-1 pb-32 pt-20 px-16 gap-4 items-center">
+      <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
         <View className="gap-3">
           <View className="flex-row justify-center items-center gap-1">
-            <Text className="text-4xl">Sleepnow</Text>
-            {iconsData["bed"]()}
+            <Text className="text-4xl text-white">Sleepnow</Text>
+            {iconsData["bed"]({ color: "white" })}
           </View>
-          <Text className="text-xl text-center">
+          <Text className="text-xl text-center text-white">
             Helping you catch better zzz’s, one cycle at a time.
           </Text>
         </View>
         <View className="flex-1 gap-12 justify-center">
           <View className="gap-6">
             <View className="gap-3">
-              <Text className="text-2xl text-center">Wake Up At</Text>
+              <Text className="text-2xl text-center text-white">
+                Wake Up At
+              </Text>
               <MainButton
                 onPress={() => setShowWakeTime(true)}
                 text="Pick a time"
               />
             </View>
             <View className="gap-3">
-              <Text className="text-2xl text-center">Fall Asleep At</Text>
+              <Text className="text-2xl text-center text-white">
+                Fall Asleep At
+              </Text>
               <MainButton
                 onPress={() => setShowSleepTime(true)}
                 text="Pick a time"
@@ -68,7 +73,7 @@ const HomeScreen = () => {
             onPress={() => getSleepCycles(formatTimeNow())}
             text="Rest Now 🌟"
             textClass="text-2xl text-center"
-            containerClass="p-6"
+            containerClass={`p-6 bg-[${color.primary}]`}
           />
         </View>
         <TimerPicker
