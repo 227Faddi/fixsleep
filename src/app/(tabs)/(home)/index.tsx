@@ -72,7 +72,7 @@ const HomeScreen = () => {
           <MainButton
             onPress={() => getSleepCycles(formatTimeNow())}
             text="Rest Now 🌟"
-            textClass="text-2xl text-center text-primarys"
+            textClass="text-2xl text-center text-primary"
             containerClass={`p-6 bg-accent`}
           />
         </View>

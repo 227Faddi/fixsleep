@@ -24,7 +24,7 @@ const SettingsScreen = () => {
               className="p-6 rounded-3xl flex-row gap-4 flex-1 bg-primary"
             >
               <Text className="text-xl text-center text-textPrimary">
-                Sleeping Time
+                Time to sleep
               </Text>
             </Pressable>
             <Pressable
@@ -32,7 +32,7 @@ const SettingsScreen = () => {
               className="p-6 rounded-3xl flex-row gap-4 flex-1 bg-primary"
             >
               <Text className="text-xl text-center text-textPrimary">
-                Sleeping Time
+                Sleep Time
               </Text>
             </Pressable>
           </View>
@@ -42,7 +42,7 @@ const SettingsScreen = () => {
               className="p-6 rounded-3xl flex-row gap-4 flex-1 bg-primary"
             >
               <Text className="text-xl text-center text-textPrimary">
-                Sleeping Time
+                Hours
               </Text>
             </Pressable>
             <Pressable
@@ -50,7 +50,7 @@ const SettingsScreen = () => {
               className="p-6 rounded-3xl flex-row gap-4 flex-1 bg-primary"
             >
               <Text className="text-xl text-center text-textPrimary">
-                Sleeping Time
+                Language
               </Text>
             </Pressable>
           </View>

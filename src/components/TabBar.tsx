@@ -45,10 +45,9 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
           {
             height: dimensions.height - 15,
             width: buttonWidth - 25,
-            backgroundColor: "white",
           },
         ]}
-        className={`absolute rounded-[30] mx-[12]`}
+        className={`absolute rounded-[30] mx-[12] bg-accent`}
       />
       {state.routes.map((route, index: number) => {
         const { options } = descriptors[route.key];
@@ -88,7 +87,7 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
             onPress={onPress}
             onLongPress={onLongPress}
             routeName={sanitizedRouteName}
-            color={{ color: isFocused ? color.background : color.textPrimary }}
+            color={{ color: isFocused ? color.primary : color.textPrimary }}
             label={label as string}
             isFocused={isFocused}
           />

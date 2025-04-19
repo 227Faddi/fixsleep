@@ -1,4 +1,3 @@
-import Feather from "@expo/vector-icons/Feather";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
@@ -22,7 +21,7 @@ const iconsData = {
     <Ionicons name="water-outline" size={24} {...props} />
   ),
   brownNoise: (props?: object) => (
-    <Ionicons name="ear-outline" size={24} {...props} />
+    <Ionicons name="cloud-outline" size={24} {...props} />
   ),
   arrowBack: (props?: object) => (
     <Ionicons name="chevron-back" size={24} {...props} />
@@ -36,9 +35,15 @@ const iconsData = {
   sleep: (props?: object) => (
     <MaterialCommunityIcons name="sleep" size={24} {...props} />
   ),
-  emojiHappy: (props?: object) => <Feather name="smile" size={24} {...props} />,
-  emojiNeutral: (props?: object) => <Feather name="meh" size={24} {...props} />,
-  emojiSad: (props?: object) => <Feather name="frown" size={24} {...props} />,
+  emojiHappy: (props?: object) => (
+    <Ionicons name="happy-outline" size={24} color="#2ecc71" {...props} />
+  ),
+  emojiNeutral: (props?: object) => (
+    <Ionicons name="sad-outline" size={24} color="#f39c12" {...props} />
+  ),
+  emojiSad: (props?: object) => (
+    <Ionicons name="skull-outline" size={24} color="#e74c3c" {...props} />
+  ),
 };
 
 export default iconsData;
