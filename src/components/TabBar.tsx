@@ -37,8 +37,7 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   return (
     <View
       onLayout={onTabBarLayout}
-      className="flex-row absolute bottom-7 justify-between items-center mx-[80] py-[15] rounded-[35] border border-white"
-      style={{ backgroundColor: color.primary }}
+      className="flex-row absolute bottom-7 justify-between items-center mx-[80] py-[15] rounded-[35] bg-primary"
     >
       <Animated.View
         style={[
@@ -89,7 +88,7 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
             onPress={onPress}
             onLongPress={onLongPress}
             routeName={sanitizedRouteName}
-            color={{ color: isFocused ? color.background : "#fff" }}
+            color={{ color: isFocused ? color.background : color.textPrimary }}
             label={label as string}
             isFocused={isFocused}
           />

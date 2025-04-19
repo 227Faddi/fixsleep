@@ -1,6 +1,5 @@
 import React from "react";
 import { Pressable, Text } from "react-native";
-import color from "../constants/colors";
 
 type Props = {
   onPress: () => unknown;
@@ -9,16 +8,18 @@ type Props = {
   text: string;
 };
 
-const MainButton = ({ onPress, containerClass, textClass, text }: Props) => {
+const MainButton = ({
+  onPress,
+  containerClass = "bg-primary",
+  textClass = "text-textPrimary",
+  text,
+}: Props) => {
   return (
     <Pressable
       onPress={onPress}
-      className={`border border-white py-4 px-8 rounded-3xl ${containerClass}`}
-      style={{ backgroundColor: color.primary }}
+      className={`p-4 rounded-3xl ${containerClass}`}
     >
-      <Text className={`text-center text-xl text-white ${textClass}`}>
-        {text}
-      </Text>
+      <Text className={`text-center ${textClass}`}>{text}</Text>
     </Pressable>
   );
 };

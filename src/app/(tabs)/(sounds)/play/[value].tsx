@@ -65,11 +65,15 @@ const SoundPlayer = () => {
         onPress={() => router.back()}
         className="absolute left-6 top-16"
       >
-        {icon["arrowBack"]({ color: "white" })}
+        {icon["arrowBack"]({ color: color.textPrimary })}
       </Pressable>
       <View className="flex-row justify-center items-center gap-1">
-        <Text className="text-4xl text-white">{selectedSound?.title}</Text>
-        {icon[selectedSound?.value as keyof typeof icon]({ color: "white" })}
+        <Text className="text-4xl text-textPrimary">
+          {selectedSound?.title}
+        </Text>
+        {icon[selectedSound?.value as keyof typeof icon]({
+          color: color.textPrimary,
+        })}
       </View>
       <View className="w-full flex-1 flex-col justify-between items-center gap-8">
         <Image
@@ -80,15 +84,13 @@ const SoundPlayer = () => {
         />
         {/* <View className="flex-row gap-6">
           <Pressable
-            className="border border-white p-6 rounded-3xl justify-center"
-            style={{ backgroundColor: color.primary }}
+            className="p-6 rounded-3xl justify-center bg-primary"
             onPress={() => startSoundTimer(15)}
           >
             <Text>{timerIsStarted ? `${soundTimer}` : "15 m to end"}</Text>
           </Pressable>
           <Pressable
-            className="border border-white p-6 rounded-3xl justify-center"
-            style={{ backgroundColor: color.primary }}
+            className="p-6 rounded-3xl justify-center bg-primary"
             onPress={() => startSoundTimer(30)}
           >
             <Text>30 m to end</Text>
@@ -96,13 +98,12 @@ const SoundPlayer = () => {
         </View> */}
         <View>
           <Pressable
-            className="border p-6 rounded-full border-white"
-            style={{ backgroundColor: color.primary }}
+            className="p-6 rounded-full bg-primary"
             onPress={playSound}
           >
             {isPlaying
-              ? icon["stop"]({ size: 40, color: "white" })
-              : icon["play"]({ size: 40, color: "white" })}
+              ? icon["stop"]({ size: 40, color: color.textPrimary })
+              : icon["play"]({ size: 40, color: color.textPrimary })}
           </Pressable>
         </View>
       </View>

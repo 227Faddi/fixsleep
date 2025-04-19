@@ -12,11 +12,10 @@ const SoundCard = ({ title, value }: Props) => {
   return (
     <Pressable
       onPress={() => router.push(`/play/${value}`)}
-      className="border border-white p-6 rounded-3xl flex-row gap-4"
-      style={{ backgroundColor: color.primary }}
+      className="p-6 rounded-3xl flex-row gap-4 bg-primary"
     >
-      {icon[value as keyof typeof icon]({ color: "white" })}
-      <Text className="text-xl text-white">{title}</Text>
+      {icon[value as keyof typeof icon]({ color: color.textPrimary })}
+      <Text className="text-xl text-textPrimary">{title}</Text>
     </Pressable>
   );
 };

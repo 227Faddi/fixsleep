@@ -29,13 +29,13 @@ const CyclesScreen = () => {
         onPress={() => router.back()}
         className="absolute left-6 top-16"
       >
-        {iconsData["arrowBack"]({ color: "white" })}
+        {iconsData["arrowBack"]({ color: color.textPrimary })}
       </Pressable>
       <View className="gap-2">
-        <Text className="text-center text-4xl" style={{ color: color.white }}>
+        <Text className="text-center text-4xl text-textPrimary">
           Sleep Cycles {iconsData["sleep"]()}
         </Text>
-        <Text className="text-center text-xl" style={{ color: color.white }}>
+        <Text className="text-center text-xl text-textPrimary">
           {mode === "sleep"
             ? `Wake up at the best time after your sleep cycle.`
             : `Go to bed at one of these time to wake up relaxed at ${time}`}

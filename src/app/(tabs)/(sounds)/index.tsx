@@ -41,10 +41,10 @@ const SoundsScreen = () => {
     <PanGestureHandler onGestureEvent={onGestureEvent}>
       <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
         <View className="gap-3">
-          <Text className="text-4xl text-center text-white">
+          <Text className="text-4xl text-center text-textPrimary">
             Soothing Sounds
           </Text>
-          <Text className="text-xl text-center text-white">
+          <Text className="text-xl text-center text-textPrimary">
             Create your perfect sleep atmosphere. Pick a sound, close your eyes,
             and relax.
           </Text>
