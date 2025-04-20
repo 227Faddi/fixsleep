@@ -41,7 +41,9 @@ const HomeScreen = () => {
       <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
         <View className="gap-3">
           <View className="flex-row justify-center items-center gap-1">
-            <Text className="text-4xl text-textPrimary">Sleepnow</Text>
+            <Text className="text-4xl text-textPrimary font-bold">
+              Sleepnow
+            </Text>
             {iconsData["bed"]({ color: color.textPrimary })}
           </View>
           <Text className="text-xl text-center text-textPrimary">
@@ -71,8 +73,9 @@ const HomeScreen = () => {
           </View>
           <MainButton
             onPress={() => getSleepCycles(formatTimeNow())}
-            text="Rest Now 🌟"
-            textClass="text-2xl text-center text-primary"
+            text="Rest Now"
+            icon={iconsData["alarm"]()}
+            textClass="text-2xl text-center text-textPrimary"
             containerClass={`p-6 bg-accent`}
           />
         </View>

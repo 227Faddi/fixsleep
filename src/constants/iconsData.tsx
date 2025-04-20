@@ -1,48 +1,62 @@
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 const iconsData = {
   home: (props?: object) => (
-    <Ionicons name="home-outline" size={24} {...props} />
+    <Ionicons name="moon" size={24} color="#fff" {...props} />
   ),
   sounds: (props?: object) => (
-    <Ionicons name="musical-notes-outline" size={24} {...props} />
+    <Ionicons name="musical-notes" size={24} color="#fff" {...props} />
   ),
   settings: (props?: object) => (
-    <Ionicons name="settings-outline" size={24} {...props} />
+    <Ionicons name="settings" size={24} color="#fff" {...props} />
   ),
-  moon: (props?: object) => <FontAwesome5 name="moon" size={24} {...props} />,
-  bed: (props?: object) => <Ionicons name="bed-outline" size={24} {...props} />,
+  moon: (props?: object) => (
+    <Ionicons name="moon" size={24} color="#fff" {...props} />
+  ),
+  alarm: (props?: object) => (
+    <Ionicons name="alarm" size={24} color="#fff" {...props} />
+  ),
+  language: (props?: object) => (
+    <Ionicons name="language" size={24} color="#fff" {...props} />
+  ),
+  notifications: (props?: object) => (
+    <Ionicons name="notifications" size={24} color="#fff" {...props} />
+  ),
+  bed: (props?: object) => (
+    <Ionicons name="bed" size={24} color="#fff" {...props} />
+  ),
   rainfall: (props?: object) => (
-    <Ionicons name="rainy-outline" size={24} {...props} />
+    <Ionicons name="rainy" size={24} color="#fff" {...props} />
   ),
   oceanWaves: (props?: object) => (
-    <Ionicons name="water-outline" size={24} {...props} />
+    <Ionicons name="water" size={24} color="#fff" {...props} />
   ),
   brownNoise: (props?: object) => (
-    <Ionicons name="cloud-outline" size={24} {...props} />
+    <Ionicons name="cloud" size={24} color="#fff" {...props} />
   ),
   arrowBack: (props?: object) => (
-    <Ionicons name="chevron-back" size={24} {...props} />
+    <Ionicons name="chevron-back" size={24} color="#fff" {...props} />
+  ),
+  arrowForward: (props?: object) => (
+    <Ionicons name="chevron-forward" size={24} color="#fff" {...props} />
   ),
   play: (props?: object) => (
-    <Ionicons name="play-outline" size={24} {...props} />
+    <Ionicons name="play" size={24} color="#fff" {...props} />
   ),
   stop: (props?: object) => (
-    <Ionicons name="stop-outline" size={24} {...props} />
+    <Ionicons name="stop" size={24} color="#fff" {...props} />
   ),
   sleep: (props?: object) => (
-    <MaterialCommunityIcons name="sleep" size={24} {...props} />
+    <Ionicons name="bed" size={24} color="#fff" {...props} />
   ),
   emojiHappy: (props?: object) => (
-    <Ionicons name="happy-outline" size={24} color="#2ecc71" {...props} />
+    <Ionicons name="happy" size={24} color="#2ecc71" {...props} />
   ),
   emojiNeutral: (props?: object) => (
-    <Ionicons name="sad-outline" size={24} color="#f39c12" {...props} />
+    <Ionicons name="sad" size={24} color="#f39c12" {...props} />
   ),
   emojiSad: (props?: object) => (
-    <Ionicons name="skull-outline" size={24} color="#e74c3c" {...props} />
+    <Ionicons name="skull" size={24} color="#e74c3c" {...props} />
   ),
 };
 
