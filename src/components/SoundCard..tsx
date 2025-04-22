@@ -11,7 +11,7 @@ type Props = {
 const SoundCard = ({ title, value }: Props) => {
   return (
     <Pressable
-      onPress={() => router.push(`/play/${value}`)}
+      onPress={() => router.push(`/sounds/play/${value}`)}
       className="p-6 rounded-3xl flex-row gap-4 bg-primary"
     >
       {icon[value as keyof typeof icon]({ color: color.textPrimary })}

@@ -1,3 +1,4 @@
+import MainButton from "@/src/components/MainButton";
 import color from "@/src/constants/colors";
 import icon from "@/src/constants/iconsData";
 import sounds from "@/src/constants/soundsData";
@@ -71,9 +72,7 @@ const SoundPlayer = () => {
         <Text className="text-4xl text-textPrimary">
           {selectedSound?.title}
         </Text>
-        {icon[selectedSound?.value as keyof typeof icon]({
-          color: color.textPrimary,
-        })}
+        {icon[selectedSound?.value as keyof typeof icon]()}
       </View>
       <View className="w-full flex-1 flex-col justify-between items-center gap-8">
         <Image
@@ -82,20 +81,16 @@ const SoundPlayer = () => {
           contentFit="cover"
           transition={600}
         />
-        {/* <View className="flex-row gap-6">
-          <Pressable
-            className="p-6 rounded-3xl justify-center bg-primary"
-            onPress={() => startSoundTimer(15)}
-          >
-            <Text>{timerIsStarted ? `${soundTimer}` : "15 m to end"}</Text>
-          </Pressable>
-          <Pressable
-            className="p-6 rounded-3xl justify-center bg-primary"
+        <View className="flex-row gap-6">
+          <MainButton
             onPress={() => startSoundTimer(30)}
-          >
-            <Text>30 m to end</Text>
-          </Pressable>
-        </View> */}
+            text={"30 m to end"}
+          />
+          <MainButton
+            onPress={() => startSoundTimer(30)}
+            text={"15 m to end"}
+          />
+        </View>
         <View>
           <Pressable
             className="p-6 rounded-full bg-primary"

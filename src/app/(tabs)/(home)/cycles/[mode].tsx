@@ -33,7 +33,7 @@ const CyclesScreen = () => {
       </Pressable>
       <View className="gap-2">
         <Text className="text-center text-4xl text-textPrimary">
-          Sleep Cycles {iconsData["sleep"]()}
+          Sleep Cycles {iconsData["moon"]()}
         </Text>
         <Text className="text-center text-xl text-textPrimary">
           {mode === "sleep"
