@@ -32,7 +32,7 @@ const HomeScreen = () => {
   const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {
     const { translationX } = event.nativeEvent;
     if (translationX < -50) {
-      router.push("/(tabs)/(sounds)");
+      router.push("/(tabs)/sounds");
     }
   };
 

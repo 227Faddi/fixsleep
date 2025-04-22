@@ -16,7 +16,7 @@ const SoundsScreen = () => {
     if (translationX > 50) {
       router.push("/(tabs)/(home)");
     } else if (translationX < -50) {
-      router.push("/(tabs)/(settings)");
+      router.push("/(tabs)/settings");
     }
   };
 
