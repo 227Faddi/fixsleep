@@ -32,6 +32,7 @@ const SettingsScreen = () => {
   const settings = [
     { title: "Reminders", icon: "notifications" },
     { title: "Language", icon: "language" },
+    { title: "How this works?", icon: "info" },
   ];
 
   return (

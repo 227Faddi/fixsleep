@@ -2,7 +2,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 const iconsData = {
   home: (props?: object) => (
-    <Ionicons name="moon" size={24} color="#fff" {...props} />
+    <Ionicons name="bed" size={24} color="#fff" {...props} />
   ),
   sounds: (props?: object) => (
     <Ionicons name="musical-notes" size={24} color="#fff" {...props} />
@@ -25,6 +25,9 @@ const iconsData = {
   bed: (props?: object) => (
     <Ionicons name="bed" size={24} color="#fff" {...props} />
   ),
+  info: (props?: object) => (
+    <Ionicons name="information-circle" size={24} color="#fff" {...props} />
+  ),
   rainfall: (props?: object) => (
     <Ionicons name="rainy" size={24} color="#fff" {...props} />
   ),
@@ -46,8 +49,8 @@ const iconsData = {
   stop: (props?: object) => (
     <Ionicons name="stop" size={24} color="#fff" {...props} />
   ),
-  sleep: (props?: object) => (
-    <Ionicons name="bed" size={24} color="#fff" {...props} />
+  sun: (props?: object) => (
+    <Ionicons name="sunny" size={24} color="#fff" {...props} />
   ),
   emojiHappy: (props?: object) => (
     <Ionicons name="happy" size={24} color="#2ecc71" {...props} />

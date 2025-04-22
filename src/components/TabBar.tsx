@@ -87,7 +87,7 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
             onPress={onPress}
             onLongPress={onLongPress}
             routeName={sanitizedRouteName}
-            color={{ color: isFocused ? color.textPrimary : color.textPrimary }}
+            color={{ color: color.textPrimary }}
             label={label as string}
             isFocused={isFocused}
           />

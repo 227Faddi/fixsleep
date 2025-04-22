@@ -30,8 +30,8 @@ const TimerPicker = ({ showModal, setShowModal, mode, onConfirmFN }: Props) => {
         },
         contentContainer: {
           backgroundColor: color.primary,
-          borderWidth: 1,
-          borderColor: color.textSecondary,
+          // borderWidth: 1,
+          // borderColor: color.accent,
         },
         pickerContainer: {
           marginBlock: 15,

@@ -18,11 +18,11 @@ export default function MainLayout() {
         options={{ title: "Home", headerShown: false }}
       />
       <Tabs.Screen
-        name="(sounds)"
+        name="sounds"
         options={{ title: "Sounds", headerShown: false }}
       />
       <Tabs.Screen
-        name="(settings)"
+        name="settings"
         options={{ title: "Settings", headerShown: false }}
       />
     </Tabs>
