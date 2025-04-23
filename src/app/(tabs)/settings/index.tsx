@@ -52,7 +52,7 @@ const SettingsScreen = () => {
     <PanGestureHandler onGestureEvent={onGestureEvent}>
       <View className="flex-1 pb-32 pt-24 px-16 gap-24 items-center">
         <Text className="text-4xl text-textPrimary font-bold">Settings</Text>
-        <View className="justify-start w-full bg-primary rounded-3xl">
+        <View className="w-full bg-primary rounded-3xl">
           {settings.map((item, index) => (
             <Setting
               key={index}

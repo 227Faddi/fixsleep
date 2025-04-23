@@ -14,6 +14,26 @@ const InfoScreen = () => {
       </Pressable>
       <View className="gap-2">
         <Text className="text-center text-4xl text-textPrimary">Info</Text>
+        <View className="flex-1 justify-center">
+          <View className="justify-center bg-primary rounded-3xl p-6 gap-3">
+            <View className="gap-2">
+              <Text className="text-accent text-2xl">Cycles</Text>
+              <Text className="text-textPrimary text-xl">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+                eius animi, rerum voluptate sed ad aut laudantium optio ipsa
+                itaque error consequatur deserunt
+              </Text>
+            </View>
+            <View className="gap-2">
+              <Text className="text-accent text-2xl">Cycles</Text>
+              <Text className="text-textPrimary text-xl">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+                eius animi, rerum voluptate sed ad aut laudantium optio ipsa
+                itaque error consequatur deserunt
+              </Text>
+            </View>
+          </View>
+        </View>
       </View>
     </View>
   );
