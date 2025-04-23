@@ -1,5 +1,4 @@
 import TabBar from "@/src/components/TabBar";
-import color from "@/src/constants/colors";
 import { Tabs } from "expo-router";
 
 export default function MainLayout() {
@@ -9,7 +8,7 @@ export default function MainLayout() {
       screenOptions={{
         headerShown: false,
         sceneStyle: {
-          backgroundColor: color.background,
+          backgroundColor: "transparent",
         },
       }}
     >

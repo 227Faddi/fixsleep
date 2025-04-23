@@ -12,8 +12,26 @@ const LanguageScreen = () => {
       >
         {iconsData["arrowBack"]({ color: color.textPrimary })}
       </Pressable>
-      <View className="gap-2">
-        <Text className="text-center text-4xl text-textPrimary">Language</Text>
+      <Text className="text-center text-4xl text-textPrimary">Language</Text>
+      <View className="justify-start w-full bg-primary rounded-3xl">
+        <Pressable
+          onPress={() => console.log("en")}
+          className="p-6 rounded-3xl flex-row gap-4 items-center justify-between"
+        >
+          <View className="flex-row gap-4">
+            <Text className="text-xl text-textPrimary">English</Text>
+          </View>
+          {iconsData["arrowForward"]()}
+        </Pressable>
+        <Pressable
+          onPress={() => console.log("fr")}
+          className="p-6 rounded-3xl flex-row gap-4 items-center justify-between"
+        >
+          <View className="flex-row gap-4">
+            <Text className="text-xl text-textPrimary">French</Text>
+          </View>
+          {iconsData["arrowForward"]()}
+        </Pressable>
       </View>
     </View>
   );

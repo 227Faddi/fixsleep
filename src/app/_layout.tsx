@@ -1,10 +1,16 @@
 import "@/global.css";
-import { Slot } from "expo-router";
+import { Stack } from "expo-router";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import color from "../constants/colors";
 export default function RootLayout() {
   return (
-    <GestureHandlerRootView className="flex-1">
-      <Slot />
+    <GestureHandlerRootView className="flex-1 bg-background">
+      <Stack
+        screenOptions={{ contentStyle: { backgroundColor: color.background } }}
+      >
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="play/[value]" options={{ headerShown: false }} />
+      </Stack>
     </GestureHandlerRootView>
   );
 }

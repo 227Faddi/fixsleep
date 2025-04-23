@@ -61,7 +61,7 @@ const SoundPlayer = () => {
   }, [sound]);
 
   return (
-    <View className="flex-1 gap-4 pb-32 pt-24 px-16 items-center">
+    <View className="flex-1 gap-4 pb-24 pt-24 px-16 items-center">
       <Pressable
         onPress={() => router.back()}
         className="absolute left-6 top-16"
