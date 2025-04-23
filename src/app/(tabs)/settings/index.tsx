@@ -6,10 +6,10 @@ import {
   PanGestureHandlerGestureEvent,
 } from "react-native-gesture-handler";
 
-const Setting = ({ title, icon }) => {
+const Setting = ({ title, icon, route }) => {
   return (
     <Pressable
-      onPress={() => alert(1)}
+      onPress={() => router.push(route)}
       className="p-6 rounded-3xl flex-row gap-4 items-center justify-between"
     >
       <View className="flex-row gap-4">
@@ -30,9 +30,22 @@ const SettingsScreen = () => {
   };
 
   const settings = [
-    { title: "Reminders", icon: "notifications" },
-    { title: "Language", icon: "language" },
-    { title: "How this works?", icon: "info" },
+    { title: "Language", icon: "language", route: "/(tabs)/settings/language" },
+    {
+      title: "Reminders",
+      icon: "notifications",
+      route: "/(tabs)/settings/reminders",
+    },
+    {
+      title: "Time to Fall Asleep",
+      icon: "bed",
+      route: "/(tabs)/settings/timetofall",
+    },
+    {
+      title: "How this works?",
+      icon: "info",
+      route: "/(tabs)/settings/info",
+    },
   ];
 
   return (
@@ -41,7 +54,12 @@ const SettingsScreen = () => {
         <Text className="text-4xl text-textPrimary font-bold">Settings</Text>
         <View className="justify-start w-full bg-primary rounded-3xl">
           {settings.map((item, index) => (
-            <Setting key={index} title={item.title} icon={item.icon} />
+            <Setting
+              key={index}
+              title={item.title}
+              icon={item.icon}
+              route={item.route}
+            />
           ))}
         </View>
       </View>

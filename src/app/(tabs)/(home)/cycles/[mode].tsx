@@ -4,7 +4,6 @@ import cyclesData from "@/src/constants/cyclesData";
 import iconsData from "@/src/constants/iconsData";
 import calcCycles from "@/src/lib/calcCycles";
 import { router, useLocalSearchParams } from "expo-router";
-import React from "react";
 import { Pressable, Text, View } from "react-native";
 
 const CyclesScreen = () => {
