@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
-const TimetofallScreen = () => {
+const SleepScreen = () => {
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [timetofall, setTimetofall] = useState<string | null>(null);
 
@@ -48,11 +48,17 @@ const TimetofallScreen = () => {
           {iconsData["arrowBack"]({ color: color.textPrimary })}
         </Pressable>
         <View className="gap-2">
-          <Text className="text-center text-4xl text-textPrimary font-bold">
-            Time to Fall Asleep
-          </Text>
+          <View className="flex-row items-center justify-center gap-2">
+            {iconsData["home"]()}
+            <Text className="text-center text-4xl text-textPrimary font-bold">
+              Sleep
+            </Text>
+          </View>
           <View className="flex-1 justify-center">
-            <View className="justify-center bg-primary rounded-3xl p-6 gap-6">
+            <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
+              <Text className="text-accent text-2xl text-center font-bold">
+                Time to fall asleep
+              </Text>
               <Text className="text-textPrimary text-xl">
                 The average time it takes most people to fall asleep is about 15
                 minutes. Set yours to better estimate your sleep cycle.
@@ -100,4 +106,4 @@ const TimetofallScreen = () => {
   );
 };
 
-export default TimetofallScreen;
+export default SleepScreen;

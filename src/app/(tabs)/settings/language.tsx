@@ -18,9 +18,12 @@ const LanguageScreen = () => {
       >
         {iconsData["arrowBack"]({ color: color.textPrimary })}
       </Pressable>
-      <Text className="text-center text-4xl text-textPrimary font-bold">
-        Language
-      </Text>
+      <View className="flex-row items-center justify-center gap-2">
+        {iconsData["language"]()}
+        <Text className="text-center text-4xl text-textPrimary font-bold">
+          Language
+        </Text>
+      </View>
       <View className="flex-1 justify-center w-full">
         <View className="justify-center bg-primary rounded-3xl">
           <Pressable
@@ -29,7 +32,13 @@ const LanguageScreen = () => {
             className="p-6 rounded-3xl flex-row gap-4 items-center justify-between"
           >
             <View className="flex-row gap-4">
-              <Text className="text-xl text-textPrimary">English</Text>
+              <Text
+                className={`text-xl text-textPrimary ${
+                  currentLang === "en" && "font-bold"
+                }`}
+              >
+                English
+              </Text>
             </View>
             {currentLang === "en" && iconsData["checkmark"]()}
           </Pressable>
@@ -39,7 +48,13 @@ const LanguageScreen = () => {
             className="p-6 rounded-3xl flex-row gap-4 items-center justify-between"
           >
             <View className="flex-row gap-4">
-              <Text className="text-xl text-textPrimary">French</Text>
+              <Text
+                className={`text-xl text-textPrimary ${
+                  currentLang === "fr" && "font-bold"
+                }`}
+              >
+                French
+              </Text>
             </View>
             {currentLang === "fr" && iconsData["checkmark"]()}
           </Pressable>

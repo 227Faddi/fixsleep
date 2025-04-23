@@ -22,11 +22,14 @@ const RemindersScreen = () => {
           {iconsData["arrowBack"]({ color: color.textPrimary })}
         </Pressable>
         <View className="gap-2">
-          <Text className="text-center text-4xl text-textPrimary font-bold">
-            Reminders
-          </Text>
+          <View className="flex-row items-center justify-center gap-2">
+            {iconsData["notifications"]()}
+            <Text className="text-center text-4xl text-textPrimary font-bold">
+              Reminders
+            </Text>
+          </View>
           <View className="flex-1 justify-center">
-            <View className="justify-center bg-primary rounded-3xl p-6 gap-6">
+            <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
               <Text className="text-accent text-2xl text-center font-bold">
                 Sleep Time
               </Text>

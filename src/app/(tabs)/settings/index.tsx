@@ -37,9 +37,9 @@ const SettingsScreen = () => {
       route: "/(tabs)/settings/reminders",
     },
     {
-      title: "Time to Fall Asleep",
+      title: "Sleep",
       icon: "bed",
-      route: "/(tabs)/settings/timetofall",
+      route: "/(tabs)/settings/sleep",
     },
     {
       title: "How this works?",

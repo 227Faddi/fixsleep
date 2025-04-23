@@ -12,7 +12,7 @@ export default function Layout() {
       <Stack.Screen name="index" options={{ headerShown: false }} />
       <Stack.Screen name="language" options={{ headerShown: false }} />
       <Stack.Screen name="reminders" options={{ headerShown: false }} />
-      <Stack.Screen name="timetofall" options={{ headerShown: false }} />
+      <Stack.Screen name="sleep" options={{ headerShown: false }} />
       <Stack.Screen name="info" options={{ headerShown: false }} />
     </Stack>
   );
