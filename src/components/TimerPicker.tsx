@@ -22,38 +22,7 @@ const TimerPicker = ({ showModal, setShowModal, mode, onConfirmFN }: Props) => {
       }
       onCancel={() => setShowModal(false)}
       closeOnOverlayPress
-      styles={{
-        modalTitle: {
-          paddingInline: 25,
-          fontWeight: "400",
-          color: color.textPrimary,
-        },
-        contentContainer: {
-          backgroundColor: color.primary,
-          // borderWidth: 1,
-          // borderColor: color.accent,
-        },
-        pickerContainer: {
-          marginBlock: 15,
-          backgroundColor: color.primary,
-        },
-        pickerLabel: {
-          color: color.textPrimary,
-        },
-        pickerItem: {
-          color: color.textPrimary,
-        },
-        confirmButton: {
-          color: color.textPrimary,
-          backgroundColor: color.accent,
-          borderWidth: 0,
-        },
-        cancelButton: {
-          color: color.textSecondary,
-          backgroundColor: color.background,
-          borderWidth: 0,
-        },
-      }}
+      styles={{ ...TimePickerStyles }}
       modalProps={{
         overlayOpacity: 0.2,
       }}
@@ -63,6 +32,37 @@ const TimerPicker = ({ showModal, setShowModal, mode, onConfirmFN }: Props) => {
       minuteLabel={"M"}
     />
   );
+};
+
+export const TimePickerStyles = {
+  modalTitle: {
+    paddingInline: 25,
+    fontWeight: "600" as const,
+    color: color.textPrimary,
+  },
+  contentContainer: {
+    backgroundColor: color.primary,
+  },
+  pickerContainer: {
+    marginBlock: 15,
+    backgroundColor: color.primary,
+  },
+  pickerLabel: {
+    color: color.textPrimary,
+  },
+  pickerItem: {
+    color: color.textPrimary,
+  },
+  confirmButton: {
+    color: color.textPrimary,
+    backgroundColor: color.accent,
+    borderWidth: 0,
+  },
+  cancelButton: {
+    color: color.textSecondary,
+    backgroundColor: color.background,
+    borderWidth: 0,
+  },
 };
 
 export default TimerPicker;

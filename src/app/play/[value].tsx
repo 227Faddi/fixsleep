@@ -68,8 +68,8 @@ const SoundPlayer = () => {
       >
         {icon["arrowBack"]({ color: color.textPrimary })}
       </Pressable>
-      <View className="flex-row justify-center items-center gap-1">
-        <Text className="text-4xl text-textPrimary">
+      <View className="flex-row justify-center items-center gap-3">
+        <Text className="text-4xl text-textPrimary font-bold">
           {selectedSound?.title}
         </Text>
         {icon[selectedSound?.value as keyof typeof icon]()}

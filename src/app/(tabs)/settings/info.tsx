@@ -13,23 +13,28 @@ const InfoScreen = () => {
         {iconsData["arrowBack"]({ color: color.textPrimary })}
       </Pressable>
       <View className="gap-2">
-        <Text className="text-center text-4xl text-textPrimary">Info</Text>
+        <Text className="text-center text-4xl text-textPrimary font-bold">
+          Info
+        </Text>
         <View className="flex-1 justify-center">
-          <View className="justify-center bg-primary rounded-3xl p-6 gap-3">
+          <View className="justify-center bg-primary rounded-3xl p-6 gap-6">
             <View className="gap-2">
-              <Text className="text-accent text-2xl">Cycles</Text>
+              <Text className="text-accent text-2xl font-bold">
+                What Are Sleep Cycles?
+              </Text>
               <Text className="text-textPrimary text-xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                eius animi, rerum voluptate sed ad aut laudantium optio ipsa
-                itaque error consequatur deserunt
+                Sleep cycles last about 90 minutes, including stages like light
+                sleep, deep sleep, and REM. These stages help your body recover
+                and process the day.
               </Text>
             </View>
             <View className="gap-2">
-              <Text className="text-accent text-2xl">Cycles</Text>
+              <Text className="text-accent text-2xl font-bold">
+                Why Timing Matters
+              </Text>
               <Text className="text-textPrimary text-xl">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                eius animi, rerum voluptate sed ad aut laudantium optio ipsa
-                itaque error consequatur deserunt
+                Waking up at the end of a cycle, rather than in the middle,
+                helps you feel more refreshed and alert.
               </Text>
             </View>
           </View>

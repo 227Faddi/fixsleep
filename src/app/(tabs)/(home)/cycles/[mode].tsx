@@ -31,7 +31,7 @@ const CyclesScreen = () => {
         {iconsData["arrowBack"]({ color: color.textPrimary })}
       </Pressable>
       <View className="gap-2">
-        <Text className="text-center text-4xl text-textPrimary">
+        <Text className="text-center text-4xl text-textPrimary font-bold">
           Sleep Cycles {iconsData["moon"]()}
         </Text>
         <Text className="text-center text-xl text-textPrimary">

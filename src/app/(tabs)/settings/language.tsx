@@ -18,7 +18,9 @@ const LanguageScreen = () => {
       >
         {iconsData["arrowBack"]({ color: color.textPrimary })}
       </Pressable>
-      <Text className="text-center text-4xl text-textPrimary">Language</Text>
+      <Text className="text-center text-4xl text-textPrimary font-bold">
+        Language
+      </Text>
       <View className="flex-1 justify-center w-full">
         <View className="justify-center bg-primary rounded-3xl">
           <Pressable

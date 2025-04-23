@@ -12,7 +12,7 @@ type Props = {
 const MainButton = ({
   onPress,
   containerClass = "bg-primary",
-  textClass = "text-textPrimary text-lg",
+  textClass = "text-textPrimary text-lg font-bold",
   text,
   icon,
 }: Props) => {
