@@ -1,4 +1,3 @@
-import MainButton from "@/src/components/MainButton";
 import color from "@/src/constants/colors";
 import icon from "@/src/constants/iconsData";
 import sounds from "@/src/constants/soundsData";
@@ -11,7 +10,7 @@ import { Pressable, Text, View } from "react-native";
 const SoundPlayer = () => {
   const { value } = useLocalSearchParams<{ value: string }>();
   const [sound, setSound] = useState<Audio.Sound | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [soundTimer, setSoundTimer] = useState<number | null>();
   const [timerIsStarted, setTimerIsStarted] = useState(false);
 
@@ -81,7 +80,7 @@ const SoundPlayer = () => {
           contentFit="cover"
           transition={600}
         />
-        <View className="flex-row gap-6">
+        {/* <View className="flex-row gap-6">
           <MainButton
             onPress={() => startSoundTimer(30)}
             text={"30 m to end"}
@@ -90,7 +89,7 @@ const SoundPlayer = () => {
             onPress={() => startSoundTimer(30)}
             text={"15 m to end"}
           />
-        </View>
+        </View> */}
         <View>
           <Pressable
             className="p-6 rounded-full bg-primary"

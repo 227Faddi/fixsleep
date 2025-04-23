@@ -27,16 +27,20 @@ const RemindersScreen = () => {
           </Text>
           <View className="flex-1 justify-center">
             <View className="justify-center bg-primary rounded-3xl p-6 gap-6">
-              <Text className="text-accent text-2xl font-bold">
-                Sleep Time Reminder
+              <Text className="text-accent text-2xl text-center font-bold">
+                Sleep Time
               </Text>
               <Text className="text-textPrimary text-xl">
                 Set a bedtime reminder to build a consistent and healthy sleep
                 routine.
               </Text>
               <View className="flex-row justify-between">
-                <Text className="text-textPrimary text-2xl">Current:</Text>
-                <Text className="text-textPrimary text-2xl">{sleepTime}</Text>
+                <Text className="text-textPrimary text-2xl font-bold">
+                  Current
+                </Text>
+                <Text className="text-textPrimary text-2xl font-bold">
+                  {sleepTime}
+                </Text>
               </View>
               <MainButton
                 onPress={() => setShowTimePicker(true)}

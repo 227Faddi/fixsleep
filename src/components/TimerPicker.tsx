@@ -59,7 +59,7 @@ export const TimePickerStyles = {
     borderWidth: 0,
   },
   cancelButton: {
-    color: color.textSecondary,
+    color: color.textPrimary,
     backgroundColor: color.background,
     borderWidth: 0,
   },

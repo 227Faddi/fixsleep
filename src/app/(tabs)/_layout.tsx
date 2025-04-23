@@ -14,7 +14,7 @@ export default function MainLayout() {
     >
       <Tabs.Screen
         name="(home)"
-        options={{ title: "Home", headerShown: false }}
+        options={{ title: "Sleep", headerShown: false }}
       />
       <Tabs.Screen
         name="sounds"

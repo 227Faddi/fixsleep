@@ -2,14 +2,41 @@ import MainButton from "@/src/components/MainButton";
 import { TimePickerStyles } from "@/src/components/TimerPicker";
 import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const TimetofallScreen = () => {
   const [showTimePicker, setShowTimePicker] = useState(false);
-  const [timetofall, setTimetofall] = useState(15);
+  const [timetofall, setTimetofall] = useState<string | null>(null);
+
+  useEffect(() => {
+    getTimetofall();
+  }, []);
+
+  const getTimetofall = async () => {
+    try {
+      const value = await AsyncStorage.getItem("timetofall");
+      if (!value) {
+        storeTimetofall("15");
+      }
+      setTimetofall(value);
+      return value;
+    } catch (e) {
+      alert(e);
+    }
+  };
+
+  const storeTimetofall = async (minutes: string) => {
+    try {
+      await AsyncStorage.setItem("timetofall", minutes);
+      setTimetofall(minutes);
+    } catch (e) {
+      alert(e);
+    }
+  };
 
   return (
     <>
@@ -26,16 +53,18 @@ const TimetofallScreen = () => {
           </Text>
           <View className="flex-1 justify-center">
             <View className="justify-center bg-primary rounded-3xl p-6 gap-6">
-              <View className="flex-row justify-between">
-                <Text className=" text-accent text-2xl font-bold">Current</Text>
-                <Text className="text-textPrimary text-2xl font-bold">
-                  {timetofall} m
-                </Text>
-              </View>
               <Text className="text-textPrimary text-xl">
                 The average time it takes most people to fall asleep is about 15
                 minutes. Set yours to better estimate your sleep cycle.
               </Text>
+              <View className="flex-row justify-between">
+                <Text className=" text-textPrimary text-2xl font-bold">
+                  Current
+                </Text>
+                <Text className="text-textPrimary text-2xl font-bold">
+                  {timetofall} m
+                </Text>
+              </View>
               <MainButton
                 onPress={() => setShowTimePicker(true)}
                 containerClass="bg-accent"
@@ -50,7 +79,7 @@ const TimetofallScreen = () => {
         setIsVisible={setShowTimePicker}
         onConfirm={(pickedDuration) => {
           setShowTimePicker(false);
-          setTimetofall(pickedDuration.minutes);
+          storeTimetofall(pickedDuration.minutes.toString());
         }}
         modalTitle=""
         onCancel={() => setShowTimePicker(false)}
