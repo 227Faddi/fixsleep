@@ -62,7 +62,6 @@ const RemindersScreen = () => {
           const { hours, minutes } = pickedDuration;
           setSleepTime(formatTime({ hours, minutes }));
         }}
-        modalTitle="Sleep Time"
         onCancel={() => setShowTimePicker(false)}
         closeOnOverlayPress
         styles={{ ...TimePickerStyles }}

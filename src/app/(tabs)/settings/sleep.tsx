@@ -75,6 +75,7 @@ const SleepScreen = () => {
         minuteLabel={"M"}
         maximumMinutes={45}
         confirmButtonText="Save"
+        initialValue={{ minutes: Number(timetofall) }}
       />
     </>
   );

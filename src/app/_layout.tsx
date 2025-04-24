@@ -5,8 +5,8 @@ import color from "../constants/colors";
 import AppContextProvider from "../contexts/AppContextProvider";
 export default function RootLayout() {
   return (
-    <AppContextProvider>
-      <GestureHandlerRootView className="flex-1 bg-background">
+    <GestureHandlerRootView className="flex-1 bg-background">
+      <AppContextProvider>
         <Stack
           screenOptions={{
             contentStyle: { backgroundColor: color.background },
@@ -15,7 +15,7 @@ export default function RootLayout() {
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="play/[value]" options={{ headerShown: false }} />
         </Stack>
-      </GestureHandlerRootView>
-    </AppContextProvider>
+      </AppContextProvider>
+    </GestureHandlerRootView>
   );
 }

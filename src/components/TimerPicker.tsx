@@ -9,6 +9,7 @@ type Props = {
 };
 
 const TimerPicker = ({ showModal, setShowModal, mode, onConfirmFN }: Props) => {
+  const date = new Date();
   return (
     <TimerPickerModal
       visible={showModal}
@@ -17,9 +18,7 @@ const TimerPicker = ({ showModal, setShowModal, mode, onConfirmFN }: Props) => {
         setShowModal(false);
         onConfirmFN({ ...pickedDuration, mode });
       }}
-      modalTitle={
-        mode === "sleep" ? "Set your sleep time ☾" : "Set your wake-up time ☀️"
-      }
+      modalTitle={mode === "sleep" ? `Go to sleep at` : `Wake up at`}
       onCancel={() => setShowModal(false)}
       closeOnOverlayPress
       styles={{ ...TimePickerStyles }}
@@ -30,6 +29,10 @@ const TimerPicker = ({ showModal, setShowModal, mode, onConfirmFN }: Props) => {
       minuteInterval={5}
       hourLabel={"H"}
       minuteLabel={"M"}
+      initialValue={{
+        hours: date.getHours(),
+        minutes: Math.round(date.getMinutes() / 5) * 5,
+      }}
     />
   );
 };

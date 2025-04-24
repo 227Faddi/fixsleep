@@ -1,6 +1,6 @@
 import CycleCard from "@/src/components/CycleCard";
 import color from "@/src/constants/colors";
-import cyclesData from "@/src/constants/cyclesData";
+import getCyclesData from "@/src/constants/cyclesData";
 import iconsData from "@/src/constants/iconsData";
 import { useTimetofall } from "@/src/hooks/contexts";
 import calcCycles from "@/src/lib/calcCycles";
@@ -12,6 +12,8 @@ const CyclesScreen = () => {
     mode: "sleep" | "wake";
     query: string;
   }>();
+
+  // create an object with sleep and wake labels
 
   const { timetofall } = useTimetofall();
 
@@ -25,7 +27,7 @@ const CyclesScreen = () => {
       ? calcCycles.sleep(time, Number(timetofall))
       : calcCycles.wake(time, Number(timetofall));
 
-  const cycles = mode === "sleep" ? cyclesData : cyclesData.reverse();
+  const cycles = getCyclesData(mode);
 
   return (
     <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
@@ -36,9 +38,12 @@ const CyclesScreen = () => {
         {iconsData["arrowBack"]({ color: color.textPrimary })}
       </Pressable>
       <View className="gap-2">
-        <Text className="text-center text-4xl text-textPrimary font-bold">
-          Sleep Cycles {iconsData["moon"]()}
-        </Text>
+        <View className="flex-row items-center justify-center gap-2">
+          {mode === "sleep" ? iconsData["moon"]() : iconsData["sun"]()}
+          <Text className="text-center text-4xl text-textPrimary font-bold">
+            {mode === "sleep" ? `Sleep` : `Wake up`}
+          </Text>
+        </View>
         <Text className="text-center text-xl text-textPrimary">
           {mode === "sleep"
             ? `Wake up at the best time after your sleep cycle.`

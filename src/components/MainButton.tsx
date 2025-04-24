@@ -21,8 +21,8 @@ const MainButton = ({
       onPress={onPress}
       className={`p-4 rounded-3xl justify-center flex-row items-center gap-1 ${containerClass}`}
     >
-      <Text className={`text-center ${textClass}`}>{text}</Text>
       {icon}
+      <Text className={`text-center ${textClass}`}>{text}</Text>
     </Pressable>
   );
 };
