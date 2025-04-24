@@ -11,12 +11,20 @@ const SoundPlayer = () => {
   const { value } = useLocalSearchParams<{ value: string }>();
   const [sound, setSound] = useState<Audio.Sound | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [soundTimer, setSoundTimer] = useState<number | null>();
-  const [timerIsStarted, setTimerIsStarted] = useState(false);
+  // const [soundTimer, setSoundTimer] = useState<number | null>();
+  // const [timerIsStarted, setTimerIsStarted] = useState(false);
 
-  const startSoundTimer = (minutes: number) => {
-    setTimerIsStarted(true);
-  };
+  // const startSoundTimer = (minutes: number) => {
+  //   setTimerIsStarted(true);
+  // };
+
+  useEffect(() => {
+    return () => {
+      if (sound) {
+        sound.unloadAsync();
+      }
+    };
+  }, [sound]);
 
   const selectedSound = sounds.find((item) => item.value === value);
 
@@ -50,14 +58,6 @@ const SoundPlayer = () => {
       console.error(err);
     }
   };
-
-  useEffect(() => {
-    return () => {
-      if (sound) {
-        sound.unloadAsync();
-      }
-    };
-  }, [sound]);
 
   return (
     <View className="flex-1 gap-4 pb-24 pt-24 px-16 items-center">

@@ -32,7 +32,7 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
     tabPositionX.value = withSpring(buttonWidth * state.index, {
       duration: 1500,
     });
-  }, [state.index]);
+  }, [state.index, tabPositionX, buttonWidth]);
 
   return (
     <View
@@ -55,8 +55,8 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
             : options.title !== undefined
-            ? options.title
-            : route.name;
+              ? options.title
+              : route.name;
 
         const isFocused = state.index === index;
 
