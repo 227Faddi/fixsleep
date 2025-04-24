@@ -2,10 +2,9 @@ import CycleCard from "@/src/components/CycleCard";
 import color from "@/src/constants/colors";
 import cyclesData from "@/src/constants/cyclesData";
 import iconsData from "@/src/constants/iconsData";
+import { useTimetofall } from "@/src/hooks/contexts";
 import calcCycles from "@/src/lib/calcCycles";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router, useLocalSearchParams } from "expo-router";
-import { useEffect, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 
 const CyclesScreen = () => {
@@ -14,29 +13,17 @@ const CyclesScreen = () => {
     query: string;
   }>();
 
+  const { timetofall } = useTimetofall();
+
   if (mode !== "sleep" && mode !== "wake") {
     router.back();
     return alert("Error, Please try again");
   }
 
-  const [timetofall, setTimetofall] = useState(15);
-
-  useEffect(() => {
-    getTimetofall();
-  }, []);
-
-  const getTimetofall = async () => {
-    const value = await AsyncStorage.getItem("timetofall");
-    if (!value) {
-      return;
-    }
-    setTimetofall(Number(value));
-  };
-
   const timeCycles =
     mode === "sleep"
-      ? calcCycles.sleep(time, timetofall)
-      : calcCycles.wake(time, timetofall);
+      ? calcCycles.sleep(time, Number(timetofall))
+      : calcCycles.wake(time, Number(timetofall));
 
   const cycles = mode === "sleep" ? cyclesData : cyclesData.reverse();
 

@@ -2,30 +2,15 @@ import MainButton from "@/src/components/MainButton";
 import { TimePickerStyles } from "@/src/components/TimerPicker";
 import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
-import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";
+import { useTimetofall } from "@/src/hooks/contexts";
 import { router } from "expo-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const SleepScreen = () => {
-  const { getItem, setItem, removeItem } = useAsyncStorage("timetofall");
+  const { timetofall, setTimetofall } = useTimetofall();
   const [showTimePicker, setShowTimePicker] = useState(false);
-  const [timetofall, setTimetofall] = useState<string | null>(null);
-
-  useEffect(() => {
-    getTimetofall();
-  }, []);
-
-  const getTimetofall = async () => {
-    const item = await getItem();
-    setTimetofall(item);
-  };
-
-  const storeTimetofall = async (minutes: string) => {
-    await setItem(minutes);
-    setTimetofall(minutes);
-  };
 
   return (
     <>
@@ -74,7 +59,7 @@ const SleepScreen = () => {
         setIsVisible={setShowTimePicker}
         onConfirm={(pickedDuration) => {
           setShowTimePicker(false);
-          storeTimetofall(pickedDuration.minutes.toString());
+          setTimetofall(pickedDuration.minutes.toString());
         }}
         modalTitle=""
         onCancel={() => setShowTimePicker(false)}
