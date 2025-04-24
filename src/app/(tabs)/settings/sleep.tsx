@@ -2,13 +2,14 @@ import MainButton from "@/src/components/MainButton";
 import { TimePickerStyles } from "@/src/components/TimerPicker";
 import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const SleepScreen = () => {
+  const { getItem, setItem, removeItem } = useAsyncStorage("timetofall");
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [timetofall, setTimetofall] = useState<string | null>(null);
 
@@ -17,25 +18,13 @@ const SleepScreen = () => {
   }, []);
 
   const getTimetofall = async () => {
-    try {
-      const value = await AsyncStorage.getItem("timetofall");
-      if (!value) {
-        storeTimetofall("15");
-      }
-      setTimetofall(value);
-      return value;
-    } catch (e) {
-      alert(e);
-    }
+    const item = await getItem();
+    setTimetofall(item);
   };
 
   const storeTimetofall = async (minutes: string) => {
-    try {
-      await AsyncStorage.setItem("timetofall", minutes);
-      setTimetofall(minutes);
-    } catch (e) {
-      alert(e);
-    }
+    await setItem(minutes);
+    setTimetofall(minutes);
   };
 
   return (
