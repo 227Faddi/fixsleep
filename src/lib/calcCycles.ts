@@ -14,7 +14,7 @@ const calcCycles = {
   },
 
   wake: (startTime: string, timetofall: number = 15) => {
-    const startMinutes = timeToMinutes(startTime) + timetofall;
+    const startMinutes = timeToMinutes(startTime) - timetofall;
     const result = {};
 
     for (let i = 1; i <= 6; i++) {

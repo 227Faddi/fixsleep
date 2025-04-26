@@ -38,48 +38,46 @@ const HomeScreen = () => {
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <>
-        <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
-          <View className="gap-3">
-            <View className="flex-row justify-center items-center gap-1">
-              <Text className="text-4xl text-textPrimary font-bold">
-                Sleepnow
-              </Text>
-              {iconsData["bed"]({ color: color.textPrimary })}
-            </View>
-            <Text className="text-xl text-center text-textPrimary">
-              Helping you catch better zzz’s, one cycle at a time.
+      <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
+        <View className="gap-3">
+          <View className="flex-row justify-center items-center gap-1">
+            <Text className="text-4xl text-textPrimary font-bold">
+              Sleepnow
             </Text>
+            {iconsData["bed"]({ color: color.textPrimary })}
           </View>
-          <View className="flex-1 gap-12 justify-center">
-            <View className="gap-6">
-              <View className="gap-3">
-                <Text className="text-2xl text-center text-textPrimary">
-                  Wake Up At
-                </Text>
-                <MainButton
-                  onPress={() => setShowWakeTime(true)}
-                  text="Pick a time"
-                />
-              </View>
-              <View className="gap-3">
-                <Text className="text-2xl text-center text-textPrimary">
-                  Fall Asleep At
-                </Text>
-                <MainButton
-                  onPress={() => setShowSleepTime(true)}
-                  text="Pick a time"
-                />
-              </View>
+          <Text className="text-xl text-center text-textPrimary">
+            Helping you catch better zzz’s, one cycle at a time.
+          </Text>
+        </View>
+        <View className="flex-1 gap-12 justify-center">
+          <View className="gap-6">
+            <View className="gap-3">
+              <Text className="text-2xl text-center text-textPrimary">
+                Wake Up At
+              </Text>
+              <MainButton
+                onPress={() => setShowWakeTime(true)}
+                text="Pick a time"
+              />
             </View>
-            <MainButton
-              onPress={() => getSleepCycles(formatTimeNow())}
-              text="Rest Now"
-              icon={iconsData["alarm"]()}
-              textClass="text-2xl text-center text-textPrimary"
-              containerClass={`p-6 bg-accent`}
-            />
+            <View className="gap-3">
+              <Text className="text-2xl text-center text-textPrimary">
+                Fall Asleep At
+              </Text>
+              <MainButton
+                onPress={() => setShowSleepTime(true)}
+                text="Pick a time"
+              />
+            </View>
           </View>
+          <MainButton
+            onPress={() => getSleepCycles(formatTimeNow())}
+            text="Rest Now"
+            icon={iconsData["alarm"]()}
+            textClass="text-2xl text-center text-textPrimary"
+            containerClass={`p-6 bg-accent`}
+          />
         </View>
         <TimerPicker
           mode="wake"
@@ -93,7 +91,7 @@ const HomeScreen = () => {
           setShowModal={setShowSleepTime}
           onConfirmFN={getSleepCycles}
         />
-      </>
+      </View>
     </PanGestureHandler>
   );
 };

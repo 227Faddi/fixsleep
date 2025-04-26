@@ -45,6 +45,8 @@ export const TimePickerStyles = {
   },
   contentContainer: {
     backgroundColor: color.primary,
+    // borderWidth: 1,
+    // borderColor: color.textSecondary,
   },
   pickerContainer: {
     marginBlock: 15,
