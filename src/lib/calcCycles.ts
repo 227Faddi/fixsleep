@@ -3,7 +3,7 @@ const cycleDuration = 90;
 const calcCycles = {
   sleep: (startTime: string, timetofall: number = 15) => {
     const startMinutes = timeToMinutes(startTime) + timetofall;
-    const result = {};
+    const result: { [key: number]: string } = {};
 
     for (let i = 1; i <= 6; i++) {
       const cycleTime = startMinutes + i * cycleDuration;
@@ -15,7 +15,7 @@ const calcCycles = {
 
   wake: (startTime: string, timetofall: number = 15) => {
     const startMinutes = timeToMinutes(startTime) - timetofall;
-    const result = {};
+    const result: { [key: number]: string } = {};
 
     for (let i = 1; i <= 6; i++) {
       const cycleTime = startMinutes - i * cycleDuration;

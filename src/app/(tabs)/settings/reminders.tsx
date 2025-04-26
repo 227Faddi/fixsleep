@@ -2,17 +2,31 @@ import MainButton from "@/src/components/MainButton";
 import { TimePickerStyles } from "@/src/components/TimerPicker";
 import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
+import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";
 import { formatTime } from "@/src/lib/formatTime";
 import * as Notifications from "expo-notifications";
 import { router } from "expo-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Pressable, Switch, Text, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const RemindersScreen = () => {
+  const { setItem, getItem, removeItem } = useAsyncStorage("sleeptime");
   const [showTimePicker, setShowTimePicker] = useState(false);
-  const [sleepTime, setSleepTime] = useState("23:00");
+  const [sleepTime, setSleepTime] = useState("");
   const [isEnabled, setIsEnabled] = useState(false);
+
+  useEffect(() => {
+    const loadSleepTime = async () => {
+      const stored = await getItem();
+      if (stored) {
+        const { hours, minutes } = stored;
+        setSleepTime(formatTime({ hours, minutes }));
+        setIsEnabled(true);
+      }
+    };
+    loadSleepTime();
+  }, []);
 
   const changeDailyNotifications = async ({
     hours,
@@ -21,9 +35,9 @@ const RemindersScreen = () => {
     hours: number;
     minutes: number;
   }) => {
-    setSleepTime(formatTime({ hours, minutes }));
-
     try {
+      await Notifications.cancelAllScheduledNotificationsAsync();
+
       const id = await Notifications.scheduleNotificationAsync({
         content: {
           title: "Sleep Time",
@@ -37,20 +51,22 @@ const RemindersScreen = () => {
         },
       });
 
-      const noti = await Notifications.getAllScheduledNotificationsAsync();
-      console.log(noti);
+      await setItem({ id, hours, minutes });
+      setSleepTime(formatTime({ hours, minutes }));
     } catch {
       alert("Enable to schedule notifiaction, try again");
     }
   };
 
-  const toggleReminder = () => {
-    const status = !isEnabled;
-    setIsEnabled(status);
-
-    if (!status) {
-      Notifications.cancelAllScheduledNotificationsAsync();
+  const toggleReminder = async () => {
+    const newStatus = !isEnabled;
+    if (!newStatus) {
+      await Notifications.cancelAllScheduledNotificationsAsync();
+      await removeItem();
+      setIsEnabled(false);
+      return;
     }
+    setShowTimePicker(true);
   };
 
   return (
@@ -78,8 +94,8 @@ const RemindersScreen = () => {
                 <Switch
                   value={isEnabled}
                   onValueChange={toggleReminder}
-                  trackColor={{ false: "#fff", true: "#000" }}
-                  ios_backgroundColor={"#fff"}
+                  trackColor={{ false: color.primary, true: color.accent }}
+                  ios_backgroundColor={color.primary}
                 />
               </View>
               <Text className="text-textPrimary text-xl">
@@ -114,8 +130,11 @@ const RemindersScreen = () => {
           setShowTimePicker(false);
           const { hours, minutes } = pickedDuration;
           changeDailyNotifications({ hours, minutes });
+          setIsEnabled(true);
         }}
-        onCancel={() => setShowTimePicker(false)}
+        onCancel={() => {
+          setShowTimePicker(false);
+        }}
         closeOnOverlayPress
         styles={{ ...TimePickerStyles }}
         modalProps={{

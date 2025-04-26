@@ -27,6 +27,8 @@ const CyclesScreen = () => {
       ? calcCycles.sleep(time, Number(timetofall))
       : calcCycles.wake(time, Number(timetofall));
 
+  console.log(timeCycles);
+
   const cycles = getCyclesData(mode);
 
   return (
