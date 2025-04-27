@@ -10,9 +10,11 @@ const CTA = () => {
       <h2 className="text-5xl font-bold text-center pb-16">
         Join The Waitlist
       </h2>
-      <div className="card bg-slate-500 shadow-sm">
+      <div className="card bg-primary shadow-sm">
         <div className="card-body items-center text-center">
-          <h2 className="card-title">Subscribe</h2>
+          <h3 className="card-title">
+            You will be ONLY notified when the app launches
+          </h3>
           <div className="card-actions">
             <form
               action={handleForm}
@@ -20,14 +22,18 @@ const CTA = () => {
             >
               <div>
                 <input
-                  className="input validator"
+                  className="input validator border-r-0 rounded-r-none outline-r-none"
                   type="email"
                   required
-                  placeholder="mail@site.com"
+                  autoComplete="false"
+                  placeholder="youremail@site.com"
                 />
                 <p className="validator-hint">Enter valid email address</p>
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button
+                type="submit"
+                className="btn btn-accent text-white border-l-0 rounded-l-none"
+              >
                 Send
               </button>
             </form>
