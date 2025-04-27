@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <div className="min-h-screen p-6 flex flex-col items-center">
+    <div className="min-h-screen flex flex-col items-center p-6">
       <Navbar />
       <Hero />
       <Features />

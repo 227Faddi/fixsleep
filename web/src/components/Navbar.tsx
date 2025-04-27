@@ -1,30 +1,18 @@
 import Link from "next/link";
 
+import { IoMenu } from "react-icons/io5";
+
 const Navbar = () => {
   return (
-    <nav className="navbar bg-base-100 shadow-sm rounded-3xl w-auto">
+    <nav className="navbar bg-white shadow-sm rounded-3xl w-auto sm:space-x-8 text-black">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
-            </svg>
+            <IoMenu size={25} />
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-white rounded-box z-1 mt-3 w-52 p-2 shadow text-2xl"
           >
             <li>
               <Link href="#features">Features</Link>
@@ -34,7 +22,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link href="/" className="btn btn-ghost text-xl">
+        <Link href="/" className="btn btn-ghost text-xl rounded-3xl">
           FixSleep
         </Link>
       </div>
@@ -49,7 +37,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Download</a>
+        <Link href="#cta" className="btn bg-primary rounded-3xl">
+          Download
+        </Link>
       </div>
     </nav>
   );
