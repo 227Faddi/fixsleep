@@ -43,13 +43,13 @@ const CyclesScreen = () => {
         <View className="flex-row items-center justify-center gap-2">
           {mode === "sleep" ? iconsData["moon"]() : iconsData["sun"]()}
           <Text className="text-center text-4xl text-textPrimary font-bold">
-            {mode === "sleep" ? `Sleep` : `Wake up`}
+            {mode === "sleep" ? `Bedtime` : `Wake up Time`}
           </Text>
         </View>
         <Text className="text-center text-xl text-textPrimary">
           {mode === "sleep"
-            ? `Wake up at the best time after your sleep cycle.`
-            : `Go to bed at one of these time to wake up relaxed at ${time}`}
+            ? `If you go to sleep at ${time}, try waking up at one of these times.`
+            : `To wake up around ${time}, try falling asleep at one of these times.`}
         </Text>
       </View>
       <View className="flex-1 justify-center gap-4">

@@ -4,8 +4,8 @@ const Features = () => {
       <h2 className="text-3xl sm:text-5xl font-bold text-center pb-16">
         Features
       </h2>
-      <div className="flex flex-col md:flex-row gap-12 text-black">
-        <div className="card gap-6 rounded-3xl bg-white px-6 pt-4 shadow shadow-white">
+      <div className="flex flex-col md:flex-row gap-12">
+        <div className="card gap-6 rounded-3xl bg-primary px-6 pt-4">
           <div className="card-body text-center gap-3">
             <h3 className="text-3xl font-bold text-accent">
               Calculate Sleep Cycles
@@ -16,12 +16,12 @@ const Features = () => {
             </p>
           </div>
           <figure>
-            <img src="./Notes.webp" alt="Shoes" />
+            <img src="./sleepcycle.png" alt="Shoes" className="h-full" />
           </figure>
         </div>
-        <div className="card gap-6 rounded-3xl bg-white px-6 pb-4 shadow shadow-white">
+        <div className="card gap-6 rounded-3xl bg-primary px-6 pb-4">
           <figure>
-            <img src="./Chat.webp" alt="Shoes" />
+            <img src="./reminder.png" alt="Shoes" />
           </figure>
           <div className="card-body text-center gap-3">
             <h3 className="text-3xl font-bold text-accent">
@@ -33,9 +33,9 @@ const Features = () => {
             </p>
           </div>
         </div>
-        <div className="card gap-6 rounded-3xl bg-white px-6 pb-4 shadow shadow-white">
+        <div className="card gap-6 rounded-3xl bg-primary px-6 pb-4">
           <figure>
-            <img src="./Chat.webp" alt="Shoes" />
+            <img src="./sounds.png" alt="Shoes" />
           </figure>
           <div className="card-body text-center gap-3">
             <h3 className="text-3xl font-bold text-accent">

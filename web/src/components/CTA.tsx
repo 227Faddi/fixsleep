@@ -13,7 +13,7 @@ const CTA = () => {
       <div className="card bg-primary shadow-sm">
         <div className="card-body items-center text-center">
           <h3 className="card-title">
-            You will be ONLY notified when the app launches
+            Sign up to be notified when FixSleep officially launches!
           </h3>
           <div className="card-actions">
             <form
