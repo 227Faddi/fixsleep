@@ -26,7 +26,7 @@ async function requestPermissions() {
       return;
     }
   } else {
-    alert("Must use physical device for Push Notifications");
+    // alert("Must use physical device for Push Notifications");
   }
 }
 

@@ -41,12 +41,12 @@ const HomeScreen = () => {
       <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
         <View className="gap-3">
           <View className="flex-row justify-center items-center gap-1">
-            <Text className="text-4xl text-textPrimary font-bold">
-              Sleepnow
+            <Text className="text-4xl text-textPrimary font-fredokaBold">
+              FixSleep
             </Text>
             {iconsData["bed"]({ color: color.textPrimary })}
           </View>
-          <Text className="text-xl text-center text-textPrimary">
+          <Text className="text-xl text-center text-textPrimary font-fredokaMedium">
             Helping you catch better zzz’s, one cycle at a time.
           </Text>
         </View>

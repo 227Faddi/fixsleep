@@ -12,6 +12,11 @@ module.exports = {
         accent: color.accent,
         textPrimary: color.textPrimary,
       },
+      fontFamily: {
+        fredoka: "Fredoka-Regular",
+        fredokaMedium: "Fredoka-Medium",
+        fredokaBold: "Fredoka-Bold",
+      },
     },
   },
   plugins: [],
