@@ -14,9 +14,7 @@ const CTA = () => {
     setLoading(true);
 
     const form = e.currentTarget;
-    const email = (
-      form.elements.namedItem("entry.1989668253") as HTMLInputElement
-    ).value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
 
     try {
       const response = await fetch(
