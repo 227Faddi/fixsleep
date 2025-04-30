@@ -38,6 +38,7 @@ const TimerPicker = ({ showModal, setShowModal, mode, onConfirmFN }: Props) => {
 };
 
 export const TimePickerStyles = {
+  text: { fontFamily: "Fredoka-Medium" },
   modalTitle: {
     paddingInline: 25,
     fontWeight: "600" as const,

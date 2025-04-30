@@ -1,8 +1,9 @@
+import MyText from "@/src/components/MyText";
 import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
 import { router } from "expo-router";
 import { useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, View } from "react-native";
 
 const LanguageScreen = () => {
   const [currentLang, setCurrentLang] = useState("en");
@@ -20,9 +21,9 @@ const LanguageScreen = () => {
       </Pressable>
       <View className="flex-row items-center justify-center gap-2">
         {iconsData["language"]()}
-        <Text className="text-center text-4xl text-textPrimary font-bold">
+        <MyText className="text-center text-4xl text-textPrimary font-bold">
           Language
-        </Text>
+        </MyText>
       </View>
       <View className="flex-1 justify-center w-full">
         <View className="justify-center bg-primary rounded-3xl">
@@ -32,13 +33,13 @@ const LanguageScreen = () => {
             className="p-6 rounded-3xl flex-row gap-4 items-center justify-between"
           >
             <View className="flex-row gap-4">
-              <Text
+              <MyText
                 className={`text-xl text-textPrimary ${
                   currentLang === "en" && "font-bold"
                 }`}
               >
                 English
-              </Text>
+              </MyText>
             </View>
             {currentLang === "en" && iconsData["checkmark"]()}
           </Pressable>
@@ -48,13 +49,13 @@ const LanguageScreen = () => {
             className="p-6 rounded-3xl flex-row gap-4 items-center justify-between"
           >
             <View className="flex-row gap-4">
-              <Text
+              <MyText
                 className={`text-xl text-textPrimary ${
                   currentLang === "fr" && "font-bold"
                 }`}
               >
                 French
-              </Text>
+              </MyText>
             </View>
             {currentLang === "fr" && iconsData["checkmark"]()}
           </Pressable>

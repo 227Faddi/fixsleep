@@ -1,3 +1,4 @@
+import MyText from "@/src/components/MyText";
 import color from "@/src/constants/colors";
 import icon from "@/src/constants/iconsData";
 import sounds from "@/src/constants/soundsData";
@@ -5,7 +6,7 @@ import { Audio } from "expo-av";
 import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, View } from "react-native";
 
 const SoundPlayer = () => {
   const { value } = useLocalSearchParams<{ value: string }>();
@@ -69,9 +70,9 @@ const SoundPlayer = () => {
       </Pressable>
       <View className="flex-row justify-center items-center gap-3">
         {icon[selectedSound?.value as keyof typeof icon]()}
-        <Text className="text-4xl text-textPrimary font-bold">
+        <MyText className="text-4xl text-textPrimary font-bold">
           {selectedSound?.title}
-        </Text>
+        </MyText>
       </View>
       <View className="w-full flex-1 flex-col justify-between items-center gap-8">
         <Image

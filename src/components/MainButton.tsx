@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import { Pressable, Text } from "react-native";
+import { Pressable } from "react-native";
+import MyText from "./MyText";
 
 type Props = {
   onPress: () => unknown;
@@ -22,7 +23,7 @@ const MainButton = ({
       className={`p-4 rounded-3xl justify-center flex-row items-center gap-1 ${containerClass}`}
     >
       {icon}
-      <Text className={`text-center ${textClass}`}>{text}</Text>
+      <MyText className={`text-center ${textClass}`}>{text}</MyText>
     </Pressable>
   );
 };

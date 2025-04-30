@@ -1,6 +1,7 @@
+import MyText from "@/src/components/MyText";
 import iconsData from "@/src/constants/iconsData";
 import { router } from "expo-router";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, View } from "react-native";
 import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
@@ -14,7 +15,7 @@ const Setting = ({ title, icon, route }) => {
     >
       <View className="flex-row gap-4">
         {iconsData[icon as keyof typeof iconsData]({ justifySelf: "flex-end" })}
-        <Text className="text-xl text-textPrimary">{title}</Text>
+        <MyText className="text-xl text-textPrimary">{title}</MyText>
       </View>
       {iconsData["arrowForward"]()}
     </Pressable>
@@ -51,7 +52,9 @@ const SettingsScreen = () => {
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
       <View className="flex-1 pb-32 pt-24 px-16 gap-24 items-center">
-        <Text className="text-4xl text-textPrimary font-bold">Settings</Text>
+        <MyText className="text-4xl text-textPrimary font-bold">
+          Settings
+        </MyText>
         <View className="w-full bg-primary rounded-3xl">
           {settings.map((item, index) => (
             <Setting

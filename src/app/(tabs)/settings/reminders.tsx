@@ -1,4 +1,5 @@
 import MainButton from "@/src/components/MainButton";
+import MyText from "@/src/components/MyText";
 import { TimePickerStyles } from "@/src/components/TimerPicker";
 import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
@@ -7,7 +8,7 @@ import { formatTime } from "@/src/lib/formatTime";
 import * as Notifications from "expo-notifications";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
-import { Pressable, Switch, Text, View } from "react-native";
+import { Pressable, Switch, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const RemindersScreen = () => {
@@ -26,7 +27,7 @@ const RemindersScreen = () => {
       }
     };
     loadSleepTime();
-  }, []);
+  }, [getItem]);
 
   const changeDailyNotifications = async ({
     hours,
@@ -81,16 +82,16 @@ const RemindersScreen = () => {
         <View className="gap-2">
           <View className="flex-row items-center justify-center gap-2">
             {iconsData["notifications"]()}
-            <Text className="text-center text-4xl text-textPrimary font-bold">
+            <MyText className="text-center text-4xl text-textPrimary font-bold">
               Reminders
-            </Text>
+            </MyText>
           </View>
           <View className="flex-1 justify-center">
             <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
               <View className="flex-row items-center justify-center gap-3">
-                <Text className="text-accent text-2xl text-center font-bold">
+                <MyText className="text-accent text-2xl text-center font-bold">
                   Sleep Time
-                </Text>
+                </MyText>
                 <Switch
                   value={isEnabled}
                   onValueChange={toggleReminder}
@@ -98,19 +99,19 @@ const RemindersScreen = () => {
                   ios_backgroundColor={color.primary}
                 />
               </View>
-              <Text className="text-textPrimary text-xl">
+              <MyText className="text-textPrimary text-xl">
                 Set a bedtime reminder to build a consistent and healthy sleep
                 routine.
-              </Text>
+              </MyText>
               {isEnabled && (
                 <>
                   <View className="flex-row justify-between">
-                    <Text className="text-textPrimary text-2xl font-bold">
+                    <MyText className="text-textPrimary text-2xl font-bold">
                       Current
-                    </Text>
-                    <Text className="text-textPrimary text-2xl font-bold">
+                    </MyText>
+                    <MyText className="text-textPrimary text-2xl font-bold">
                       {sleepTime}
-                    </Text>
+                    </MyText>
                   </View>
                   <MainButton
                     onPress={() => setShowTimePicker(true)}

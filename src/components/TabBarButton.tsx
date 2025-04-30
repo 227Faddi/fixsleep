@@ -54,7 +54,10 @@ const TabBarButton = ({
       <Animated.View style={[animatedIcon]}>
         {icon[routeName as keyof typeof icon](color)}
       </Animated.View>
-      <Animated.Text style={[color, animatedText]} className="text-center">
+      <Animated.Text
+        style={[color, animatedText]}
+        className="text-center font-fredokaMedium"
+      >
         {label}
       </Animated.Text>
     </Pressable>

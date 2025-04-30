@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import iconsData from "../constants/iconsData";
+import MyText from "./MyText";
 
 type Props = {
   cycle: string;
@@ -13,11 +14,13 @@ const CycleCard = ({ cycle, hrSleep, time, icon }: Props) => {
   return (
     <View className="w-full rounded-xl p-4 flex-row justify-between bg-primary">
       <View className="flex-col justify-center gap-1">
-        <Text className="text-lg text-textPrimary">{hrSleep} hr of Sleep</Text>
-        <Text className="text-md text-accent">{cycle}</Text>
+        <MyText className="text-lg text-textPrimary">
+          {hrSleep} hr of Sleep
+        </MyText>
+        <MyText className="text-md text-accent">{cycle}</MyText>
       </View>
       <View className="flex-row justify-center items-center gap-2">
-        <Text className="text-3xl text-textPrimary">{time}</Text>
+        <MyText className="text-3xl text-textPrimary">{time}</MyText>
         {iconsData[icon as keyof typeof iconsData]({
           size: 35,
         })}

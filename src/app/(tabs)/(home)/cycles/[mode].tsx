@@ -1,11 +1,12 @@
 import CycleCard from "@/src/components/CycleCard";
+import MyText from "@/src/components/MyText";
 import color from "@/src/constants/colors";
 import getCyclesData from "@/src/constants/cyclesData";
 import iconsData from "@/src/constants/iconsData";
 import { useTimetofall } from "@/src/hooks/contexts";
 import calcCycles from "@/src/lib/calcCycles";
 import { router, useLocalSearchParams } from "expo-router";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, View } from "react-native";
 
 const CyclesScreen = () => {
   const { mode, query: time } = useLocalSearchParams<{
@@ -41,16 +42,16 @@ const CyclesScreen = () => {
       </Pressable>
       <View className="gap-2">
         <View className="flex-row items-center justify-center gap-2">
-          {mode === "sleep" ? iconsData["moon"]() : iconsData["sun"]()}
-          <Text className="text-center text-4xl text-textPrimary font-bold">
-            {mode === "sleep" ? `Bedtime` : `Wake up Time`}
-          </Text>
+          {mode === "sleep" ? iconsData["sun"]() : iconsData["moon"]()}
+          <MyText className="text-center text-4xl text-textPrimary font-bold">
+            {mode === "sleep" ? `Wake up Time` : `Bedtime`}
+          </MyText>
         </View>
-        <Text className="text-center text-xl text-textPrimary">
+        <MyText className="text-center text-xl text-textPrimary">
           {mode === "sleep"
             ? `If you go to sleep at ${time}, try waking up at one of these times.`
             : `To wake up around ${time}, try falling asleep at one of these times.`}
-        </Text>
+        </MyText>
       </View>
       <View className="flex-1 justify-center gap-4">
         {cycles.map((item) => (
