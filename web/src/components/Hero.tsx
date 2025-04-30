@@ -7,7 +7,8 @@ const Hero = () => {
       <div className="hero-content">
         <div className="max-w-lg flex flex-col items-center justify-center">
           <h1 className="text-5xl md:text-7xl font-bold text-center text-accent">
-            Calculate Your Sleep Cycles
+            Calculate Your{" "}
+            <span className="font-thin text-nowrap">Sleep Cycles</span>
           </h1>
           <p className="text-2xl md:text-4xl py-6 text-center">
             Find the best times to sleep and wake for better rest and
