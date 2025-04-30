@@ -1,12 +1,11 @@
 import Link from "next/link";
-
 import { IoMenu } from "react-icons/io5";
 
 const Navbar = () => {
   return (
     <nav className="navbar bg-primary rounded-3xl w-auto px-4 space-x-4 md:px-8 md:space-x-8 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]">
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown space-x-4 lg:space-x-0">
           <div tabIndex={0} role="button" className="lg:hidden">
             <IoMenu size={30} />
           </div>
@@ -21,7 +20,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link href="#faq" className="text-lg">
-                FAQ
+                Q&A
               </Link>
             </li>
           </ul>
@@ -36,14 +35,14 @@ const Navbar = () => {
             <Link href="#features">Features</Link>
           </li>
           <li>
-            <Link href="#faq">FAQ</Link>
+            <Link href="#faq">Q&A</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
         <Link
           href="#cta"
-          className="btn bg-[#9A73E8] rounded-xl border-none text-md md:text-lg md:p-4"
+          className="btn bg-[#9A73E8] rounded-xl border-none md:text-lg md:p-4"
         >
           Download
         </Link>
