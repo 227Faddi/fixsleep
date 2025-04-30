@@ -2,7 +2,7 @@ const Faq = () => {
   return (
     <section id="faq" className="py-28">
       <h2 className="text-5xl font-bold text-center pb-16">FAQ</h2>
-      <div className="bg-primary p-4 rounded-3xl">
+      <div className="bg-primary p-4 rounded-3xl shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]">
         <div className="collapse collapse-arrow">
           <input type="radio" name="my-accordion-2" defaultChecked />
           <div className="collapse-title font-semibold">

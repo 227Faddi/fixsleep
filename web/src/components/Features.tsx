@@ -1,28 +1,41 @@
+import Image from "next/image";
+
 const Features = () => {
   return (
     <section id="features" className="py-28">
       <h2 className="text-3xl sm:text-5xl font-bold text-center pb-16">
         Features
       </h2>
-      <div className="flex flex-col md:flex-row gap-12">
-        <div className="card gap-6 rounded-3xl bg-primary px-6 pt-4">
+      <div className="flex flex-col md:flex-row gap-20 overflow-hidden relative">
+        <div className="relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pt-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]">
           <div className="card-body text-center gap-3">
             <h3 className="text-3xl font-bold text-accent">
-              Calculate Sleep Cycles
+              Optimize Your Sleep Schedule
             </h3>
             <p className="text-xl">
               Easily calculate your ideal sleep and wake-up times based on your
               natural sleep cycles.
             </p>
           </div>
-          <figure>
-            <img src="./sleepcycle.png" alt="Shoes" className="h-full" />
-          </figure>
+          <Image
+            src="/sleepcycle.png"
+            alt="iphone image showing sleep cycles screen"
+            className="w-full object-cover"
+            width={300}
+            height={300}
+          />
+          <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-primary to-transparent"></div>
         </div>
-        <div className="card gap-6 rounded-3xl bg-primary px-6 pb-4">
-          <figure>
-            <img src="./reminder.png" alt="Shoes" />
-          </figure>
+
+        <div className="relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pb-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]">
+          <Image
+            src="/reminder.png"
+            alt="iPhone image showing sleep cycles screen"
+            className="w-full object-cover"
+            width={300}
+            height={300}
+          />
+          <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-primary to-transparent"></div>
           <div className="card-body text-center gap-3">
             <h3 className="text-3xl font-bold text-accent">
               Sleep Time Reminder
@@ -33,10 +46,16 @@ const Features = () => {
             </p>
           </div>
         </div>
-        <div className="card gap-6 rounded-3xl bg-primary px-6 pb-4">
-          <figure>
-            <img src="./sounds.png" alt="Shoes" />
-          </figure>
+
+        <div className="relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pb-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]">
+          <Image
+            src="/sounds.png"
+            alt="iPhone image showing sleep cycles screen"
+            className="w-full object-cover"
+            width={300}
+            height={300}
+          />
+          <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-primary to-transparent"></div>
           <div className="card-body text-center gap-3">
             <h3 className="text-3xl font-bold text-accent">
               Relaxing Sleep Sounds

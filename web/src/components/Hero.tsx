@@ -6,7 +6,7 @@ const Hero = () => {
     <section id="hero" className="hero min-h-screen py-28">
       <div className="hero-content">
         <div className="max-w-lg flex flex-col items-center justify-center">
-          <h1 className="text-4xl font-bold text-center">
+          <h1 className="text-4xl font-bold text-center text-accent">
             Calculate Your Sleep Cycles
           </h1>
           <p className="text-xl py-6 text-center">
@@ -17,7 +17,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 max-w-56">
             <Link
               href="#cta"
-              className="btn btn-primary flex items-center justify-start gap-4 rounded-xl py-8 w-full border border-white"
+              className="btn btn-primary flex items-center justify-start gap-4 rounded-xl py-8 w-full border border-white shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
             >
               <IoLogoApple size={40} />
               <div className="flex flex-col items-start justify-center">
@@ -27,7 +27,7 @@ const Hero = () => {
             </Link>
             <Link
               href="#cta"
-              className="btn btn-primary flex items-center justify-start gap-4 rounded-xl py-8 w-full border border-white"
+              className="btn btn-primary flex items-center justify-start gap-4 rounded-xl py-8 w-full border border-white shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
             >
               <IoLogoGooglePlaystore size={40} />
               <div className="flex flex-col items-start justify-center">

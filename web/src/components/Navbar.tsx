@@ -4,7 +4,7 @@ import { IoMenu } from "react-icons/io5";
 
 const Navbar = () => {
   return (
-    <nav className="navbar bg-[#2A2A2E] shadow-sm rounded-3xl w-auto px-4 space-x-4">
+    <nav className="navbar bg-primary rounded-3xl w-auto px-4 space-x-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]">
       <div className="navbar-start space-x-4">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="lg:hidden">

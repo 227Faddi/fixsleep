@@ -8,7 +8,7 @@ const Footer = () => {
         © 2025 Fix Sleep. All Rights Reserved.
       </a>
       <ul className="flex gap-3 sm:gap-12 justify-center items-center">
-        <li>
+        {/* <li>
           <a href="#">Privacy</a>
         </li>
         <li>
@@ -16,7 +16,7 @@ const Footer = () => {
         </li>
         <li>
           <a href="#">Contact Us</a>
-        </li>
+        </li> */}
       </ul>
     </footer>
   );
