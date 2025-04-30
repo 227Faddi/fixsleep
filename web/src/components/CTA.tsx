@@ -7,15 +7,15 @@ const CTA = () => {
 
   return (
     <section id="cta" className="py-28">
-      <h2 className="text-5xl font-bold text-center pb-16">
+      <h2 className="text-4xl font-bold text-center pb-16">
         Join The Waitlist
       </h2>
-      <div className="card bg-primary shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]">
+      <div className="card p-6 bg-primary shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]">
         <div className="card-body items-center text-center">
-          <h3 className="card-title">
+          <h3 className="card-title lg:text-xl">
             Sign up to be notified when we officially launch!
           </h3>
-          <div className="card-actions">
+          <div className="card-actions pt-4">
             <form
               action={handleForm}
               className="flex justify-center items-start"

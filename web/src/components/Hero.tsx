@@ -3,13 +3,13 @@ import { IoLogoApple, IoLogoGooglePlaystore } from "react-icons/io5";
 
 const Hero = () => {
   return (
-    <section id="hero" className="hero min-h-screen py-28">
+    <section id="hero" className="hero min-h-screen pb-28">
       <div className="hero-content">
         <div className="max-w-lg flex flex-col items-center justify-center">
-          <h1 className="text-4xl font-bold text-center text-accent">
+          <h1 className="text-5xl md:text-7xl font-bold text-center text-accent">
             Calculate Your Sleep Cycles
           </h1>
-          <p className="text-xl py-6 text-center">
+          <p className="text-2xl md:text-4xl py-6 text-center">
             Find the best times to sleep and wake for better rest and
             productivity.
           </p>
