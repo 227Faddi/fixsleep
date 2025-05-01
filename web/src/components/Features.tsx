@@ -25,7 +25,7 @@ const Features = () => {
         >
           <div className="card-body text-center gap-3">
             <h3 className="text-3xl font-bold text-accent">
-              Optimize Your Sleep Schedule
+              Sleep Cycle Calculator
             </h3>
             <p className="text-xl">
               Easily calculate your ideal sleep and wake-up times based on your
