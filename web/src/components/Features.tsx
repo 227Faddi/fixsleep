@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "motion/react";
 import Image from "next/image";
 
 const Features = () => {
@@ -7,7 +10,19 @@ const Features = () => {
         Features
       </h2>
       <div className="flex flex-col lg:flex-row gap-20 overflow-hidden relative max-w-sm lg:max-w-7xl">
-        <div className="lg:order-2 flex-1 relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pt-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              delay: 0.3 * 1,
+              duration: 1,
+            },
+          }}
+          viewport={{ once: true }}
+          className="lg:order-2 flex-1 relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pt-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
+        >
           <div className="card-body text-center gap-3">
             <h3 className="text-3xl font-bold text-accent">
               Optimize Your Sleep Schedule
@@ -25,9 +40,21 @@ const Features = () => {
             height={300}
           />
           <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-primary to-transparent"></div>
-        </div>
+        </motion.div>
 
-        <div className="lg:order-1 flex-1 relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pb-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              delay: 0.3 * 2,
+              duration: 1,
+            },
+          }}
+          viewport={{ once: true }}
+          className="lg:order-1 flex-1 relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pb-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
+        >
           <Image
             src="/reminder.png"
             alt="iPhone image showing sleep cycles screen"
@@ -45,9 +72,21 @@ const Features = () => {
               the best sleep.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="lg:order-3 flex-1 relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pb-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              delay: 0.3 * 3,
+              duration: 1,
+            },
+          }}
+          viewport={{ once: true }}
+          className="lg:order-3 flex-1 relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pb-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
+        >
           <Image
             src="/sounds.png"
             alt="iPhone image showing sleep cycles screen"
@@ -65,7 +104,7 @@ const Features = () => {
               soothing sounds.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

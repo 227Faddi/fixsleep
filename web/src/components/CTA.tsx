@@ -1,5 +1,6 @@
 "use client";
 const waitlistId = process.env.NEXT_PUBLIC_WAITLIST_ID;
+import { motion } from "motion/react";
 import { useState } from "react";
 
 const CTA = () => {
@@ -49,7 +50,13 @@ const CTA = () => {
       <h2 className="text-4xl sm:text-5xl font-bold text-center pb-16">
         Join The Waitlist
       </h2>
-      <div className="card p-6 bg-primary shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="card p-6 bg-primary shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
+      >
         <div className="card-body items-center text-center">
           <h3 className="card-title md:text-2xl">
             Get notified when we officially launch!
@@ -89,7 +96,7 @@ const CTA = () => {
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

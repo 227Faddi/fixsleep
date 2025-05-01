@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "motion/react";
 import Link from "next/link";
 import { IoLogoApple, IoLogoGooglePlaystore } from "react-icons/io5";
 
@@ -8,13 +11,27 @@ const Hero = () => {
         <div className="max-w-lg flex flex-col items-center justify-center">
           <h1 className="text-5xl md:text-7xl font-bold text-center">
             Calculate Your{" "}
-            <span className="text-accent text-nowrap">Sleep Cycles</span>
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="text-accent text-nowrap"
+            >
+              Sleep Cycles
+            </motion.span>
           </h1>
           <p className="text-2xl md:text-4xl py-6 text-center">
             Find the best times to sleep and wake for better rest and recovery.
           </p>
           {/* <button className="btn btn-primary text-2xl p-6">Sleep Now</button> */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 max-w-56">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 max-w-56"
+          >
             <Link
               href="#cta"
               className="btn btn-primary flex items-center justify-start gap-4 rounded-xl py-8 w-full border border-white shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
@@ -35,7 +52,7 @@ const Hero = () => {
                 <span className="text-lg">Google Play</span>
               </div>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
