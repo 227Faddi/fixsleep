@@ -6,7 +6,7 @@ import { Audio } from "expo-av";
 import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { Pressable, View } from "react-native";
+import { Pressable, TouchableOpacity, View } from "react-native";
 
 const SoundPlayer = () => {
   const { value } = useLocalSearchParams<{ value: string }>();
@@ -92,14 +92,14 @@ const SoundPlayer = () => {
           />
         </View> */}
         <View>
-          <Pressable
+          <TouchableOpacity
             className="p-6 rounded-full bg-primary"
             onPress={playSound}
           >
             {isPlaying
               ? icon["stop"]({ size: 40, color: color.textPrimary })
               : icon["play"]({ size: 40, color: color.textPrimary })}
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

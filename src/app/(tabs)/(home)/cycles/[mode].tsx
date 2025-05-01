@@ -14,8 +14,6 @@ const CyclesScreen = () => {
     query: string;
   }>();
 
-  // create an object with sleep and wake labels
-
   const { timetofall } = useTimetofall();
 
   if (mode !== "sleep" && mode !== "wake") {
@@ -27,8 +25,6 @@ const CyclesScreen = () => {
     mode === "sleep"
       ? calcCycles.sleep(time, Number(timetofall))
       : calcCycles.wake(time, Number(timetofall));
-
-  console.log(timeCycles);
 
   const cycles = getCyclesData(mode);
 

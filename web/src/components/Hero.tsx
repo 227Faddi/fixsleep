@@ -6,13 +6,12 @@ const Hero = () => {
     <section id="hero" className="hero min-h-screen pb-28 pt-4 sm:pt-0">
       <div className="hero-content">
         <div className="max-w-lg flex flex-col items-center justify-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-center text-accent">
+          <h1 className="text-5xl md:text-7xl font-bold text-center">
             Calculate Your{" "}
-            <span className="font-thin text-nowrap">Sleep Cycles</span>
+            <span className="text-accent text-nowrap">Sleep Cycles</span>
           </h1>
           <p className="text-2xl md:text-4xl py-6 text-center">
-            Find the best times to sleep and wake for better rest and
-            productivity.
+            Find the best times to sleep and wake for better rest and recovery.
           </p>
           {/* <button className="btn btn-primary text-2xl p-6">Sleep Now</button> */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 max-w-56">

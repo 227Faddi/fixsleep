@@ -1,6 +1,6 @@
 import icon from "@/src/constants/iconsData";
 import React, { useEffect } from "react";
-import { Pressable } from "react-native";
+import { TouchableOpacity } from "react-native";
 import Animated, {
   interpolate,
   useAnimatedStyle,
@@ -46,7 +46,7 @@ const TabBarButton = ({
   });
 
   return (
-    <Pressable
+    <TouchableOpacity
       onPress={onPress}
       onLongPress={onLongPress}
       className="flex-1 items-center"
@@ -60,7 +60,7 @@ const TabBarButton = ({
       >
         {label}
       </Animated.Text>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 

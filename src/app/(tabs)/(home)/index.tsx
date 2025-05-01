@@ -1,7 +1,6 @@
 import MainButton from "@/src/components/MainButton";
 import MyText from "@/src/components/MyText";
 import TimerPicker from "@/src/components/TimerPicker";
-import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
 import { formatTime, formatTimeNow } from "@/src/lib/formatTime";
 import { useRouter } from "expo-router";
@@ -42,13 +41,12 @@ const HomeScreen = () => {
       <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
         <View className="gap-3">
           <View className="flex-row justify-center items-center gap-1">
-            <MyText className="text-4xl text-textPrimary font-fredokaBold">
+            <MyText className="text-5xl text-textPrimary font-fredokaBold">
               FixSleep
             </MyText>
-            {iconsData["bed"]({ color: color.textPrimary })}
           </View>
-          <MyText className="text-xl text-center text-textPrimary font-fredokaMedium">
-            Helping you catch better zzz’s, one cycle at a time.
+          <MyText className="text-2xl text-center text-textPrimary font-fredokaMedium">
+            Calculate your sleep cycles for better rest and recovery.
           </MyText>
         </View>
         <View className="flex-1 gap-12 justify-center">
@@ -77,7 +75,7 @@ const HomeScreen = () => {
             text="Rest Now"
             icon={iconsData["alarm"]()}
             textClass="text-2xl text-center text-textPrimary"
-            containerClass={`p-6 bg-accent`}
+            containerClass={`p-6 bg-accent shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]`}
           />
         </View>
         <TimerPicker

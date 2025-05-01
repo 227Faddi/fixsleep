@@ -13,14 +13,14 @@ type Props = {
 const MainButton = ({
   onPress,
   containerClass = "bg-primary",
-  textClass = "text-textPrimary text-lg",
+  textClass = "text-textPrimary text-xl",
   text,
   icon,
 }: Props) => {
   return (
     <Pressable
       onPress={onPress}
-      className={`p-4 rounded-3xl justify-center flex-row items-center gap-1 ${containerClass}`}
+      className={`p-4 rounded-3xl justify-center flex-row items-center gap-1 ${containerClass} `}
     >
       {icon}
       <MyText className={`text-center ${textClass}`}>{text}</MyText>

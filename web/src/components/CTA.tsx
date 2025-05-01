@@ -46,7 +46,7 @@ const CTA = () => {
 
   return (
     <section id="cta" className="py-28">
-      <h2 className="text-4xl font-bold text-center pb-16">
+      <h2 className="text-4xl sm:text-5xl font-bold text-center pb-16">
         Join The Waitlist
       </h2>
       <div className="card p-6 bg-primary shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]">

@@ -18,7 +18,7 @@ const TimerPicker = ({ showModal, setShowModal, mode, onConfirmFN }: Props) => {
         setShowModal(false);
         onConfirmFN({ ...pickedDuration, mode });
       }}
-      modalTitle={mode === "sleep" ? `Go to sleep at` : `Wake up at`}
+      modalTitle={mode === "sleep" ? `Fall Asleep at` : `Wake up at`}
       onCancel={() => setShowModal(false)}
       closeOnOverlayPress
       styles={{ ...TimePickerStyles }}
