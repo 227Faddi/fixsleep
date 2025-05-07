@@ -56,13 +56,13 @@ const SleepScreen = () => {
         </View>
       </View>
       <TimerPickerModal
+        modalTitle="Pick a time"
         visible={showTimePicker}
         setIsVisible={setShowTimePicker}
         onConfirm={(pickedDuration) => {
           setShowTimePicker(false);
           setTimetofall(pickedDuration.minutes.toString());
         }}
-        modalTitle=""
         onCancel={() => setShowTimePicker(false)}
         closeOnOverlayPress
         styles={{ ...TimePickerStyles }}

@@ -125,6 +125,7 @@ const RemindersScreen = () => {
         </View>
       </View>
       <TimerPickerModal
+        modalTitle="Pick a time"
         visible={showTimePicker}
         setIsVisible={setShowTimePicker}
         onConfirm={(pickedDuration) => {
