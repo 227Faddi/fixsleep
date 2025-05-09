@@ -4,4 +4,12 @@ module.exports = {
   rules: {
     "prettier/prettier": "warn",
   },
+  settings: {
+    "import/resolver": {
+      alias: {
+        extensions: [".ts", ".tsx"],
+        map: [["@", "."]],
+      },
+    },
+  },
 };
