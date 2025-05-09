@@ -8,7 +8,7 @@ import { formatTime } from "@/src/lib/formatTime";
 import * as Notifications from "expo-notifications";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
-import { Pressable, Switch, View } from "react-native";
+import { Platform, Pressable, Switch, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const RemindersScreen = () => {
@@ -72,12 +72,16 @@ const RemindersScreen = () => {
 
   return (
     <>
-      <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
+      <View
+        className={`bg-background flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-28 pt-20 px-16" : "pb-24 pt-10 px-16"}`}
+      >
         <Pressable
           onPress={() => router.back()}
           className="absolute left-6 top-16"
         >
-          {iconsData["arrowBack"]({ color: color.textPrimary })}
+          {Platform.OS === "ios"
+            ? iconsData["arrowBackIos"]({ color: color.textPrimary })
+            : iconsData["arrowBackAndroid"]({ color: color.textPrimary })}
         </Pressable>
         <View className="gap-2">
           <View className="flex-row items-center justify-center gap-2">

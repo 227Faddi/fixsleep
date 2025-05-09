@@ -40,8 +40,11 @@ const iconsData = {
   brownNoise: (props?: object) => (
     <Ionicons name="cloud" size={24} color="#fff" {...props} />
   ),
-  arrowBack: (props?: object) => (
+  arrowBackIos: (props?: object) => (
     <Ionicons name="chevron-back" size={24} color="#fff" {...props} />
+  ),
+  arrowBackAndroid: (props?: object) => (
+    <Ionicons name="arrow-back" size={24} color="#fff" {...props} />
   ),
   arrowForward: (props?: object) => (
     <Ionicons name="chevron-forward" size={24} color="#fff" {...props} />

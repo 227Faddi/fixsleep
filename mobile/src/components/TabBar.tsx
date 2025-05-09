@@ -1,6 +1,6 @@
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { useEffect, useState } from "react";
-import { LayoutChangeEvent, View } from "react-native";
+import { LayoutChangeEvent, Platform, View } from "react-native";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -37,7 +37,7 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   return (
     <View
       onLayout={onTabBarLayout}
-      className="flex-row absolute bottom-7 justify-between items-center mx-[80] py-[15] rounded-[35] bg-primary"
+      className={`flex-row absolute justify-between items-center mx-[80] py-[15] rounded-[35] bg-primary  ${Platform.OS === "ios" ? "bottom-6" : "bottom-2"}`}
     >
       <Animated.View
         style={[

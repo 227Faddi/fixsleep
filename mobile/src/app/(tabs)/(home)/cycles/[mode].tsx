@@ -6,7 +6,7 @@ import iconsData from "@/src/constants/iconsData";
 import { useTimetofall } from "@/src/hooks/contexts";
 import calcCycles from "@/src/lib/calcCycles";
 import { router, useLocalSearchParams } from "expo-router";
-import { Pressable, View } from "react-native";
+import { Platform, Pressable, View } from "react-native";
 
 const CyclesScreen = () => {
   const { mode, query: time } = useLocalSearchParams<{
@@ -29,12 +29,16 @@ const CyclesScreen = () => {
   const cycles = getCyclesData(mode);
 
   return (
-    <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
+    <View
+      className={`bg-background flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-28 pt-20 px-16" : "pb-24 pt-10 px-16"}`}
+    >
       <Pressable
         onPress={() => router.back()}
-        className="absolute left-6 top-16"
+        className={`absolute ${Platform.OS === "ios" ? "left-6 top-16" : "left-3 top-6"}`}
       >
-        {iconsData["arrowBack"]({ color: color.textPrimary })}
+        {Platform.OS === "ios"
+          ? iconsData["arrowBackIos"]({ color: color.textPrimary })
+          : iconsData["arrowBackAndroid"]({ color: color.textPrimary })}
       </Pressable>
       <View className="gap-2">
         <View className="flex-row items-center justify-center gap-2">

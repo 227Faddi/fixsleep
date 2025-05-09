@@ -1,7 +1,7 @@
 import MyText from "@/src/components/MyText";
 import iconsData from "@/src/constants/iconsData";
 import { router } from "expo-router";
-import { Pressable, View } from "react-native";
+import { Platform, Pressable, View } from "react-native";
 import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
@@ -51,7 +51,9 @@ const SettingsScreen = () => {
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <View className="flex-1 pb-32 pt-24 px-16 gap-24 items-center">
+      <View
+        className={`flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-32 pt-24 px-16" : "pb-28 pt-8 px-16"}`}
+      >
         <MyText className="text-4xl text-textPrimary font-bold">
           Settings
         </MyText>

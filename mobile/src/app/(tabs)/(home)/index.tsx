@@ -5,7 +5,7 @@ import iconsData from "@/src/constants/iconsData";
 import { formatTime, formatTimeNow } from "@/src/lib/formatTime";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
@@ -38,7 +38,9 @@ const HomeScreen = () => {
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
+      <View
+        className={`flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-32 pt-24 px-16" : "pb-28 pt-8 px-16"}`}
+      >
         <View className="gap-3">
           <View className="flex-row justify-center items-center gap-1">
             <MyText className="text-5xl text-textPrimary font-fredokaBold">

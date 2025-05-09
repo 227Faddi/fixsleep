@@ -1,12 +1,12 @@
 import MyText from "@/src/components/MyText";
 import color from "@/src/constants/colors";
-import icon from "@/src/constants/iconsData";
+import iconsData from "@/src/constants/iconsData";
 import sounds from "@/src/constants/soundsData";
 import { Audio } from "expo-av";
 import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { Pressable, TouchableOpacity, View } from "react-native";
+import { Platform, Pressable, TouchableOpacity, View } from "react-native";
 
 const SoundPlayer = () => {
   const { value } = useLocalSearchParams<{ value: string }>();
@@ -61,15 +61,17 @@ const SoundPlayer = () => {
   };
 
   return (
-    <View className="flex-1 gap-4 pb-24 pt-24 px-16 items-center">
+    <View className="bg-background flex-1 gap-4 pb-24 pt-24 px-16 items-center">
       <Pressable
         onPress={() => router.back()}
         className="absolute left-6 top-16"
       >
-        {icon["arrowBack"]({ color: color.textPrimary })}
+        {Platform.OS === "ios"
+          ? iconsData["arrowBackIos"]({ color: color.textPrimary })
+          : iconsData["arrowBackAndroid"]({ color: color.textPrimary })}
       </Pressable>
       <View className="flex-row justify-center items-center gap-3">
-        {icon[selectedSound?.value as keyof typeof icon]()}
+        {iconsData[selectedSound?.value as keyof typeof iconsData]()}
         <MyText className="text-4xl text-textPrimary font-bold">
           {selectedSound?.title}
         </MyText>
@@ -97,8 +99,8 @@ const SoundPlayer = () => {
             onPress={playSound}
           >
             {isPlaying
-              ? icon["stop"]({ size: 40, color: color.textPrimary })
-              : icon["play"]({ size: 40, color: color.textPrimary })}
+              ? iconsData["stop"]({ size: 40, color: color.textPrimary })
+              : iconsData["play"]({ size: 40, color: color.textPrimary })}
           </TouchableOpacity>
         </View>
       </View>

@@ -4,7 +4,7 @@ import sounds from "@/src/constants/soundsData";
 import { Audio } from "expo-av";
 import { router } from "expo-router";
 import { useEffect } from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
@@ -40,7 +40,9 @@ const SoundsScreen = () => {
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
+      <View
+        className={`flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-32 pt-24 px-16" : "pb-28 pt-8 px-16"}`}
+      >
         <View className="gap-3">
           <MyText className="text-4xl text-center text-textPrimary font-bold">
             Soothing Sounds

@@ -3,7 +3,7 @@ import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
 import { router } from "expo-router";
 import { useState } from "react";
-import { Pressable, View } from "react-native";
+import { Platform, Pressable, View } from "react-native";
 
 const LanguageScreen = () => {
   const [currentLang, setCurrentLang] = useState("en");
@@ -12,12 +12,16 @@ const LanguageScreen = () => {
   };
 
   return (
-    <View className="flex-1 pb-32 pt-24 px-16 gap-4 items-center">
+    <View
+      className={`bg-background flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-28 pt-20 px-16" : "pb-24 pt-10 px-16"}`}
+    >
       <Pressable
         onPress={() => router.back()}
         className="absolute left-6 top-16"
       >
-        {iconsData["arrowBack"]({ color: color.textPrimary })}
+        {Platform.OS === "ios"
+          ? iconsData["arrowBackIos"]({ color: color.textPrimary })
+          : iconsData["arrowBackAndroid"]({ color: color.textPrimary })}
       </Pressable>
       <View className="flex-row items-center justify-center gap-2">
         {iconsData["language"]()}
