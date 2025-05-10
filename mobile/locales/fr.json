@@ -1,0 +1,72 @@
+{
+  "sleep": {
+    "title": "FixSleep",
+    "subtitle": "Calculez vos cycles de sommeil pour un meilleur repos et une meilleure récupération.",
+    "wakeUpAt": "Se réveiller à",
+    "fallAsleepAt": "S'endormir à",
+    "pickTime": "Choisir une heure",
+    "restNow": "Dormir maintenant"
+  },
+  "cycle": {
+    "wakeUpTime": "Heure de réveil",
+    "instruction": "Si vous vous endormez à {{time}}, essayez de vous réveiller à l'une de ces heures.",
+    "cycles": {
+      "1": {
+        "duration": "1,5 h de sommeil",
+        "count": "1 cycle"
+      },
+      "2": {
+        "duration": "3 h de sommeil",
+        "count": "2 cycles"
+      },
+      "3": {
+        "duration": "4,5 h de sommeil",
+        "count": "3 cycles"
+      },
+      "4": {
+        "duration": "6 h de sommeil",
+        "count": "4 cycles"
+      },
+      "5": {
+        "duration": "7,5 h de sommeil",
+        "count": "5 cycles"
+      },
+      "6": {
+        "duration": "9 h de sommeil",
+        "count": "6 cycles"
+      }
+    }
+  },
+  "sounds": {
+    "title": "Sons",
+    "subtitle": "Sons relaxants pour vous aider à dormir",
+    "cards": {
+      "rain": "Pluie",
+      "ocean": "Océan",
+      "wind": "Vent",
+      "fire": "Feu",
+      "forest": "Forêt"
+    }
+  },
+  "settings": {
+    "title": "Paramètres",
+    "options": {
+      "language": "Langue",
+      "reminders": "Rappels",
+      "sleepTime": "Heure de sommeil",
+      "info": "Infos"
+    },
+    "language": {
+      "title": "Langue"
+    },
+    "reminders": {
+      "title": "Rappels"
+    },
+    "sleepTime": {
+      "title": "Heure de sommeil"
+    },
+    "info": {
+      "title": "Infos sur l'application"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "sleep": {
+    "title": "FixSleep",
+    "subtitle": "Calculate your sleep cycles for better rest and recovery.",
+    "wakeUpAt": "Wake Up At",
+    "fallAsleepAt": "Fall Asleep At",
+    "pickTime": "Pick a time",
+    "restNow": "Rest Now"
+  },
+  "cycle": {
+    "wakeUpTime": "Wake up Time",
+    "instruction": "If you go to sleep at {{time}}, try waking up at one of these times.",
+    "cycles": {
+      "1": {
+        "duration": "1.5 hr of Sleep",
+        "count": "1 Cycle"
+      },
+      "2": {
+        "duration": "3 hr of Sleep",
+        "count": "2 Cycles"
+      },
+      "3": {
+        "duration": "4.5 hr of Sleep",
+        "count": "3 Cycles"
+      },
+      "4": {
+        "duration": "6 hr of Sleep",
+        "count": "4 Cycles"
+      },
+      "5": {
+        "duration": "7.5 hr of Sleep",
+        "count": "5 Cycles"
+      },
+      "6": {
+        "duration": "9 hr of Sleep",
+        "count": "6 Cycles"
+      }
+    }
+  },
+  "sounds": {
+    "title": "Sounds",
+    "subtitle": "Relaxing sounds to help you sleep",
+    "cards": {
+      "rain": "Rain",
+      "ocean": "Ocean",
+      "wind": "Wind",
+      "fire": "Fire",
+      "forest": "Forest"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "options": {
+      "language": "Language",
+      "reminders": "Reminders",
+      "sleepTime": "Sleep Time",
+      "info": "Info"
+    },
+    "language": {
+      "title": "Language"
+    },
+    "reminders": {
+      "title": "Reminders"
+    },
+    "sleepTime": {
+      "title": "Sleep Time"
+    },
+    "info": {
+      "title": "App Info"
+    }
+  }
+}

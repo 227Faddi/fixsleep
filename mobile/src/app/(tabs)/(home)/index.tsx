@@ -5,6 +5,7 @@ import iconsData from "@/src/constants/iconsData";
 import { formatTime, formatTimeNow } from "@/src/lib/formatTime";
 import { useRouter } from "expo-router";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Platform, View } from "react-native";
 import {
   PanGestureHandler,
@@ -15,6 +16,7 @@ const HomeScreen = () => {
   const router = useRouter();
   const [showWakeTime, setShowWakeTime] = useState(false);
   const [showSleepTime, setShowSleepTime] = useState(false);
+  const { t } = useTranslation();
 
   const getSleepCycles = ({
     hours,

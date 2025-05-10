@@ -11,7 +11,9 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "UIBackgroundModes": ["audio"],
+        "UIBackgroundModes": [
+          "audio"
+        ],
         "ITSAppUsesNonExemptEncryption": false
       },
       "bundleIdentifier": "com.227faddi.sleepnow"
@@ -46,7 +48,8 @@
           "defaultChannel": "default",
           "enableBackgroundRemoteNotifications": true
         }
-      ]
+      ],
+      "expo-localization"
     ],
     "experiments": {
       "typedRoutes": true
