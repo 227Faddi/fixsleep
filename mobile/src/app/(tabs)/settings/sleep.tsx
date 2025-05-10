@@ -11,7 +11,7 @@ import { Platform, Pressable, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const SleepScreen = () => {
-  const { t } = useTranslation("translation", {
+  const { t, i18n } = useTranslation("translation", {
     keyPrefix: "settings.options.sleep",
   });
   const { timetofall, setTimetofall } = useTimetofall();
@@ -63,7 +63,9 @@ const SleepScreen = () => {
         </View>
       </View>
       <TimerPickerModal
-        modalTitle="Pick a time"
+        modalTitle={i18n.t("timePicker.pickTime")}
+        confirmButtonText={i18n.t("timePicker.save")}
+        cancelButtonText={i18n.t("timePicker.cancel")}
         visible={showTimePicker}
         setIsVisible={setShowTimePicker}
         onConfirm={(pickedDuration) => {
@@ -82,7 +84,6 @@ const SleepScreen = () => {
         hourLabel={"H"}
         minuteLabel={"M"}
         maximumMinutes={45}
-        confirmButtonText="Save"
         initialValue={{ minutes: Number(timetofall) }}
       />
     </>

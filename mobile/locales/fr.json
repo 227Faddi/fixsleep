@@ -4,6 +4,12 @@
     "Sounds": "Sons",
     "Settings": "Paramètres"
   },
+  "timePicker": {
+    "pickTime": "Choisissez une heure",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "confirm": "Confirmer"
+  },
   "sleep": {
     "title": "FixSleep",
     "subtitle": "Calculez vos cycles de sommeil pour un meilleur repos et une meilleure récupération.",

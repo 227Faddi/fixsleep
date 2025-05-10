@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { TimerPickerModal } from "react-native-timer-picker";
 import color from "../constants/colors";
 
@@ -9,6 +10,7 @@ type Props = {
 };
 
 const TimerPicker = ({ showModal, setShowModal, mode, onConfirmFN }: Props) => {
+  const { t } = useTranslation();
   const date = new Date();
   return (
     <TimerPickerModal
@@ -18,7 +20,11 @@ const TimerPicker = ({ showModal, setShowModal, mode, onConfirmFN }: Props) => {
         setShowModal(false);
         onConfirmFN({ ...pickedDuration, mode });
       }}
-      modalTitle={mode === "sleep" ? `Fall Asleep at` : `Wake up at`}
+      modalTitle={
+        mode === "sleep" ? t("sleep.fallAsleepAt") : t("sleep.wakeUpAt")
+      }
+      confirmButtonText={t("timePicker.confirm")}
+      cancelButtonText={t("timePicker.cancel")}
       onCancel={() => setShowModal(false)}
       closeOnOverlayPress
       styles={{ ...TimePickerStyles }}

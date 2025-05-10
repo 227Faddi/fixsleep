@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 import iconsData from "../constants/iconsData";
-import i18n from "../i18n";
 import MyText from "./MyText";
 
 type Props = {
@@ -12,17 +12,18 @@ type Props = {
 };
 
 const CycleCard = ({ cycle, hrSleep, time, icon }: Props) => {
+  const { t } = useTranslation("translation", {
+    keyPrefix: "sleep.cycles",
+  });
+
   return (
     <View className="w-full rounded-xl p-4 flex-row justify-between bg-primary">
       <View className="flex-col justify-center gap-1">
         <MyText className="text-lg text-textPrimary">
-          {hrSleep} {i18n.t("sleep.cycles.hrOfSleep")}
+          {hrSleep} {t("hrOfSleep")}
         </MyText>
         <MyText className="text-md text-accent">
-          {cycle}{" "}
-          {cycle === 1
-            ? i18n.t("sleep.cycles.cycle")
-            : i18n.t("sleep.cycles.cycles")}
+          {cycle} {cycle === 1 ? t("cycle") : t("cycles")}
         </MyText>
       </View>
       <View className="flex-row justify-center items-center gap-2">

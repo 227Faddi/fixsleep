@@ -1,5 +1,6 @@
 import icon from "@/src/constants/iconsData";
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { TouchableOpacity } from "react-native";
 import Animated, {
   interpolate,
@@ -7,7 +8,6 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
-import i18n from "../i18n";
 import { NavigationKey } from "../types/i18next";
 
 type Props = {
@@ -28,6 +28,9 @@ const TabBarButton = ({
   label,
 }: Props) => {
   const scale = useSharedValue(0);
+  const { t } = useTranslation("translation", {
+    keyPrefix: "navigation",
+  });
 
   useEffect(() => {
     scale.value = withSpring(
@@ -60,7 +63,7 @@ const TabBarButton = ({
         style={[color, animatedText]}
         className="text-center font-fredokaMedium"
       >
-        {i18n.t(`navigation.${label as NavigationKey}`)}
+        {t(`${label as NavigationKey}`)}
       </Animated.Text>
     </TouchableOpacity>
   );
