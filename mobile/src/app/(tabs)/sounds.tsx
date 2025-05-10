@@ -12,7 +12,7 @@ import {
 } from "react-native-gesture-handler";
 
 const SoundsScreen = () => {
-  const { t } = useTranslation("", {
+  const { t } = useTranslation("translation", {
     keyPrefix: "sounds",
   });
   const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {

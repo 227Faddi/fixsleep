@@ -8,6 +8,7 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import i18n from "../i18n";
+import { NavigationKey } from "../types/i18next";
 
 type Props = {
   onPress: () => void;
@@ -59,7 +60,7 @@ const TabBarButton = ({
         style={[color, animatedText]}
         className="text-center font-fredokaMedium"
       >
-        {i18n.t(`navigation.${label}`)}
+        {i18n.t(`navigation.${label as NavigationKey}`)}
       </Animated.Text>
     </TouchableOpacity>
   );

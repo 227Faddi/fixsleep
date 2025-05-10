@@ -2,6 +2,7 @@ import MyText from "@/src/components/MyText";
 import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
 import sounds from "@/src/constants/soundsData";
+import { SoundCardKey } from "@/src/types/i18next";
 import { Audio } from "expo-av";
 import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
@@ -10,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import { Platform, Pressable, TouchableOpacity, View } from "react-native";
 
 const SoundPlayer = () => {
-  const { t } = useTranslation("", {
+  const { t } = useTranslation("translation", {
     keyPrefix: "sounds.cards",
   });
   const { value } = useLocalSearchParams<{ value: string }>();
@@ -77,7 +78,7 @@ const SoundPlayer = () => {
       <View className="flex-row justify-center items-center gap-3">
         {iconsData[selectedSound?.value as keyof typeof iconsData]()}
         <MyText className="text-4xl text-textPrimary font-bold">
-          {t(selectedSound?.value)}
+          {t(selectedSound?.value as SoundCardKey)}
         </MyText>
       </View>
       <View className="w-full flex-1 flex-col justify-between items-center gap-8">

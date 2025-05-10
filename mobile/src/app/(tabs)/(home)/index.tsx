@@ -16,7 +16,7 @@ const HomeScreen = () => {
   const router = useRouter();
   const [showWakeTime, setShowWakeTime] = useState(false);
   const [showSleepTime, setShowSleepTime] = useState(false);
-  const { t } = useTranslation("", {
+  const { t } = useTranslation("translation", {
     keyPrefix: "sleep",
   });
 

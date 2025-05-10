@@ -13,7 +13,7 @@ import { Platform, Pressable, Switch, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const RemindersScreen = () => {
-  const { t } = useTranslation("", {
+  const { t } = useTranslation("translation", {
     keyPrefix: "settings.options.reminders",
   });
 

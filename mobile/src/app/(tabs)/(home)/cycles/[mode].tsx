@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 import { Platform, Pressable, View } from "react-native";
 
 const CyclesScreen = () => {
-  const { t } = useTranslation("", {
+  const { t } = useTranslation("translation", {
     keyPrefix: "sleep.cycles",
   });
   const { mode, query: time } = useLocalSearchParams<{

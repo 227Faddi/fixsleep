@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { Platform, Pressable, View } from "react-native";
 
 const InfoScreen = () => {
-  const { t } = useTranslation("", {
+  const { t } = useTranslation("translation", {
     keyPrefix: "settings.options.info",
   });
 

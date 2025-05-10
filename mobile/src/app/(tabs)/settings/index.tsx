@@ -24,7 +24,7 @@ const Setting = ({ title, icon, route }) => {
 };
 
 const SettingsScreen = () => {
-  const { t } = useTranslation("", {
+  const { t } = useTranslation("translation", {
     keyPrefix: "settings",
   });
   const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {

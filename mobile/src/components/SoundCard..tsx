@@ -3,6 +3,7 @@ import { Pressable } from "react-native";
 import color from "../constants/colors";
 import icon from "../constants/iconsData";
 import i18n from "../i18n";
+import { SoundCardKey } from "../types/i18next";
 import MyText from "./MyText";
 
 type Props = {
@@ -17,7 +18,7 @@ const SoundCard = ({ value }: Props) => {
     >
       {icon[value as keyof typeof icon]({ color: color.textPrimary })}
       <MyText className="text-xl text-textPrimary">
-        {i18n.t(`sounds.cards.${value}`)}
+        {i18n.t(`sounds.cards.${value as SoundCardKey}`)}
       </MyText>
     </Pressable>
   );

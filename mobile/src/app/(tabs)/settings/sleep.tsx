@@ -11,7 +11,7 @@ import { Platform, Pressable, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const SleepScreen = () => {
-  const { t } = useTranslation("", {
+  const { t } = useTranslation("translation", {
     keyPrefix: "settings.options.sleep",
   });
   const { timetofall, setTimetofall } = useTimetofall();

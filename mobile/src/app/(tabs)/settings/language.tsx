@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { Platform, Pressable, View } from "react-native";
 
 const LanguageScreen = () => {
-  const { t } = useTranslation("", {
+  const { t } = useTranslation("translation", {
     keyPrefix: "settings.options.language",
   });
   const [currentLang, setCurrentLang] = useState("en");
