@@ -1,9 +1,9 @@
 import { router } from "expo-router";
 import { Pressable } from "react-native";
-import color from "../constants/colors";
-import icon from "../constants/iconsData";
-import i18n from "../i18n";
-import { SoundCardKey } from "../types/i18next";
+import color from "../../constants/colors";
+import icon from "../../constants/iconsData";
+import i18n from "../../i18n";
+import { SoundCardKey } from "../../types/i18next";
 import MyText from "./MyText";
 
 type Props = {

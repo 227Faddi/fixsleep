@@ -1,4 +1,4 @@
-import MyText from "@/src/components/MyText";
+import MyText from "@/src/components/ui/MyText";
 import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
 import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";

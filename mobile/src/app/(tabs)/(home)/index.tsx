@@ -1,6 +1,6 @@
-import MainButton from "@/src/components/MainButton";
-import MyText from "@/src/components/MyText";
 import TimerPicker from "@/src/components/TimerPicker";
+import MainButton from "@/src/components/ui/MainButton";
+import MyText from "@/src/components/ui/MyText";
 import iconsData from "@/src/constants/iconsData";
 import { formatTime, formatTimeNow } from "@/src/lib/formatTime";
 import { useRouter } from "expo-router";
@@ -47,11 +47,11 @@ const HomeScreen = () => {
       >
         <View className="gap-3">
           <View className="flex-row justify-center items-center gap-1">
-            <MyText className="text-5xl text-textPrimary font-fredokaBold">
+            <MyText className="text-4xl text-textPrimary font-fredokaBold">
               {t("title")}
             </MyText>
           </View>
-          <MyText className="text-2xl text-center text-textPrimary font-fredokaMedium">
+          <MyText className="text-xl text-center text-textPrimary font-fredokaMedium">
             {t("subtitle")}
           </MyText>
         </View>

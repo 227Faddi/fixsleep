@@ -1,5 +1,5 @@
-import MyText from "@/src/components/MyText";
-import SoundCard from "@/src/components/SoundCard.";
+import MyText from "@/src/components/ui/MyText";
+import SoundCard from "@/src/components/ui/SoundCard.";
 import sounds from "@/src/constants/soundsData";
 import { Audio } from "expo-av";
 import { router } from "expo-router";

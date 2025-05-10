@@ -1,5 +1,5 @@
-import CycleCard from "@/src/components/CycleCard";
-import MyText from "@/src/components/MyText";
+import CycleCard from "@/src/components/ui/CycleCard";
+import MyText from "@/src/components/ui/MyText";
 import color from "@/src/constants/colors";
 import getCyclesData from "@/src/constants/cyclesData";
 import iconsData from "@/src/constants/iconsData";

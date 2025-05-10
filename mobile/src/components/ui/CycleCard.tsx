@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
-import iconsData from "../constants/iconsData";
+import iconsData from "../../constants/iconsData";
 import MyText from "./MyText";
 
 type Props = {

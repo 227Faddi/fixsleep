@@ -1,4 +1,4 @@
-import MyText from "@/src/components/MyText";
+import MyText from "@/src/components/ui/MyText";
 import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
 import sounds from "@/src/constants/soundsData";
@@ -17,6 +17,7 @@ const SoundPlayer = () => {
   const { value } = useLocalSearchParams<{ value: string }>();
   const [sound, setSound] = useState<Audio.Sound | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
   // const [soundTimer, setSoundTimer] = useState<number | null>();
   // const [timerIsStarted, setTimerIsStarted] = useState(false);
 

@@ -1,6 +1,6 @@
-import MainButton from "@/src/components/MainButton";
-import MyText from "@/src/components/MyText";
 import { TimePickerStyles } from "@/src/components/TimerPicker";
+import MainButton from "@/src/components/ui/MainButton";
+import MyText from "@/src/components/ui/MyText";
 import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
 import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";

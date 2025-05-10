@@ -1,40 +1,19 @@
-import MyText from "@/src/components/MyText";
-import iconsData from "@/src/constants/iconsData";
+import MyText from "@/src/components/ui/MyText";
+import SettingsRow, { SettingsRowType } from "@/src/components/ui/SettingsRow";
 import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { Platform, Pressable, View } from "react-native";
+import { Platform, View } from "react-native";
 import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
 } from "react-native-gesture-handler";
 
-const Setting = ({ title, icon, route }) => {
-  return (
-    <Pressable
-      onPress={() => router.push(route)}
-      className="p-6 rounded-3xl flex-row gap-4 items-center justify-between"
-    >
-      <View className="flex-row gap-4">
-        {iconsData[icon as keyof typeof iconsData]({ justifySelf: "flex-end" })}
-        <MyText className="text-xl text-textPrimary">{title}</MyText>
-      </View>
-      {iconsData["arrowForward"]()}
-    </Pressable>
-  );
-};
-
 const SettingsScreen = () => {
   const { t } = useTranslation("translation", {
     keyPrefix: "settings",
   });
-  const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {
-    const { translationX } = event.nativeEvent;
-    if (translationX > 50) {
-      router.push("/(tabs)/sounds");
-    }
-  };
 
-  const settings = [
+  const settings: SettingsRowType[] = [
     {
       title: t("options.language.title"),
       icon: "language",
@@ -57,17 +36,24 @@ const SettingsScreen = () => {
     },
   ];
 
+  const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {
+    const { translationX } = event.nativeEvent;
+    if (translationX > 50) {
+      router.push("/(tabs)/sounds");
+    }
+  };
+
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
       <View
         className={`flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-32 pt-24 px-16" : "pb-28 pt-8 px-16"}`}
       >
-        <MyText className="text-4xl text-textPrimary font-bold">
+        <MyText className="text-4xl text-textPrimary font-bold mb-14">
           {t("title")}
         </MyText>
         <View className="w-full bg-primary rounded-3xl">
           {settings.map((item, index) => (
-            <Setting
+            <SettingsRow
               key={index}
               title={item.title}
               icon={item.icon}
