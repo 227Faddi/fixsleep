@@ -1,4 +1,5 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 const iconsData = {
   home: (props?: object) => (
@@ -35,7 +36,7 @@ const iconsData = {
     <Ionicons name="rainy" size={24} color="#fff" {...props} />
   ),
   oceanWaves: (props?: object) => (
-    <Ionicons name="water" size={24} color="#fff" {...props} />
+    <MaterialIcons name="waves" size={24} color="#fff" {...props} />
   ),
   brownNoise: (props?: object) => (
     <Ionicons name="cloud" size={24} color="#fff" {...props} />

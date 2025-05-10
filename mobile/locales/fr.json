@@ -2,13 +2,18 @@
   "navigation": {
     "Sleep": "Sommeil",
     "Sounds": "Sons",
-    "Settings": "Paramètres"
+    "Settings": "Réglages"
   },
   "timePicker": {
-    "pickTime": "Choisissez une heure",
+    "pickTime": "Choisir une heure",
     "cancel": "Annuler",
-    "save": "Enregistrer",
+    "save": "Sauve",
     "confirm": "Confirmer"
+  },
+  "notification": {
+    "title": "Heure du coucher",
+    "body": "Il est presque l'heure de dormir. Commencez à vous détendre et préparez-vous pour le lit.",
+    "error": "Impossible de planifier la notification, veuillez réessayer."
   },
   "sleep": {
     "title": "FixSleep",
@@ -16,13 +21,13 @@
     "wakeUpAt": "Se réveiller à",
     "fallAsleepAt": "S'endormir à",
     "pickTime": "Choisir une heure",
-    "restNow": "Se reposer maintenant",
+    "restNow": "Dormir",
     "cycles": {
       "wakeUpTime": "Heure de réveil",
       "bedtime": "Heure de coucher",
       "descriptionSleep": "Si vous vous endormez à {{time}}, essayez de vous réveiller à l'une de ces heures.",
-      "descriptionWake": "Pour vous réveiller vers {{time}}, essayez de vous endormir à l'une de ces heures.",
-      "hrOfSleep": "h de sommeil",
+      "descriptionWake": "Pour vous réveiller à {{time}}, essayez de vous endormir à l'une de ces heures.",
+      "hrOfSleep": "h de Sommeil",
       "cycle": "Cycle",
       "cycles": "Cycles"
     }
@@ -32,12 +37,12 @@
     "subtitle": "Sons relaxants pour vous aider à dormir",
     "cards": {
       "rainfall": "Pluie",
-      "oceanWaves": "Vagues de l'océan",
+      "oceanWaves": "Vagues",
       "brownNoise": "Bruit brun"
     }
   },
   "settings": {
-    "title": "Paramètres",
+    "title": "Réglages",
     "options": {
       "language": {
         "title": "Langue",
@@ -57,7 +62,7 @@
         "title": "Sommeil",
         "card": {
           "title": "Heure pour s'endormir",
-          "body": "Définissez un rappel pour l'heure du coucher afin de créer une routine de sommeil cohérente et saine.",
+          "body": "Le temps moyen pour s'endormir est d’environ 15 minutes. Réglez le vôtre pour mieux estimer vos cycles de sommeil.",
           "current": "Actuel",
           "btn": "Ajuster l'heure"
         }
@@ -66,10 +71,10 @@
         "title": "Comment ça fonctionne?",
         "info": "Info",
         "card": {
-          "title1": "Que sont les cycles de sommeil ?",
+          "title1": "Que sont les cycles de sommeil?",
           "body1": "Les cycles de sommeil durent environ 90 minutes et comprennent des phases telles que le sommeil léger, le sommeil profond et le sommeil paradoxal (REM). Ces phases aident votre corps à récupérer et à traiter les événements de la journée.",
-          "title2": "Pourquoi le moment est important",
-          "body2": "Se réveiller à la fin d'un cycle, plutôt qu'en plein milieu, vous aide à vous sentir plus reposé et alerte."
+          "title2": "Pourquoi le moment est important?",
+          "body2": "Se réveiller à la fin d'un cycle, plutôt qu'en plein milieu, vous aide à vous sentir plus reposé."
         }
       }
     }

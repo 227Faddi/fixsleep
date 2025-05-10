@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { Pressable } from "react-native";
+import { TouchableOpacity } from "react-native";
 import color from "../../constants/colors";
 import icon from "../../constants/iconsData";
 import i18n from "../../i18n";
@@ -12,7 +12,7 @@ type Props = {
 
 const SoundCard = ({ value }: Props) => {
   return (
-    <Pressable
+    <TouchableOpacity
       onPress={() => router.push(`/play/${value}`)}
       className="p-6 rounded-3xl flex-row gap-4 bg-primary"
     >
@@ -20,7 +20,7 @@ const SoundCard = ({ value }: Props) => {
       <MyText className="text-xl text-textPrimary">
         {i18n.t(`sounds.cards.${value as SoundCardKey}`)}
       </MyText>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 

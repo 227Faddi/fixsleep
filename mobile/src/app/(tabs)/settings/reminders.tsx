@@ -46,8 +46,8 @@ const RemindersScreen = () => {
 
       const id = await Notifications.scheduleNotificationAsync({
         content: {
-          title: "Sleep Time",
-          body: "It's almost time to sleep. Start winding down and get ready for bed.",
+          title: i18n.t("notification.title"),
+          body: i18n.t("notification.body"),
           sound: "default",
         },
         trigger: {
@@ -60,7 +60,7 @@ const RemindersScreen = () => {
       await setItem({ id, hours, minutes });
       setSleepTime(formatTime({ hours, minutes }));
     } catch {
-      alert("Enable to schedule notifiaction, try again");
+      alert(i18n.t("notification.error"));
     }
   };
 

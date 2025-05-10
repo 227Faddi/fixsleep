@@ -10,6 +10,11 @@
     "save": "Save",
     "confirm": "Confirm"
   },
+  "notification": {
+    "title": "Sleep Time",
+    "body": "It's almost time to sleep. Start winding down and get ready for bed.",
+    "error": "Enable to schedule notification, try again"
+  },
   "sleep": {
     "title": "FixSleep",
     "subtitle": "Calculate your sleep cycles for better rest and recovery.",
@@ -21,7 +26,7 @@
       "wakeUpTime": "Wake up Time",
       "bedtime": "Bedtime",
       "descriptionSleep": "If you go to sleep at {{time}}, try waking up at one of these times.",
-      "descriptionWake": "To wake up around {{time}}, try falling asleep at one of these times.",
+      "descriptionWake": "To wake up at {{time}}, try falling asleep at one of these times.",
       "hrOfSleep": "hr of Sleep",
       "cycle": "Cycle",
       "cycles": "Cycles"
@@ -57,7 +62,7 @@
         "title": "Sleep",
         "card": {
           "title": "Time to fall asleep",
-          "body": "Set a bedtime reminder to build a consistent and healthy sleep routine.",
+          "body": "The average time to fall asleep is about 15 minutes. Set yours to better estimate your sleep cycles.",
           "current": "Current",
           "btn": "Adjust Time"
         }
@@ -68,8 +73,8 @@
         "card": {
           "title1": "What are sleep cycles?",
           "body1": "Sleep cycles last about 90 minutes, including stages like light sleep, deep sleep, and REM. These stages help your body recover and process the day.",
-          "title2": "Why timing matters",
-          "body2": "Waking up at the end of a cycle, rather than in the middle, helps you feel more refreshed and alert."
+          "title2": "Why timing matters?",
+          "body2": "Waking up at the end of a cycle, rather than in the middle, helps you feel more refreshed."
         }
       }
     }
