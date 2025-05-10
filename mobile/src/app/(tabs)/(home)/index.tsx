@@ -16,7 +16,9 @@ const HomeScreen = () => {
   const router = useRouter();
   const [showWakeTime, setShowWakeTime] = useState(false);
   const [showSleepTime, setShowSleepTime] = useState(false);
-  const { t } = useTranslation();
+  const { t } = useTranslation("", {
+    keyPrefix: "sleep",
+  });
 
   const getSleepCycles = ({
     hours,
@@ -46,37 +48,37 @@ const HomeScreen = () => {
         <View className="gap-3">
           <View className="flex-row justify-center items-center gap-1">
             <MyText className="text-5xl text-textPrimary font-fredokaBold">
-              FixSleep
+              {t("title")}
             </MyText>
           </View>
           <MyText className="text-2xl text-center text-textPrimary font-fredokaMedium">
-            Calculate your sleep cycles for better rest and recovery.
+            {t("subtitle")}
           </MyText>
         </View>
         <View className="flex-1 gap-12 justify-center">
           <View className="gap-6">
             <View className="gap-3">
               <MyText className="text-2xl text-center text-textPrimary">
-                Wake Up At
+                {t("wakeUpAt")}
               </MyText>
               <MainButton
                 onPress={() => setShowWakeTime(true)}
-                text="Pick a time"
+                text={t("pickTime")}
               />
             </View>
             <View className="gap-3">
               <MyText className="text-2xl text-center text-textPrimary">
-                Fall Asleep At
+                {t("fallAsleepAt")}
               </MyText>
               <MainButton
                 onPress={() => setShowSleepTime(true)}
-                text="Pick a time"
+                text={t("pickTime")}
               />
             </View>
           </View>
           <MainButton
             onPress={() => getSleepCycles(formatTimeNow())}
-            text="Rest Now"
+            text={t("restNow")}
             icon={iconsData["alarm"]()}
             textClass="text-2xl text-center text-textPrimary"
             containerClass={`p-6 bg-accent shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]`}

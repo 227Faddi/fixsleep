@@ -6,9 +6,13 @@ import { Audio } from "expo-av";
 import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Platform, Pressable, TouchableOpacity, View } from "react-native";
 
 const SoundPlayer = () => {
+  const { t } = useTranslation("", {
+    keyPrefix: "sounds.cards",
+  });
   const { value } = useLocalSearchParams<{ value: string }>();
   const [sound, setSound] = useState<Audio.Sound | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -73,7 +77,7 @@ const SoundPlayer = () => {
       <View className="flex-row justify-center items-center gap-3">
         {iconsData[selectedSound?.value as keyof typeof iconsData]()}
         <MyText className="text-4xl text-textPrimary font-bold">
-          {selectedSound?.title}
+          {t(selectedSound?.value)}
         </MyText>
       </View>
       <View className="w-full flex-1 flex-col justify-between items-center gap-8">

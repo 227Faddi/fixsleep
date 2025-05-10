@@ -1,72 +1,71 @@
 {
+  "navigation": {
+    "Sleep": "Sleep",
+    "Sounds": "Sounds",
+    "Settings": "Settings"
+  },
   "sleep": {
     "title": "FixSleep",
     "subtitle": "Calculate your sleep cycles for better rest and recovery.",
     "wakeUpAt": "Wake Up At",
     "fallAsleepAt": "Fall Asleep At",
     "pickTime": "Pick a time",
-    "restNow": "Rest Now"
-  },
-  "cycle": {
-    "wakeUpTime": "Wake up Time",
-    "instruction": "If you go to sleep at {{time}}, try waking up at one of these times.",
+    "restNow": "Rest Now",
     "cycles": {
-      "1": {
-        "duration": "1.5 hr of Sleep",
-        "count": "1 Cycle"
-      },
-      "2": {
-        "duration": "3 hr of Sleep",
-        "count": "2 Cycles"
-      },
-      "3": {
-        "duration": "4.5 hr of Sleep",
-        "count": "3 Cycles"
-      },
-      "4": {
-        "duration": "6 hr of Sleep",
-        "count": "4 Cycles"
-      },
-      "5": {
-        "duration": "7.5 hr of Sleep",
-        "count": "5 Cycles"
-      },
-      "6": {
-        "duration": "9 hr of Sleep",
-        "count": "6 Cycles"
-      }
+      "wakeUpTime": "Wake up Time",
+      "bedtime": "Bedtime",
+      "descriptionSleep": "If you go to sleep at {{time}}, try waking up at one of these times.",
+      "descriptionWake": "To wake up around {{time}}, try falling asleep at one of these times.",
+      "hrOfSleep": "hr of Sleep",
+      "cycle": "Cycle",
+      "cycles": "Cycles"
     }
   },
   "sounds": {
     "title": "Sounds",
     "subtitle": "Relaxing sounds to help you sleep",
     "cards": {
-      "rain": "Rain",
-      "ocean": "Ocean",
-      "wind": "Wind",
-      "fire": "Fire",
-      "forest": "Forest"
+      "rainfall": "Rain",
+      "oceanWaves": "Ocean Waves",
+      "brownNoise": "Brown Noise"
     }
   },
   "settings": {
     "title": "Settings",
     "options": {
-      "language": "Language",
-      "reminders": "Reminders",
-      "sleepTime": "Sleep Time",
-      "info": "Info"
-    },
-    "language": {
-      "title": "Language"
-    },
-    "reminders": {
-      "title": "Reminders"
-    },
-    "sleepTime": {
-      "title": "Sleep Time"
-    },
-    "info": {
-      "title": "App Info"
+      "language": {
+        "title": "Language",
+        "english": "English",
+        "french": "French"
+      },
+      "reminders": {
+        "title": "Reminders",
+        "card": {
+          "title": "Sleep Time",
+          "body": "Set a bedtime reminder to build a consistent and healthy sleep routine.",
+          "current": "Current",
+          "btn": "Adjust Time"
+        }
+      },
+      "sleep": {
+        "title": "Sleep",
+        "card": {
+          "title": "Time to fall asleep",
+          "body": "Set a bedtime reminder to build a consistent and healthy sleep routine.",
+          "current": "Current",
+          "btn": "Adjust Time"
+        }
+      },
+      "info": {
+        "title": "How this works?",
+        "info": "Info",
+        "card": {
+          "title1": "What are sleep cycles?",
+          "body1": "Sleep cycles last about 90 minutes, including stages like light sleep, deep sleep, and REM. These stages help your body recover and process the day.",
+          "title2": "Why timing matters",
+          "body2": "Waking up at the end of a cycle, rather than in the middle, helps you feel more refreshed and alert."
+        }
+      }
     }
   }
 }

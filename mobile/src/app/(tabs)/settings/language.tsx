@@ -3,9 +3,13 @@ import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
 import { router } from "expo-router";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Platform, Pressable, View } from "react-native";
 
 const LanguageScreen = () => {
+  const { t } = useTranslation("", {
+    keyPrefix: "settings.options.language",
+  });
   const [currentLang, setCurrentLang] = useState("en");
   const changeLang = () => {
     currentLang === "en" ? setCurrentLang("fr") : setCurrentLang("en");
@@ -26,7 +30,7 @@ const LanguageScreen = () => {
       <View className="flex-row items-center justify-center gap-2">
         {iconsData["language"]()}
         <MyText className="text-center text-4xl text-textPrimary font-bold">
-          Language
+          {t("title")}
         </MyText>
       </View>
       <View className="flex-1 justify-center w-full">
@@ -42,7 +46,7 @@ const LanguageScreen = () => {
                   currentLang === "en" && "font-bold"
                 }`}
               >
-                English
+                {t("english")}
               </MyText>
             </View>
             {currentLang === "en" && iconsData["checkmark"]()}
@@ -58,7 +62,7 @@ const LanguageScreen = () => {
                   currentLang === "fr" && "font-bold"
                 }`}
               >
-                French
+                {t("french")}
               </MyText>
             </View>
             {currentLang === "fr" && iconsData["checkmark"]()}

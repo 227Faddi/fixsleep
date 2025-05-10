@@ -8,10 +8,15 @@ import { formatTime } from "@/src/lib/formatTime";
 import * as Notifications from "expo-notifications";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Platform, Pressable, Switch, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const RemindersScreen = () => {
+  const { t } = useTranslation("", {
+    keyPrefix: "settings.options.reminders",
+  });
+
   const { setItem, getItem, removeItem } = useAsyncStorage("sleeptime");
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [sleepTime, setSleepTime] = useState("");
@@ -87,14 +92,14 @@ const RemindersScreen = () => {
           <View className="flex-row items-center justify-center gap-2">
             {iconsData["notifications"]()}
             <MyText className="text-center text-4xl text-textPrimary font-bold">
-              Reminders
+              {t("title")}
             </MyText>
           </View>
           <View className="flex-1 justify-center">
             <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
               <View className="flex-row items-center justify-center gap-3">
                 <MyText className="text-accent text-2xl text-center font-bold">
-                  Sleep Time
+                  {t("card.title")}
                 </MyText>
                 <Switch
                   value={isEnabled}
@@ -104,14 +109,13 @@ const RemindersScreen = () => {
                 />
               </View>
               <MyText className="text-textPrimary text-xl">
-                Set a bedtime reminder to build a consistent and healthy sleep
-                routine.
+                {t("card.body")}
               </MyText>
               {isEnabled && (
                 <>
                   <View className="flex-row justify-between">
                     <MyText className="text-textPrimary text-2xl font-bold">
-                      Current
+                      {t("card.current")}
                     </MyText>
                     <MyText className="text-textPrimary text-2xl font-bold">
                       {sleepTime}
@@ -120,7 +124,7 @@ const RemindersScreen = () => {
                   <MainButton
                     onPress={() => setShowTimePicker(true)}
                     containerClass="bg-accent"
-                    text="Adjust Time"
+                    text={t("card.btn")}
                   />
                 </>
               )}

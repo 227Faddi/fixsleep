@@ -6,9 +6,13 @@ import iconsData from "@/src/constants/iconsData";
 import { useTimetofall } from "@/src/hooks/contexts";
 import calcCycles from "@/src/lib/calcCycles";
 import { router, useLocalSearchParams } from "expo-router";
+import { useTranslation } from "react-i18next";
 import { Platform, Pressable, View } from "react-native";
 
 const CyclesScreen = () => {
+  const { t } = useTranslation("", {
+    keyPrefix: "sleep.cycles",
+  });
   const { mode, query: time } = useLocalSearchParams<{
     mode: "sleep" | "wake";
     query: string;
@@ -44,22 +48,22 @@ const CyclesScreen = () => {
         <View className="flex-row items-center justify-center gap-2">
           {mode === "sleep" ? iconsData["sun"]() : iconsData["moon"]()}
           <MyText className="text-center text-4xl text-textPrimary font-bold">
-            {mode === "sleep" ? `Wake up Time` : `Bedtime`}
+            {mode === "sleep" ? t("wakeUpTime") : t("bedtime")}
           </MyText>
         </View>
         <MyText className="text-center text-xl text-textPrimary">
           {mode === "sleep"
-            ? `If you go to sleep at ${time}, try waking up at one of these times.`
-            : `To wake up around ${time}, try falling asleep at one of these times.`}
+            ? t("descriptionSleep", { time })
+            : t("descriptionWake", { time })}
         </MyText>
       </View>
       <View className="flex-1 justify-center gap-4">
         {cycles.map((item) => (
           <CycleCard
-            key={item.id}
+            key={item.cycle}
             cycle={item.cycle}
             hrSleep={item.hrSleep}
-            time={timeCycles[item.id as keyof typeof timeCycles]}
+            time={timeCycles[item.cycle as keyof typeof timeCycles]}
             icon={item.icon}
           />
         ))}

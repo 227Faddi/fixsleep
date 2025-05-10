@@ -1,6 +1,7 @@
 import MyText from "@/src/components/MyText";
 import iconsData from "@/src/constants/iconsData";
 import { router } from "expo-router";
+import { useTranslation } from "react-i18next";
 import { Platform, Pressable, View } from "react-native";
 import {
   PanGestureHandler,
@@ -23,6 +24,9 @@ const Setting = ({ title, icon, route }) => {
 };
 
 const SettingsScreen = () => {
+  const { t } = useTranslation("", {
+    keyPrefix: "settings",
+  });
   const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {
     const { translationX } = event.nativeEvent;
     if (translationX > 50) {
@@ -31,19 +35,23 @@ const SettingsScreen = () => {
   };
 
   const settings = [
-    { title: "Language", icon: "language", route: "/(tabs)/settings/language" },
     {
-      title: "Reminders",
+      title: t("options.language.title"),
+      icon: "language",
+      route: "/(tabs)/settings/language",
+    },
+    {
+      title: t("options.reminders.title"),
       icon: "notifications",
       route: "/(tabs)/settings/reminders",
     },
     {
-      title: "Sleep",
+      title: t("options.sleep.title"),
       icon: "bed",
       route: "/(tabs)/settings/sleep",
     },
     {
-      title: "How this works?",
+      title: t("options.info.title"),
       icon: "info",
       route: "/(tabs)/settings/info",
     },
@@ -55,7 +63,7 @@ const SettingsScreen = () => {
         className={`flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-32 pt-24 px-16" : "pb-28 pt-8 px-16"}`}
       >
         <MyText className="text-4xl text-textPrimary font-bold">
-          Settings
+          {t("title")}
         </MyText>
         <View className="w-full bg-primary rounded-3xl">
           {settings.map((item, index) => (

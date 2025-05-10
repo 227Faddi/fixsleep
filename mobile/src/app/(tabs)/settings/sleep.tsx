@@ -6,10 +6,14 @@ import iconsData from "@/src/constants/iconsData";
 import { useTimetofall } from "@/src/hooks/contexts";
 import { router } from "expo-router";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Platform, Pressable, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const SleepScreen = () => {
+  const { t } = useTranslation("", {
+    keyPrefix: "settings.options.sleep",
+  });
   const { timetofall, setTimetofall } = useTimetofall();
   const [showTimePicker, setShowTimePicker] = useState(false);
 
@@ -30,21 +34,20 @@ const SleepScreen = () => {
           <View className="flex-row items-center justify-center gap-2">
             {iconsData["home"]()}
             <MyText className="text-center text-4xl text-textPrimary font-bold">
-              Sleep
+              {t("title")}
             </MyText>
           </View>
           <View className="flex-1 justify-center">
             <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
               <MyText className="text-accent text-2xl text-center font-bold">
-                Time to fall asleep
+                {t("card.title")}
               </MyText>
               <MyText className="text-textPrimary text-xl">
-                The average time it takes most people to fall asleep is about 15
-                minutes. Set yours to better estimate your sleep cycle.
+                {t("card.body")}
               </MyText>
               <View className="flex-row justify-between">
                 <MyText className=" text-textPrimary text-2xl font-bold">
-                  Current
+                  {t("card.current")}
                 </MyText>
                 <MyText className="text-textPrimary text-2xl font-bold">
                   {timetofall} m
@@ -53,7 +56,7 @@ const SleepScreen = () => {
               <MainButton
                 onPress={() => setShowTimePicker(true)}
                 containerClass="bg-accent"
-                text="Adjust Time"
+                text={t("card.btn")}
               />
             </View>
           </View>

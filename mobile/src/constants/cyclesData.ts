@@ -1,38 +1,32 @@
 function getCyclesData(mode: "sleep" | "wake") {
   const cycles = [
     {
-      id: 1,
-      cycle: "1 Cycle",
+      cycle: 1,
       hrSleep: 1.5,
       icon: "emojiSad",
     },
     {
-      id: 2,
-      cycle: "2 Cycles",
+      cycle: 2,
       hrSleep: 3,
       icon: "emojiSad",
     },
     {
-      id: 3,
-      cycle: "3 Cycles",
+      cycle: 3,
       hrSleep: 4.5,
       icon: "emojiNeutral",
     },
     {
-      id: 4,
-      cycle: "4 Cycles",
+      cycle: 4,
       hrSleep: 6,
       icon: "emojiNeutral",
     },
     {
-      id: 5,
-      cycle: "5 Cycles",
+      cycle: 5,
       hrSleep: 7.5,
       icon: "emojiHappy",
     },
     {
-      id: 6,
-      cycle: "6 Cycles",
+      cycle: 6,
       hrSleep: 9,
       icon: "emojiHappy",
     },

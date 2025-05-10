@@ -4,6 +4,7 @@ import sounds from "@/src/constants/soundsData";
 import { Audio } from "expo-av";
 import { router } from "expo-router";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Platform, View } from "react-native";
 import {
   PanGestureHandler,
@@ -11,6 +12,9 @@ import {
 } from "react-native-gesture-handler";
 
 const SoundsScreen = () => {
+  const { t } = useTranslation("", {
+    keyPrefix: "sounds",
+  });
   const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {
     const { translationX } = event.nativeEvent;
 
@@ -45,16 +49,15 @@ const SoundsScreen = () => {
       >
         <View className="gap-3">
           <MyText className="text-4xl text-center text-textPrimary font-bold">
-            Soothing Sounds
+            {t("title")}
           </MyText>
           <MyText className="text-xl text-center text-textPrimary">
-            Create your perfect sleep atmosphere. Pick a sound, close your eyes,
-            and relax.
+            {t("subtitle")}
           </MyText>
         </View>
         <View className="flex-1 w-full gap-4 justify-center">
           {sounds.map((item, index) => (
-            <SoundCard key={index} title={item.title} value={item.value} />
+            <SoundCard key={index} value={item.value} />
           ))}
         </View>
       </View>
