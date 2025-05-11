@@ -12,6 +12,11 @@ import { useAsyncStorage } from "../hooks/useAsyncStorage";
 
 SplashScreen.preventAutoHideAsync();
 
+SplashScreen.setOptions({
+  duration: 200,
+  fade: true,
+});
+
 export default function RootLayout() {
   const { getItem } = useAsyncStorage("language");
   const { i18n } = useTranslation();
