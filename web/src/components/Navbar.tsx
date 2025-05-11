@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { IoMenu } from "react-icons/io5";
 
@@ -25,8 +26,17 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link href="/" className="font-bold text-2xl rounded-3xl">
-          FixSleep
+        <Link href="/">
+          <div className="flex justify-center items-center gap-2">
+            <Image
+              src="/ios-light.png"
+              alt="fixsleep logo"
+              width={40}
+              height={40}
+              className="hidden lg:inline"
+            />
+            <span className="font-bold text-2xl rounded-3xl">FixSleep</span>
+          </div>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
