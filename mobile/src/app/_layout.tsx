@@ -5,6 +5,7 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { StatusBar } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import color from "../constants/colors";
 import AppContextProvider from "../contexts/AppContextProvider";
@@ -50,6 +51,7 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView className="flex-1 bg-background">
+      <StatusBar barStyle={"light-content"} />
       <AppContextProvider>
         <Stack
           screenOptions={{
