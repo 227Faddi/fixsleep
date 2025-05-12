@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Fredoka } from "next/font/google";
 import "./globals.css";
@@ -23,7 +24,12 @@ export default function RootLayout({
       <body className={`${fredoka.className} antialiased relative`}>
         <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#1A1A1E_40%,#9A73E8)]"></div>
         <div className="w-full flex justify-center">
-          <div className="flex-grow w-full max-w-[1920px]">{children}</div>
+          <div className="flex-grow w-full max-w-[1920px]">
+            <div className="min-h-screen flex flex-col items-center p-6">
+              <Navbar />
+              {children}
+            </div>
+          </div>
         </div>
       </body>
     </html>

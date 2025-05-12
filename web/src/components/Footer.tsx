@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Footer = () => {
   return (
     <footer
@@ -8,15 +10,15 @@ const Footer = () => {
         © 2025 Fix Sleep. All Rights Reserved.
       </a>
       <ul className="flex gap-3 sm:gap-12 justify-center items-center">
-        {/* <li>
-          <a href="#">Privacy</a>
+        <li>
+          <Link href="/privacy-policy">Privacy Policy</Link>
         </li>
         <li>
-          <a href="#">Terms</a>
+          <Link href="/terms">Terms & Conditions</Link>
         </li>
         <li>
-          <a href="#">Contact Us</a>
-        </li> */}
+          Made by <Link href="https://www.faliloukhouma.com/">Falilou</Link>
+        </li>
       </ul>
     </footer>
   );
