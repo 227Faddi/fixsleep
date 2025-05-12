@@ -1,6 +1,5 @@
 import "@/global.css";
 import "@/src/i18n";
-import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
@@ -11,8 +10,6 @@ import color from "../constants/colors";
 import AppContextProvider from "../contexts/AppContextProvider";
 import { useAsyncStorage } from "../hooks/useAsyncStorage";
 
-SplashScreen.preventAutoHideAsync();
-
 SplashScreen.setOptions({
   duration: 200,
   fade: true,
@@ -21,12 +18,6 @@ SplashScreen.setOptions({
 export default function RootLayout() {
   const { getItem } = useAsyncStorage("language");
   const { i18n } = useTranslation();
-
-  const [loaded, error] = useFonts({
-    "Fredoka-Regular": require("@/assets/fonts/Fredoka-Regular.ttf"),
-    "Fredoka-Medium": require("@/assets/fonts/Fredoka-Medium.ttf"),
-    "Fredoka-Bold": require("@/assets/fonts/Fredoka-Bold.ttf"),
-  });
 
   useEffect(() => {
     const loadLanguage = async () => {
@@ -38,16 +29,6 @@ export default function RootLayout() {
     };
     loadLanguage();
   }, [i18n]);
-
-  useEffect(() => {
-    if (loaded || error) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded, error]);
-
-  if (!loaded && !error) {
-    return null;
-  }
 
   return (
     <GestureHandlerRootView className="flex-1 bg-background">

@@ -57,7 +57,17 @@
           "enableBackgroundRemoteNotifications": true
         }
       ],
-      "expo-localization"
+      "expo-localization",
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Fredoka-Regular.ttf",
+            "./assets/fonts/Fredoka-Medium.ttf",
+            "./assets/fonts/Fredoka-Bold.ttf"
+          ]
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

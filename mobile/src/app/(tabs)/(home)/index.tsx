@@ -47,11 +47,11 @@ const HomeScreen = () => {
       >
         <View className="gap-3">
           <View className="flex-row justify-center items-center gap-1">
-            <MyText className="text-4xl text-textPrimary font-fredokaBold">
+            <MyText className="text-4xl text-textPrimary font-bold">
               {t("title")}
             </MyText>
           </View>
-          <MyText className="text-xl text-center text-textPrimary font-fredokaMedium">
+          <MyText className="text-xl text-center text-textPrimary">
             {t("subtitle")}
           </MyText>
         </View>
@@ -80,7 +80,7 @@ const HomeScreen = () => {
             onPress={() => getSleepCycles(formatTimeNow())}
             text={t("restNow")}
             icon={iconsData["alarm"]()}
-            textClass="text-2xl text-center text-textPrimary"
+            textClass="text-2xl text-center text-textPrimary font-bold"
             containerClass={`p-6 bg-accent shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]`}
           />
         </View>
