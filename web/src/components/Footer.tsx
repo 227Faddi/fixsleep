@@ -17,7 +17,10 @@ const Footer = () => {
           <Link href="/terms">Terms & Conditions</Link>
         </li>
         <li>
-          Made by <Link href="https://www.faliloukhouma.com/">Falilou</Link>
+          Made by{" "}
+          <Link href="https://www.faliloukhouma.com/" target="_blank">
+            Falilou
+          </Link>
         </li>
       </ul>
     </footer>
