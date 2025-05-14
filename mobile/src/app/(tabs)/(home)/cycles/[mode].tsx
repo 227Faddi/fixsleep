@@ -34,11 +34,11 @@ const CyclesScreen = () => {
 
   return (
     <View
-      className={`bg-background flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-28 pt-20 px-16" : "pb-24 pt-10 px-16"}`}
+      className={`bg-background flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-28 pt-20 px-16" : "pb-24 pt-10 px-12"}`}
     >
       <Pressable
         onPress={() => router.back()}
-        className={`absolute ${Platform.OS === "ios" ? "left-6 top-16" : "left-3 top-6"}`}
+        className={`absolute ${Platform.OS === "ios" ? "left-6 top-16" : "left-5 top-5"}`}
       >
         {Platform.OS === "ios"
           ? iconsData["arrowBackIos"]({ color: color.textPrimary })
@@ -47,7 +47,9 @@ const CyclesScreen = () => {
       <View className="gap-2">
         <View className="flex-row items-center justify-center gap-2">
           {mode === "sleep" ? iconsData["sun"]() : iconsData["moon"]()}
-          <MyText className="text-center text-4xl text-textPrimary font-bold">
+          <MyText
+            className={`text-center text-4xl text-textPrimary ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
+          >
             {mode === "sleep" ? t("wakeUpTime") : t("bedtime")}
           </MyText>
         </View>

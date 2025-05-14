@@ -37,7 +37,7 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   return (
     <View
       onLayout={onTabBarLayout}
-      className={`flex-row absolute justify-between items-center mx-[80] py-[15] rounded-[35] bg-primary ${Platform.OS === "ios" ? "bottom-6" : "bottom-2"}`}
+      className={`flex-row absolute justify-between items-center py-[15] rounded-[35] bg-primary ${Platform.OS === "ios" ? "bottom-6 mx-[80]" : "bottom-2 mx-[65]"}`}
     >
       <Animated.View
         style={[

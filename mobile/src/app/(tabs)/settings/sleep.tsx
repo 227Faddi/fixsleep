@@ -24,7 +24,7 @@ const SleepScreen = () => {
       >
         <Pressable
           onPress={() => router.back()}
-          className="absolute left-6 top-16"
+          className={`absolute ${Platform.OS === "ios" ? "left-6 top-16" : "left-5 top-5"}`}
         >
           {Platform.OS === "ios"
             ? iconsData["arrowBackIos"]({ color: color.textPrimary })
@@ -33,23 +33,31 @@ const SleepScreen = () => {
         <View className="gap-2">
           <View className="flex-row items-center justify-center gap-2">
             {iconsData["home"]()}
-            <MyText className="text-center text-4xl text-textPrimary font-bold">
+            <MyText
+              className={`text-center text-4xl text-textPrimary  ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
+            >
               {t("title")}
             </MyText>
           </View>
           <View className="flex-1 justify-center">
             <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
-              <MyText className="text-accent text-2xl text-center font-bold">
+              <MyText
+                className={`text-accent text-2xl text-center  ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
+              >
                 {t("card.title")}
               </MyText>
               <MyText className="text-textPrimary text-xl">
                 {t("card.body")}
               </MyText>
               <View className="flex-row justify-between">
-                <MyText className=" text-textPrimary text-2xl font-bold">
+                <MyText
+                  className={`text-textPrimary text-2xl  ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
+                >
                   {t("card.current")}
                 </MyText>
-                <MyText className="text-textPrimary text-2xl font-bold">
+                <MyText
+                  className={`text-textPrimary text-2xl  ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
+                >
                   {timetofall} m
                 </MyText>
               </View>

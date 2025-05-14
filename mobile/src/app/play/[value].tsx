@@ -67,10 +67,12 @@ const SoundPlayer = () => {
   };
 
   return (
-    <View className="bg-background flex-1 gap-4 pb-24 pt-24 px-16 items-center">
+    <View
+      className={`bg-background flex-1 gap-4 items-center  ${Platform.OS === "ios" ? "pb-28 pt-20 px-16" : "pb-12 pt-10 px-12"}`}
+    >
       <Pressable
         onPress={() => router.back()}
-        className="absolute left-6 top-16"
+        className={`absolute ${Platform.OS === "ios" ? "left-6 top-16" : "left-5 top-5"}`}
       >
         {Platform.OS === "ios"
           ? iconsData["arrowBackIos"]({ color: color.textPrimary })
@@ -78,7 +80,9 @@ const SoundPlayer = () => {
       </Pressable>
       <View className="flex-row justify-center items-center gap-3">
         {iconsData[selectedSound?.value as keyof typeof iconsData]()}
-        <MyText className="text-4xl text-textPrimary font-bold">
+        <MyText
+          className={`text-4xl text-textPrimary ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
+        >
           {t(selectedSound?.value as SoundCardKey)}
         </MyText>
       </View>

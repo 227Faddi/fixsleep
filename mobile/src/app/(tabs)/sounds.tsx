@@ -45,10 +45,12 @@ const SoundsScreen = () => {
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
       <View
-        className={`flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-32 pt-24 px-16" : "pb-28 pt-8 px-16"}`}
+        className={`flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-32 pt-24 px-16" : "pb-28 pt-8 px-12"}`}
       >
         <View className="gap-3">
-          <MyText className="text-4xl text-center text-textPrimary font-bold">
+          <MyText
+            className={`text-4xl text-center text-textPrimary ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
+          >
             {t("title")}
           </MyText>
           <MyText className="text-xl text-center text-textPrimary">

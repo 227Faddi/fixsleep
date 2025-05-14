@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import iconsData from "../../constants/iconsData";
 import MyText from "./MyText";
 
@@ -19,7 +19,9 @@ const CycleCard = ({ cycle, hrSleep, time, icon }: Props) => {
   return (
     <View className="w-full rounded-xl p-4 flex-row justify-between bg-primary">
       <View className="flex-col justify-center gap-1">
-        <MyText className="text-lg text-textPrimary">
+        <MyText
+          className={`text-textPrimary ${Platform.OS === "ios" ? "text-lg" : ""}`}
+        >
           {hrSleep} {t("hrOfSleep")}
         </MyText>
         <MyText className="text-md text-accent">
@@ -27,9 +29,13 @@ const CycleCard = ({ cycle, hrSleep, time, icon }: Props) => {
         </MyText>
       </View>
       <View className="flex-row justify-center items-center gap-2">
-        <MyText className="text-3xl text-textPrimary">{time}</MyText>
+        <MyText
+          className={`text-textPrimary ${Platform.OS === "ios" ? "text-3xl" : "text-2xl"}`}
+        >
+          {time}
+        </MyText>
         {iconsData[icon as keyof typeof iconsData]({
-          size: 35,
+          size: Platform.OS === "ios" ? 35 : 30,
         })}
       </View>
     </View>

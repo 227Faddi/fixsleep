@@ -25,7 +25,7 @@ const LanguageScreen = () => {
     >
       <TouchableOpacity
         onPress={() => router.back()}
-        className="absolute left-6 top-16"
+        className={`absolute ${Platform.OS === "ios" ? "left-6 top-16" : "left-5 top-5"}`}
       >
         {Platform.OS === "ios"
           ? iconsData["arrowBackIos"]({ color: color.textPrimary })
@@ -33,7 +33,9 @@ const LanguageScreen = () => {
       </TouchableOpacity>
       <View className="flex-row items-center justify-center gap-2">
         {iconsData["language"]()}
-        <MyText className="text-center text-4xl text-textPrimary font-bold">
+        <MyText
+          className={`text-center text-4xl text-textPrimary  ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
+        >
           {t("title")}
         </MyText>
       </View>
@@ -47,7 +49,11 @@ const LanguageScreen = () => {
             <View className="flex-row gap-4">
               <MyText
                 className={`text-xl text-textPrimary ${
-                  currentLang === "en" && "font-bold"
+                  currentLang === "en"
+                    ? Platform.OS === "ios"
+                      ? "font-bold"
+                      : "!font-fredokaBold"
+                    : ""
                 }`}
               >
                 {t("english")}
@@ -63,7 +69,11 @@ const LanguageScreen = () => {
             <View className="flex-row gap-4">
               <MyText
                 className={`text-xl text-textPrimary ${
-                  currentLang === "fr" && "font-bold"
+                  currentLang === "fr"
+                    ? Platform.OS === "ios"
+                      ? "font-bold"
+                      : "!font-fredokaBold"
+                    : ""
                 }`}
               >
                 {t("french")}
