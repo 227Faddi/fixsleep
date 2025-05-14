@@ -1,5 +1,6 @@
 import "@/global.css";
 import "@/src/i18n";
+import { getLocales } from "expo-localization";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
@@ -9,6 +10,8 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import color from "../constants/colors";
 import AppContextProvider from "../contexts/AppContextProvider";
 import { useAsyncStorage } from "../hooks/useAsyncStorage";
+
+SplashScreen.preventAutoHideAsync();
 
 SplashScreen.setOptions({
   duration: 200,
@@ -21,12 +24,21 @@ export default function RootLayout() {
 
   useEffect(() => {
     const loadLanguage = async () => {
-      const savedLanguage = await getItem();
-      const languageToUse = savedLanguage || "en";
-      if (i18n.language !== languageToUse) {
-        i18n.changeLanguage(languageToUse);
+      const supportedLanguages = ["en", "fr"];
+      const savedLang = await getItem();
+      const deviceLang = getLocales()[0].languageCode;
+      const langToUse = savedLang || deviceLang;
+
+      if (
+        supportedLanguages.includes(langToUse) &&
+        i18n.language !== langToUse
+      ) {
+        await i18n.changeLanguage(langToUse);
       }
+
+      await SplashScreen.hideAsync();
     };
+
     loadLanguage();
   }, [i18n]);
 

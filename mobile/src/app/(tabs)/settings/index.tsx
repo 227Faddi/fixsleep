@@ -46,7 +46,7 @@ const SettingsScreen = () => {
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
       <View
-        className={`flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-32 pt-24 px-16" : "pb-28 pt-8 px-8"}`}
+        className={`flex-1 flex flex-col gap-4 space-y-4 items-center px-8 ${Platform.OS === "ios" ? "pb-32 pt-24" : "pb-28 pt-8"}`}
       >
         <MyText
           className={`text-4xl text-textPrimary mb-14 ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}

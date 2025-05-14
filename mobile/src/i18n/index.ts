@@ -1,4 +1,4 @@
-import * as Localization from "expo-localization";
+import { getLocales } from "expo-localization";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import en from "../../locales/en.json";
@@ -19,7 +19,7 @@ const initI18n = async () => {
   let savedLanguage = await getItem();
 
   if (!savedLanguage) {
-    savedLanguage = Localization.locale;
+    savedLanguage = getLocales()[0].languageCode;
   }
 
   i18n.use(initReactI18next).init({
