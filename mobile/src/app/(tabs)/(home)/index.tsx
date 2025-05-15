@@ -1,6 +1,7 @@
 import TimerPicker from "@/src/components/TimerPicker";
 import MainButton from "@/src/components/ui/MainButton";
 import MyText from "@/src/components/ui/MyText";
+import TextBold from "@/src/components/ui/TextBold";
 import iconsData from "@/src/constants/iconsData";
 import { formatTime, formatTimeNow } from "@/src/lib/formatTime";
 import { useRouter } from "expo-router";
@@ -43,33 +44,25 @@ const HomeScreen = () => {
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
       <View
-        className={`flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-32 pt-24 px-16" : "pb-28 pt-8 px-12"}`}
+        className={`flex-1 flex flex-col gap-4 space-y-4 items-center pb-32`}
       >
         <View className="gap-3">
           <View className="flex-row justify-center items-center gap-1">
-            <MyText
-              className={`text-4xl text-textPrimary ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-            >
-              {t("title")}
-            </MyText>
+            <TextBold className="text-4xl">{t("title")}</TextBold>
           </View>
-          <MyText className="text-xl text-center text-textPrimary">
-            {t("subtitle")}
-          </MyText>
+          <MyText className="text-xl text-center">{t("subtitle")}</MyText>
         </View>
         <View className="flex-1 gap-12 justify-center">
           <View className="gap-6">
             <View className="gap-3">
-              <MyText className="text-2xl text-center text-textPrimary">
-                {t("wakeUpAt")}
-              </MyText>
+              <MyText className="text-2xl text-center">{t("wakeUpAt")}</MyText>
               <MainButton
                 onPress={() => setShowWakeTime(true)}
                 text={t("pickTime")}
               />
             </View>
             <View className="gap-3">
-              <MyText className="text-2xl text-center text-textPrimary">
+              <MyText className="text-2xl text-center">
                 {t("fallAsleepAt")}
               </MyText>
               <MainButton
@@ -84,6 +77,9 @@ const HomeScreen = () => {
             icon={iconsData["alarm"]()}
             textClass={`text-2xl text-center text-textPrimary ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
             containerClass={`p-6 bg-accent shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]`}
+            style={{
+              elevation: 10,
+            }}
           />
         </View>
         <TimerPicker

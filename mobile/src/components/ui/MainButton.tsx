@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { TouchableOpacity } from "react-native";
+import { StyleProp, TouchableOpacity, ViewStyle } from "react-native";
 import MyText from "./MyText";
 
 type Props = {
@@ -8,6 +8,7 @@ type Props = {
   textClass?: string;
   text: string;
   icon?: ReactNode;
+  style?: StyleProp<ViewStyle>;
 };
 
 const MainButton = ({
@@ -16,10 +17,12 @@ const MainButton = ({
   textClass = "text-textPrimary text-xl",
   text,
   icon,
+  style,
 }: Props) => {
   return (
     <TouchableOpacity
       onPress={onPress}
+      style={style}
       className={`p-4 px-6 rounded-3xl justify-center flex-row items-center gap-1 ${containerClass} `}
     >
       {icon}

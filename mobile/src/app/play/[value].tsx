@@ -1,4 +1,5 @@
-import MyText from "@/src/components/ui/MyText";
+import BackButton from "@/src/components/ui/BackButton";
+import TextBold from "@/src/components/ui/TextBold";
 import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
 import sounds from "@/src/constants/soundsData";
@@ -8,7 +9,7 @@ import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Platform, Pressable, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 
 const SoundPlayer = () => {
   const { t } = useTranslation("translation", {
@@ -67,24 +68,13 @@ const SoundPlayer = () => {
   };
 
   return (
-    <View
-      className={`bg-background flex-1 gap-4 items-center  ${Platform.OS === "ios" ? "pb-28 pt-20 px-16" : "pb-12 pt-10 px-12"}`}
-    >
-      <Pressable
-        onPress={() => router.back()}
-        className={`absolute ${Platform.OS === "ios" ? "left-6 top-16" : "left-5 top-5"}`}
-      >
-        {Platform.OS === "ios"
-          ? iconsData["arrowBackIos"]({ color: color.textPrimary })
-          : iconsData["arrowBackAndroid"]({ color: color.textPrimary })}
-      </Pressable>
+    <View className="bg-background flex-1 gap-4 items-center p-8">
+      <BackButton />
       <View className="flex-row justify-center items-center gap-3">
         {iconsData[selectedSound?.value as keyof typeof iconsData]()}
-        <MyText
-          className={`text-4xl text-textPrimary ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-        >
+        <TextBold className="text-4xl">
           {t(selectedSound?.value as SoundCardKey)}
-        </MyText>
+        </TextBold>
       </View>
       <View className="w-full flex-1 flex-col justify-between items-center gap-8">
         <Image

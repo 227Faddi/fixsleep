@@ -17,7 +17,7 @@ const SoundCard = ({ value }: Props) => {
       className="p-6 rounded-3xl flex-row gap-4 bg-primary"
     >
       {icon[value as keyof typeof icon]({ color: color.textPrimary })}
-      <MyText className="text-xl text-textPrimary">
+      <MyText className="text-xl">
         {i18n.t(`sounds.cards.${value as SoundCardKey}`)}
       </MyText>
     </TouchableOpacity>

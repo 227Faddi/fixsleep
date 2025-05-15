@@ -1,13 +1,13 @@
 import { TimePickerStyles } from "@/src/components/TimerPicker";
+import BackButton from "@/src/components/ui/BackButton";
 import MainButton from "@/src/components/ui/MainButton";
 import MyText from "@/src/components/ui/MyText";
-import color from "@/src/constants/colors";
+import TextBold from "@/src/components/ui/TextBold";
 import iconsData from "@/src/constants/iconsData";
 import { useTimetofall } from "@/src/hooks/contexts";
-import { router } from "expo-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Platform, Pressable, View } from "react-native";
+import { View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const SleepScreen = () => {
@@ -19,47 +19,22 @@ const SleepScreen = () => {
 
   return (
     <>
-      <View
-        className={`bg-background flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-28 pt-20 px-16" : "pb-24 pt-10 px-16"}`}
-      >
-        <Pressable
-          onPress={() => router.back()}
-          className={`absolute ${Platform.OS === "ios" ? "left-6 top-16" : "left-5 top-5"}`}
-        >
-          {Platform.OS === "ios"
-            ? iconsData["arrowBackIos"]({ color: color.textPrimary })
-            : iconsData["arrowBackAndroid"]({ color: color.textPrimary })}
-        </Pressable>
+      <View className="bg-background flex-1 flex flex-col gap-4 space-y-4 items-center p-8">
+        <BackButton />
         <View className="gap-2">
           <View className="flex-row items-center justify-center gap-2">
             {iconsData["home"]()}
-            <MyText
-              className={`text-center text-4xl text-textPrimary  ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-            >
-              {t("title")}
-            </MyText>
+            <TextBold className="text-center text-4xl">{t("title")}</TextBold>
           </View>
           <View className="flex-1 justify-center">
             <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
-              <MyText
-                className={`text-accent text-2xl text-center  ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-              >
+              <TextBold className="!text-accent text-center text-2xl">
                 {t("card.title")}
-              </MyText>
-              <MyText className="text-textPrimary text-xl">
-                {t("card.body")}
-              </MyText>
+              </TextBold>
+              <MyText>{t("card.body")}</MyText>
               <View className="flex-row justify-between">
-                <MyText
-                  className={`text-textPrimary text-2xl  ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-                >
-                  {t("card.current")}
-                </MyText>
-                <MyText
-                  className={`text-textPrimary text-2xl  ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-                >
-                  {timetofall} m
-                </MyText>
+                <TextBold className="text-2xl">{t("card.current")}</TextBold>
+                <TextBold className="text-2xl">{timetofall} m</TextBold>
               </View>
               <MainButton
                 onPress={() => setShowTimePicker(true)}

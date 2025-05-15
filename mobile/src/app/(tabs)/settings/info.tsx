@@ -1,9 +1,9 @@
+import BackButton from "@/src/components/ui/BackButton";
 import MyText from "@/src/components/ui/MyText";
-import color from "@/src/constants/colors";
+import TextBold from "@/src/components/ui/TextBold";
 import iconsData from "@/src/constants/iconsData";
-import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { Platform, Pressable, View } from "react-native";
+import { ScrollView, View } from "react-native";
 
 const InfoScreen = () => {
   const { t } = useTranslation("translation", {
@@ -11,52 +11,33 @@ const InfoScreen = () => {
   });
 
   return (
-    <View
-      className={`bg-background flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-28 pt-20 px-16" : "pb-24 pt-10 px-16"}`}
-    >
-      <Pressable
-        onPress={() => router.back()}
-        className={`absolute ${Platform.OS === "ios" ? "left-6 top-16" : "left-5 top-5"}`}
-      >
-        {Platform.OS === "ios"
-          ? iconsData["arrowBackIos"]({ color: color.textPrimary })
-          : iconsData["arrowBackAndroid"]({ color: color.textPrimary })}
-      </Pressable>
-      <View className="gap-2">
-        <View className="flex-row items-center justify-center gap-2">
-          {iconsData["info"]()}
-          <MyText
-            className={`text-center text-4xl text-textPrimary ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-          >
-            {t("info")}
-          </MyText>
-        </View>
-        <View className="flex-1 justify-center">
-          <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
-            <View className="gap-2">
-              <MyText
-                className={`text-accent text-2xl ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-              >
-                {t("card.title1")}
-              </MyText>
-              <MyText className="text-textPrimary text-xl">
-                {t("card.body1")}
-              </MyText>
-            </View>
-            <View className="gap-2">
-              <MyText
-                className={`text-accent text-2xl ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-              >
-                {t("card.title2")}
-              </MyText>
-              <MyText className="text-textPrimary text-xl">
-                {t("card.body2")}
-              </MyText>
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <View className="bg-background flex-1 flex flex-col space-y-4 items-center p-8 pb-32">
+        <BackButton />
+        <View className="gap-12">
+          <View className="flex-row items-center justify-center gap-2">
+            {iconsData["info"]()}
+            <TextBold className="text-center text-4xl">{t("info")}</TextBold>
+          </View>
+          <View className="flex-1 justify-center">
+            <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
+              <View className="gap-2">
+                <TextBold className="!text-accent text-2xl">
+                  {t("card.title1")}
+                </TextBold>
+                <MyText className="text-xl">{t("card.body1")}</MyText>
+              </View>
+              <View className="gap-2">
+                <TextBold className="!text-accent text-2xl">
+                  {t("card.title2")}
+                </TextBold>
+                <MyText className="text-xl">{t("card.body2")}</MyText>
+              </View>
             </View>
           </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

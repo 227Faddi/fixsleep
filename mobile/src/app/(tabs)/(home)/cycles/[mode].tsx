@@ -1,13 +1,14 @@
+import BackButton from "@/src/components/ui/BackButton";
 import CycleCard from "@/src/components/ui/CycleCard";
 import MyText from "@/src/components/ui/MyText";
-import color from "@/src/constants/colors";
+import TextBold from "@/src/components/ui/TextBold";
 import getCyclesData from "@/src/constants/cyclesData";
 import iconsData from "@/src/constants/iconsData";
 import { useTimetofall } from "@/src/hooks/contexts";
 import calcCycles from "@/src/lib/calcCycles";
 import { router, useLocalSearchParams } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { Platform, Pressable, View } from "react-native";
+import { ScrollView, View } from "react-native";
 
 const CyclesScreen = () => {
   const { t } = useTranslation("translation", {
@@ -33,44 +34,35 @@ const CyclesScreen = () => {
   const cycles = getCyclesData(mode);
 
   return (
-    <View
-      className={`bg-background flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-28 pt-20 px-16" : "pb-24 pt-10 px-12"}`}
-    >
-      <Pressable
-        onPress={() => router.back()}
-        className={`absolute ${Platform.OS === "ios" ? "left-6 top-16" : "left-5 top-5"}`}
-      >
-        {Platform.OS === "ios"
-          ? iconsData["arrowBackIos"]({ color: color.textPrimary })
-          : iconsData["arrowBackAndroid"]({ color: color.textPrimary })}
-      </Pressable>
-      <View className="gap-2">
-        <View className="flex-row items-center justify-center gap-2">
-          {mode === "sleep" ? iconsData["sun"]() : iconsData["moon"]()}
-          <MyText
-            className={`text-center text-4xl text-textPrimary ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-          >
-            {mode === "sleep" ? t("wakeUpTime") : t("bedtime")}
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <View className="bg-background flex-1 flex flex-col gap-10 items-center p-8 pb-32">
+        <BackButton />
+        <View className="gap-2">
+          <View className="flex-row items-center justify-center gap-2">
+            {mode === "sleep" ? iconsData["sun"]() : iconsData["moon"]()}
+            <TextBold className="text-center text-4xl">
+              {mode === "sleep" ? t("wakeUpTime") : t("bedtime")}
+            </TextBold>
+          </View>
+          <MyText className="text-center">
+            {mode === "sleep"
+              ? t("descriptionSleep", { time })
+              : t("descriptionWake", { time })}
           </MyText>
         </View>
-        <MyText className="text-center text-xl text-textPrimary">
-          {mode === "sleep"
-            ? t("descriptionSleep", { time })
-            : t("descriptionWake", { time })}
-        </MyText>
+        <View className="flex-1 justify-center gap-4">
+          {cycles.map((item) => (
+            <CycleCard
+              key={item.cycle}
+              cycle={item.cycle}
+              hrSleep={item.hrSleep}
+              time={timeCycles[item.cycle as keyof typeof timeCycles]}
+              icon={item.icon}
+            />
+          ))}
+        </View>
       </View>
-      <View className="flex-1 justify-center gap-4">
-        {cycles.map((item) => (
-          <CycleCard
-            key={item.cycle}
-            cycle={item.cycle}
-            hrSleep={item.hrSleep}
-            time={timeCycles[item.cycle as keyof typeof timeCycles]}
-            icon={item.icon}
-          />
-        ))}
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 

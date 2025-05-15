@@ -1,8 +1,8 @@
-import MyText from "@/src/components/ui/MyText";
 import SettingsRow, { SettingsRowType } from "@/src/components/ui/SettingsRow";
+import TextBold from "@/src/components/ui/TextBold";
 import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { Platform, View } from "react-native";
+import { View } from "react-native";
 import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
@@ -45,14 +45,8 @@ const SettingsScreen = () => {
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <View
-        className={`flex-1 flex flex-col gap-4 space-y-4 items-center px-8 ${Platform.OS === "ios" ? "pb-32 pt-24" : "pb-28 pt-8"}`}
-      >
-        <MyText
-          className={`text-4xl text-textPrimary mb-14 ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-        >
-          {t("title")}
-        </MyText>
+      <View className="flex-1 flex flex-col gap-4 space-y-4 items-center">
+        <TextBold className="text-4xl mb-14">{t("title")}</TextBold>
         <View className="w-full bg-primary rounded-3xl">
           {settings.map((item, index) => (
             <SettingsRow

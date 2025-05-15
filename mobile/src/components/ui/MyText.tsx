@@ -6,9 +6,12 @@ type Props = {
   children: any;
 };
 
-const MyText = ({ className = "text-2xl", style, children }: Props) => {
+const MyText = ({ className = "text-xl", style, children }: Props) => {
   return (
-    <Text className={`font-fredokaMedium ${className}`} style={{ ...style }}>
+    <Text
+      className={`font-fredokaMedium text-textPrimary ${className}`}
+      style={{ ...style }}
+    >
       {children}
     </Text>
   );

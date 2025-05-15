@@ -1,15 +1,16 @@
 import { TimePickerStyles } from "@/src/components/TimerPicker";
+import BackButton from "@/src/components/ui/BackButton";
 import MainButton from "@/src/components/ui/MainButton";
 import MyText from "@/src/components/ui/MyText";
+import TextBold from "@/src/components/ui/TextBold";
 import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
 import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";
 import { formatTime } from "@/src/lib/formatTime";
 import * as Notifications from "expo-notifications";
-import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Platform, Pressable, Switch, View } from "react-native";
+import { Switch, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const RemindersScreen = () => {
@@ -77,34 +78,19 @@ const RemindersScreen = () => {
 
   return (
     <>
-      <View
-        className={`bg-background flex-1 flex flex-col gap-4 space-y-4 items-center ${Platform.OS === "ios" ? "pb-28 pt-20 px-16" : "pb-24 pt-10 px-16"}`}
-      >
-        <Pressable
-          onPress={() => router.back()}
-          className={`absolute ${Platform.OS === "ios" ? "left-6 top-16" : "left-5 top-5"}`}
-        >
-          {Platform.OS === "ios"
-            ? iconsData["arrowBackIos"]({ color: color.textPrimary })
-            : iconsData["arrowBackAndroid"]({ color: color.textPrimary })}
-        </Pressable>
+      <View className="bg-background flex-1 flex flex-col gap-4 space-y-4 items-center p-8">
+        <BackButton />
         <View className="gap-2">
           <View className="flex-row items-center justify-center gap-2">
             {iconsData["notifications"]()}
-            <MyText
-              className={`text-center text-4xl text-textPrimary   ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-            >
-              {t("title")}
-            </MyText>
+            <TextBold className="text-center text-4xl">{t("title")}</TextBold>
           </View>
           <View className="flex-1 justify-center">
             <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
               <View className="flex-row items-center justify-center gap-3">
-                <MyText
-                  className={`text-accent text-2xl text-center ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-                >
+                <TextBold className="!text-accent text-2xl text-center">
                   {t("card.title")}
-                </MyText>
+                </TextBold>
                 <Switch
                   value={isEnabled}
                   onValueChange={toggleReminder}
@@ -113,22 +99,16 @@ const RemindersScreen = () => {
                   ios_backgroundColor={color.primary}
                 />
               </View>
-              <MyText className="text-textPrimary text-xl">
-                {t("card.body")}
-              </MyText>
+              <MyText>{t("card.body")}</MyText>
               {isEnabled && (
                 <>
                   <View className="flex-row justify-between">
-                    <MyText
-                      className={`text-textPrimary text-2xl ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-                    >
+                    <TextBold className="text-2xl text-center">
                       {t("card.current")}
-                    </MyText>
-                    <MyText
-                      className={`text-textPrimary text-2xl ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-                    >
+                    </TextBold>
+                    <TextBold className="text-2xl text-center">
                       {sleepTime}
-                    </MyText>
+                    </TextBold>
                   </View>
                   <MainButton
                     onPress={() => setShowTimePicker(true)}

@@ -37,19 +37,23 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   return (
     <View
       onLayout={onTabBarLayout}
-      className={`flex-row absolute justify-between items-center py-[15] rounded-[35] bg-primary ${Platform.OS === "ios" ? "bottom-6 mx-[75]" : "bottom-2 mx-[65]"}`}
+      className={`flex-row absolute justify-between items-center py-4 rounded-full bg-primary ${Platform.OS === "ios" ? "bottom-0" : "bottom-2"}`}
+      style={{
+        marginHorizontal: "12%",
+      }}
     >
       <Animated.View
         style={[
           animatedStyle,
           {
-            height: dimensions.height - 15,
-            width: buttonWidth - 25,
+            height: dimensions.height * 0.85,
+            width: buttonWidth * 0.8,
+            marginHorizontal: "3%",
           },
         ]}
-        className={`absolute rounded-[30] mx-[12] bg-accent`}
+        className="absolute rounded-full bg-accent"
       />
-      {state.routes.map((route, index: number) => {
+      {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
           options.tabBarLabel !== undefined
