@@ -45,8 +45,8 @@ const SettingsScreen = () => {
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <View className="flex-1 flex flex-col gap-4 space-y-4 items-center">
-        <TextBold className="text-4xl mb-14">{t("title")}</TextBold>
+      <View className="flex-1 flex flex-col gap-24 items-center">
+        <TextBold className="text-4xl">{t("title")}</TextBold>
         <View className="w-full bg-primary rounded-3xl">
           {settings.map((item, index) => (
             <SettingsRow

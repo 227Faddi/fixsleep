@@ -48,7 +48,9 @@ const SoundsScreen = () => {
       <View className="flex-1 flex flex-col gap-4 space-y-4 items-center">
         <View className="gap-3">
           <TextBold className="text-4xl text-center">{t("title")}</TextBold>
-          <MyText className="text-xl text-center">{t("subtitle")}</MyText>
+          <MyText className="text-xl text-center max-w-xs">
+            {t("subtitle")}
+          </MyText>
         </View>
         <View className="flex-1 w-full px-8 gap-4 justify-center">
           {sounds.map((item, index) => (

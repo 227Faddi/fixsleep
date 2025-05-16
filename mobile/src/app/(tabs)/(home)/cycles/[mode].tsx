@@ -44,7 +44,7 @@ const CyclesScreen = () => {
               {mode === "sleep" ? t("wakeUpTime") : t("bedtime")}
             </TextBold>
           </View>
-          <MyText className="text-center">
+          <MyText className="text-xl text-center">
             {mode === "sleep"
               ? t("descriptionSleep", { time })
               : t("descriptionWake", { time })}

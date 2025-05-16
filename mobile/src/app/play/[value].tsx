@@ -9,7 +9,7 @@ import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, TouchableOpacity, View } from "react-native";
 
 const SoundPlayer = () => {
   const { t } = useTranslation("translation", {
@@ -18,6 +18,7 @@ const SoundPlayer = () => {
   const { value } = useLocalSearchParams<{ value: string }>();
   const [sound, setSound] = useState<Audio.Sound | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   // const [soundTimer, setSoundTimer] = useState<number | null>();
   // const [timerIsStarted, setTimerIsStarted] = useState(false);
@@ -44,6 +45,7 @@ const SoundPlayer = () => {
 
   const playSound = async () => {
     try {
+      setIsLoading(true);
       if (isPlaying && sound) {
         await sound.unloadAsync();
         setIsPlaying(false);
@@ -64,6 +66,8 @@ const SoundPlayer = () => {
     } catch (err) {
       alert("Error playing sound");
       console.error(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -98,9 +102,13 @@ const SoundPlayer = () => {
             className="p-6 rounded-full bg-primary"
             onPress={playSound}
           >
-            {isPlaying
-              ? iconsData["stop"]({ size: 40, color: color.textPrimary })
-              : iconsData["play"]({ size: 40, color: color.textPrimary })}
+            {isPlaying ? (
+              iconsData["stop"]({ size: 40, color: color.textPrimary })
+            ) : isLoading ? (
+              <ActivityIndicator size={"large"} />
+            ) : (
+              iconsData["play"]({ size: 40, color: color.textPrimary })
+            )}
           </TouchableOpacity>
         </View>
       </View>

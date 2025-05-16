@@ -35,7 +35,7 @@ const LanguageScreen = () => {
           >
             <View className="flex-row gap-4">
               {currentLang === "en" ? (
-                <TextBold>{t("english")}</TextBold>
+                <TextBold className="text-xl">{t("english")}</TextBold>
               ) : (
                 <MyText>{t("english")}</MyText>
               )}
@@ -49,7 +49,7 @@ const LanguageScreen = () => {
           >
             <View className="flex-row gap-4">
               {currentLang === "fr" ? (
-                <TextBold>{t("french")}</TextBold>
+                <TextBold className="text-xl">{t("french")}</TextBold>
               ) : (
                 <MyText>{t("french")}</MyText>
               )}

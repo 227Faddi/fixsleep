@@ -50,7 +50,9 @@ const HomeScreen = () => {
           <View className="flex-row justify-center items-center gap-1">
             <TextBold className="text-4xl">{t("title")}</TextBold>
           </View>
-          <MyText className="text-xl text-center">{t("subtitle")}</MyText>
+          <MyText className="text-xl text-center max-w-xs">
+            {t("subtitle")}
+          </MyText>
         </View>
         <View className="flex-1 gap-12 justify-center">
           <View className="gap-6">
