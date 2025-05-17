@@ -72,7 +72,7 @@ const SoundPlayer = () => {
   };
 
   return (
-    <View className="bg-background flex-1 gap-4 items-center p-8">
+    <View className="bg-background flex-1 gap-4 items-center p-8 relative">
       <BackButton />
       <View className="flex-row justify-center items-center gap-3">
         {iconsData[selectedSound?.value as keyof typeof iconsData]()}
@@ -99,7 +99,7 @@ const SoundPlayer = () => {
         </View> */}
         <View>
           <TouchableOpacity
-            className="p-6 rounded-full bg-primary"
+            className="p-6 rounded-full bg-primary flex justify-center items-center"
             onPress={playSound}
           >
             {isPlaying ? (

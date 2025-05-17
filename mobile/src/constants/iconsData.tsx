@@ -17,6 +17,9 @@ const iconsData = {
   alarm: (props?: object) => (
     <Ionicons name="alarm" size={24} color="#fff" {...props} />
   ),
+  star: (props?: object) => (
+    <Ionicons name="star" size={24} color="#fff" {...props} />
+  ),
   checkmark: (props?: object) => (
     <Ionicons name="checkmark-circle" size={24} color="#fff" {...props} />
   ),

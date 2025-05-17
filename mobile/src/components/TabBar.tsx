@@ -35,7 +35,7 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   }, [state.index, tabPositionX, buttonWidth]);
 
   return (
-    <View className="absolute bottom-0 w-full bg-background py-2">
+    <View className="absolute bottom-0 w-full bg-background py-2 px-8">
       <View
         onLayout={onTabBarLayout}
         className="flex-row justify-between items-center py-4 rounded-full bg-primary"

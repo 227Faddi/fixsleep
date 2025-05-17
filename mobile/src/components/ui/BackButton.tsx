@@ -7,7 +7,7 @@ const BackButton = () => {
   return (
     <TouchableOpacity
       onPress={() => router.back()}
-      className="absolute top-0 left-0"
+      className="absolute top-0 left-5"
     >
       {Platform.OS === "ios"
         ? iconsData["arrowBackIos"]({ color: color.textPrimary })

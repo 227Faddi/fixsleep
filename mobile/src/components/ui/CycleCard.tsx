@@ -22,7 +22,7 @@ const CycleCard = ({ cycle, hrSleep, time, icon }: Props) => {
         <MyText className="text-lg ">
           {hrSleep} {t("hrOfSleep")}
         </MyText>
-        <MyText className="text-md text-accent">
+        <MyText className="text-md !text-accent">
           {cycle} {cycle === 1 ? t("cycle") : t("cycles")}
         </MyText>
       </View>

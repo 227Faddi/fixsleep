@@ -17,7 +17,7 @@
   },
   "sleep": {
     "title": "FixSleep",
-    "subtitle": "Calculate your sleep cycles for better rest and recovery.",
+    "subtitle": "Calculate your sleep cycles for better rest and recovery",
     "wakeUpAt": "Wake Up At",
     "fallAsleepAt": "Fall Asleep At",
     "pickTime": "Pick a time",
@@ -34,7 +34,7 @@
   },
   "sounds": {
     "title": "Sounds",
-    "subtitle": "Relaxing sounds to help you sleep",
+    "subtitle": "Explore relaxing sounds to create your perfect sleep environment",
     "cards": {
       "rainfall": "Rainfall",
       "oceanWaves": "Ocean Waves",
@@ -43,6 +43,7 @@
   },
   "settings": {
     "title": "Settings",
+    "subtitle": "Customize your preferences and create your ideal sleep setup",
     "options": {
       "language": {
         "title": "Language",
@@ -50,7 +51,7 @@
         "french": "Français"
       },
       "reminders": {
-        "title": "Reminders",
+        "title": "Reminder",
         "card": {
           "title": "Sleep Time",
           "body": "Set a bedtime reminder to build a consistent and healthy sleep routine.",
@@ -76,7 +77,8 @@
           "title2": "Why timing matters?",
           "body2": "Waking up at the end of a cycle, rather than in the middle, helps you feel more refreshed."
         }
-      }
+      },
+      "rateus": "Rate the App"
     }
   }
 }

@@ -35,7 +35,7 @@ const CyclesScreen = () => {
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <View className="bg-background flex-1 flex flex-col gap-10 items-center p-8 pb-32">
+      <View className="bg-background flex-1 flex flex-col gap-14 items-center p-8 px-12 pb-32">
         <BackButton />
         <View className="gap-2">
           <View className="flex-row items-center justify-center gap-2">

@@ -1,6 +1,6 @@
 import iconsData from "@/src/constants/iconsData";
 import { Href, router } from "expo-router";
-import { TouchableOpacity, View } from "react-native";
+import { Platform, TouchableOpacity, View } from "react-native";
 import MyText from "./MyText";
 
 export type SettingsRowType = {
@@ -19,7 +19,7 @@ const SettingsRow = ({ title, icon, route }: SettingsRowType) => {
         {iconsData[icon]({ justifySelf: "flex-end" })}
         <MyText className="text-xl text-textPrimary">{title}</MyText>
       </View>
-      {iconsData["arrowForward"]()}
+      {Platform.OS === "ios" && iconsData["arrowForward"]()}
     </TouchableOpacity>
   );
 };

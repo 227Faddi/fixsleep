@@ -17,7 +17,7 @@
   },
   "sleep": {
     "title": "FixSleep",
-    "subtitle": "Calculez vos cycles de sommeil pour un meilleur repos et une meilleure récupération.",
+    "subtitle": "Calculez vos cycles de sommeil pour un meilleur repos et une meilleure récupération",
     "wakeUpAt": "Se réveiller à",
     "fallAsleepAt": "S'endormir à",
     "pickTime": "Choisir une heure",
@@ -34,7 +34,7 @@
   },
   "sounds": {
     "title": "Sons",
-    "subtitle": "Sons relaxants pour vous aider à dormir",
+    "subtitle": "Explorez des sons relaxants pour créer votre environnement de sommeil idéal",
     "cards": {
       "rainfall": "Pluie",
       "oceanWaves": "Vagues",
@@ -43,6 +43,7 @@
   },
   "settings": {
     "title": "Réglages",
+    "subtitle": "Personnalisez vos préférences et créez votre configuration de sommeil idéale",
     "options": {
       "language": {
         "title": "Langue",
@@ -50,7 +51,7 @@
         "french": "Français"
       },
       "reminders": {
-        "title": "Rappels",
+        "title": "Rappel",
         "card": {
           "title": "Heure du coucher",
           "body": "Définissez un rappel pour l'heure du coucher afin de créer une routine de sommeil cohérente et saine.",
@@ -76,7 +77,8 @@
           "title2": "Pourquoi le moment est important?",
           "body2": "Se réveiller à la fin d'un cycle, plutôt qu'en plein milieu, vous aide à vous sentir plus reposé."
         }
-      }
+      },
+      "rateus": "Rate Us"
     }
   }
 }

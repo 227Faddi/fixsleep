@@ -21,12 +21,12 @@ const SleepScreen = () => {
     <>
       <View className="bg-background flex-1 flex flex-col gap-4 space-y-4 items-center p-8">
         <BackButton />
-        <View className="gap-2">
+        <View className="gap-14">
           <View className="flex-row items-center justify-center gap-2">
             {iconsData["home"]()}
             <TextBold className="text-center text-4xl">{t("title")}</TextBold>
           </View>
-          <View className="flex-1 justify-center">
+          <View className="flex-1">
             <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
               <TextBold className="!text-accent text-center text-2xl">
                 {t("card.title")}

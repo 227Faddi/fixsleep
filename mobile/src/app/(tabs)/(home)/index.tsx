@@ -43,9 +43,7 @@ const HomeScreen = () => {
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <View
-        className={`flex-1 flex flex-col gap-4 space-y-4 items-center pb-32`}
-      >
+      <View className="flex-1 flex flex-col gap-4 items-center pb-32 pt-2 px-8">
         <View className="gap-3">
           <View className="flex-row justify-center items-center gap-1">
             <TextBold className="text-4xl">{t("title")}</TextBold>

@@ -14,7 +14,7 @@ const InfoScreen = () => {
     <ScrollView showsVerticalScrollIndicator={false}>
       <View className="bg-background flex-1 flex flex-col space-y-4 items-center p-8 pb-32">
         <BackButton />
-        <View className="gap-12">
+        <View className="gap-14">
           <View className="flex-row items-center justify-center gap-2">
             {iconsData["info"]()}
             <TextBold className="text-center text-4xl">{t("info")}</TextBold>
