@@ -1,3 +1,4 @@
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
@@ -16,6 +17,12 @@ const iconsData = {
   ),
   alarm: (props?: object) => (
     <Ionicons name="alarm" size={24} color="#fff" {...props} />
+  ),
+  mountainStream: (props?: object) => (
+    <FontAwesome5 name="mountain" size={24} color="#fff" {...props} />
+  ),
+  airplaneCabin: (props?: object) => (
+    <Ionicons name="airplane" size={24} color="#fff" {...props} />
   ),
   star: (props?: object) => (
     <Ionicons name="star" size={24} color="#fff" {...props} />

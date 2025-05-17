@@ -78,7 +78,7 @@ const RemindersScreen = () => {
 
   return (
     <>
-      <View className="bg-background flex-1 flex flex-col gap-4 space-y-4 items-center p-8">
+      <View className="bg-background flex-1 flex flex-col gap-4 items-center p-8">
         <BackButton />
         <View className="gap-14">
           <View className="flex-row items-center justify-center gap-2">

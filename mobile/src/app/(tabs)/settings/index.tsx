@@ -4,7 +4,7 @@ import TextBold from "@/src/components/ui/TextBold";
 import iconsData from "@/src/constants/iconsData";
 import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { Platform, TouchableOpacity, View } from "react-native";
+import { Linking, Platform, TouchableOpacity, View } from "react-native";
 import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
@@ -16,12 +16,7 @@ const SettingsScreen = () => {
     keyPrefix: "settings",
   });
 
-  const settings: SettingsRowType[] = [
-    {
-      title: t("options.language.title"),
-      icon: "language",
-      route: "/(tabs)/settings/language",
-    },
+  const settings: Partial<SettingsRowType>[] = [
     {
       title: t("options.reminders.title"),
       icon: "notifications",
@@ -31,6 +26,11 @@ const SettingsScreen = () => {
       title: t("options.sleep.title"),
       icon: "bed",
       route: "/(tabs)/settings/sleep",
+    },
+    {
+      title: t("options.language.title"),
+      icon: "language",
+      route: "/(tabs)/settings/language",
     },
     {
       title: t("options.info.title"),
@@ -46,7 +46,18 @@ const SettingsScreen = () => {
     }
   };
 
-  const handleRate = () => {};
+  const rateApp = () => {
+    const iosLink =
+      "https://apps.apple.com/ca/app/fixsleep/id6745803646?action=write-review";
+    const androidLink =
+      "https://play.google.com/store/apps/details?id=com.x227faddi.fixsleep";
+
+    const link = Platform.OS === "ios" ? iosLink : androidLink;
+
+    Linking.openURL(link).catch((err) =>
+      alert("Failed to open store link, Sorry :(")
+    );
+  };
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
@@ -61,15 +72,16 @@ const SettingsScreen = () => {
           <View className="w-full bg-primary rounded-3xl">
             {settings.map((item, index) => (
               <SettingsRow
+                index={index}
                 key={index}
-                title={item.title}
-                icon={item.icon}
-                route={item.route}
+                title={item.title!}
+                icon={item.icon!}
+                route={item.route!}
               />
             ))}
             <TouchableOpacity
-              onPress={handleRate}
-              className="w-full p-6 rounded-3xl flex-row gap-4 items-center justify-between"
+              onPress={rateApp}
+              className="w-full p-6 flex-row gap-4 items-center justify-between border-t border-[#ffffff09]"
             >
               <View className="flex-row gap-4">
                 {iconsData["star"]({ justifySelf: "flex-end" })}

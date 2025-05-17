@@ -38,7 +38,9 @@
     "cards": {
       "rainfall": "Rainfall",
       "oceanWaves": "Ocean Waves",
-      "brownNoise": "Brown Noise"
+      "brownNoise": "Brown Noise",
+      "airplaneCabin": "Airplane Cabin",
+      "mountainStream": "Mountain Stream"
     }
   },
   "settings": {
@@ -78,7 +80,7 @@
           "body2": "Waking up at the end of a cycle, rather than in the middle, helps you feel more refreshed."
         }
       },
-      "rateus": "Rate the App"
+      "rateus": "Rate us"
     }
   }
 }

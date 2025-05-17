@@ -20,7 +20,7 @@ const LanguageScreen = () => {
   };
 
   return (
-    <View className="bg-background flex-1 flex flex-col gap-14 space-y-4 items-center p-8">
+    <View className="bg-background flex-1 flex flex-col gap-14 items-center p-8">
       <BackButton />
       <View className="flex-row items-center justify-center gap-2">
         {iconsData["language"]()}
@@ -31,7 +31,7 @@ const LanguageScreen = () => {
           <TouchableOpacity
             onPress={() => changeLang("en")}
             disabled={currentLang === "en"}
-            className="p-6 rounded-3xl flex-row gap-4 items-center justify-between"
+            className="p-6 flex-row gap-4 items-center justify-between"
           >
             <View className="flex-row gap-4">
               {currentLang === "en" ? (
@@ -45,7 +45,7 @@ const LanguageScreen = () => {
           <TouchableOpacity
             onPress={() => changeLang("fr")}
             disabled={currentLang === "fr"}
-            className="p-6 rounded-3xl flex-row gap-4 items-center justify-between"
+            className="p-6 flex-row gap-4 items-center justify-between border-t border-[#ffffff09]"
           >
             <View className="flex-row gap-4">
               {currentLang === "fr" ? (

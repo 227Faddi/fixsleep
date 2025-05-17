@@ -10,6 +10,16 @@ const soundsData = [
     img: require("@/assets/images/oceanWaves.webp"),
   },
   {
+    value: "mountainStream",
+    src: require("@/assets/audio/mountainStream.mp3"),
+    img: require("@/assets/images/mountainStream.webp"),
+  },
+  {
+    value: "airplaneCabin",
+    src: require("@/assets/audio/airplaneCabin.mp3"),
+    img: require("@/assets/images/airplaneCabin.webp"),
+  },
+  {
     value: "brownNoise",
     src: require("@/assets/audio/brownNoise.mp3"),
     img: require("@/assets/images/brownNoise.webp"),
