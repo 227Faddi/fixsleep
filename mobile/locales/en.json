@@ -13,7 +13,11 @@
   "notification": {
     "title": "Sleep Time",
     "body": "It's almost time to sleep. Start winding down and get ready for bed.",
-    "error": "Enable to schedule notification, try again"
+    "error": "Enable to schedule notification, try again",
+    "disabledTitle": "Notifications Disabled",
+    "disabledMessage": "Please enable notifications in your system settings to receive daily reminders.",
+    "cancel": "Cancel",
+    "openSettings": "Open Settings"
   },
   "sleep": {
     "title": "FixSleep",

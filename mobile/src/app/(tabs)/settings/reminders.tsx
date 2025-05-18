@@ -7,10 +7,11 @@ import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
 import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";
 import { formatTime } from "@/src/lib/formatTime";
+import { changeDailyNotifications } from "@/src/lib/notifications";
 import * as Notifications from "expo-notifications";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Switch, View } from "react-native";
+import { Alert, Linking, Platform, Switch, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
 
 const RemindersScreen = () => {
@@ -18,10 +19,52 @@ const RemindersScreen = () => {
     keyPrefix: "settings.options.reminders",
   });
 
-  const { setItem, getItem, removeItem } = useAsyncStorage("sleeptime");
+  const { setItem, getItem, removeItem } = useAsyncStorage("sleepTime");
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [sleepTime, setSleepTime] = useState("");
   const [isEnabled, setIsEnabled] = useState(false);
+
+  const toggleReminder = async () => {
+    const newStatus = !isEnabled;
+    if (!newStatus) {
+      await Notifications.cancelAllScheduledNotificationsAsync();
+      await removeItem();
+      setIsEnabled(false);
+      return;
+    }
+    setShowTimePicker(true);
+  };
+
+  const onTimePickerConfirm = async ({
+    hours,
+    minutes,
+  }: {
+    hours: number;
+    minutes: number;
+  }) => {
+    const { enabled } = await changeDailyNotifications({ hours, minutes });
+    if (!enabled) {
+      Alert.alert(
+        i18n.t("notification.disabledTitle"),
+        i18n.t("notification.disabledMessage"),
+        [
+          { text: i18n.t("notification.cancel"), style: "cancel" },
+          {
+            text: i18n.t("notification.openSettings"),
+            onPress: () => {
+              Platform.OS === "ios"
+                ? Linking.openURL("app-settings:")
+                : Linking.openSettings();
+            },
+          },
+        ]
+      );
+    } else {
+      setItem({ hours, minutes });
+      setSleepTime(formatTime({ hours, minutes }));
+      setIsEnabled(true);
+    }
+  };
 
   useEffect(() => {
     const loadSleepTime = async () => {
@@ -34,47 +77,6 @@ const RemindersScreen = () => {
     };
     loadSleepTime();
   }, [getItem]);
-
-  const changeDailyNotifications = async ({
-    hours,
-    minutes,
-  }: {
-    hours: number;
-    minutes: number;
-  }) => {
-    try {
-      await Notifications.cancelAllScheduledNotificationsAsync();
-
-      const id = await Notifications.scheduleNotificationAsync({
-        content: {
-          title: i18n.t("notification.title"),
-          body: i18n.t("notification.body"),
-          sound: "default",
-        },
-        trigger: {
-          type: Notifications.SchedulableTriggerInputTypes.DAILY,
-          hour: hours,
-          minute: minutes,
-        },
-      });
-
-      await setItem({ id, hours, minutes });
-      setSleepTime(formatTime({ hours, minutes }));
-    } catch {
-      alert(i18n.t("notification.error"));
-    }
-  };
-
-  const toggleReminder = async () => {
-    const newStatus = !isEnabled;
-    if (!newStatus) {
-      await Notifications.cancelAllScheduledNotificationsAsync();
-      await removeItem();
-      setIsEnabled(false);
-      return;
-    }
-    setShowTimePicker(true);
-  };
 
   return (
     <>
@@ -130,8 +132,7 @@ const RemindersScreen = () => {
         onConfirm={(pickedDuration) => {
           setShowTimePicker(false);
           const { hours, minutes } = pickedDuration;
-          changeDailyNotifications({ hours, minutes });
-          setIsEnabled(true);
+          onTimePickerConfirm({ hours, minutes });
         }}
         onCancel={() => {
           setShowTimePicker(false);

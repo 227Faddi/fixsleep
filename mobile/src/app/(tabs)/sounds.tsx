@@ -10,6 +10,7 @@ import { View } from "react-native";
 import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
+  ScrollView,
 } from "react-native-gesture-handler";
 
 const SoundsScreen = () => {
@@ -45,19 +46,21 @@ const SoundsScreen = () => {
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <View className="flex-1 flex flex-col gap-14 items-center pt-2 px-8">
-        <View className="gap-3">
-          <TextBold className="text-4xl text-center">{t("title")}</TextBold>
-          <MyText className="text-xl text-center max-w-xs">
-            {t("subtitle")}
-          </MyText>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View className="flex-1 flex flex-col gap-14 items-center pt-2 px-8 pb-32">
+          <View className="gap-3">
+            <TextBold className="text-4xl text-center">{t("title")}</TextBold>
+            <MyText className="text-xl text-center max-w-xs">
+              {t("subtitle")}
+            </MyText>
+          </View>
+          <View className="flex-1 w-full px-8 gap-4">
+            {sounds.map((item, index) => (
+              <SoundCard key={index} value={item.value} />
+            ))}
+          </View>
         </View>
-        <View className="flex-1 w-full px-8 gap-4">
-          {sounds.map((item, index) => (
-            <SoundCard key={index} value={item.value} />
-          ))}
-        </View>
-      </View>
+      </ScrollView>
     </PanGestureHandler>
   );
 };

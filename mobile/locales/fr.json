@@ -13,7 +13,11 @@
   "notification": {
     "title": "Heure du coucher",
     "body": "Il est presque l'heure de dormir. Commencez à vous détendre et préparez-vous pour le lit.",
-    "error": "Impossible de planifier la notification, veuillez réessayer."
+    "error": "Impossible de planifier la notification, veuillez réessayer.",
+    "disabledTitle": "Notifications désactivées",
+    "disabledMessage": "Veuillez activer les notifications dans les paramètres du système pour recevoir des rappels quotidiens.",
+    "cancel": "Annuler",
+    "openSettings": "Ouvrir les paramètres"
   },
   "sleep": {
     "title": "FixSleep",
@@ -38,7 +42,9 @@
     "cards": {
       "rainfall": "Pluie",
       "oceanWaves": "Vagues",
-      "brownNoise": "Bruit brun"
+      "brownNoise": "Bruit brun",
+      "airplaneCabin": "Cabine d'avion",
+      "mountainStream": "Ruisseau"
     }
   },
   "settings": {
