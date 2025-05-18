@@ -1,6 +1,7 @@
 import "@/global.css";
 import "@/src/i18n";
 import { getLocales } from "expo-localization";
+import * as Notifications from "expo-notifications";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
@@ -11,6 +12,16 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import color from "../constants/colors";
 import AppContextProvider from "../contexts/AppContextProvider";
 import { useAsyncStorage } from "../hooks/useAsyncStorage";
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+    shouldShowBanner: true,
+    shouldShowList: true,
+  }),
+});
 
 SplashScreen.preventAutoHideAsync();
 

@@ -1,13 +1,6 @@
+import { isDevice } from "expo-device";
 import * as Notifications from "expo-notifications";
 import i18n from "../i18n";
-
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: false,
-  }),
-});
 
 export const changeDailyNotifications = async ({
   hours,
@@ -43,17 +36,23 @@ export const changeDailyNotifications = async ({
 };
 
 async function requestPermissions(): Promise<{ granted: boolean }> {
-  const { status: existingStatus } = await Notifications.getPermissionsAsync();
+  if (isDevice) {
+    const { status: existingStatus } =
+      await Notifications.getPermissionsAsync();
 
-  if (existingStatus === "granted") {
+    if (existingStatus === "granted") {
+      return { granted: true };
+    }
+
+    const { status } = await Notifications.requestPermissionsAsync();
+
+    if (status !== "granted") {
+      return { granted: false };
+    }
+
+    return { granted: true };
+  } else {
+    alert("Must use physical device for Push Notifications");
     return { granted: true };
   }
-
-  const { status } = await Notifications.requestPermissionsAsync();
-
-  if (status !== "granted") {
-    return { granted: false };
-  }
-
-  return { granted: true };
 }
