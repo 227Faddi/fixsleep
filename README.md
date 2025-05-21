@@ -18,6 +18,7 @@ A smart sleep cycle calculator app designed to help users optimize their sleep p
 - Personalized Sleep Reminders
 - Relaxing Sleep Sounds
 - Customizable Settings
+- Available in EN and FR
 
 ## 🛠 Tech Stack
 
