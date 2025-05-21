@@ -1,52 +1,52 @@
-# Welcome to your Expo app 👋
+# [FixSleep](https://www.fixsleep.app) - Sleep Cycle Calculator
 
-https://github.com/user-attachments/assets/42266662-1822-417c-ae6f-398919396359
+<img width="1680" alt="appstore" src="https://github.com/user-attachments/assets/f723aa7f-dffb-421e-9c49-7b89eaf44e0b" />
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<br />
 
-## Get started
+<a href="https://apps.apple.com/ca/app/fixsleep/id6745803646?platform=iphone">
+  <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" height="50"/>
+</a>
 
-1. Install dependencies
+## 📖 Description
 
-   ```bash
-   npm install
-   ```
+A smart sleep cycle calculator app designed to help users optimize their sleep patterns by calculating ideal sleep and wake times, providing personalized reminders, and offering relaxing sounds for better rest.
 
-2. Start the app
+## 📊 Features
 
-   ```bash
-    npx expo start
-   ```
+- Sleep Cycle Calculator
+- Personalized Sleep Reminders
+- Relaxing Sleep Sounds
+- Customizable Settings
 
-In the output, you'll find options to open the app in a
+## 🛠 Tech Stack
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37) ![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🔥 Getting Started - Mobile App
 
-## Get a fresh project
+### 📦 Installation
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+git clone git@github.com:227Faddi/fixsleep.git
+cd fixsleep/mobile
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+```
+npm install -g expo-cli
+npm install
+```
 
-## Learn more
+### ▶️ Running the Project
+
+```
+npx expo start
+```
 
 To learn more about developing your project with Expo, look at the following resources:
 
 - [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+## More
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Explore more of my recent projects on my [Portfolio](https://faliloukhouma.com).
