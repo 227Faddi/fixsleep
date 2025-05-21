@@ -1,7 +1,9 @@
 "use client";
 const waitlistId = process.env.NEXT_PUBLIC_WAITLIST_ID;
 import { motion } from "motion/react";
+import Link from "next/link";
 import { useState } from "react";
+import { IoLogoApple } from "react-icons/io5";
 
 const CTA = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -33,7 +35,7 @@ const CTA = () => {
       );
 
       if (!response.ok) {
-        throw new Error("Failed to submit to waitlist.");
+        throw new Error("Failed to submit to waitlist");
       }
       const data = await response.json();
       setWaitlistData(data);
@@ -46,9 +48,12 @@ const CTA = () => {
   };
 
   return (
-    <section id="cta" className="py-28">
+    <section
+      id="cta"
+      className="py-28 flex flex-col justify-center items-center"
+    >
       <h2 className="text-4xl sm:text-5xl font-bold text-center pb-16">
-        Join The Waitlist
+        Join the Android Waitlist
       </h2>
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -59,7 +64,7 @@ const CTA = () => {
       >
         <div className="card-body items-center text-center">
           <h3 className="card-title md:text-2xl">
-            Get notified when we officially launch!
+            Get notified when we launch on Google Play!
           </h3>
           <div className="card-actions pt-4 w-full">
             {submitted ? (
@@ -97,6 +102,19 @@ const CTA = () => {
           </div>
         </div>
       </motion.div>
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 max-w-56">
+        <Link
+          href="https://apps.apple.com/ca/app/fixsleep/id6745803646?platform=iphone"
+          target="_blank"
+          className="btn btn-primary flex items-center justify-start gap-4 rounded-xl py-8 w-full border border-white shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
+        >
+          <IoLogoApple size={40} />
+          <div className="flex flex-col items-start justify-center">
+            <span className="text-xs">DOWNLOAD ON THE</span>
+            <span className="text-lg">App Store</span>
+          </div>
+        </Link>
+      </div>
     </section>
   );
 };

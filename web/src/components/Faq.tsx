@@ -34,9 +34,8 @@ const Faq = () => {
             When will the app be available?
           </div>
           <div className="collapse-content text-md md:text-lg">
-            The app is currently under development and will be available soon.
-            Join the waitlist to receive updates and be the first to know when
-            it&apos;s released.
+            The app is already available on the App Store (iOS) and will be
+            available on the Google Play Store (Android) soon.
           </div>
         </div>
       </div>
