@@ -4,7 +4,7 @@
 
 <br />
 
-<a href="https://apps.apple.com/ca/app/fixsleep/id6745803646?platform=iphone">
+<a href="https://apps.apple.com/ca/app/fixsleep/id6745803646?platform=iphone" target='_blank'>
   <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" height="50"/>
 </a>
 
