@@ -2,14 +2,19 @@ import { useTranslation } from "react-i18next";
 import { TimerPickerModal } from "react-native-timer-picker";
 import color from "../constants/colors";
 
-type Props = {
+type CycleTimePickerProps = {
   showModal: boolean;
   setShowModal: (arg: boolean) => void;
   mode: string;
   onConfirmFN: (args: any) => void;
 };
 
-const TimerPicker = ({ showModal, setShowModal, mode, onConfirmFN }: Props) => {
+const CycleTimePicker = ({
+  showModal,
+  setShowModal,
+  mode,
+  onConfirmFN,
+}: CycleTimePickerProps) => {
   const { t } = useTranslation();
   const date = new Date();
   return (
@@ -43,6 +48,45 @@ const TimerPicker = ({ showModal, setShowModal, mode, onConfirmFN }: Props) => {
   );
 };
 
+type PlayerTimePickerProps = {
+  showModal: boolean;
+  setShowModal: (arg: boolean) => void;
+  onConfirmFN: (args: any) => void;
+};
+
+const PlayerTimePicker = ({
+  showModal,
+  setShowModal,
+  onConfirmFN,
+}: PlayerTimePickerProps) => {
+  const { t } = useTranslation();
+  return (
+    <TimerPickerModal
+      modalTitle={t("timePicker.pickTime")}
+      confirmButtonText={t("timePicker.confirm")}
+      cancelButtonText={t("timePicker.cancel")}
+      visible={showModal}
+      setIsVisible={setShowModal}
+      onConfirm={(pickedDuration) => {
+        setShowModal(false);
+        onConfirmFN(pickedDuration.minutes);
+      }}
+      onCancel={() => setShowModal(false)}
+      closeOnOverlayPress
+      styles={{ ...TimePickerStyles }}
+      modalProps={{
+        overlayOpacity: 0.2,
+      }}
+      hideSeconds
+      hideHours
+      minuteInterval={5}
+      minuteLabel={"M"}
+      minuteLimit={{ min: 5 }}
+      initialValue={{ minutes: 5 }}
+    />
+  );
+};
+
 export const TimePickerStyles = {
   text: { fontFamily: "Fredoka-Medium" },
   modalTitle: {
@@ -52,8 +96,6 @@ export const TimePickerStyles = {
   },
   contentContainer: {
     backgroundColor: color.primary,
-    // borderWidth: 1,
-    // borderColor: color.textSecondary,
   },
   pickerContainer: {
     marginBlock: 15,
@@ -77,4 +119,4 @@ export const TimePickerStyles = {
   },
 };
 
-export default TimerPicker;
+export { CycleTimePicker, PlayerTimePicker };

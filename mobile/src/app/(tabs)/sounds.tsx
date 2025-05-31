@@ -56,7 +56,7 @@ const SoundsScreen = () => {
           </View>
           <View className="flex-1 w-full px-8 gap-4">
             {sounds.map((item, index) => (
-              <SoundCard key={index} value={item.value} />
+              <SoundCard key={index} sound={item.name} />
             ))}
           </View>
         </View>

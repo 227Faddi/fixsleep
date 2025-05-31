@@ -1,8 +1,10 @@
+import { PlayerTimePicker } from "@/src/components/TimerPicker";
 import BackButton from "@/src/components/ui/BackButton";
+import MyText from "@/src/components/ui/MyText";
 import TextBold from "@/src/components/ui/TextBold";
 import color from "@/src/constants/colors";
-import iconsData from "@/src/constants/iconsData";
-import sounds from "@/src/constants/soundsData";
+import iconsData, { IconsData } from "@/src/constants/iconsData";
+import soundsData from "@/src/constants/soundsData";
 import { SoundCardKey } from "@/src/types/i18next";
 import { Audio } from "expo-av";
 import { Image } from "expo-image";
@@ -17,25 +19,14 @@ const SoundPlayer = () => {
   });
   const { value } = useLocalSearchParams<{ value: string }>();
   const [sound, setSound] = useState<Audio.Sound | null>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // const [soundTimer, setSoundTimer] = useState<number | null>();
-  // const [timerIsStarted, setTimerIsStarted] = useState(false);
+  const [soundTimer, setSoundTimer] = useState<number | null>(null);
+  const [timerIsStarted, setTimerIsStarted] = useState(false);
+  const [showTimePicker, setShowTimePicker] = useState(false);
 
-  // const startSoundTimer = (minutes: number) => {
-  //   setTimerIsStarted(true);
-  // };
-
-  useEffect(() => {
-    return () => {
-      if (sound) {
-        sound.unloadAsync();
-      }
-    };
-  }, [sound]);
-
-  const selectedSound = sounds.find((item) => item.value === value);
+  const selectedSound = soundsData.find((sound) => sound.name === value);
 
   if (!selectedSound) {
     alert("Sound not found");
@@ -46,22 +37,12 @@ const SoundPlayer = () => {
   const playSound = async () => {
     try {
       setIsLoading(true);
-      if (isPlaying && sound) {
-        await sound.unloadAsync();
-        setIsPlaying(false);
-        setSound(null);
-        return;
-      }
+      const { sound } = await Audio.Sound.createAsync(selectedSound.src, {
+        isLooping: true,
+      });
 
-      const { sound: newSound } = await Audio.Sound.createAsync(
-        selectedSound?.src,
-        {
-          isLooping: true,
-        }
-      );
-
-      setSound(newSound);
-      await newSound.playAsync();
+      setSound(sound);
+      await sound.playAsync();
       setIsPlaying(true);
     } catch (err) {
       alert("Error playing sound");
@@ -71,47 +52,81 @@ const SoundPlayer = () => {
     }
   };
 
+  const stopSound = async () => {
+    if (sound && isPlaying) {
+      await sound.unloadAsync();
+      setIsPlaying(false);
+      setSound(null);
+    }
+  };
+
+  useEffect(() => {
+    return sound
+      ? () => {
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
+
+  const startSoundTimer = (minutes: number) => {
+    if (!isPlaying) {
+      playSound();
+    }
+    setTimerIsStarted(true);
+  };
+
   return (
     <View className="bg-background flex-1 gap-4 items-center p-8 relative">
       <BackButton />
       <View className="flex-row justify-center items-center gap-3">
-        {iconsData[selectedSound?.value as keyof typeof iconsData]()}
+        {iconsData[selectedSound.name as IconsData]()}
         <TextBold className="text-4xl">
-          {t(selectedSound?.value as SoundCardKey)}
+          {t(selectedSound.name as SoundCardKey)}
         </TextBold>
       </View>
       <View className="w-full flex-1 flex-col justify-between items-center gap-8">
         <Image
           style={{ flex: 1, width: "100%", borderRadius: 24 }}
-          source={selectedSound?.img}
+          source={selectedSound.img}
           contentFit="cover"
           transition={600}
         />
-        {/* <View className="flex-row gap-6">
-          <MainButton
-            onPress={() => startSoundTimer(30)}
-            text={"30 m to end"}
-          />
-          <MainButton
-            onPress={() => startSoundTimer(30)}
-            text={"15 m to end"}
-          />
-        </View> */}
-        <View>
-          <TouchableOpacity
-            className="p-6 rounded-full bg-primary flex justify-center items-center"
-            onPress={playSound}
-          >
-            {isPlaying ? (
-              iconsData["stop"]({ size: 40, color: color.textPrimary })
-            ) : isLoading ? (
-              <ActivityIndicator size={"large"} />
+        <View className="flex-row gap-10 items-center justify-center">
+          <View className="items-center">
+            <TouchableOpacity>
+              {iconsData["volume"]({ size: 40 })}
+            </TouchableOpacity>
+          </View>
+          <View className="">
+            <TouchableOpacity
+              className="p-6 rounded-full bg-primary flex justify-center items-center"
+              onPress={isPlaying ? stopSound : playSound}
+            >
+              {isPlaying ? (
+                iconsData["stop"]({ size: 40, color: color.textPrimary })
+              ) : isLoading ? (
+                <ActivityIndicator size={"large"} />
+              ) : (
+                iconsData["play"]({ size: 40, color: color.textPrimary })
+              )}
+            </TouchableOpacity>
+          </View>
+          <View className="items-center">
+            {timerIsStarted ? (
+              <MyText className="text-2xl">{"00:00"}</MyText>
             ) : (
-              iconsData["play"]({ size: 40, color: color.textPrimary })
+              <TouchableOpacity onPress={() => setShowTimePicker(true)}>
+                {iconsData["timer"]({ size: 40 })}
+              </TouchableOpacity>
             )}
-          </TouchableOpacity>
+          </View>
         </View>
       </View>
+      <PlayerTimePicker
+        showModal={showTimePicker}
+        setShowModal={setShowTimePicker}
+        onConfirmFN={startSoundTimer}
+      />
     </View>
   );
 };

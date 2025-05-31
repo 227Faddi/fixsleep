@@ -1,4 +1,4 @@
-import TimerPicker from "@/src/components/TimerPicker";
+import { CycleTimePicker } from "@/src/components/TimerPicker";
 import MainButton from "@/src/components/ui/MainButton";
 import MyText from "@/src/components/ui/MyText";
 import TextBold from "@/src/components/ui/TextBold";
@@ -82,13 +82,13 @@ const HomeScreen = () => {
             }}
           />
         </View>
-        <TimerPicker
+        <CycleTimePicker
           mode="wake"
           showModal={showWakeTime}
           setShowModal={setShowWakeTime}
           onConfirmFN={getSleepCycles}
         />
-        <TimerPicker
+        <CycleTimePicker
           mode="sleep"
           showModal={showSleepTime}
           setShowModal={setShowSleepTime}

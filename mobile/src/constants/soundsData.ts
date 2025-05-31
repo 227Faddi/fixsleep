@@ -1,26 +1,26 @@
 const soundsData = [
   {
-    value: "rainfall",
+    name: "rainfall",
     src: require("@/assets/audio/rainfall.mp3"),
     img: require("@/assets/images/rainfall.webp"),
   },
   {
-    value: "oceanWaves",
+    name: "oceanWaves",
     src: require("@/assets/audio/oceanWaves.mp3"),
     img: require("@/assets/images/oceanWaves.webp"),
   },
   {
-    value: "mountainStream",
+    name: "mountainStream",
     src: require("@/assets/audio/mountainStream.mp3"),
     img: require("@/assets/images/mountainStream.webp"),
   },
   {
-    value: "airplaneCabin",
+    name: "airplaneCabin",
     src: require("@/assets/audio/airplaneCabin.mp3"),
     img: require("@/assets/images/airplaneCabin.webp"),
   },
   {
-    value: "brownNoise",
+    name: "brownNoise",
     src: require("@/assets/audio/brownNoise.mp3"),
     img: require("@/assets/images/brownNoise.webp"),
   },

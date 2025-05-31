@@ -2,6 +2,8 @@ import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
+export type IconsData = keyof typeof iconsData;
+
 const iconsData = {
   home: (props?: object) => (
     <Ionicons name="bed" size={24} color="#fff" {...props} />
@@ -17,6 +19,12 @@ const iconsData = {
   ),
   alarm: (props?: object) => (
     <Ionicons name="alarm" size={24} color="#fff" {...props} />
+  ),
+  timer: (props?: object) => (
+    <Ionicons name="timer" size={24} color="#fff" {...props} />
+  ),
+  volume: (props?: object) => (
+    <Ionicons name="volume-medium" size={24} color="#fff" {...props} />
   ),
   mountainStream: (props?: object) => (
     <FontAwesome5 name="mountain" size={24} color="#fff" {...props} />
