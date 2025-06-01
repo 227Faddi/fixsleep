@@ -5,6 +5,7 @@ import TextBold from "@/src/components/ui/TextBold";
 import color from "@/src/constants/colors";
 import iconsData, { IconsData } from "@/src/constants/iconsData";
 import soundsData from "@/src/constants/soundsData";
+import { formatTimer } from "@/src/lib/formatTime";
 import { SoundCardKey } from "@/src/types/i18next";
 import { Audio } from "expo-av";
 import { Image } from "expo-image";
@@ -22,9 +23,37 @@ const SoundPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [soundTimer, setSoundTimer] = useState<number | null>(null);
-  const [timerIsStarted, setTimerIsStarted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
   const [showTimePicker, setShowTimePicker] = useState(false);
+
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval>;
+    if (isRunning && timeLeft > 0) {
+      interval = setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev <= 1) {
+            clearInterval(interval);
+            stopSound();
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [isRunning, timeLeft]);
+
+  const startTimer = (minutes: number) => {
+    if (!isPlaying) {
+      playSound();
+    }
+    const seconds = minutes * 60;
+    if (!isNaN(seconds) && seconds > 0) {
+      setTimeLeft(seconds);
+      setIsRunning(true);
+    }
+  };
 
   const selectedSound = soundsData.find((sound) => sound.name === value);
 
@@ -54,6 +83,7 @@ const SoundPlayer = () => {
 
   const stopSound = async () => {
     if (sound && isPlaying) {
+      setIsRunning(false);
       await sound.unloadAsync();
       setIsPlaying(false);
       setSound(null);
@@ -67,13 +97,6 @@ const SoundPlayer = () => {
         }
       : undefined;
   }, [sound]);
-
-  const startSoundTimer = (minutes: number) => {
-    if (!isPlaying) {
-      playSound();
-    }
-    setTimerIsStarted(true);
-  };
 
   return (
     <View className="bg-background flex-1 gap-4 items-center p-8 relative">
@@ -100,6 +123,7 @@ const SoundPlayer = () => {
           <View className="">
             <TouchableOpacity
               className="p-6 rounded-full bg-primary flex justify-center items-center"
+              disabled={isLoading}
               onPress={isPlaying ? stopSound : playSound}
             >
               {isPlaying ? (
@@ -112,8 +136,8 @@ const SoundPlayer = () => {
             </TouchableOpacity>
           </View>
           <View className="items-center">
-            {timerIsStarted ? (
-              <MyText className="text-2xl">{"00:00"}</MyText>
+            {isRunning ? (
+              <MyText className="text-2xl">{formatTimer(timeLeft)}</MyText>
             ) : (
               <TouchableOpacity onPress={() => setShowTimePicker(true)}>
                 {iconsData["timer"]({ size: 40 })}
@@ -125,7 +149,7 @@ const SoundPlayer = () => {
       <PlayerTimePicker
         showModal={showTimePicker}
         setShowModal={setShowTimePicker}
-        onConfirmFN={startSoundTimer}
+        onConfirmFN={startTimer}
       />
     </View>
   );

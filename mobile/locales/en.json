@@ -6,6 +6,7 @@
   },
   "timePicker": {
     "pickTime": "Pick a time",
+    "soundDuration": "Duration",
     "cancel": "Cancel",
     "save": "Save",
     "confirm": "Confirm"

@@ -11,4 +11,12 @@ const formatTime = ({ hours, minutes }: { hours: number; minutes: number }) => {
   return `${h}:${m}`;
 };
 
-export { formatTime, formatTimeNow };
+const formatTimer = (secs: number) => {
+  const min = Math.floor(secs / 60)
+    .toString()
+    .padStart(2, "0");
+  const sec = (secs % 60).toString().padStart(2, "0");
+  return `${min}:${sec}`;
+};
+
+export { formatTime, formatTimeNow, formatTimer };

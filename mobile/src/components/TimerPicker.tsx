@@ -62,7 +62,7 @@ const PlayerTimePicker = ({
   const { t } = useTranslation();
   return (
     <TimerPickerModal
-      modalTitle={t("timePicker.pickTime")}
+      modalTitle={t("timePicker.soundDuration")}
       confirmButtonText={t("timePicker.confirm")}
       cancelButtonText={t("timePicker.cancel")}
       visible={showModal}
@@ -79,10 +79,10 @@ const PlayerTimePicker = ({
       }}
       hideSeconds
       hideHours
-      minuteInterval={5}
+      minuteInterval={1}
       minuteLabel={"M"}
-      minuteLimit={{ min: 5 }}
-      initialValue={{ minutes: 5 }}
+      minuteLimit={{ min: 1 }}
+      initialValue={{ minutes: 1 }}
     />
   );
 };
