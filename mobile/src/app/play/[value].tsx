@@ -27,34 +27,6 @@ const SoundPlayer = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [showTimePicker, setShowTimePicker] = useState(false);
 
-  useEffect(() => {
-    let interval: ReturnType<typeof setInterval>;
-    if (isRunning && timeLeft > 0) {
-      interval = setInterval(() => {
-        setTimeLeft((prev) => {
-          if (prev <= 1) {
-            clearInterval(interval);
-            stopSound();
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-    }
-    return () => clearInterval(interval);
-  }, [isRunning, timeLeft]);
-
-  const startTimer = (minutes: number) => {
-    if (!isPlaying) {
-      playSound();
-    }
-    const seconds = minutes * 60;
-    if (!isNaN(seconds) && seconds > 0) {
-      setTimeLeft(seconds);
-      setIsRunning(true);
-    }
-  };
-
   const selectedSound = soundsData.find((sound) => sound.name === value);
 
   if (!selectedSound) {
@@ -71,10 +43,11 @@ const SoundPlayer = () => {
       });
 
       setSound(sound);
-      await sound.playAsync();
       setIsPlaying(true);
+      await sound.playAsync();
     } catch (err) {
       alert("Error playing sound");
+      setIsPlaying(false);
       console.error(err);
     } finally {
       setIsLoading(false);
@@ -89,6 +62,34 @@ const SoundPlayer = () => {
       setSound(null);
     }
   };
+
+  const startTimer = (minutes: number) => {
+    if (!isLoading) {
+      if (!isPlaying) {
+        playSound();
+      }
+      const seconds = 10;
+      setTimeLeft(seconds);
+      setIsRunning(true);
+    }
+  };
+
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval>;
+    if (isRunning && timeLeft > 0) {
+      interval = setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev <= 1) {
+            clearInterval(interval);
+            stopSound();
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [isRunning, timeLeft]);
 
   useEffect(() => {
     return sound
