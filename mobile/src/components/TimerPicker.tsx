@@ -79,10 +79,11 @@ const PlayerTimePicker = ({
       }}
       hideSeconds
       hideHours
-      minuteInterval={1}
+      minuteInterval={5}
       minuteLabel={"M"}
-      minuteLimit={{ min: 1 }}
-      initialValue={{ minutes: 1 }}
+      minuteLimit={{ min: 5 }}
+      maximumMinutes={50}
+      initialValue={{ minutes: 5 }}
     />
   );
 };

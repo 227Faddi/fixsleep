@@ -23,8 +23,17 @@ const iconsData = {
   timer: (props?: object) => (
     <Ionicons name="timer" size={24} color="#fff" {...props} />
   ),
-  volume: (props?: object) => (
+  volumeOn: (props?: object) => (
     <Ionicons name="volume-medium" size={24} color="#fff" {...props} />
+  ),
+  volumeOff: (props?: object) => (
+    <Ionicons name="volume-off" size={24} color="#fff" {...props} />
+  ),
+  heartOn: (props?: object) => (
+    <Ionicons name="heart" size={24} color="#fff" {...props} />
+  ),
+  heartOff: (props?: object) => (
+    <Ionicons name="heart-outline" size={24} color="#fff" {...props} />
   ),
   mountainStream: (props?: object) => (
     <FontAwesome5 name="mountain" size={24} color="#fff" {...props} />
