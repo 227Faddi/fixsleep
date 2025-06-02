@@ -32,13 +32,15 @@ const Features = () => {
               natural sleep cycles.
             </p>
           </div>
-          <Image
-            src="/sleepcycle.png"
-            alt="iphone image showing sleep cycles screen"
-            className="w-full object-cover"
-            width={300}
-            height={300}
-          />
+          <picture className="relative min-h-[320px]">
+            <Image
+              src="/1.png"
+              alt="iphone image showing sleep cycles screen"
+              className="w-full object-contain"
+              height={400}
+              width={400}
+            />
+          </picture>
           <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-primary to-transparent"></div>
         </motion.div>
 
@@ -55,14 +57,17 @@ const Features = () => {
           viewport={{ once: true }}
           className="lg:order-1 flex-1 relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pb-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
         >
-          <Image
-            src="/reminder.png"
-            alt="iPhone image showing sleep cycles screen"
-            className="w-full object-cover"
-            width={300}
-            height={300}
-          />
+          <picture className="relative min-h-[320px]">
+            <Image
+              src="/3.png"
+              alt="iphone image showing sleep cycles screen"
+              className="w-full object-contain"
+              height={400}
+              width={400}
+            />
+          </picture>
           <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-primary to-transparent"></div>
+
           <div className="card-body text-center gap-3">
             <h3 className="text-3xl font-bold text-accent">
               Sleep Time Reminder
@@ -87,13 +92,15 @@ const Features = () => {
           viewport={{ once: true }}
           className="lg:order-3 flex-1 relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pb-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
         >
-          <Image
-            src="/sounds.png"
-            alt="iPhone image showing sleep cycles screen"
-            className="w-full object-cover"
-            width={300}
-            height={300}
-          />
+          <picture className="relative min-h-[320px]">
+            <Image
+              src="/2.png"
+              alt="iphone image showing sleep cycles screen"
+              className="w-full object-contain"
+              width={400}
+              height={400}
+            />
+          </picture>
           <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-primary to-transparent"></div>
           <div className="card-body text-center gap-3">
             <h3 className="text-3xl font-bold text-accent">
