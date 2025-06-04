@@ -9,7 +9,13 @@ const iconsData = {
     <Ionicons name="bed" size={24} color="#fff" {...props} />
   ),
   sounds: (props?: object) => (
-    <Ionicons name="musical-notes" size={24} color="#fff" {...props} />
+    <Ionicons
+      name="musical-notes"
+      size={24}
+      color="#fff"
+      style={{ transform: [{ translateX: -2 }] }}
+      {...props}
+    />
   ),
   settings: (props?: object) => (
     <Ionicons name="settings" size={24} color="#fff" {...props} />
