@@ -22,7 +22,8 @@ const Hero = () => {
             </motion.span>
           </h1>
           <p className="text-2xl md:text-4xl py-6 text-center">
-            Find the best times to sleep and wake for better rest and recovery.
+            Find the best times to sleep and wake up for better rest and
+            recovery.
           </p>
           {/* <button className="btn btn-primary text-2xl p-6">Sleep Now</button> */}
           <motion.div
