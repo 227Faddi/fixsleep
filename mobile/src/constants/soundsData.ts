@@ -1,4 +1,12 @@
-const soundsData = [
+import { SoundCardKey } from "../types/i18next";
+
+type SoundData = {
+  name: SoundCardKey;
+  src: any;
+  img: any;
+};
+
+const soundsData: SoundData[] = [
   {
     name: "rainfall",
     src: require("@/assets/audio/rainfall.mp3"),
