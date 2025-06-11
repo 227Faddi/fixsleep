@@ -2,6 +2,7 @@ import MyText from "@/src/components/ui/MyText";
 import SoundCard from "@/src/components/ui/SoundCard.";
 import TextBold from "@/src/components/ui/TextBold";
 import sounds from "@/src/constants/soundsData";
+import { TabNav } from "@/src/types";
 import { useNavigation } from "@react-navigation/native";
 import { Audio } from "expo-av";
 import { useEffect } from "react";
@@ -14,7 +15,7 @@ import {
 } from "react-native-gesture-handler";
 
 const SoundsScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<TabNav>();
   const { t } = useTranslation("translation", {
     keyPrefix: "sounds",
   });
