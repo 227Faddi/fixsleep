@@ -2,8 +2,8 @@ import MyText from "@/src/components/ui/MyText";
 import SoundCard from "@/src/components/ui/SoundCard.";
 import TextBold from "@/src/components/ui/TextBold";
 import sounds from "@/src/constants/soundsData";
+import { useNavigation } from "@react-navigation/native";
 import { Audio } from "expo-av";
-import { router } from "expo-router";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
@@ -14,6 +14,7 @@ import {
 } from "react-native-gesture-handler";
 
 const SoundsScreen = () => {
+  const navigation = useNavigation();
   const { t } = useTranslation("translation", {
     keyPrefix: "sounds",
   });
@@ -21,9 +22,9 @@ const SoundsScreen = () => {
     const { translationX } = event.nativeEvent;
 
     if (translationX > 50) {
-      router.push("/(tabs)/(home)");
+      navigation.navigate("(home)");
     } else if (translationX < -50) {
-      router.push("/(tabs)/settings");
+      navigation.navigate("settings");
     }
   };
 

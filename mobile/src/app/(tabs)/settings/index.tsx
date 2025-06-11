@@ -2,7 +2,7 @@ import MyText from "@/src/components/ui/MyText";
 import SettingsRow, { SettingsRowType } from "@/src/components/ui/SettingsRow";
 import TextBold from "@/src/components/ui/TextBold";
 import iconsData from "@/src/constants/iconsData";
-import { router } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 import { useTranslation } from "react-i18next";
 import { Linking, Platform, TouchableOpacity, View } from "react-native";
 import {
@@ -12,6 +12,7 @@ import {
 } from "react-native-gesture-handler";
 
 const SettingsScreen = () => {
+  const navigation = useNavigation();
   const { t } = useTranslation("translation", {
     keyPrefix: "settings",
   });
@@ -42,7 +43,7 @@ const SettingsScreen = () => {
   const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {
     const { translationX } = event.nativeEvent;
     if (translationX > 50) {
-      router.push("/(tabs)/sounds");
+      navigation.navigate("sounds");
     }
   };
 
