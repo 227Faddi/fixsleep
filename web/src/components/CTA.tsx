@@ -1,6 +1,8 @@
 "use client";
+
 const waitlistId = process.env.NEXT_PUBLIC_WAITLIST_ID;
 import { motion } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { IoLogoApple } from "react-icons/io5";
@@ -102,7 +104,19 @@ const CTA = () => {
           </div>
         </div>
       </motion.div>
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 max-w-56">
+      <Link
+        href="https://www.producthunt.com/products/fixsleep-sleep-calculator?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-fixsleep&#0045;sleep&#0045;calculator"
+        target="_blank"
+        className="mt-16 w-1/2"
+      >
+        <Image
+          src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=971222&theme=light&t=1749749471650"
+          alt="FixSleep&#0032;&#0045;&#0032;Sleep&#0032;Calculator - Sleep&#0032;Cycle&#0032;&#0038;&#0032;Relaxing&#0032;Sounds | Product Hunt"
+          width="500"
+          height="500"
+        />
+      </Link>
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 max-w-56">
         <Link
           href="https://apps.apple.com/ca/app/fixsleep/id6745803646?platform=iphone"
           target="_blank"

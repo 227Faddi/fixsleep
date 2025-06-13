@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Features = () => {
   return (
-    <section id="features" className="py-28">
+    <section id="features" className="py-36">
       <h2 className="text-4xl sm:text-5xl font-bold text-center pb-16">
         Features
       </h2>

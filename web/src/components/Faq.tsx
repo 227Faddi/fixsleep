@@ -1,6 +1,6 @@
 const Faq = () => {
   return (
-    <section id="faq" className="py-28">
+    <section id="faq" className="py-36">
       <h2 className="text-4xl sm:text-5xl font-bold text-center pb-16">
         Questions & Answers
       </h2>
