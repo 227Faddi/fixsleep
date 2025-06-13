@@ -33,7 +33,7 @@ const HomeScreen = () => {
       </View>
       <View className="items-center gap-4">
         <MainButton
-          onPress={() => router.push("/onboarding/test")}
+          onPress={() => router.push("/onboarding/features")}
           text={"Get Started"}
           textClass={`text-3xl text-center text-textPrimary w-full ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
           containerClass={`p-6 bg-accent`}

@@ -2,11 +2,11 @@ import { router } from "expo-router";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
-const test = () => {
+const Features = () => {
   return (
     <View>
-      <Text className="text-3xl text-white">test</Text>
-      <TouchableOpacity onPress={() => router.push("/onboarding/again")}>
+      <Text className="text-3xl text-white">features</Text>
+      <TouchableOpacity onPress={() => router.push("/onboarding/survey")}>
         <Text className="text-3xl text-white">Next</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => router.back()}>
@@ -16,4 +16,4 @@ const test = () => {
   );
 };
 
-export default test;
+export default Features;
