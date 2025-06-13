@@ -56,10 +56,10 @@ const Hero = () => {
               </div>
             </Link>
           </motion.div>
-          <a
+          <Link
             href="https://www.producthunt.com/products/fixsleep-sleep-calculator?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-fixsleep&#0045;sleep&#0045;calculator"
             target="_blank"
-            className="mt-8 w-1/2"
+            className="mt-8 max-w-56"
           >
             <Image
               src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=971222&theme=light&t=1749749471650"
@@ -67,7 +67,7 @@ const Hero = () => {
               width="500"
               height="500"
             />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
