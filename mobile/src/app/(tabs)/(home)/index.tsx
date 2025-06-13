@@ -4,6 +4,7 @@ import MyText from "@/src/components/ui/MyText";
 import TextBold from "@/src/components/ui/TextBold";
 import iconsData from "@/src/constants/iconsData";
 import { formatTime, formatTimeNow } from "@/src/lib/formatTime";
+import { TabNav } from "@/src/types";
 import { useNavigation } from "@react-navigation/native";
 import { useRouter } from "expo-router";
 import { useState } from "react";
@@ -15,7 +16,7 @@ import {
 } from "react-native-gesture-handler";
 
 const HomeScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<TabNav>();
   const router = useRouter();
   const [showWakeTime, setShowWakeTime] = useState(false);
   const [showSleepTime, setShowSleepTime] = useState(false);
