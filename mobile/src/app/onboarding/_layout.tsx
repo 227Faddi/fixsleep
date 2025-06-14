@@ -10,6 +10,14 @@ export default function RootLayout() {
       }}
     >
       <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="features" options={{ headerShown: false }} />
+      <Stack.Screen name="survey" options={{ headerShown: false }} />
+      <Stack.Screen name="setup" options={{ headerShown: false }} />
+      <Stack.Screen name="end" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="info"
+        options={{ headerShown: false, presentation: "modal" }}
+      />
     </Stack>
   );
 }

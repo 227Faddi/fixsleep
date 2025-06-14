@@ -37,11 +37,11 @@ const HomeScreen = () => {
           text={"Get Started"}
           textClass={`text-3xl text-center text-textPrimary w-full ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
           containerClass={`p-6 bg-accent`}
-          style={{
-            elevation: 10,
-          }}
         />
-        <TouchableOpacity className="flex-row items-center justify-center gap-1">
+        <TouchableOpacity
+          className="flex-row items-center justify-center gap-1"
+          onPress={() => router.push("/onboarding/info")}
+        >
           {iconsData["info"]()}
           <MyText>How this works?</MyText>
         </TouchableOpacity>
