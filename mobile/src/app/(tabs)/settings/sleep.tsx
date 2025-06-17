@@ -28,7 +28,7 @@ const SleepScreen = () => {
           </View>
           <View className="flex-1">
             <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
-              <TextBold className="!text-accent text-center text-2xl">
+              <TextBold className="!text-accent text-2xl">
                 {t("card.title")}
               </TextBold>
               <MyText>{t("card.body")}</MyText>

@@ -6,7 +6,7 @@ type Props = {
   children: any;
 };
 
-const MyText = ({ className = "text-xl", style, children }: Props) => {
+const MyText = ({ className = "text-lg", style, children }: Props) => {
   return (
     <Text
       className={`font-fredokaMedium text-textPrimary ${className}`}

@@ -2,6 +2,7 @@ import MyText from "@/src/components/ui/MyText";
 import SettingsRow, { SettingsRowType } from "@/src/components/ui/SettingsRow";
 import TextBold from "@/src/components/ui/TextBold";
 import iconsData from "@/src/constants/iconsData";
+import { TabNav } from "@/src/types";
 import { useNavigation } from "@react-navigation/native";
 import { useTranslation } from "react-i18next";
 import { Linking, Platform, TouchableOpacity, View } from "react-native";
@@ -12,7 +13,7 @@ import {
 } from "react-native-gesture-handler";
 
 const SettingsScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<TabNav>();
   const { t } = useTranslation("translation", {
     keyPrefix: "settings",
   });
@@ -71,15 +72,6 @@ const SettingsScreen = () => {
             </MyText>
           </View>
           <View className="w-full bg-primary rounded-3xl">
-            {settings.map((item, index) => (
-              <SettingsRow
-                index={index}
-                key={index}
-                title={item.title!}
-                icon={item.icon!}
-                route={item.route!}
-              />
-            ))}
             <TouchableOpacity
               onPress={rateApp}
               className="w-full p-6 flex-row gap-4 items-center justify-between border-t border-[#ffffff09]"
@@ -92,6 +84,15 @@ const SettingsScreen = () => {
               </View>
               {Platform.OS === "ios" && iconsData["arrowForward"]()}
             </TouchableOpacity>
+            {settings.map((item, index) => (
+              <SettingsRow
+                index={index}
+                key={index}
+                title={item.title!}
+                icon={item.icon!}
+                route={item.route!}
+              />
+            ))}
           </View>
         </View>
       </ScrollView>

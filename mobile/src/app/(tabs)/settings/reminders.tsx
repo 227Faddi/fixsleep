@@ -89,8 +89,8 @@ const RemindersScreen = () => {
           </View>
           <View className="flex-1">
             <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
-              <View className="flex-row items-center justify-center gap-3">
-                <TextBold className="!text-accent text-2xl text-center">
+              <View className="flex-row items-center justify-between gap-3">
+                <TextBold className="!text-accent text-2xl">
                   {t("card.title")}
                 </TextBold>
                 <Switch

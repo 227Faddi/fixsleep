@@ -21,17 +21,13 @@ const InfoScreen = () => {
           </View>
           <View className="flex-1 justify-center">
             <View className="justify-center bg-primary rounded-3xl p-6 gap-4">
-              <View className="gap-2">
+              <View className="gap-4">
                 <TextBold className="!text-accent text-2xl">
-                  {t("card.title1")}
+                  {t("card.title")}
                 </TextBold>
-                <MyText className="text-xl">{t("card.body1")}</MyText>
-              </View>
-              <View className="gap-2">
-                <TextBold className="!text-accent text-2xl">
-                  {t("card.title2")}
-                </TextBold>
-                <MyText className="text-xl">{t("card.body2")}</MyText>
+                <MyText className="text-xl">{t("card.body")}</MyText>
+                <MyText>{t("card.body2")}</MyText>
+                <MyText>{t("card.body3")}</MyText>
               </View>
             </View>
           </View>

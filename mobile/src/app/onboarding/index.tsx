@@ -8,7 +8,7 @@ import { Image, Platform, TouchableOpacity, View } from "react-native";
 
 const HomeScreen = () => {
   const { t } = useTranslation("translation", {
-    keyPrefix: "sleep",
+    keyPrefix: "onboarding.welcome",
   });
 
   return (
@@ -18,24 +18,21 @@ const HomeScreen = () => {
           className="w-24 h-24 rounded-3xl"
           source={require("@/assets/icons/ios-light.png")}
         />
-        <View className="justify-center items-center">
-          <TextBold className="text-5xl">Welcome To</TextBold>
-          <TextBold className="text-5xl">FixSleep</TextBold>
-        </View>
-        <View>
+        <View className="">
+          <View className="justify-center items-center">
+            <TextBold className="text-5xl">{t("title")}</TextBold>
+            <TextBold className="text-5xl">{t("title2")}</TextBold>
+          </View>
           <MyText className="text-center text-xl max-w-sm">
-            Find the best times to sleep and wake up
-          </MyText>
-          <MyText className="text-center text-xl max-w-sm">
-            for better rest and recovery.
+            {t("subtitle")}
           </MyText>
         </View>
       </View>
       <View className="items-center gap-4">
         <MainButton
           onPress={() => router.push("/onboarding/features")}
-          text={"Get Started"}
-          textClass={`text-3xl text-center text-textPrimary w-full ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
+          text={t("getStarted")}
+          textClass={`text-2xl text-center text-textPrimary w-full ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
           containerClass={`p-6 bg-accent`}
         />
         <TouchableOpacity
@@ -43,7 +40,7 @@ const HomeScreen = () => {
           onPress={() => router.push("/onboarding/info")}
         >
           {iconsData["info"]()}
-          <MyText>How this works?</MyText>
+          <MyText className="text-base">{t("howThisWorks")}</MyText>
         </TouchableOpacity>
       </View>
     </View>

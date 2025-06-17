@@ -1,4 +1,32 @@
 {
+  "onboarding": {
+    "welcome": {
+      "title": "Bienvenue sur",
+      "title2": "FixSleep",
+      "subtitle": "Votre guide pour mieux dormir",
+      "getStarted": "Commencer",
+      "howThisWorks": "Comment ça marche?",
+      "gotIt": "Compris!"
+    },
+    "features": {
+      "steps": [
+        {
+          "title": "Sleep Cycle Calculator",
+          "description": "Easily calculate your ideal sleep and wake-up times based on your natural sleep cycles."
+        },
+        {
+          "title": "Relaxing Sound Player",
+          "description": "Enjoy calming soundscapes to help you fall asleep and stay asleep longer."
+        },
+        {
+          "title": "Smart Sleep Reminders",
+          "description": "Set personalized reminders to build consistent sleep habits and routines."
+        }
+      ],
+      "next": "Next",
+      "continue": "Continue"
+    }
+  },
   "navigation": {
     "Sleep": "Sommeil",
     "Sounds": "Sons",
@@ -79,10 +107,10 @@
         "title": "Comment ça marche?",
         "info": "Info",
         "card": {
-          "title1": "Que sont les cycles de sommeil?",
-          "body1": "Les cycles de sommeil durent environ 90 minutes et comprennent des phases telles que le sommeil léger, le sommeil profond et le sommeil paradoxal (REM). Ces phases aident votre corps à récupérer et à traiter les événements de la journée.",
-          "title2": "Pourquoi le moment est important?",
-          "body2": "Se réveiller à la fin d'un cycle, plutôt qu'en plein milieu, vous aide à vous sentir plus reposé."
+          "title": "Comment FixSleep vous aide à mieux dormir",
+          "body": "Nous vous aidons à mieux vous reposer avec des suggestions personnalisées d’horaires de coucher et de réveil, basées sur des cycles de 90 minutes.",
+          "body2": "Ces cycles incluent les phases de sommeil léger, profond et paradoxal. Se réveiller au bon moment vous aide à vous sentir plus reposé.",
+          "body3": "Vous bénéficiez aussi de rappels et de sons apaisants pour instaurer une routine régulière et améliorer votre sommeil."
         }
       },
       "rateus": "Notez-nous"

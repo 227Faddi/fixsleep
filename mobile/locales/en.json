@@ -1,4 +1,32 @@
 {
+  "onboarding": {
+    "welcome": {
+      "title": "Welcome To",
+      "title2": "FixSleep",
+      "subtitle": "Your Guide to Better Sleep",
+      "getStarted": "Get Started",
+      "howThisWorks": "How this works?",
+      "gotIt": "Got it!"
+    },
+    "features": {
+      "steps": [
+        {
+          "title": "Sleep Cycle Calculator",
+          "description": "Easily calculate your ideal sleep and wake-up times based on your natural sleep cycles."
+        },
+        {
+          "title": "Relaxing Sound Player",
+          "description": "Enjoy calming soundscapes to help you fall asleep and stay asleep longer."
+        },
+        {
+          "title": "Smart Sleep Reminders",
+          "description": "Set personalized reminders to build consistent sleep habits and routines."
+        }
+      ],
+      "next": "Next",
+      "continue": "Continue"
+    }
+  },
   "navigation": {
     "Sleep": "Sleep",
     "Sounds": "Sounds",
@@ -76,13 +104,13 @@
         }
       },
       "info": {
-        "title": "How this works?",
+        "title": "How it works?",
         "info": "Info",
         "card": {
-          "title1": "What are sleep cycles?",
-          "body1": "Sleep cycles last about 90 minutes, including stages like light sleep, deep sleep, and REM. These stages help your body recover and process the day.",
-          "title2": "Why timing matters?",
-          "body2": "Waking up at the end of a cycle, rather than in the middle, helps you feel more refreshed."
+          "title": "How FixSleep Helps You Sleep Better",
+          "body": "We help you get better rest with personalized suggestions for when to fall asleep and wake up, based on 90-minute sleep cycles.",
+          "body2": "These cycles include light, deep, and REM stages. Waking up at the right time helps you feel more refreshed.",
+          "body3": "You’ll also build healthier habits with gentle reminders and calming sleep sounds to help you wind down and stay consistent."
         }
       },
       "rateus": "Rate us"
