@@ -7,22 +7,25 @@ import { IoLogoApple, IoLogoGooglePlaystore } from "react-icons/io5";
 
 const Hero = () => {
   return (
-    <section id="hero" className="hero min-h-screen pb-28 pt-4 sm:pt-0">
+    <section
+      id="hero"
+      className="hero min-h-screen 2xl:min-h-auto pb-36 2xl:mt-32  sm:pt-0"
+    >
       <div className="hero-content">
         <div className="max-w-lg flex flex-col items-center justify-center">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-center">
             Calculate Your{" "}
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-accent text-nowrap"
+              className="text-accent sm:text-nowrap"
             >
               Sleep Cycles
             </motion.span>
           </h1>
-          <p className="text-xl sm:text-2xl  md:text-4xl py-6 text-center">
+          <p className="text-2xl  md:text-4xl py-6 text-center">
             Find the best times to sleep and wake up for better rest and
             recovery.
           </p>

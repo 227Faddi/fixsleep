@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer
       id="footer"
-      className="w-full flex flex-col justify-between items-center py-4 mt-36 gap-6"
+      className="w-full flex flex-col justify-between items-center py-4 mt-36 gap-6 text-center"
     >
       <a href="#" className="text-center">
         © 2025 Fix Sleep. All Rights Reserved.
