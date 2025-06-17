@@ -24,7 +24,7 @@ const Features = () => {
           className="lg:order-2 flex-1 relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pt-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
         >
           <div className="card-body text-center gap-3">
-            <h3 className="text-2xl font-bold text-accent">
+            <h3 className="text-2xl sm:text-3xl font-bold text-accent">
               Sleep Cycle Calculator
             </h3>
             <p className="text-lg sm:text-xl">
@@ -55,7 +55,7 @@ const Features = () => {
             },
           }}
           viewport={{ once: true }}
-          className="lg:order-1 flex-1 relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pb-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
+          className="lg:order-3 flex-1 relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pb-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
         >
           <picture className="relative min-h-[200px]">
             <Image
@@ -90,7 +90,7 @@ const Features = () => {
             },
           }}
           viewport={{ once: true }}
-          className="lg:order-3 flex-1 relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pb-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
+          className="lg:order-1 flex-1 relative overflow-hidden card gap-6 rounded-3xl bg-primary px-6 pb-4 shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]"
         >
           <picture className="relative min-h-[200px]">
             <Image
