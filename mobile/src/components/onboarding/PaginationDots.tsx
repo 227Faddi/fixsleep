@@ -14,7 +14,7 @@ const PaginationDots = ({ total, current }: Props) => {
         return (
           <View
             key={index}
-            className={`h-2 w-2 rounded-full ${isActive ? "bg-white w-4" : "bg-white/30"}`}
+            className={`h-2 w-2 rounded-full ${isActive ? "bg-white w-2" : "bg-white/30"}`}
           />
         );
       })}

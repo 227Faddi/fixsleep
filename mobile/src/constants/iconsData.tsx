@@ -53,6 +53,9 @@ const iconsData = {
   checkmark: (props?: object) => (
     <Ionicons name="checkmark-circle" size={24} color="#fff" {...props} />
   ),
+  circle: (props?: object) => (
+    <Ionicons name="ellipse-outline" size={24} color="#fff" {...props} />
+  ),
   language: (props?: object) => (
     <Ionicons name="language" size={24} color="#fff" {...props} />
   ),
