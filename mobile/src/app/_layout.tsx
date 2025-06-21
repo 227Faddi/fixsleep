@@ -3,7 +3,7 @@ import "@/src/i18n";
 import { useNavigation } from "@react-navigation/native";
 import { getLocales } from "expo-localization";
 import * as Notifications from "expo-notifications";
-import { Stack } from "expo-router";
+import { router, Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
@@ -53,9 +53,9 @@ export default function RootLayout() {
         await i18n.changeLanguage(langToUse);
       }
 
-      // if (onboarding) {
-      //   router.push("/onboarding");
-      // }
+      if (onboarding) {
+        router.push("/onboarding");
+      }
 
       await SplashScreen.hideAsync();
     };

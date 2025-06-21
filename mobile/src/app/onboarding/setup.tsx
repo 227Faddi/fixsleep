@@ -6,7 +6,7 @@ import { Platform, View } from "react-native";
 
 const Reminder = () => {
   return (
-    <View className="bg-background flex-1 gap-4 items-center py-2 px-8">
+    <View className="bg-background flex-1 gap-4 items-center pb-2 pt-8 px-8">
       <View className="flex-1 justify-center items-center gap-4">
         <MyText>Setup</MyText>
       </View>

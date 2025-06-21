@@ -1,31 +1,29 @@
 {
   "onboarding": {
     "welcome": {
-      "title": "Welcome To",
-      "title2": "FixSleep",
+      "title": "Welcome To\nFixSleep",
       "subtitle": "Your Guide to Better Sleep",
       "getStarted": "Get Started",
       "howThisWorks": "How this works?",
       "gotIt": "Got it!"
     },
     "features": {
-      "steps": [
-        {
-          "title": "Sleep Cycle Calculator",
-          "description": "Easily calculate your ideal sleep and wake-up times based on your natural sleep cycles."
-        },
-        {
-          "title": "Relaxing Sound Player",
-          "description": "Enjoy calming soundscapes to help you fall asleep and stay asleep longer."
-        },
-        {
-          "title": "Smart Sleep Reminders",
-          "description": "Set personalized reminders to build consistent sleep habits and routines."
-        }
-      ],
-      "next": "Next",
-      "continue": "Continue"
-    }
+      "step1": {
+        "title": "Sleep Smarter\nwith Cycles",
+        "body": "Easily calculate your ideal sleep and wake-up times based on sleep cycles."
+      },
+      "step2": {
+        "title": "Relax with\nSleep Sounds",
+        "body": "Enjoy calming sounds to help you fall asleep and stay asleep longer."
+      },
+      "step3": {
+        "title": "Build a Better\nRoutine",
+        "body": "Set gentle reminders to stay consistent and build healthy habits over time."
+      }
+    },
+    "skip": "Skip",
+    "next": "Next",
+    "continue": "Continue"
   },
   "navigation": {
     "Sleep": "Sleep",
