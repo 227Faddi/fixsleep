@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { Platform, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 
-const modal = () => {
+const Info = () => {
   const { t, i18n } = useTranslation("translation", {
     keyPrefix: "settings.options.info",
   });
@@ -43,4 +43,4 @@ const modal = () => {
   );
 };
 
-export default modal;
+export default Info;

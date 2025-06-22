@@ -1,9 +1,10 @@
 import BackStepButton from "@/src/components/onboarding/BackStepButton";
 import NextStepButton from "@/src/components/onboarding/NextStepButton";
 import SurveyChoice from "@/src/components/onboarding/SurveyChoice";
-import MyText from "@/src/components/ui/MyText";
+import TextBold from "@/src/components/ui/TextBold";
 import { IconsData } from "@/src/constants/iconsData";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 
 const surveySteps: {
@@ -13,10 +14,10 @@ const surveySteps: {
   {
     question: "What motivates you to sleep better?",
     choices: [
-      { text: "Improve focus", icon: "bed" },
-      { text: "Boost energy", icon: "bed" },
-      { text: "Feel healthier", icon: "bed" },
-      { text: "Be more productive", icon: "bed" },
+      { text: "Sharper focus", icon: "contract" },
+      { text: "More energy", icon: "battery" },
+      { text: "Better health", icon: "heart" },
+      { text: "Increased productivity", icon: "rocket" },
     ],
   },
   {
@@ -24,56 +25,81 @@ const surveySteps: {
     choices: [
       { text: "Falling asleep", icon: "moon" },
       { text: "Waking up at night", icon: "bed" },
-      { text: "Waking up tired", icon: "bed" },
-      { text: "Not enough time", icon: "bed" },
+      { text: "Waking up tired", icon: "batteryDead" },
+      { text: "Not enough sleep time", icon: "hourglass" },
     ],
   },
   {
     question: "How many hours do you usually sleep per night?",
     choices: [
-      { text: "Less than 5", icon: "timer" },
-      { text: "5-6 hours", icon: "timer" },
-      { text: "7-8 hours", icon: "timer" },
-      { text: "More than 8", icon: "timer" },
+      { text: "Under 5 hrs", icon: "emojiNeutral" },
+      { text: "5–6 hrs", icon: "emojiNeutral" },
+      { text: "7–8 hrs", icon: "emojiHappy" },
+      { text: "Over 8 hrs", icon: "emojiHappy" },
     ],
   },
   {
-    question: "When do you usually go to sleep?",
+    question: "What helps you fall asleep faster?",
     choices: [
-      { text: "Before 10 PM", icon: "bed" },
-      { text: "Around 11 PM", icon: "bed" },
-      { text: "Midnight", icon: "bed" },
-      { text: "After midnight", icon: "bed" },
+      { text: "Relaxing sounds", icon: "sounds" },
+      { text: "Reading", icon: "book" },
+      { text: "Meditation", icon: "leaf" },
+      { text: "Avoiding screens", icon: "phonePortrait" },
     ],
   },
 ];
 
+type SurveyAnswers = {
+  [stepIndex: number]: string;
+};
+
 const Survey = () => {
+  const { t } = useTranslation("translation", {
+    keyPrefix: "onboarding",
+  });
   const [currentStep, setCurrentStep] = useState(0);
+  const [surveyAnswers, setSurveyAnswers] = useState<SurveyAnswers>({});
+
   const { question, choices } = surveySteps[currentStep];
+  const selectedValue = surveyAnswers[currentStep];
+
+  const handleChoiceSelect = (value: string) => {
+    setSurveyAnswers((prev) => ({
+      ...prev,
+      [currentStep]: value,
+    }));
+  };
 
   return (
-    <View className="bg-background flex-1 gap-4 items-center pb-2 pt-8 px-8">
+    <View className="bg-background flex-1 gap-4 items-center pb-2 pt-12 px-8">
       <BackStepButton
         currentStep={currentStep}
         setCurrentStep={setCurrentStep}
       />
       <View className="flex-1 justify-center items-center gap-10">
         <View className="gap-1">
-          <MyText className="text-4xl text-center">{question}</MyText>
+          <TextBold className="text-4xl text-center">{question}</TextBold>
         </View>
 
         <View className="flex-1 justify-center items-center gap-4 w-full">
           {choices.map((item, index) => (
-            <SurveyChoice key={index} text={item.text} icon={item.icon} />
+            <SurveyChoice
+              key={index}
+              text={item.text}
+              icon={item.icon}
+              isSelected={selectedValue === item.text}
+              onSelect={() => handleChoiceSelect(item.text)}
+            />
           ))}
         </View>
       </View>
+
       <NextStepButton
         currentStep={currentStep}
         setCurrentStep={setCurrentStep}
         totalSteps={surveySteps.length}
         route={"/onboarding/setup"}
+        disabled={!selectedValue}
       />
     </View>
   );

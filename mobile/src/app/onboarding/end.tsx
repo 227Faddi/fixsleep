@@ -1,3 +1,4 @@
+import BackButton from "@/src/components/ui/BackButton";
 import MainButton from "@/src/components/ui/MainButton";
 import MyText from "@/src/components/ui/MyText";
 import { router } from "expo-router";
@@ -6,7 +7,8 @@ import { Platform, View } from "react-native";
 
 const End = () => {
   return (
-    <View className="bg-background flex-1 gap-4 items-center pb-2 pt-8 px-8">
+    <View className="bg-background flex-1 gap-4 items-center pb-2 pt-12 px-8">
+      <BackButton />
       <View className="flex-1 justify-center items-center gap-4">
         <MyText>End, now you can use the app</MyText>
       </View>

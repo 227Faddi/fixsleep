@@ -34,7 +34,7 @@ const Features = () => {
   const { title, description, image } = featureSteps[currentStep];
 
   return (
-    <View className="bg-background flex-1 gap-4 items-center pb-2 pt-8 px-8">
+    <View className="bg-background flex-1 gap-4 items-center pb-2 pt-12 px-8">
       <BackStepButton
         currentStep={currentStep}
         setCurrentStep={setCurrentStep}
@@ -44,7 +44,7 @@ const Features = () => {
         accessibilityLabel="Skip to survey"
         className="absolute top-0 right-5"
       >
-        <MyText className="text-xl">{t("skip")}</MyText>
+        <MyText className="text-xl underline">{t("skip")}</MyText>
       </TouchableOpacity>
       <View className="flex-1 justify-center items-center gap-10">
         <View>

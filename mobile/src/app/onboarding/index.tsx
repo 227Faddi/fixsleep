@@ -12,7 +12,7 @@ const HomeScreen = () => {
   });
 
   return (
-    <View className="flex-1 gap-4 items-center pb-2 pt-8 px-8">
+    <View className="flex-1 gap-4 items-center pb-2 pt-12 px-8">
       <View className="absolute top-0 right-5 flex-row items-center space-x-2">
         <TouchableOpacity onPress={() => console.log("en")}>
           <Image

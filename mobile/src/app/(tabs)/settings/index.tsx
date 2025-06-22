@@ -74,7 +74,7 @@ const SettingsScreen = () => {
           <View className="w-full bg-primary rounded-3xl">
             <TouchableOpacity
               onPress={rateApp}
-              className="w-full p-6 flex-row gap-4 items-center justify-between border-t border-[#ffffff09]"
+              className="w-full p-6 flex-row gap-4 items-center justify-between border-b border-[#ffffff09]"
             >
               <View className="flex-row gap-4">
                 {iconsData["star"]({ justifySelf: "flex-end" })}

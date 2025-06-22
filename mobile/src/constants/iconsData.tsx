@@ -104,6 +104,45 @@ const iconsData = {
   emojiSad: (props?: object) => (
     <Ionicons name="skull" size={24} color="#e74c3c" {...props} />
   ),
+  battery: (props?: object) => (
+    <Ionicons name="battery-charging" size={24} color="#fff" {...props} />
+  ),
+  heart: (props?: object) => (
+    <Ionicons name="heart" size={24} color="#fff" {...props} />
+  ),
+  rocket: (props?: object) => (
+    <Ionicons name="rocket" size={24} color="#fff" {...props} />
+  ),
+  time: (props?: object) => (
+    <Ionicons name="time" size={24} color="#fff" {...props} />
+  ),
+  book: (props?: object) => (
+    <Ionicons name="book" size={24} color="#fff" {...props} />
+  ),
+  phonePortrait: (props?: object) => (
+    <Ionicons name="phone-portrait" size={24} color="#fff" {...props} />
+  ),
+  addCircle: (props?: object) => (
+    <Ionicons name="add-circle" size={24} color="#fff" {...props} />
+  ),
+  removeCircle: (props?: object) => (
+    <Ionicons name="remove-circle" size={24} color="#fff" {...props} />
+  ),
+  checkmarkDone: (props?: object) => (
+    <Ionicons name="checkmark-done" size={24} color="#fff" {...props} />
+  ),
+  contract: (props?: object) => (
+    <Ionicons name="contract" size={24} color="#fff" {...props} />
+  ),
+  batteryDead: (props?: object) => (
+    <Ionicons name="battery-dead" size={24} color="#fff" {...props} />
+  ),
+  hourglass: (props?: object) => (
+    <Ionicons name="hourglass" size={24} color="#fff" {...props} />
+  ),
+  leaf: (props?: object) => (
+    <Ionicons name="leaf" size={24} color="#fff" {...props} />
+  ),
 };
 
 export default iconsData;

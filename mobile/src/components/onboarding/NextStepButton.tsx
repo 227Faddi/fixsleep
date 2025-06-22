@@ -1,15 +1,16 @@
 import PaginationDots from "@/src/components/onboarding/PaginationDots";
-import MainButton from "@/src/components/ui/MainButton";
 import { Href, router } from "expo-router";
 import { Dispatch, SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
-import { Platform, View } from "react-native";
+import { Platform, TouchableOpacity, View } from "react-native";
+import MyText from "../ui/MyText";
 
 type Props = {
   currentStep: number;
   setCurrentStep: Dispatch<SetStateAction<number>>;
   totalSteps: number;
   route: Href;
+  disabled?: boolean;
 };
 
 const NextStepButton = ({
@@ -17,6 +18,7 @@ const NextStepButton = ({
   setCurrentStep,
   totalSteps,
   route,
+  disabled,
 }: Props) => {
   const { t } = useTranslation("translation", {
     keyPrefix: "onboarding",
@@ -33,14 +35,19 @@ const NextStepButton = ({
   return (
     <View className="items-center gap-4">
       <PaginationDots total={totalSteps} current={currentStep} />
-      <MainButton
+      <TouchableOpacity
         onPress={goNext}
-        text={currentStep === totalSteps - 1 ? t("continue") : t("next")}
-        textClass={`text-2xl text-center text-textPrimary w-full ${
-          Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"
-        }`}
-        containerClass="p-6 bg-accent"
-      />
+        disabled={disabled}
+        className={`px-6 rounded-3xl justify-center flex-row items-center gap-1 p-6 ${disabled ? "bg-primary" : "bg-accent"}`}
+      >
+        <MyText
+          className={`text-2xl text-center text-textPrimary w-full ${
+            Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"
+          }`}
+        >
+          {currentStep === totalSteps - 1 ? t("continue") : t("next")}
+        </MyText>
+      </TouchableOpacity>
     </View>
   );
 };
