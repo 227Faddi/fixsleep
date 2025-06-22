@@ -21,6 +21,32 @@
         "body": "Set gentle reminders to stay consistent and build healthy habits over time."
       }
     },
+    "survey": {
+      "questions": {
+        "motivation": "What motivates you to sleep better?",
+        "challenge": "What's your biggest sleep challenge?",
+        "hours": "How many hours do\nyou usually sleep?",
+        "helpFallAsleep": "What helps you fall asleep faster?"
+      },
+      "choices": {
+        "sharperFocus": "Sharper focus",
+        "moreEnergy": "More energy",
+        "betterHealth": "Better health",
+        "increasedProductivity": "Increased productivity",
+        "fallingAsleep": "Falling asleep",
+        "wakingUpAtNight": "Waking up at night",
+        "wakingUpTired": "Waking up tired",
+        "notEnoughSleepTime": "Not enough sleep time",
+        "under5hrs": "Under 5 hrs",
+        "5to6hrs": "5–6 hrs",
+        "7to8hrs": "7–8 hrs",
+        "over8hrs": "Over 8 hrs",
+        "relaxingSounds": "Relaxing sounds",
+        "reading": "Reading",
+        "meditation": "Meditation",
+        "avoidingScreens": "Avoiding screens"
+      }
+    },
     "skip": "Skip",
     "next": "Next",
     "continue": "Continue"

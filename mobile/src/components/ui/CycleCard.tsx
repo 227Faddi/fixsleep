@@ -20,7 +20,8 @@ const CycleCard = ({ cycle, hrSleep, time, icon }: Props) => {
     <View className="w-full rounded-xl p-4 flex-row justify-between bg-primary">
       <View className="flex-col justify-center gap-1">
         <MyText className="text-lg ">
-          {hrSleep} {t("hrOfSleep")}
+          {hrSleep}
+          {t("hrOfSleep")}
         </MyText>
         <MyText className="text-md !text-accent">
           {cycle} {cycle === 1 ? t("cycle") : t("cycles")}

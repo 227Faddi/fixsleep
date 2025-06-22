@@ -21,6 +21,32 @@
         "body": "Programmez des rappels doux pour rester régulier et adopter de bonnes habitudes de sommeil."
       }
     },
+    "survey": {
+      "questions": {
+        "motivation": "Qu'est-ce qui vous motive à mieux dormir?",
+        "challenge": "Quel est votre plus grand défi de sommeil?",
+        "hours": "Combien d'heures dormez-vous habituellement?",
+        "helpFallAsleep": "Qu'est-ce qui vous aide à vous endormir plus vite?"
+      },
+      "choices": {
+        "sharperFocus": "Concentration accrue",
+        "moreEnergy": "Plus d'énergie",
+        "betterHealth": "Meilleure santé",
+        "increasedProductivity": "Productivité accrue",
+        "fallingAsleep": "S'endormir",
+        "wakingUpAtNight": "Se réveiller la nuit",
+        "wakingUpTired": "Se réveiller fatigué",
+        "notEnoughSleepTime": "Pas assez de sommeil",
+        "under5hrs": "Moins de 5h",
+        "5to6hrs": "5–6h",
+        "7to8hrs": "7–8h",
+        "over8hrs": "Plus de 8h",
+        "relaxingSounds": "Sons relaxants",
+        "reading": "Lecture",
+        "meditation": "Méditation",
+        "avoidingScreens": "Éviter les écrans"
+      }
+    },
     "skip": "Passer",
     "next": "Suivant",
     "continue": "Continuer"
