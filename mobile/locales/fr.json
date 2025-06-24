@@ -68,9 +68,10 @@
     "body": "Il est presque l'heure de dormir. Commencez à vous détendre et préparez-vous pour le lit.",
     "error": "Impossible de planifier la notification, veuillez réessayer.",
     "disabledTitle": "Notifications désactivées",
-    "disabledMessage": "Veuillez activer les notifications dans les paramètres du système pour recevoir des rappels quotidiens.",
+    "disabledMessage": "Pour recevoir des rappels quotidiens pour le coucher, veuillez activer les notifications dans les paramètres de votre appareil.",
     "cancel": "Annuler",
-    "openSettings": "Ouvrir les paramètres"
+    "openSettings": "Ouvrir les paramètres",
+    "continueWithout": "Continuer sans rappel"
   },
   "sleep": {
     "title": "FixSleep",

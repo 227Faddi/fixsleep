@@ -8,6 +8,8 @@ import iconsData from "@/src/constants/iconsData";
 import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";
 import { formatTime } from "@/src/lib/formatTime";
 import { changeDailyNotifications } from "@/src/lib/notifications";
+import { HourTime } from "@/src/types";
+import { LinearGradient } from "expo-linear-gradient";
 import * as Notifications from "expo-notifications";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -19,7 +21,8 @@ const RemindersScreen = () => {
     keyPrefix: "settings.options.reminders",
   });
 
-  const { setItem, getItem, removeItem } = useAsyncStorage("sleepTime");
+  const { setItem, getItem, removeItem } =
+    useAsyncStorage<HourTime>("sleepTime");
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [sleepTime, setSleepTime] = useState("");
   const [isEnabled, setIsEnabled] = useState(false);
@@ -35,13 +38,7 @@ const RemindersScreen = () => {
     setShowTimePicker(true);
   };
 
-  const onTimePickerConfirm = async ({
-    hours,
-    minutes,
-  }: {
-    hours: number;
-    minutes: number;
-  }) => {
+  const onTimePickerConfirm = async ({ hours, minutes }: HourTime) => {
     const { enabled } = await changeDailyNotifications({ hours, minutes });
     if (!enabled) {
       Alert.alert(
@@ -138,14 +135,15 @@ const RemindersScreen = () => {
           setShowTimePicker(false);
         }}
         closeOnOverlayPress
+        LinearGradient={LinearGradient}
         styles={{ ...TimePickerStyles }}
         modalProps={{
           overlayOpacity: 0.2,
         }}
         hideSeconds
         minuteInterval={5}
-        hourLabel={"H"}
-        minuteLabel={"M"}
+        hourLabel={":"}
+        minuteLabel={""}
       />
     </>
   );

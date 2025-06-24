@@ -1,9 +1,10 @@
-import { useAsyncStorage } from "@react-native-async-storage/async-storage";
+useAsyncStorage;
 import { createContext, ReactNode, useEffect, useState } from "react";
+import { useAsyncStorage } from "../hooks/useAsyncStorage";
 
 type AppContextType = {
-  timetofall: string;
-  setTimetofall: (value: string) => void;
+  timetofall: number;
+  setTimetofall: (value: number) => void;
 };
 
 export const AppContext = createContext<AppContextType | null>(null);
@@ -11,9 +12,9 @@ export const AppContext = createContext<AppContextType | null>(null);
 type Props = { children: ReactNode };
 
 const AppContextProvider = ({ children }: Props) => {
-  const { getItem, setItem } = useAsyncStorage("timetofall");
+  const { getItem, setItem } = useAsyncStorage<number>("timetofall");
 
-  const [timetofall, setTimetofall] = useState("15");
+  const [timetofall, setTimetofall] = useState<number>(15);
 
   useEffect(() => {
     const loadTime = async () => {

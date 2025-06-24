@@ -25,8 +25,7 @@ const SoundPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { getItem, setItem } = useAsyncStorage("volume");
-  const [isShowing, setIsShowing] = useState(true);
+  const { getItem, setItem } = useAsyncStorage<number>("volume");
   const [volume, setVolume] = useState(1);
 
   const [timeLeft, setTimeLeft] = useState(0);
@@ -51,6 +50,7 @@ const SoundPlayer = () => {
       setSound(sound);
       setIsPlaying(true);
       await sound.playAsync();
+      await sound?.setVolumeAsync(volume);
     } catch (err) {
       alert("Error playing sound");
       setIsPlaying(false);

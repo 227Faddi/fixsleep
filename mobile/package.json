@@ -62,7 +62,9 @@
     "react-native-webview": "13.12.5",
     "tailwindcss": "^3.4.17",
     "@react-native-community/slider": "4.5.5",
-    "expo-store-review": "~8.0.1"
+    "expo-store-review": "~8.0.1",
+    "expo-linear-gradient": "~14.0.2",
+    "@react-native-masked-view/masked-view": "0.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

@@ -1,14 +1,12 @@
 import { isDevice } from "expo-device";
 import * as Notifications from "expo-notifications";
 import i18n from "../i18n";
+import { HourTime } from "../types";
 
 export const changeDailyNotifications = async ({
   hours,
   minutes,
-}: {
-  hours: number;
-  minutes: number;
-}): Promise<{ enabled: boolean }> => {
+}: HourTime): Promise<{ enabled: boolean }> => {
   try {
     const { granted } = await requestPermissions();
     if (!granted) return { enabled: false };

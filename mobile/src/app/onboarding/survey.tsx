@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 
 type SurveyAnswers = {
-  [stepIndex: number]: string;
+  [stepIndex: number]: string[];
 };
 
 const Survey = () => {
@@ -21,9 +21,11 @@ const Survey = () => {
   const surveySteps: {
     question: string;
     choices: { text: string; icon: IconsData }[];
+    multiSelect?: boolean;
   }[] = [
     {
       question: t("questions.motivation"),
+      multiSelect: true,
       choices: [
         { text: t("choices.sharperFocus"), icon: "contract" },
         { text: t("choices.moreEnergy"), icon: "battery" },
@@ -33,6 +35,7 @@ const Survey = () => {
     },
     {
       question: t("questions.challenge"),
+      multiSelect: true,
       choices: [
         { text: t("choices.fallingAsleep"), icon: "moon" },
         { text: t("choices.wakingUpAtNight"), icon: "bed" },
@@ -42,6 +45,7 @@ const Survey = () => {
     },
     {
       question: t("questions.hours"),
+      multiSelect: false,
       choices: [
         { text: t("choices.under5hrs"), icon: "emojiNeutral" },
         { text: t("choices.5to6hrs"), icon: "emojiNeutral" },
@@ -51,6 +55,7 @@ const Survey = () => {
     },
     {
       question: t("questions.helpFallAsleep"),
+      multiSelect: true,
       choices: [
         { text: t("choices.relaxingSounds"), icon: "sounds" },
         { text: t("choices.reading"), icon: "book" },
@@ -60,14 +65,29 @@ const Survey = () => {
     },
   ];
 
-  const { question, choices } = surveySteps[currentStep];
-  const selectedValue = surveyAnswers[currentStep];
+  const { question, choices, multiSelect } = surveySteps[currentStep];
+  const selectedValues = surveyAnswers[currentStep] || [];
 
   const handleChoiceSelect = (value: string) => {
-    setSurveyAnswers((prev) => ({
-      ...prev,
-      [currentStep]: value,
-    }));
+    setSurveyAnswers((prev) => {
+      const currentAnswers = prev[currentStep] || [];
+
+      if (multiSelect) {
+        const isAlreadySelected = currentAnswers.includes(value);
+
+        return {
+          ...prev,
+          [currentStep]: isAlreadySelected
+            ? currentAnswers.filter((answer) => answer !== value)
+            : [...currentAnswers, value],
+        };
+      } else {
+        return {
+          ...prev,
+          [currentStep]: [value],
+        };
+      }
+    });
   };
 
   return (
@@ -80,26 +100,24 @@ const Survey = () => {
         <View className="gap-1">
           <TextBold className="text-4xl text-center">{question}</TextBold>
         </View>
-
         <View className="flex-1 justify-center items-center gap-4 w-full">
           {choices.map((item, index) => (
             <SurveyChoice
               key={index}
               text={item.text}
               icon={item.icon}
-              isSelected={selectedValue === item.text}
+              isSelected={selectedValues.includes(item.text)}
               onSelect={() => handleChoiceSelect(item.text)}
             />
           ))}
         </View>
       </View>
-
       <NextStepButton
         currentStep={currentStep}
         setCurrentStep={setCurrentStep}
         totalSteps={surveySteps.length}
-        route={"/onboarding/setup"}
-        disabled={!selectedValue}
+        route={"/onboarding/timetofall"}
+        disabled={selectedValues.length === 0}
       />
     </View>
   );

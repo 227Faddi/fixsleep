@@ -7,4 +7,6 @@ type RootTabParamList = {
   onboarding: undefined;
 };
 
+export type HourTime = { hours: number; minutes: number };
+
 export type TabNav = BottomTabNavigationProp<RootTabParamList>;

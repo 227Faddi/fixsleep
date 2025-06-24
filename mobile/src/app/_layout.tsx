@@ -34,7 +34,7 @@ SplashScreen.setOptions({
 
 export default function RootLayout() {
   const navigation = useNavigation<TabNav>();
-  const { getItem } = useAsyncStorage("language");
+  const { getItem } = useAsyncStorage<string>("language");
   const { i18n } = useTranslation();
 
   const onboarding = true;
@@ -44,7 +44,7 @@ export default function RootLayout() {
       const supportedLanguages = ["en", "fr"];
       const savedLang = await getItem();
       const deviceLang = getLocales()[0].languageCode;
-      const langToUse = savedLang || deviceLang;
+      const langToUse = savedLang || deviceLang || "en";
 
       if (
         supportedLanguages.includes(langToUse) &&
@@ -54,7 +54,7 @@ export default function RootLayout() {
       }
 
       if (onboarding) {
-        router.push("/onboarding");
+        router.push("/onboarding/timetofall");
       }
 
       await SplashScreen.hideAsync();

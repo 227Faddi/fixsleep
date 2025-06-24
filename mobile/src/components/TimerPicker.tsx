@@ -1,5 +1,12 @@
+import MaskedView from "@react-native-masked-view/masked-view";
+import { LinearGradient } from "expo-linear-gradient";
+import { Dispatch, SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
-import { TimerPickerModal } from "react-native-timer-picker";
+import {
+  CustomTimerPickerModalStyles,
+  TimerPicker,
+  TimerPickerModal,
+} from "react-native-timer-picker";
 import color from "../constants/colors";
 
 type CycleTimePickerProps = {
@@ -36,10 +43,11 @@ const CycleTimePicker = ({
       modalProps={{
         overlayOpacity: 0.2,
       }}
+      LinearGradient={LinearGradient}
       hideSeconds
       minuteInterval={5}
-      hourLabel={"H"}
-      minuteLabel={"M"}
+      hourLabel={":"}
+      minuteLabel={""}
       initialValue={{
         hours: date.getHours(),
         minutes: Math.round(date.getMinutes() / 5) * 5,
@@ -73,14 +81,23 @@ const PlayerTimePicker = ({
       }}
       onCancel={() => setShowModal(false)}
       closeOnOverlayPress
-      styles={{ ...TimePickerStyles }}
+      LinearGradient={LinearGradient}
+      styles={{
+        ...TimePickerStyles,
+        pickerLabelContainer: {
+          right: -20,
+          top: 0,
+          bottom: 6,
+          alignItems: "center",
+        },
+      }}
       modalProps={{
         overlayOpacity: 0.2,
       }}
       hideSeconds
       hideHours
       minuteInterval={5}
-      minuteLabel={"M"}
+      minuteLabel={"min"}
       minuteLimit={{ min: 5 }}
       maximumMinutes={50}
       initialValue={{ minutes: 5 }}
@@ -88,7 +105,89 @@ const PlayerTimePicker = ({
   );
 };
 
-export const TimePickerStyles = {
+type TimetofallPickerProps = {
+  onChangeFN: Dispatch<SetStateAction<number>>;
+};
+
+const TimetofallPicker = ({ onChangeFN }: TimetofallPickerProps) => {
+  return (
+    <TimerPicker
+      onDurationChange={(duration) => {
+        const { minutes } = duration;
+        onChangeFN(minutes);
+      }}
+      hideHours
+      hideSeconds
+      minuteLabel="min"
+      initialValue={{ minutes: 15 }}
+      LinearGradient={LinearGradient}
+      MaskedView={MaskedView}
+      styles={{
+        text: { fontFamily: "Fredoka-Medium", color: color.textPrimary },
+        backgroundColor: "transparent",
+        pickerItem: {
+          fontSize: 34,
+        },
+        pickerLabel: {
+          fontSize: 34,
+          marginTop: 0,
+        },
+        pickerContainer: {
+          marginRight: 6,
+        },
+        pickerItemContainer: {
+          width: 180,
+        },
+        pickerLabelContainer: {
+          alignItems: "center",
+        },
+      }}
+    />
+  );
+};
+
+type BedtimePickerProps = {
+  onChangeFN: Dispatch<SetStateAction<{ hours: number; minutes: number }>>;
+};
+
+const BedtimePicker = ({ onChangeFN }: BedtimePickerProps) => {
+  return (
+    <TimerPicker
+      onDurationChange={(duration) => {
+        const { hours, minutes } = duration;
+        onChangeFN({ hours, minutes });
+      }}
+      hideSeconds
+      padWithNItems={1}
+      minuteInterval={5}
+      initialValue={{ hours: 22, minutes: 30 }}
+      hourLabel=":"
+      minuteLabel=""
+      LinearGradient={LinearGradient}
+      MaskedView={MaskedView}
+      styles={{
+        text: { fontFamily: "Fredoka-Medium", color: color.textPrimary },
+        backgroundColor: "transparent",
+        pickerItem: {
+          fontSize: 34,
+        },
+        pickerLabel: {
+          fontSize: 34,
+          marginTop: 0,
+        },
+        pickerContainer: {
+          marginRight: 6,
+        },
+        pickerLabelContainer: {
+          right: -10,
+          alignItems: "center",
+        },
+      }}
+    />
+  );
+};
+
+export const TimePickerStyles: CustomTimerPickerModalStyles = {
   text: { fontFamily: "Fredoka-Medium" },
   modalTitle: {
     paddingInline: 25,
@@ -103,9 +202,11 @@ export const TimePickerStyles = {
     backgroundColor: color.primary,
   },
   pickerLabel: {
+    fontSize: 28,
     color: color.textPrimary,
   },
   pickerItem: {
+    fontSize: 28,
     color: color.textPrimary,
   },
   confirmButton: {
@@ -118,6 +219,13 @@ export const TimePickerStyles = {
     backgroundColor: color.background,
     borderWidth: 0,
   },
+  pickerLabelContainer: {
+    right: -20,
+    top: 0,
+    bottom: 6,
+    width: 40,
+    alignItems: "center",
+  },
 };
 
-export { CycleTimePicker, PlayerTimePicker };
+export { BedtimePicker, CycleTimePicker, PlayerTimePicker, TimetofallPicker };

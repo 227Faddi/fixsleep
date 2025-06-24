@@ -84,15 +84,6 @@ const HomeScreen = () => {
               elevation: 10,
             }}
           />
-          <MainButton
-            onPress={() => router.push("/onboarding")}
-            text={"Board"}
-            textClass={`text-2xl text-center text-textPrimary ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
-            containerClass={`p-6 bg-accent shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]`}
-            style={{
-              elevation: 10,
-            }}
-          />
         </View>
         <CycleTimePicker
           mode="wake"

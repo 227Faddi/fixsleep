@@ -20,6 +20,11 @@ const SettingsScreen = () => {
 
   const settings: Partial<SettingsRowType>[] = [
     {
+      title: "Onboarding (test)",
+      icon: "rocket",
+      route: "/onboarding",
+    },
+    {
       title: t("options.reminders.title"),
       icon: "notifications",
       route: "/(tabs)/settings/reminders",

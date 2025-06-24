@@ -5,6 +5,7 @@ import MyText from "@/src/components/ui/MyText";
 import TextBold from "@/src/components/ui/TextBold";
 import iconsData from "@/src/constants/iconsData";
 import { useTimetofall } from "@/src/hooks/contexts";
+import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
@@ -53,20 +54,27 @@ const SleepScreen = () => {
         setIsVisible={setShowTimePicker}
         onConfirm={(pickedDuration) => {
           setShowTimePicker(false);
-          setTimetofall(pickedDuration.minutes.toString());
+          setTimetofall(pickedDuration.minutes);
         }}
         onCancel={() => setShowTimePicker(false)}
         closeOnOverlayPress
-        styles={{ ...TimePickerStyles }}
+        styles={{
+          ...TimePickerStyles,
+          pickerLabelContainer: {
+            right: -20,
+            top: 0,
+            bottom: 6,
+            alignItems: "center",
+          },
+        }}
         modalProps={{
           overlayOpacity: 0.2,
         }}
+        LinearGradient={LinearGradient}
         hideSeconds
         hideHours
         minuteInterval={1}
-        hourLabel={"H"}
-        minuteLabel={"M"}
-        maximumMinutes={45}
+        minuteLabel={"min"}
         initialValue={{ minutes: Number(timetofall) }}
       />
     </>
