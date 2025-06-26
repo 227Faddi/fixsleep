@@ -24,13 +24,13 @@ const Survey = () => {
     multiSelect?: boolean;
   }[] = [
     {
-      question: t("questions.motivation"),
-      multiSelect: true,
+      question: t("questions.hours"),
+      multiSelect: false,
       choices: [
-        { text: t("choices.sharperFocus"), icon: "contract" },
-        { text: t("choices.moreEnergy"), icon: "battery" },
-        { text: t("choices.betterHealth"), icon: "heart" },
-        { text: t("choices.increasedProductivity"), icon: "rocket" },
+        { text: t("choices.under5hrs"), icon: "emojiNeutral" },
+        { text: t("choices.5to6hrs"), icon: "emojiNeutral" },
+        { text: t("choices.7to8hrs"), icon: "emojiHappy" },
+        { text: t("choices.over8hrs"), icon: "emojiHappy" },
       ],
     },
     {
@@ -44,16 +44,6 @@ const Survey = () => {
       ],
     },
     {
-      question: t("questions.hours"),
-      multiSelect: false,
-      choices: [
-        { text: t("choices.under5hrs"), icon: "emojiNeutral" },
-        { text: t("choices.5to6hrs"), icon: "emojiNeutral" },
-        { text: t("choices.7to8hrs"), icon: "emojiHappy" },
-        { text: t("choices.over8hrs"), icon: "emojiHappy" },
-      ],
-    },
-    {
       question: t("questions.helpFallAsleep"),
       multiSelect: true,
       choices: [
@@ -61,6 +51,16 @@ const Survey = () => {
         { text: t("choices.reading"), icon: "book" },
         { text: t("choices.meditation"), icon: "leaf" },
         { text: t("choices.avoidingScreens"), icon: "phonePortrait" },
+      ],
+    },
+    {
+      question: t("questions.motivation"),
+      multiSelect: true,
+      choices: [
+        { text: t("choices.sharperFocus"), icon: "contract" },
+        { text: t("choices.moreEnergy"), icon: "battery" },
+        { text: t("choices.betterHealth"), icon: "heart" },
+        { text: t("choices.increasedProductivity"), icon: "rocket" },
       ],
     },
   ];
@@ -108,6 +108,7 @@ const Survey = () => {
               icon={item.icon}
               isSelected={selectedValues.includes(item.text)}
               onSelect={() => handleChoiceSelect(item.text)}
+              variant={multiSelect ? "checkbox" : "radio"}
             />
           ))}
         </View>

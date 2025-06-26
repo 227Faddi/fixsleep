@@ -47,6 +47,21 @@
         "avoidingScreens": "Éviter les écrans"
       }
     },
+    "timetofall": {
+      "title": "Combien de temps mettez-vous à vous endormir?"
+    },
+    "reminder": {
+      "title": "À quelle heure souhaitez-vous vous détendre?",
+      "btn": {
+        "set": "Configurer Rappel",
+        "notset": "Continuer Sans Rappel"
+      }
+    },
+    "end": {
+      "title": "Tout est prêt!",
+      "subtitle": "Tout est configuré pour vous guider vers un meilleur repos.",
+      "btn": "C'est Parti"
+    },
     "skip": "Passer",
     "next": "Suivant",
     "continue": "Continuer"

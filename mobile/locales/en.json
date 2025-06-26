@@ -47,6 +47,21 @@
         "avoidingScreens": "Avoiding screens"
       }
     },
+    "timetofall": {
+      "title": "How long does it usually take you to fall asleep?"
+    },
+    "reminder": {
+      "title": "When do you want to start winding down?",
+      "btn": {
+        "set": "Set Reminder",
+        "notset": "Continue Without"
+      }
+    },
+    "end": {
+      "title": "You're all set!",
+      "subtitle": "Everything’s ready to guide you toward better rest.",
+      "btn": "Let's Go"
+    },
     "skip": "Skip",
     "next": "Next",
     "continue": "Continue"

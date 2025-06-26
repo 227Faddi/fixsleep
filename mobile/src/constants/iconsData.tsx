@@ -50,6 +50,12 @@ const iconsData = {
   star: (props?: object) => (
     <Ionicons name="star" size={24} color="#fff" {...props} />
   ),
+  checkbox: (props?: object) => (
+    <Ionicons name="checkbox" size={24} color="#fff" {...props} />
+  ),
+  square: (props?: object) => (
+    <Ionicons name="square-outline" size={24} color="#fff" {...props} />
+  ),
   checkmark: (props?: object) => (
     <Ionicons name="checkmark-circle" size={24} color="#fff" {...props} />
   ),

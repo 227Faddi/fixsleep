@@ -8,10 +8,11 @@ type Props = {
   text: string;
   icon: IconsData;
   isSelected: boolean;
+  variant: "checkbox" | "radio";
   onSelect: () => void;
 };
 
-const SurveyChoice = ({ text, icon, isSelected, onSelect }: Props) => {
+const SurveyChoice = ({ text, icon, isSelected, variant, onSelect }: Props) => {
   return (
     <TouchableOpacity
       onPress={onSelect}
@@ -23,9 +24,13 @@ const SurveyChoice = ({ text, icon, isSelected, onSelect }: Props) => {
         })}
         <MyText className="text-xl">{text}</MyText>
       </View>
-      {iconsData[isSelected ? "checkmark" : "circle"]({
-        color: isSelected ? color.accent : color.textPrimary,
-      })}
+      {variant === "radio"
+        ? iconsData[isSelected ? "checkmark" : "circle"]({
+            color: isSelected ? color.accent : color.textPrimary,
+          })
+        : iconsData[isSelected ? "checkbox" : "square"]({
+            color: isSelected ? color.accent : color.textPrimary,
+          })}
     </TouchableOpacity>
   );
 };

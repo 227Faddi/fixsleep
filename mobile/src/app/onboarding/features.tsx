@@ -2,10 +2,11 @@ import BackStepButton from "@/src/components/onboarding/BackStepButton";
 import NextStepButton from "@/src/components/onboarding/NextStepButton";
 import MyText from "@/src/components/ui/MyText";
 import TextBold from "@/src/components/ui/TextBold";
+import { Image } from "expo-image";
 import { router } from "expo-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Image, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 
 const Features = () => {
   const { t } = useTranslation("translation", {
@@ -17,21 +18,21 @@ const Features = () => {
     {
       title: t("features.step1.title"),
       description: t("features.step1.body"),
-      image: require("@/assets/images/1.png"),
+      img: require("@/assets/images/onboarding/1.webp"),
     },
     {
       title: t("features.step2.title"),
       description: t("features.step2.body"),
-      image: require("@/assets/images/2.png"),
+      img: require("@/assets/images/onboarding/2.webp"),
     },
     {
       title: t("features.step3.title"),
       description: t("features.step3.body"),
-      image: require("@/assets/images/3.png"),
+      img: require("@/assets/images/onboarding/end.webp"),
     },
   ];
 
-  const { title, description, image } = featureSteps[currentStep];
+  const { title, description, img } = featureSteps[currentStep];
 
   return (
     <View className="bg-background flex-1 gap-4 items-center pb-2 pt-12 px-8">
@@ -47,10 +48,13 @@ const Features = () => {
         <MyText className="text-xl underline">{t("skip")}</MyText>
       </TouchableOpacity>
       <View className="flex-1 justify-center items-center gap-10">
-        <View>
+        <View className="w-64 h-64 overflow-hidden rounded-3xl">
           <Image
-            className="w-72 h-72 rounded-3xl object-cover"
-            source={image}
+            style={{ flex: 1, width: "100%" }}
+            source={img}
+            contentFit="cover"
+            transition={500}
+            priority="high"
           />
         </View>
         <View className="items-center justify-center gap-3">

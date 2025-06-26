@@ -8,17 +8,20 @@ import { changeDailyNotifications } from "@/src/lib/notifications";
 import { HourTime } from "@/src/types";
 import { router } from "expo-router";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Alert, Linking, Platform, View } from "react-native";
 
 const Reminder = () => {
+  const { t } = useTranslation("translation", {
+    keyPrefix: "onboarding.reminder",
+  });
   const [timePicked, setTimePicked] = useState<HourTime>({
     hours: 22,
     minutes: 30,
   });
   const [asPermission, setAsPermission] = useState<boolean>(true);
 
-  const { setItem, getItem, removeItem } =
-    useAsyncStorage<HourTime>("sleepTime");
+  const { setItem } = useAsyncStorage<HourTime>("sleepTime");
 
   const handleSetReminder = async () => {
     if (!timePicked) {
@@ -59,18 +62,18 @@ const Reminder = () => {
       <BackButton />
       <View className="flex-1 justify-center items-center gap-4">
         <View className="gap-1">
-          <TextBold className="text-4xl text-center">
-            What time do you want to go to bed?
-          </TextBold>
+          <TextBold className="text-4xl text-center">{t("title")}</TextBold>
         </View>
         <View className="flex-1 justify-center items-center">
-          <BedtimePicker onChangeFN={setTimePicked} />
+          <View className="bg-primary p-8 rounded-3xl items-center justify-center">
+            <BedtimePicker onChangeFN={setTimePicked} />
+          </View>
         </View>
       </View>
       <View className="items-center gap-4">
         <MainButton
           onPress={() => handleSetReminder()}
-          text={asPermission ? "Set Reminder" : "Continue without reminder"}
+          text={asPermission ? t("btn.set") : t("btn.notset")}
           textClass={`text-3xl text-center text-textPrimary w-full ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
           containerClass={`p-6 bg-accent`}
         />
