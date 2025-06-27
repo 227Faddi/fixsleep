@@ -54,7 +54,7 @@ export default function RootLayout() {
       }
 
       if (onboarding) {
-        router.push("/onboarding/timetofall");
+        router.push("/onboarding");
       }
 
       await SplashScreen.hideAsync();

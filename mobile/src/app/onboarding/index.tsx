@@ -14,27 +14,6 @@ const HomeScreen = () => {
 
   return (
     <View className="flex-1 gap-4 items-center pb-2 pt-12 px-8">
-      {/* <View className="absolute top-0 right-5 flex-row items-center space-x-2">
-        <TouchableOpacity onPress={() => console.log("en")}>
-          <Image
-            source={{
-              uri: "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Kingdom.svg",
-            }}
-            className="w-6 h-6"
-            resizeMode="contain"
-            accessibilityLabel="Switch to English"
-          />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => console.log("fr")}>
-          <Image
-            source={{
-              uri: "https://commons.wikimedia.org/wiki/File:Flag_of_France.svg",
-            }}
-            className="w-6 h-6"
-            accessibilityLabel="Passer en français"
-          />
-        </TouchableOpacity>
-      </View> */}
       <View className="flex-1 justify-center items-center gap-4">
         <View className="w-24 h-24">
           <Image
