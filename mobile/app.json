@@ -2,7 +2,7 @@
   "expo": {
     "name": "FixSleep",
     "slug": "fixsleep",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "orientation": "portrait",
     "icon": "./assets/icons/ios-light.png",
     "scheme": "myapp",

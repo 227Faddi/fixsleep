@@ -136,12 +136,14 @@ const SoundPlayer = () => {
         </TextBold>
       </View>
       <View className="w-full flex-1 flex-col justify-between items-center gap-8">
-        <Image
-          style={{ flex: 1, width: "100%", borderRadius: 24 }}
-          source={selectedSound.img}
-          contentFit="cover"
-          transition={600}
-        />
+        <View className="flex-1 p-6 w-full">
+          <Image
+            style={{ flex: 1, width: "100%", borderRadius: 24 }}
+            source={selectedSound.img}
+            contentFit="cover"
+            transition={600}
+          />
+        </View>
         <View className="flex-row items-center justify-center gap-8">
           <View className="flex-row items-center justify-center gap-2">
             {iconsData["volumeOff"]()}

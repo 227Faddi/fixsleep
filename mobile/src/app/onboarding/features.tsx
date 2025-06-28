@@ -28,7 +28,7 @@ const Features = () => {
     {
       title: t("features.step3.title"),
       description: t("features.step3.body"),
-      img: require("@/assets/images/onboarding/end.webp"),
+      img: require("@/assets/images/onboarding/3.webp"),
     },
   ];
 
@@ -48,7 +48,7 @@ const Features = () => {
         <MyText className="text-xl underline">{t("skip")}</MyText>
       </TouchableOpacity>
       <View className="flex-1 justify-center items-center gap-10">
-        <View className="w-64 h-64 overflow-hidden rounded-3xl">
+        <View className="w-64 h-80 overflow-hidden rounded-3xl">
           <Image
             style={{ flex: 1, width: "100%" }}
             source={img}

@@ -2,6 +2,7 @@ import BackButton from "@/src/components/ui/BackButton";
 import MainButton from "@/src/components/ui/MainButton";
 import MyText from "@/src/components/ui/MyText";
 import TextBold from "@/src/components/ui/TextBold";
+import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";
 import { Image } from "expo-image";
 import { router } from "expo-router";
 import React from "react";
@@ -12,6 +13,13 @@ const End = () => {
   const { t } = useTranslation("translation", {
     keyPrefix: "onboarding.end",
   });
+
+  const { setItem } = useAsyncStorage<boolean>("onboarding");
+
+  const handleEnd = async () => {
+    await setItem(true);
+    router.push("/(tabs)/(home)");
+  };
 
   return (
     <View className="bg-background flex-1 gap-4 items-center pb-2 pt-12 px-8">
@@ -32,7 +40,7 @@ const End = () => {
       </View>
       <View className="items-center gap-4">
         <MainButton
-          onPress={() => router.push("/(tabs)/(home)")}
+          onPress={handleEnd}
           text={t("btn")}
           textClass={`text-3xl text-center text-textPrimary w-full ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
           containerClass={`p-6 bg-accent`}
