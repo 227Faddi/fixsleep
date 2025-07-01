@@ -22,7 +22,7 @@ const SurveyChoice = ({ text, icon, isSelected, variant, onSelect }: Props) => {
         {iconsData[icon]({
           color: isSelected ? color.accent : color.textPrimary,
         })}
-        <MyText className="text-xl">{text}</MyText>
+        <MyText>{text}</MyText>
       </View>
       {variant === "radio"
         ? iconsData[isSelected ? "checkmark" : "circle"]({

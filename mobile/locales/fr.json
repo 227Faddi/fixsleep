@@ -23,9 +23,9 @@
     },
     "survey": {
       "questions": {
-        "motivation": "Qu'est-ce qui vous motive à mieux dormir?",
-        "challenge": "Quel est votre plus grand défi de sommeil?",
         "hours": "Combien d'heures dormez-vous habituellement?",
+        "challenge": "Quel est votre plus grand défi de sommeil?",
+        "motivation": "Qu'est-ce qui vous motive à mieux dormir?",
         "helpFallAsleep": "Qu'est-ce qui vous aide à vous endormir plus vite?"
       },
       "choices": {
@@ -59,7 +59,7 @@
     },
     "end": {
       "title": "Tout est prêt!",
-      "subtitle": "Tout est configuré pour vous guider vers un meilleur repos.",
+      "subtitle": "Tout est configuré pour vous\nguider vers un meilleur repos.",
       "btn": "C'est Parti"
     },
     "skip": "Passer",

@@ -27,14 +27,14 @@ const End = () => {
       <View className="w-full flex-1 justify-center items-center gap-4">
         <View className="gap-2">
           <TextBold className="text-4xl text-center">{t("title")}</TextBold>
-          <MyText className="text-2xl text-center">{t("subtitle")}</MyText>
+          <MyText className="text-xl text-center">{t("subtitle")}</MyText>
         </View>
         <View className="w-full flex-1 p-8">
           <Image
             style={{ flex: 1, width: "100%", borderRadius: 24 }}
             source={require("@/assets/images/onboarding/end.webp")}
             contentFit="cover"
-            transition={600}
+            transition={200}
           />
         </View>
       </View>

@@ -25,12 +25,12 @@ const Timetofall = () => {
       <BackButton />
       <View className="flex-1 justify-center items-center gap-4">
         <View className="gap-1">
-          <TextBold className="text-4xl text-center">
+          <TextBold className="text-3xl text-center">
             {t("timetofall.title")}
           </TextBold>
         </View>
         <View className="flex-1 justify-center items-center">
-          <View className="bg-primary p-8 rounded-3xl items-center justify-center">
+          <View className="bg-primary px-8 py-6 rounded-3xl items-center justify-center">
             <TimetofallPicker onChangeFN={setTimePicked} />
           </View>
         </View>

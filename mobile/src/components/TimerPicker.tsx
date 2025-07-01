@@ -126,17 +126,17 @@ const TimetofallPicker = ({ onChangeFN }: TimetofallPickerProps) => {
         text: { fontFamily: "Fredoka-Medium", color: color.textPrimary },
         backgroundColor: "transparent",
         pickerItem: {
-          fontSize: 34,
+          fontSize: 24,
         },
         pickerLabel: {
-          fontSize: 34,
+          fontSize: 24,
           marginTop: 0,
         },
         pickerContainer: {
           marginRight: 6,
         },
         pickerItemContainer: {
-          width: 180,
+          minWidth: 130,
         },
         pickerLabelContainer: {
           alignItems: "center",
@@ -161,7 +161,8 @@ const BedtimePicker = ({ onChangeFN }: BedtimePickerProps) => {
       padWithNItems={1}
       minuteInterval={5}
       initialValue={{ hours: 22, minutes: 30 }}
-      hourLabel=":"
+      //it works lol
+      hourLabel="     :"
       minuteLabel=""
       LinearGradient={LinearGradient}
       MaskedView={MaskedView}
@@ -169,17 +170,17 @@ const BedtimePicker = ({ onChangeFN }: BedtimePickerProps) => {
         text: { fontFamily: "Fredoka-Medium", color: color.textPrimary },
         backgroundColor: "transparent",
         pickerItem: {
-          fontSize: 34,
+          fontSize: 24,
         },
         pickerLabel: {
-          fontSize: 34,
+          fontSize: 24,
           marginTop: 0,
         },
         pickerContainer: {
           marginRight: 6,
         },
         pickerLabelContainer: {
-          right: -10,
+          right: 0,
           alignItems: "center",
         },
       }}

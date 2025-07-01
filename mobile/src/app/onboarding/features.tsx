@@ -45,12 +45,16 @@ const Features = () => {
         accessibilityLabel="Skip to survey"
         className="absolute top-0 right-5"
       >
-        <MyText className="text-xl underline">{t("skip")}</MyText>
+        <MyText>{t("skip")}</MyText>
       </TouchableOpacity>
-      <View className="flex-1 justify-center items-center gap-10">
-        <View className="w-64 h-80 overflow-hidden rounded-3xl">
+      <View className="flex-1 w-full justify-center items-center gap-10">
+        <View className="flex-1 w-full m-8 aspect-[3/4] rounded-3xl overflow-hidden items-center justify-center">
           <Image
-            style={{ flex: 1, width: "100%" }}
+            style={{
+              flex: 1,
+              width: "100%",
+              borderRadius: 24,
+            }}
             source={img}
             contentFit="cover"
             transition={500}
@@ -58,10 +62,10 @@ const Features = () => {
           />
         </View>
         <View className="items-center justify-center gap-3">
-          <TextBold className="text-4xl font-bold !text-accent text-center">
+          <TextBold className="text-3xl !text-accent text-center">
             {title}
           </TextBold>
-          <MyText className="text-2xl text-center">{description}</MyText>
+          <MyText className="text-xl text-center">{description}</MyText>
         </View>
       </View>
       <NextStepButton

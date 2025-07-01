@@ -98,7 +98,7 @@ const Survey = () => {
       />
       <View className="flex-1 justify-center items-center gap-10">
         <View className="gap-1">
-          <TextBold className="text-4xl text-center">{question}</TextBold>
+          <TextBold className="text-3xl text-center">{question}</TextBold>
         </View>
         <View className="flex-1 justify-center items-center gap-4 w-full">
           {choices.map((item, index) => (
