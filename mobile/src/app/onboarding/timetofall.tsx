@@ -2,7 +2,7 @@ import { TimetofallPicker } from "@/src/components/TimerPicker";
 import BackButton from "@/src/components/ui/BackButton";
 import MainButton from "@/src/components/ui/MainButton";
 import TextBold from "@/src/components/ui/TextBold";
-import { useTimetofall } from "@/src/hooks/contexts";
+import { useTimetofallStore } from "@/src/store/appStore";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -12,8 +12,8 @@ const Timetofall = () => {
   const { t } = useTranslation("translation", {
     keyPrefix: "onboarding",
   });
-  const [timePicked, setTimePicked] = useState<number>(15);
-  const { setTimetofall } = useTimetofall();
+  const { timetofall, setTimetofall } = useTimetofallStore();
+  const [timePicked, setTimePicked] = useState<number>(timetofall);
 
   const handleSetTimetofall = async () => {
     setTimetofall(timePicked);

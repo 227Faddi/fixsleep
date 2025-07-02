@@ -4,7 +4,7 @@ import MainButton from "@/src/components/ui/MainButton";
 import MyText from "@/src/components/ui/MyText";
 import TextBold from "@/src/components/ui/TextBold";
 import iconsData from "@/src/constants/iconsData";
-import { useTimetofall } from "@/src/hooks/contexts";
+import { useTimetofallStore } from "@/src/store/appStore";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -15,7 +15,7 @@ const SleepScreen = () => {
   const { t, i18n } = useTranslation("translation", {
     keyPrefix: "settings.options.sleep",
   });
-  const { timetofall, setTimetofall } = useTimetofall();
+  const { timetofall, setTimetofall } = useTimetofallStore();
   const [showTimePicker, setShowTimePicker] = useState(false);
 
   return (

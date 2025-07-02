@@ -8,6 +8,7 @@ import {
   TimerPickerModal,
 } from "react-native-timer-picker";
 import color from "../constants/colors";
+import { useTimetofallStore } from "../store/appStore";
 
 type CycleTimePickerProps = {
   showModal: boolean;
@@ -110,6 +111,7 @@ type TimetofallPickerProps = {
 };
 
 const TimetofallPicker = ({ onChangeFN }: TimetofallPickerProps) => {
+  const timetofall = useTimetofallStore((state) => state.timetofall);
   return (
     <TimerPicker
       onDurationChange={(duration) => {
@@ -119,7 +121,7 @@ const TimetofallPicker = ({ onChangeFN }: TimetofallPickerProps) => {
       hideHours
       hideSeconds
       minuteLabel="min"
-      initialValue={{ minutes: 15 }}
+      initialValue={{ minutes: timetofall }}
       LinearGradient={LinearGradient}
       MaskedView={MaskedView}
       styles={{

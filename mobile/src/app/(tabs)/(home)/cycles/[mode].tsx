@@ -4,8 +4,8 @@ import MyText from "@/src/components/ui/MyText";
 import TextBold from "@/src/components/ui/TextBold";
 import getCyclesData from "@/src/constants/cyclesData";
 import iconsData from "@/src/constants/iconsData";
-import { useTimetofall } from "@/src/hooks/contexts";
 import calcCycles from "@/src/lib/calcCycles";
+import { useTimetofallStore } from "@/src/store/appStore";
 import { router, useLocalSearchParams } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { ScrollView, View } from "react-native";
@@ -19,7 +19,7 @@ const CyclesScreen = () => {
     query: string;
   }>();
 
-  const { timetofall } = useTimetofall();
+  const timetofall = useTimetofallStore((state) => state.timetofall);
 
   if (mode !== "sleep" && mode !== "wake") {
     router.back();
@@ -28,8 +28,8 @@ const CyclesScreen = () => {
 
   const timeCycles =
     mode === "sleep"
-      ? calcCycles.sleep(time, Number(timetofall))
-      : calcCycles.wake(time, Number(timetofall));
+      ? calcCycles.sleep(time, timetofall)
+      : calcCycles.wake(time, timetofall);
 
   const cycles = getCyclesData(mode);
 
