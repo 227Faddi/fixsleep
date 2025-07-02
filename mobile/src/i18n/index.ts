@@ -1,9 +1,8 @@
-import { getLocales } from "expo-localization";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import en from "../../locales/en.json";
 import fr from "../../locales/fr.json";
-import { useAsyncStorage } from "../hooks/useAsyncStorage";
+import { useLanguageStore } from "../store/appStore";
 
 const resources = {
   en: {
@@ -15,16 +14,11 @@ const resources = {
 };
 
 const initI18n = async () => {
-  const { getItem } = useAsyncStorage("language");
-  let savedLanguage = await getItem();
-
-  if (!savedLanguage) {
-    savedLanguage = getLocales()[0].languageCode;
-  }
+  const language = useLanguageStore.getState().language;
 
   i18n.use(initReactI18next).init({
     resources,
-    lng: savedLanguage,
+    lng: language || "en",
     fallbackLng: "en",
     interpolation: {
       escapeValue: false,

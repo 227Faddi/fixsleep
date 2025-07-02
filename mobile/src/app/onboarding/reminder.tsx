@@ -2,9 +2,9 @@ import { BedtimePicker } from "@/src/components/TimerPicker";
 import BackButton from "@/src/components/ui/BackButton";
 import MainButton from "@/src/components/ui/MainButton";
 import TextBold from "@/src/components/ui/TextBold";
-import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";
 import i18n from "@/src/i18n";
 import { changeDailyNotifications } from "@/src/lib/notifications";
+import { useSleepTimeStore } from "@/src/store/appStore";
 import { HourTime } from "@/src/types";
 import { router } from "expo-router";
 import React, { useState } from "react";
@@ -15,21 +15,16 @@ const Reminder = () => {
   const { t } = useTranslation("translation", {
     keyPrefix: "onboarding.reminder",
   });
+
+  const setSleepTime = useSleepTimeStore((state) => state.setSleepTime);
+
   const [timePicked, setTimePicked] = useState<HourTime>({
     hours: 22,
     minutes: 30,
   });
-  const [asPermission, setAsPermission] = useState<boolean>(true);
-
-  const { setItem } = useAsyncStorage<HourTime>("sleepTime");
 
   const handleSetReminder = async () => {
-    if (!timePicked) {
-      alert("Time not picked");
-      return;
-    }
-    const { hours, minutes } = timePicked;
-    const { enabled } = await changeDailyNotifications({ hours, minutes });
+    const { enabled } = await changeDailyNotifications(timePicked);
     if (!enabled) {
       Alert.alert(
         i18n.t("notification.disabledTitle"),
@@ -52,7 +47,7 @@ const Reminder = () => {
         ]
       );
     } else {
-      setItem(timePicked);
+      setSleepTime(timePicked);
       router.push("/onboarding/end");
     }
   };
@@ -73,7 +68,7 @@ const Reminder = () => {
       <View className="items-center gap-4">
         <MainButton
           onPress={() => handleSetReminder()}
-          text={asPermission ? t("btn.set") : t("btn.notset")}
+          text={t("btn")}
           textClass={`text-3xl text-center text-textPrimary w-full ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
           containerClass={`p-6 bg-accent`}
         />

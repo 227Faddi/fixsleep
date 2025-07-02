@@ -2,20 +2,21 @@ import BackButton from "@/src/components/ui/BackButton";
 import MyText from "@/src/components/ui/MyText";
 import TextBold from "@/src/components/ui/TextBold";
 import iconsData from "@/src/constants/iconsData";
-import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";
+import { useLanguageStore } from "@/src/store/appStore";
+import { SupportedLanguage } from "@/src/types";
 import { useTranslation } from "react-i18next";
 import { TouchableOpacity, View } from "react-native";
 
 const LanguageScreen = () => {
-  const { setItem } = useAsyncStorage("language");
+  const setLanguage = useLanguageStore((s) => s.setLanguage);
   const { t, i18n } = useTranslation("translation", {
     keyPrefix: "settings.options.language",
   });
 
   const currentLang = i18n.language;
 
-  const changeLang = async (lang: string) => {
-    await setItem(lang);
+  const changeLang = async (lang: SupportedLanguage) => {
+    setLanguage(lang);
     i18n.changeLanguage(lang);
   };
 

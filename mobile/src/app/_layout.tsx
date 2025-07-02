@@ -10,7 +10,10 @@ import { useTranslation } from "react-i18next";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import color from "../constants/colors";
-import { useAsyncStorage } from "../hooks/useAsyncStorage";
+import { useLanguageStore } from "../store/appStore";
+import { SupportedLanguage } from "../types";
+
+const supportedLanguages: SupportedLanguage[] = ["en", "fr"];
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -30,28 +33,27 @@ SplashScreen.setOptions({
 });
 
 export default function RootLayout() {
-  const { getItem } = useAsyncStorage<string>("language");
-
+  const { language, setLanguage } = useLanguageStore();
   const { i18n } = useTranslation();
+  const isHydrated = useLanguageStore.persist.hasHydrated();
 
   useEffect(() => {
-    const loadLanguage = async () => {
-      const supportedLanguages = ["en", "fr"];
-      const savedLang = await getItem();
-      const deviceLang = getLocales()[0].languageCode;
-      const langToUse = savedLang || deviceLang || "en";
+    const detectLanguage = async () => {
+      if (!isHydrated) return null;
 
-      if (
-        supportedLanguages.includes(langToUse) &&
-        i18n.language !== langToUse
-      ) {
+      if (!language) {
+        const deviceLang = getLocales()[0]?.languageCode as SupportedLanguage;
+        const langToUse = supportedLanguages.includes(deviceLang)
+          ? deviceLang
+          : "en";
         await i18n.changeLanguage(langToUse);
+        setLanguage(langToUse);
       }
 
       await SplashScreen.hideAsync();
     };
 
-    loadLanguage();
+    detectLanguage();
   }, [i18n]);
 
   return (

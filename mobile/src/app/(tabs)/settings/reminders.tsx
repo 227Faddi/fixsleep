@@ -5,13 +5,13 @@ import MyText from "@/src/components/ui/MyText";
 import TextBold from "@/src/components/ui/TextBold";
 import color from "@/src/constants/colors";
 import iconsData from "@/src/constants/iconsData";
-import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";
 import { formatTime } from "@/src/lib/formatTime";
 import { changeDailyNotifications } from "@/src/lib/notifications";
+import { useSleepTimeStore } from "@/src/store/appStore";
 import { HourTime } from "@/src/types";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Notifications from "expo-notifications";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Alert, Linking, Platform, Switch, View } from "react-native";
 import { TimerPickerModal } from "react-native-timer-picker";
@@ -21,22 +21,10 @@ const RemindersScreen = () => {
     keyPrefix: "settings.options.reminders",
   });
 
-  const { setItem, getItem, removeItem } =
-    useAsyncStorage<HourTime>("sleepTime");
-  const [showTimePicker, setShowTimePicker] = useState(false);
-  const [sleepTime, setSleepTime] = useState("");
-  const [isEnabled, setIsEnabled] = useState(false);
+  const { sleepTime, setSleepTime, removeSleepTime } = useSleepTimeStore();
 
-  const toggleReminder = async () => {
-    const newStatus = !isEnabled;
-    if (!newStatus) {
-      await Notifications.cancelAllScheduledNotificationsAsync();
-      await removeItem();
-      setIsEnabled(false);
-      return;
-    }
-    setShowTimePicker(true);
-  };
+  const [showTimePicker, setShowTimePicker] = useState(false);
+  const isEnabled = !!sleepTime;
 
   const onTimePickerConfirm = async ({ hours, minutes }: HourTime) => {
     const { enabled } = await changeDailyNotifications({ hours, minutes });
@@ -57,23 +45,18 @@ const RemindersScreen = () => {
         ]
       );
     } else {
-      setItem({ hours, minutes });
-      setSleepTime(formatTime({ hours, minutes }));
-      setIsEnabled(true);
+      setSleepTime({ hours, minutes });
     }
   };
 
-  useEffect(() => {
-    const loadSleepTime = async () => {
-      const stored = await getItem();
-      if (stored) {
-        const { hours, minutes } = stored;
-        setSleepTime(formatTime({ hours, minutes }));
-        setIsEnabled(true);
-      }
-    };
-    loadSleepTime();
-  }, [getItem]);
+  const toggleReminder = async () => {
+    if (!sleepTime) {
+      setShowTimePicker(true);
+    }
+    await Notifications.cancelAllScheduledNotificationsAsync();
+    removeSleepTime();
+    return;
+  };
 
   return (
     <>
@@ -99,14 +82,14 @@ const RemindersScreen = () => {
                 />
               </View>
               <MyText>{t("card.body")}</MyText>
-              {isEnabled && (
+              {sleepTime && (
                 <>
                   <View className="flex-row justify-between">
                     <TextBold className="text-2xl text-center">
                       {t("card.current")}
                     </TextBold>
                     <TextBold className="text-2xl text-center">
-                      {sleepTime}
+                      {formatTime(sleepTime)}
                     </TextBold>
                   </View>
                   <MainButton

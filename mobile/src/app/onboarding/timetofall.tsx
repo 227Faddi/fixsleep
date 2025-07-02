@@ -12,8 +12,8 @@ const Timetofall = () => {
   const { t } = useTranslation("translation", {
     keyPrefix: "onboarding",
   });
-  const { timetofall, setTimetofall } = useTimetofallStore();
-  const [timePicked, setTimePicked] = useState<number>(timetofall);
+  const setTimetofall = useTimetofallStore((state) => state.setTimetofall);
+  const [timePicked, setTimePicked] = useState<number>(15);
 
   const handleSetTimetofall = async () => {
     setTimetofall(timePicked);

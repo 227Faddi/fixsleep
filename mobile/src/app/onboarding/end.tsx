@@ -14,7 +14,7 @@ const End = () => {
     keyPrefix: "onboarding.end",
   });
 
-  const complete = useOnboardingStore((state) => state.complete);
+  const complete = useOnboardingStore((s) => s.complete);
 
   const handleEnd = async () => {
     complete();

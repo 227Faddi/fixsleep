@@ -52,10 +52,7 @@
     },
     "reminder": {
       "title": "When do you want to start winding down?",
-      "btn": {
-        "set": "Set Reminder",
-        "notset": "Continue Without"
-      }
+      "btn": "Set Reminder"
     },
     "end": {
       "title": "You're all set!",

@@ -52,10 +52,7 @@
     },
     "reminder": {
       "title": "À quelle heure souhaitez-vous vous détendre?",
-      "btn": {
-        "set": "Configurer Rappel",
-        "notset": "Continuer Sans Rappel"
-      }
+      "btn": "Configurer Rappel"
     },
     "end": {
       "title": "Tout est prêt!",

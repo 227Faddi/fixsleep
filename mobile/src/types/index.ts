@@ -9,4 +9,6 @@ type RootTabParamList = {
 
 export type HourTime = { hours: number; minutes: number };
 
+export type SupportedLanguage = "en" | "fr";
+
 export type TabNav = BottomTabNavigationProp<RootTabParamList>;
