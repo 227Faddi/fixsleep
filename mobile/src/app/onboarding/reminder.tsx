@@ -53,7 +53,7 @@ const Reminder = () => {
   };
 
   return (
-    <View className="bg-background flex-1 gap-4 items-center pb-2 pt-12 px-8">
+    <View className="bg-background flex-1 gap-4 items-center pb-2 pt-20 px-8">
       <BackButton />
       <View className="flex-1 justify-center items-center gap-4">
         <View className="gap-1">

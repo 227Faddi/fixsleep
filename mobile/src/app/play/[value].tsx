@@ -5,8 +5,8 @@ import TextBold from "@/src/components/ui/TextBold";
 import color from "@/src/constants/colors";
 import iconsData, { IconsData } from "@/src/constants/iconsData";
 import soundsData from "@/src/constants/soundsData";
-import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";
 import { formatTimer } from "@/src/lib/formatTime";
+import { useSoundPlayerStore } from "@/src/store/appStore";
 import { SoundCardKey } from "@/src/types/i18next";
 import Slider from "@react-native-community/slider";
 import { Audio } from "expo-av";
@@ -25,8 +25,7 @@ const SoundPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { getItem, setItem } = useAsyncStorage<number>("volume");
-  const [volume, setVolume] = useState(1);
+  const { volume, setVolume } = useSoundPlayerStore();
 
   const [timeLeft, setTimeLeft] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
@@ -81,9 +80,8 @@ const SoundPlayer = () => {
   };
 
   const changeVolume = async (value: number) => {
-    setItem(value);
-    setVolume(value);
     await sound?.setVolumeAsync(value);
+    setVolume(value);
   };
 
   useEffect(() => {
@@ -102,21 +100,6 @@ const SoundPlayer = () => {
     }
     return () => clearInterval(interval);
   }, [isRunning, timeLeft]);
-
-  useEffect(() => {
-    const loadPreviousVolume = async () => {
-      try {
-        const savedVolume = await getItem();
-        if (savedVolume !== null) {
-          setVolume(savedVolume);
-        }
-      } catch (error) {
-        console.warn("Failed to load saved volume", error);
-      }
-    };
-
-    loadPreviousVolume();
-  }, []);
 
   useEffect(() => {
     return sound

@@ -128,17 +128,17 @@ const TimetofallPicker = ({ onChangeFN }: TimetofallPickerProps) => {
         text: { fontFamily: "Fredoka-Medium", color: color.textPrimary },
         backgroundColor: "transparent",
         pickerItem: {
-          fontSize: 24,
+          fontSize: 26,
         },
         pickerLabel: {
-          fontSize: 24,
+          fontSize: 26,
           marginTop: 0,
         },
         pickerContainer: {
           marginRight: 6,
         },
         pickerItemContainer: {
-          minWidth: 130,
+          minWidth: 150,
         },
         pickerLabelContainer: {
           alignItems: "center",
@@ -172,10 +172,10 @@ const BedtimePicker = ({ onChangeFN }: BedtimePickerProps) => {
         text: { fontFamily: "Fredoka-Medium", color: color.textPrimary },
         backgroundColor: "transparent",
         pickerItem: {
-          fontSize: 24,
+          fontSize: 26,
         },
         pickerLabel: {
-          fontSize: 24,
+          fontSize: 26,
           marginTop: 0,
         },
         pickerContainer: {

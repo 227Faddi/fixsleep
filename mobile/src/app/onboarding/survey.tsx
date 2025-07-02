@@ -91,7 +91,7 @@ const Survey = () => {
   };
 
   return (
-    <View className="bg-background flex-1 gap-4 items-center pb-2 pt-12 px-8">
+    <View className="bg-background flex-1 gap-4 items-center pb-2 pt-20 px-8">
       <BackStepButton
         currentStep={currentStep}
         setCurrentStep={setCurrentStep}

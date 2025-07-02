@@ -3,32 +3,34 @@ import { createJSONStorage, persist } from "zustand/middleware";
 import { HourTime, SupportedLanguage } from "../types";
 import zustandStorage from "./storage";
 
+type SoundPlayerStore = {
+  volume: number;
+  setVolume: (s: number) => void;
+};
+
+export const useSoundPlayerStore = create<SoundPlayerStore>()(
+  persist(
+    (set) => ({
+      volume: 1,
+      setVolume: (s) => set({ volume: s }),
+    }),
+    {
+      name: "soundPlayer-storage",
+      storage: createJSONStorage(() => zustandStorage),
+    }
+  )
+);
+
 type LanguageStore = {
   language: SupportedLanguage | null;
-  setLanguage: (state: SupportedLanguage) => void;
-};
-
-type TimetofallStore = {
-  timetofall: number;
-  setTimetofall: (state: number) => void;
-};
-
-type SleepTimeStore = {
-  sleepTime: HourTime | null;
-  setSleepTime: (state: HourTime) => void;
-  removeSleepTime: () => void;
-};
-
-type OnboardingStore = {
-  isCompleted: boolean;
-  complete: () => void;
+  setLanguage: (s: SupportedLanguage) => void;
 };
 
 export const useLanguageStore = create<LanguageStore>()(
   persist(
     (set) => ({
       language: null,
-      setLanguage: (newState) => set({ language: newState }),
+      setLanguage: (s) => set({ language: s }),
     }),
     {
       name: "language-storage",
@@ -37,11 +39,16 @@ export const useLanguageStore = create<LanguageStore>()(
   )
 );
 
+type TimetofallStore = {
+  timetofall: number;
+  setTimetofall: (s: number) => void;
+};
+
 export const useTimetofallStore = create<TimetofallStore>()(
   persist(
     (set) => ({
       timetofall: 15,
-      setTimetofall: (newState) => set({ timetofall: newState }),
+      setTimetofall: (s) => set({ timetofall: s }),
     }),
     {
       name: "timetofall-storage",
@@ -50,11 +57,17 @@ export const useTimetofallStore = create<TimetofallStore>()(
   )
 );
 
+type SleepTimeStore = {
+  sleepTime: HourTime | null;
+  setSleepTime: (s: HourTime) => void;
+  removeSleepTime: () => void;
+};
+
 export const useSleepTimeStore = create<SleepTimeStore>()(
   persist(
     (set) => ({
       sleepTime: null,
-      setSleepTime: (newState) => set({ sleepTime: newState }),
+      setSleepTime: (s) => set({ sleepTime: s }),
       removeSleepTime: () => {
         set({ sleepTime: null });
         zustandStorage.removeItem("sleepTime-storage");
@@ -66,6 +79,11 @@ export const useSleepTimeStore = create<SleepTimeStore>()(
     }
   )
 );
+
+type OnboardingStore = {
+  isCompleted: boolean;
+  complete: () => void;
+};
 
 export const useOnboardingStore = create<OnboardingStore>()(
   persist(
