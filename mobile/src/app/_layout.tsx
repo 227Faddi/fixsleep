@@ -1,9 +1,8 @@
 import "@/global.css";
 import "@/src/i18n";
-import { useNavigation } from "@react-navigation/native";
 import { getLocales } from "expo-localization";
 import * as Notifications from "expo-notifications";
-import { router, Stack } from "expo-router";
+import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
@@ -11,9 +10,7 @@ import { useTranslation } from "react-i18next";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import color from "../constants/colors";
-import AppContextProvider from "../contexts/AppContextProvider";
 import { useAsyncStorage } from "../hooks/useAsyncStorage";
-import { TabNav } from "../types";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -33,9 +30,7 @@ SplashScreen.setOptions({
 });
 
 export default function RootLayout() {
-  const navigation = useNavigation<TabNav>();
   const { getItem } = useAsyncStorage<string>("language");
-  const { getItem: getOnboard } = useAsyncStorage<boolean>("onboarding");
 
   const { i18n } = useTranslation();
 
@@ -45,12 +40,6 @@ export default function RootLayout() {
       const savedLang = await getItem();
       const deviceLang = getLocales()[0].languageCode;
       const langToUse = savedLang || deviceLang || "en";
-
-      const onBoardDone = await getOnboard();
-
-      if (!onBoardDone) {
-        router.replace("/onboarding");
-      }
 
       if (
         supportedLanguages.includes(langToUse) &&
@@ -69,27 +58,22 @@ export default function RootLayout() {
     <GestureHandlerRootView className="flex-1 bg-background">
       <SafeAreaProvider>
         <StatusBar style="light" />
-        <AppContextProvider>
-          <SafeAreaView className="flex-1 bg-background">
-            <Stack
-              screenOptions={{
-                contentStyle: {
-                  backgroundColor: color.background,
-                },
-              }}
-            >
-              <Stack.Screen
-                name="onboarding"
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-              <Stack.Screen
-                name="play/[value]"
-                options={{ headerShown: false }}
-              />
-            </Stack>
-          </SafeAreaView>
-        </AppContextProvider>
+        <SafeAreaView className="flex-1 bg-background">
+          <Stack
+            screenOptions={{
+              contentStyle: {
+                backgroundColor: color.background,
+              },
+            }}
+          >
+            <Stack.Screen name="onboarding" options={{ headerShown: false }} />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="play/[value]"
+              options={{ headerShown: false }}
+            />
+          </Stack>
+        </SafeAreaView>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

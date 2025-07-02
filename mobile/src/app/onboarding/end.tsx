@@ -2,7 +2,7 @@ import BackButton from "@/src/components/ui/BackButton";
 import MainButton from "@/src/components/ui/MainButton";
 import MyText from "@/src/components/ui/MyText";
 import TextBold from "@/src/components/ui/TextBold";
-import { useAsyncStorage } from "@/src/hooks/useAsyncStorage";
+import { useOnboardingStore } from "@/src/store/appStore";
 import { Image } from "expo-image";
 import { router } from "expo-router";
 import React from "react";
@@ -14,10 +14,10 @@ const End = () => {
     keyPrefix: "onboarding.end",
   });
 
-  const { setItem } = useAsyncStorage<boolean>("onboarding");
+  const complete = useOnboardingStore((state) => state.complete);
 
   const handleEnd = async () => {
-    await setItem(true);
+    complete();
     router.push("/(tabs)/(home)");
   };
 

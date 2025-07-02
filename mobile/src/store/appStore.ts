@@ -2,10 +2,15 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import zustandStorage from "./storage";
 
-interface TimetofallStore {
+type TimetofallStore = {
   timetofall: number;
   setTimetofall: (state: number) => void;
-}
+};
+
+type OnboardingStore = {
+  isCompleted: boolean;
+  complete: () => void;
+};
 
 export const useTimetofallStore = create<TimetofallStore>()(
   persist(
@@ -21,7 +26,15 @@ export const useTimetofallStore = create<TimetofallStore>()(
   )
 );
 
-interface TimetofallStore {
-  timetofall: number;
-  setTimetofall: (state: number) => void;
-}
+export const useOnboardingStore = create<OnboardingStore>()(
+  persist(
+    (set) => ({
+      isCompleted: false,
+      complete: () => set({ isCompleted: true }),
+    }),
+    {
+      name: "onboarding-storage",
+      storage: createJSONStorage(() => zustandStorage),
+    }
+  )
+);

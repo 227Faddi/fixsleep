@@ -3,7 +3,6 @@ import { StateStorage } from "zustand/middleware";
 
 export const storage = new MMKV({
   id: "app-storage",
-  encryptionKey: "secure-key",
 });
 
 export const zustandStorage: StateStorage = {
