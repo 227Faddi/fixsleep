@@ -19,11 +19,11 @@ const SettingsScreen = () => {
   });
 
   const settings: Partial<SettingsRowType>[] = [
-    {
-      title: "Onboarding (test)",
-      icon: "rocket",
-      route: "/onboarding",
-    },
+    // {
+    //   title: "Onboarding (test)",
+    //   icon: "rocket",
+    //   route: "/onboarding",
+    // },
     {
       title: t("options.reminders.title"),
       icon: "notifications",
@@ -69,14 +69,23 @@ const SettingsScreen = () => {
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View className="flex-1 flex flex-col gap-14 items-center pt-2 px-8 pb-32">
+        <View className="flex-1 flex flex-col gap-14 items-center pt-6 px-8 pb-32">
           <View className="gap-3">
             <TextBold className="text-4xl text-center">{t("title")}</TextBold>
-            <MyText className="text-xl text-center max-w-xs">
+            {/* <MyText className="text-xl text-center max-w-xs">
               {t("subtitle")}
-            </MyText>
+            </MyText> */}
           </View>
           <View className="w-full bg-primary rounded-3xl">
+            {settings.map((item, index) => (
+              <SettingsRow
+                index={index}
+                key={index}
+                title={item.title!}
+                icon={item.icon!}
+                route={item.route!}
+              />
+            ))}
             <TouchableOpacity
               onPress={rateApp}
               className="w-full p-6 flex-row gap-4 items-center justify-between border-b border-[#ffffff09]"
@@ -89,15 +98,6 @@ const SettingsScreen = () => {
               </View>
               {Platform.OS === "ios" && iconsData["arrowForward"]()}
             </TouchableOpacity>
-            {settings.map((item, index) => (
-              <SettingsRow
-                index={index}
-                key={index}
-                title={item.title!}
-                icon={item.icon!}
-                route={item.route!}
-              />
-            ))}
           </View>
         </View>
       </ScrollView>

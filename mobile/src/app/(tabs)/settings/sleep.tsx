@@ -18,6 +18,11 @@ const SleepScreen = () => {
   const { timetofall, setTimetofall } = useTimetofallStore();
   const [showTimePicker, setShowTimePicker] = useState(false);
 
+  const handleTimetofall = (minutes: number) => {
+    setShowTimePicker(false);
+    setTimetofall(minutes);
+  };
+
   return (
     <>
       <View className="bg-background flex-1 flex flex-col gap-4 space-y-4 items-center p-8">
@@ -52,10 +57,7 @@ const SleepScreen = () => {
         cancelButtonText={i18n.t("timePicker.cancel")}
         visible={showTimePicker}
         setIsVisible={setShowTimePicker}
-        onConfirm={(pickedDuration) => {
-          setShowTimePicker(false);
-          setTimetofall(pickedDuration.minutes);
-        }}
+        onConfirm={(pickedDuration) => handleTimetofall(pickedDuration.minutes)}
         onCancel={() => setShowTimePicker(false)}
         closeOnOverlayPress
         styles={{
