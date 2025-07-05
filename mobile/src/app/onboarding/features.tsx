@@ -41,7 +41,7 @@ const Features = () => {
         setCurrentStep={setCurrentStep}
       />
       <TouchableOpacity
-        onPress={() => router.push("/onboarding/survey")}
+        onPress={() => router.push("/onboarding/timetofall")}
         accessibilityLabel="Skip to survey"
         className="absolute top-0 right-5"
       >
@@ -72,7 +72,7 @@ const Features = () => {
         currentStep={currentStep}
         setCurrentStep={setCurrentStep}
         totalSteps={featureSteps.length}
-        route={"/onboarding/survey"}
+        route={"/onboarding/timetofall"}
       />
     </View>
   );

@@ -34,7 +34,7 @@ const HomeScreen = () => {
       </View>
       <View className="items-center gap-4">
         <MainButton
-          onPress={() => router.push("/onboarding/features")}
+          onPress={() => router.push("/onboarding/survey")}
           text={t("getStarted")}
           textClass={`text-2xl text-center text-textPrimary w-full ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
           containerClass={`p-6 bg-accent`}

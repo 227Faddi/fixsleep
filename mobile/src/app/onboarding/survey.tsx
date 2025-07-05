@@ -117,7 +117,7 @@ const Survey = () => {
         currentStep={currentStep}
         setCurrentStep={setCurrentStep}
         totalSteps={surveySteps.length}
-        route={"/onboarding/timetofall"}
+        route={"/onboarding/features"}
         disabled={selectedValues.length === 0}
       />
     </View>
