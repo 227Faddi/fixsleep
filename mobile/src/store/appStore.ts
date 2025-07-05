@@ -97,3 +97,25 @@ export const useOnboardingStore = create<OnboardingStore>()(
     }
   )
 );
+
+type AskReviewStore = {
+  count: number;
+  setCount: (s: number) => void;
+  lastPrompt: number | null;
+  setLastPrompt: (s: number) => void;
+};
+
+export const useAskReviewStore = create<AskReviewStore>()(
+  persist(
+    (set) => ({
+      count: 0,
+      setCount: (s) => set({ count: s++ }),
+      lastPrompt: null,
+      setLastPrompt: (s) => set({ lastPrompt: s }),
+    }),
+    {
+      name: "askReview-storage",
+      storage: createJSONStorage(() => zustandStorage),
+    }
+  )
+);

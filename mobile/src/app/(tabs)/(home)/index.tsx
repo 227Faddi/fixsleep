@@ -3,6 +3,7 @@ import MainButton from "@/src/components/ui/MainButton";
 import MyText from "@/src/components/ui/MyText";
 import TextBold from "@/src/components/ui/TextBold";
 import iconsData from "@/src/constants/iconsData";
+import { useReviewPrompt } from "@/src/lib/askReview";
 import { formatTime, formatTimeNow } from "@/src/lib/formatTime";
 import { TabNav } from "@/src/types";
 import { useNavigation } from "@react-navigation/native";
@@ -18,6 +19,7 @@ import {
 const HomeScreen = () => {
   const navigation = useNavigation<TabNav>();
   const router = useRouter();
+  const { tryPromptReview } = useReviewPrompt();
   const [showWakeTime, setShowWakeTime] = useState(false);
   const [showSleepTime, setShowSleepTime] = useState(false);
   const { t } = useTranslation("translation", {
@@ -35,6 +37,7 @@ const HomeScreen = () => {
   }) => {
     const time = formatTime({ hours, minutes });
     router.navigate(`/cycles/${mode}?query=${time}`);
+    tryPromptReview();
   };
 
   const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {
@@ -46,7 +49,7 @@ const HomeScreen = () => {
 
   return (
     <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <View className="flex-1 flex flex-col gap-4 items-center pb-32 pt-2 px-8">
+      <View className="flex-1 flex flex-col gap-4 items-center pb-32 pt-6 px-8">
         <View className="gap-3">
           <View className="flex-row justify-center items-center gap-1">
             <TextBold className="text-4xl">{t("title")}</TextBold>
