@@ -51,8 +51,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <Link
-          href="https://apps.apple.com/ca/app/fixsleep/id6745803646?platform=iphone"
-          target="_blank"
+          href="#cta"
           className="btn bg-[#9A73E8] rounded-xl border-none md:text-lg md:p-4"
         >
           Download
