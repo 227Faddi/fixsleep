@@ -31,11 +31,11 @@ const Faq = () => {
         <div className="collapse collapse-arrow">
           <input type="radio" name="my-accordion-2" />
           <div className="collapse-title font-semibold text-lg md:text-2xl">
-            When will the app be available?
+            Do I need to create an account?
           </div>
           <div className="collapse-content text-md md:text-lg">
-            The app is already available on the App Store (iOS) and will be
-            available on the Google Play Store (Android) soon.
+            No sign-up is required. You can start using FixSleep right away,
+            without creating an account or entering personal data.
           </div>
         </div>
       </div>

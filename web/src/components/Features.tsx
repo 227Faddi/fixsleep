@@ -9,7 +9,7 @@ const Features = () => {
       <h2 className="text-4xl sm:text-5xl font-bold text-center pb-16">
         Features
       </h2>
-      <div className="flex flex-col lg:flex-row gap-20 overflow-hidden relative max-w-sm lg:max-w-7xl">
+      <div className="flex flex-col lg:flex-row gap-28 overflow-hidden relative max-w-sm lg:max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{

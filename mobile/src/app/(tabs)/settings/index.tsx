@@ -19,11 +19,11 @@ const SettingsScreen = () => {
   });
 
   const settings: Partial<SettingsRowType>[] = [
-    {
-      title: "Onboarding (test)",
-      icon: "rocket",
-      route: "/onboarding",
-    },
+    // {
+    //   title: "Onboarding (test)",
+    //   icon: "rocket",
+    //   route: "/onboarding",
+    // },
     {
       title: t("options.reminders.title"),
       icon: "notifications",
@@ -88,7 +88,7 @@ const SettingsScreen = () => {
             ))}
             <TouchableOpacity
               onPress={rateApp}
-              className="w-full p-6 flex-row gap-4 items-center justify-between border-b border-[#ffffff09]"
+              className="w-full p-6 flex-row gap-4 items-center justify-between border-t border-[#ffffff09]"
             >
               <View className="flex-row gap-4">
                 {iconsData["star"]({ justifySelf: "flex-end" })}

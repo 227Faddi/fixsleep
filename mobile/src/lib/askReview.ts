@@ -2,7 +2,7 @@ import * as StoreReview from "expo-store-review";
 import { useAskReviewStore } from "../store/appStore";
 
 const REVIEW_THRESHOLD = 5;
-const COOLDOWN_MS = 1000 * 60 * 60 * 24 * 7;
+const COOLDOWN_MS = 1000 * 60 * 60 * 24 * 7; // 1 week cooldown
 // const COOLDOWN_MS = 1000 * 60 * 60;
 
 export function useReviewPrompt() {

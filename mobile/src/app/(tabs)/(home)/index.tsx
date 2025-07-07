@@ -36,8 +36,8 @@ const HomeScreen = () => {
     mode: string;
   }) => {
     const time = formatTime({ hours, minutes });
-    router.navigate(`/cycles/${mode}?query=${time}`);
     tryPromptReview();
+    router.navigate(`/cycles/${mode}?query=${time}`);
   };
 
   const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {
