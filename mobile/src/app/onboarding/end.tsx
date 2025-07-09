@@ -8,6 +8,7 @@ import { router } from "expo-router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Platform, View } from "react-native";
+import ConfettiCannon from "react-native-confetti-cannon";
 
 const End = () => {
   const { t } = useTranslation("translation", {
@@ -46,6 +47,14 @@ const End = () => {
           containerClass={`p-6 bg-accent`}
         />
       </View>
+      <ConfettiCannon
+        count={80}
+        origin={{ x: 200, y: 0 }}
+        fallSpeed={2500}
+        explosionSpeed={350}
+        fadeOut={true}
+        autoStart={true}
+      />
     </View>
   );
 };

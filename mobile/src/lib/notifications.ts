@@ -50,7 +50,7 @@ async function requestPermissions(): Promise<{ granted: boolean }> {
 
     return { granted: true };
   } else {
-    alert("Must use physical device for Push Notifications");
+    console.warn("Must use physical device for Push Notifications");
     return { granted: true };
   }
 }
