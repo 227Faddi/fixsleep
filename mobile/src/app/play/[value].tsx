@@ -8,13 +8,14 @@ import soundsData from "@/src/constants/soundsData";
 import { formatTimer } from "@/src/lib/formatTime";
 import { useSoundPlayerStore } from "@/src/store/appStore";
 import { SoundCardKey } from "@/src/types/i18next";
-import Slider from "@react-native-community/slider";
 import { Audio } from "expo-av";
 import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ActivityIndicator, TouchableOpacity, View } from "react-native";
+
+import { Slider } from "@miblanchard/react-native-slider";
 
 const SoundPlayer = () => {
   const { t } = useTranslation("translation", {
@@ -110,7 +111,7 @@ const SoundPlayer = () => {
   }, [sound]);
 
   return (
-    <View className="bg-background flex-1 gap-4 items-center p-8 relative">
+    <View className="bg-background flex-1 gap-4 items-center px-8 pt-8 pb-2 relative">
       <BackButton />
       <View className="flex-row justify-center items-center gap-3">
         {iconsData[selectedSound.name as IconsData]()}
@@ -119,7 +120,7 @@ const SoundPlayer = () => {
         </TextBold>
       </View>
       <View className="w-full flex-1 flex-col justify-between items-center gap-8">
-        <View className="flex-1 p-6 w-full">
+        <View className="flex-1 p-4 w-full">
           <Image
             style={{ flex: 1, width: "100%", borderRadius: 24 }}
             source={selectedSound.img}
@@ -127,17 +128,16 @@ const SoundPlayer = () => {
             transition={600}
           />
         </View>
-        <View className="flex-row items-center justify-center gap-8">
+        <View className="flex-row items-center justify-center gap-8 bg-primary p-4 rounded-3xl">
           <View className="flex-row items-center justify-center gap-2">
             {iconsData["volumeOff"]()}
             <Slider
-              style={{ width: 200, height: 40 }}
-              minimumValue={0}
-              maximumValue={1}
-              minimumTrackTintColor="#FFFFFF"
-              maximumTrackTintColor="#000000"
-              onValueChange={(value) => changeVolume(value)}
+              onValueChange={(value) => changeVolume(value[0])}
               value={volume}
+              containerStyle={{ width: 150 }}
+              thumbTintColor={color.textPrimary}
+              minimumTrackTintColor={color.accent}
+              maximumTrackTintColor={color.background}
             />
             {iconsData["volumeOn"]()}
           </View>

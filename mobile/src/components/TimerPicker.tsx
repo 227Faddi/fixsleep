@@ -100,7 +100,7 @@ const PlayerTimePicker = ({
       minuteInterval={5}
       minuteLabel={"min"}
       minuteLimit={{ min: 5 }}
-      maximumMinutes={50}
+      maximumMinutes={60}
       initialValue={{ minutes: 5 }}
     />
   );

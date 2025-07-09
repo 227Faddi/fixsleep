@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "~14.0.4",
+    "@miblanchard/react-native-slider": "^2.6.0",
     "@react-native-community/slider": "4.5.5",
     "@react-native-masked-view/masked-view": "0.3.2",
     "@react-navigation/bottom-tabs": "^7.2.0",
