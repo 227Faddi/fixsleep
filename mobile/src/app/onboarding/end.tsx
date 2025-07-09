@@ -18,7 +18,7 @@ const End = () => {
 
   const handleEnd = async () => {
     complete();
-    router.push("/(tabs)/(home)");
+    router.replace("/(tabs)/(home)");
   };
 
   return (

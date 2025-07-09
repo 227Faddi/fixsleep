@@ -7,26 +7,13 @@ import { Audio } from "expo-av";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
-import {
-  PanGestureHandler,
-  PanGestureHandlerGestureEvent,
-  ScrollView,
-} from "react-native-gesture-handler";
+import { ScrollView } from "react-native-gesture-handler";
 
 const SoundsScreen = () => {
   const navigation = useNavigation<TabNav>();
   const { t } = useTranslation("translation", {
     keyPrefix: "sounds",
   });
-  const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {
-    const { translationX } = event.nativeEvent;
-
-    if (translationX > 50) {
-      navigation.navigate("(home)");
-    } else if (translationX < -50) {
-      navigation.navigate("settings");
-    }
-  };
 
   useEffect(() => {
     const configureAudio = async () => {
@@ -35,7 +22,7 @@ const SoundsScreen = () => {
           allowsRecordingIOS: false,
           staysActiveInBackground: true,
           playsInSilentModeIOS: true,
-          shouldDuckAndroid: false,
+          shouldDuckAndroid: true,
           playThroughEarpieceAndroid: false,
         });
       } catch (error) {
@@ -46,23 +33,21 @@ const SoundsScreen = () => {
   }, []);
 
   return (
-    <PanGestureHandler onGestureEvent={onGestureEvent}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View className="flex-1 flex flex-col gap-14 items-center pt-6 px-8 pb-32">
-          <View className="gap-3">
-            <TextBold className="text-4xl text-center">{t("title")}</TextBold>
-            {/* <MyText className="text-xl text-center max-w-xs">
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <View className="flex-1 flex flex-col gap-14 items-center pt-6 px-8 pb-32">
+        <View className="gap-3">
+          <TextBold className="text-4xl text-center">{t("title")}</TextBold>
+          {/* <MyText className="text-xl text-center max-w-xs">
               {t("subtitle")}
             </MyText> */}
-          </View>
-          <View className="flex-1 w-full px-8 gap-4">
-            {sounds.map((item, index) => (
-              <SoundCard key={index} sound={item.name} />
-            ))}
-          </View>
         </View>
-      </ScrollView>
-    </PanGestureHandler>
+        <View className="flex-1 w-full px-8 gap-4">
+          {sounds.map((item, index) => (
+            <SoundCard key={index} sound={item.name} />
+          ))}
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 
