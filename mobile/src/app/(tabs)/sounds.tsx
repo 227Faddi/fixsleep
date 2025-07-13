@@ -3,8 +3,6 @@ import TextBold from "@/src/components/ui/TextBold";
 import sounds from "@/src/constants/soundsData";
 import { TabNav } from "@/src/types";
 import { useNavigation } from "@react-navigation/native";
-import { Audio } from "expo-av";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
@@ -14,23 +12,6 @@ const SoundsScreen = () => {
   const { t } = useTranslation("translation", {
     keyPrefix: "sounds",
   });
-
-  useEffect(() => {
-    const configureAudio = async () => {
-      try {
-        await Audio.setAudioModeAsync({
-          allowsRecordingIOS: false,
-          staysActiveInBackground: true,
-          playsInSilentModeIOS: true,
-          shouldDuckAndroid: true,
-          playThroughEarpieceAndroid: false,
-        });
-      } catch (error) {
-        console.warn("Failed to set audio mode", error);
-      }
-    };
-    configureAudio();
-  }, []);
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>

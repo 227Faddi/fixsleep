@@ -22,7 +22,7 @@
       }
     },
     "android": {
-      "permissions": ["FOREGROUND_SERVICE"],
+      "permissions": ["WAKE_LOCK"],
       "adaptiveIcon": {
         "monochromeImage": "./assets/icons/adaptive-icon.png",
         "foregroundImage": "./assets/icons/adaptive-icon.png",

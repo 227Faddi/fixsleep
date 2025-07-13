@@ -8,7 +8,7 @@ import soundsData from "@/src/constants/soundsData";
 import { formatTimer } from "@/src/lib/formatTime";
 import { useSoundPlayerStore } from "@/src/store/appStore";
 import { SoundCardKey } from "@/src/types/i18next";
-import { Audio } from "expo-av";
+import { Audio, InterruptionModeAndroid, InterruptionModeIOS } from "expo-av";
 import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
@@ -31,6 +31,22 @@ const SoundPlayer = () => {
   const [timeLeft, setTimeLeft] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [showTimePicker, setShowTimePicker] = useState(false);
+
+  useEffect(() => {
+    Audio.setAudioModeAsync({
+      staysActiveInBackground: true,
+      playsInSilentModeIOS: true,
+      interruptionModeIOS: InterruptionModeIOS.DuckOthers,
+      interruptionModeAndroid: InterruptionModeAndroid.DuckOthers,
+      shouldDuckAndroid: true,
+      playThroughEarpieceAndroid: true,
+    });
+    return sound
+      ? () => {
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
 
   const selectedSound = soundsData.find((sound) => sound.name === value);
 
@@ -102,14 +118,6 @@ const SoundPlayer = () => {
     return () => clearInterval(interval);
   }, [isRunning, timeLeft]);
 
-  useEffect(() => {
-    return sound
-      ? () => {
-          sound.unloadAsync();
-        }
-      : undefined;
-  }, [sound]);
-
   return (
     <View className="bg-background flex-1 gap-4 items-center px-8 pt-8 pb-2 relative">
       <BackButton />
@@ -128,7 +136,7 @@ const SoundPlayer = () => {
             transition={600}
           />
         </View>
-        <View className="flex-row items-center justify-center gap-8 bg-primary p-4 rounded-3xl">
+        <View className="flex-row items-center justify-center gap-8 bg-primary px-6 py-4 rounded-3xl">
           <View className="flex-row items-center justify-center gap-2">
             {iconsData["volumeOff"]()}
             <Slider
