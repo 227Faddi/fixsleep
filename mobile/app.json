@@ -11,7 +11,9 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "UIBackgroundModes": ["audio"],
+        "UIBackgroundModes": [
+          "audio"
+        ],
         "ITSAppUsesNonExemptEncryption": false
       },
       "bundleIdentifier": "com.227faddi.fixsleep",
@@ -22,7 +24,10 @@
       }
     },
     "android": {
-      "permissions": ["WAKE_LOCK"],
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "WAKE_LOCK"
+      ],
       "adaptiveIcon": {
         "monochromeImage": "./assets/icons/adaptive-icon.png",
         "foregroundImage": "./assets/icons/adaptive-icon.png",
@@ -71,21 +76,12 @@
         }
       ],
       [
-        "expo-build-properties",
-        {
-          "android": {
-            "compileSdkVersion": 35,
-            "targetSdkVersion": 35,
-            "buildToolsVersion": "35.0.0"
-          }
-        }
-      ],
-      [
         "expo-av",
         {
           "androidImplementation": "EXOPLAYER"
         }
-      ]
+      ],
+      "expo-audio"
     ],
     "experiments": {
       "typedRoutes": true
