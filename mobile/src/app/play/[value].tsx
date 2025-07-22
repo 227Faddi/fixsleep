@@ -39,7 +39,7 @@ const SoundPlayer = () => {
       interruptionModeIOS: InterruptionModeIOS.DuckOthers,
       interruptionModeAndroid: InterruptionModeAndroid.DuckOthers,
       shouldDuckAndroid: true,
-      playThroughEarpieceAndroid: true,
+      playThroughEarpieceAndroid: false,
     });
     return sound
       ? () => {

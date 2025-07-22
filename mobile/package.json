@@ -1,7 +1,7 @@
 {
   "name": "fixsleep",
   "main": "expo-router/entry",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
@@ -22,6 +22,7 @@
     "@react-native-masked-view/masked-view": "0.3.2",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
+    "@shopify/react-native-skia": "^2.1.1",
     "expo": "53.0.20",
     "expo-av": "~15.1.7",
     "expo-blur": "~14.1.5",
@@ -49,7 +50,7 @@
     "react-dom": "19.0.0",
     "react-i18next": "^15.5.1",
     "react-native": "0.79.5",
-    "react-native-confetti-cannon": "^1.5.2",
+    "react-native-fast-confetti": "^1.0.2",
     "react-native-gesture-handler": "~2.24.0",
     "react-native-mmkv": "^3.3.0",
     "react-native-reanimated": "~3.17.4",
