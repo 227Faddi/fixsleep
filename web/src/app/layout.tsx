@@ -10,7 +10,7 @@ const fredoka = Fredoka({
 });
 
 export const metadata: Metadata = {
-  title: "Fix Sleep",
+  title: "FixSleep - Sleep Calculator",
   description: "Sleep Cycles Calculator To Help Sleep Better",
 };
 
