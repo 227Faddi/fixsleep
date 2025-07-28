@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
 import AppStoreBtn from "./ui/AppStoreBtn";
 import PlayStoreBtn from "./ui/PlayStoreBtn";
@@ -10,7 +9,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="hero min-h-screen mt-20 pb-36 2xl:min-h-auto 2xl:mt-32"
+      className="hero min-h-screen pb-36 mt-26 lg:pt-10 2xl:min-h-auto 2xl:mt-36"
     >
       <div className="hero-content">
         <div className="max-w-lg flex flex-col items-center justify-center">
@@ -30,29 +29,25 @@ const Hero = () => {
             Find the best times to sleep and wake up for better rest and
             recovery.
           </p>
-          {/* <button className="btn btn-primary text-2xl p-6">Sleep Now</button> */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 max-w-56"
-          >
-            <AppStoreBtn />
-            <PlayStoreBtn />
-          </motion.div>
-          <Link
-            href="https://www.producthunt.com/products/fixsleep-sleep-calculator?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-fixsleep&#0045;sleep&#0045;calculator"
-            target="_blank"
-            className="mt-8 max-w-56"
-          >
-            <Image
-              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=971222&theme=light&t=1749749471650"
-              alt="FixSleep&#0032;&#0045;&#0032;Sleep&#0032;Calculator - Sleep&#0032;Cycle&#0032;&#0038;&#0032;Relaxing&#0032;Sounds | Product Hunt"
-              width="500"
-              height="500"
-            />
-          </Link>
+          <div className="mt-16 flex flex-col justify-center items-center">
+            <Link
+              className="btn btn-accent text-xl lg:text-2xl text-white rounded-xl py-8 px-10"
+              href="/sleep"
+            >
+              Calculate Now
+            </Link>
+            <div className="divider">or</div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 max-w-56"
+            >
+              <AppStoreBtn />
+              <PlayStoreBtn />
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
