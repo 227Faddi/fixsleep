@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import myMetadata from "@/lib/metadata";
 import type { Metadata } from "next";
 import { Fredoka } from "next/font/google";
 import "./globals.css";
@@ -9,10 +10,7 @@ const fredoka = Fredoka({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "FixSleep - Sleep Calculator",
-  description: "Sleep Cycles Calculator To Help Sleep Better",
-};
+export const metadata: Metadata = myMetadata;
 
 export default function RootLayout({
   children,
