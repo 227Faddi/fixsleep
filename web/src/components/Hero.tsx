@@ -7,10 +7,7 @@ import PlayStoreBtn from "./ui/PlayStoreBtn";
 
 const Hero = () => {
   return (
-    <section
-      id="hero"
-      className="hero min-h-screen pb-36 mt-26 lg:pt-10 2xl:min-h-auto 2xl:mt-36"
-    >
+    <section id="hero" className="hero min-h-screen pb-36 2xl:min-h-auto">
       <div className="hero-content">
         <div className="max-w-lg flex flex-col items-center justify-center">
           <h1 className="text-5xl md:text-7xl font-bold text-center">
@@ -32,7 +29,7 @@ const Hero = () => {
           <div className="mt-16 flex flex-col justify-center items-center">
             <Link
               className="btn btn-accent text-xl lg:text-2xl text-white rounded-xl py-8 px-10"
-              href="/sleep"
+              href="/calculate?mode=sleep&time=1929"
             >
               Calculate Now
             </Link>

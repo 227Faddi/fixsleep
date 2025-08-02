@@ -13,7 +13,12 @@ import { Image } from "expo-image";
 import { router, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ActivityIndicator, TouchableOpacity, View } from "react-native";
+import {
+  ActivityIndicator,
+  Platform,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 import { Slider } from "@miblanchard/react-native-slider";
 
@@ -149,15 +154,17 @@ const SoundPlayer = () => {
             />
             {iconsData["volumeOn"]()}
           </View>
-          <View className="items-center">
-            {isRunning ? (
-              <MyText className="text-2xl">{formatTimer(timeLeft)}</MyText>
-            ) : (
-              <TouchableOpacity onPress={() => setShowTimePicker(true)}>
-                {iconsData["timer"]({ size: 40 })}
-              </TouchableOpacity>
-            )}
-          </View>
+          {Platform.OS === "ios" && (
+            <View className="items-center">
+              {isRunning ? (
+                <MyText className="text-2xl">{formatTimer(timeLeft)}</MyText>
+              ) : (
+                <TouchableOpacity onPress={() => setShowTimePicker(true)}>
+                  {iconsData["timer"]({ size: 40 })}
+                </TouchableOpacity>
+              )}
+            </View>
+          )}
         </View>
         <View className="items-center justify-center">
           <TouchableOpacity
