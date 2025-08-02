@@ -14,7 +14,7 @@ const Calculate = async ({ searchParams }: Props) => {
     return;
   }
 
-  const timeCycles = mode === "sleep" ? "Sleep" : "Wakeup";
+  // const timeCycles = mode === "sleep" ? "Sleep" : "Wakeup";
 
   const cycles = getCyclesData(mode);
 
