@@ -4,19 +4,17 @@ import AppStoreBtn from "@/components/ui/AppStoreBtn";
 import CycleCard from "@/components/ui/CycleCard";
 import PlayStoreBtn from "@/components/ui/PlayStoreBtn";
 import calcCycles, { getCyclesData } from "@/lib/calculateSleep";
-import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { useState } from "react";
-import { IoMoon, IoSunny } from "react-icons/io5";
+import { IoArrowBack, IoMoon, IoSunny } from "react-icons/io5";
 
-const Calculate = () => {
-  const searchParams = useSearchParams();
-  const mode = searchParams.get("mode");
-  const time = searchParams.get("time");
+type Props = {
+  mode: "sleep" | "wake";
+  time: string;
+};
+const SleepCalculator = ({ mode, time }: Props) => {
   const [timetofall, setTimetofall] = useState(15);
 
-  if ((mode !== "sleep" && mode !== "wake") || !time) {
-    return null;
-  }
   const timeCycles =
     mode === "sleep"
       ? calcCycles.sleep(time, timetofall)
@@ -48,7 +46,7 @@ const Calculate = () => {
           <span>minutes to fall asleep.</span>
         </div>
       </div>
-      <div className="w-full max-w-xl space-y-28">
+      <div className="w-full max-w-xl space-y-18">
         <div className="grid grid-cols-2 justify-items-center gap-4 md:gap-6">
           {cycles.map((item) => (
             <CycleCard
@@ -60,6 +58,13 @@ const Calculate = () => {
           ))}
         </div>
         <div className="flex flex-col justify-center items-center gap-8">
+          <Link
+            href="/"
+            className="btn btn-accent text-xl lg:text-2xl text-white rounded-xl py-6 px-8"
+          >
+            <IoArrowBack />
+            Back
+          </Link>
           <p className="text-lg sm:text-xl lg:text-2xl text-center font-bold">
             Want more features like sleep sounds, reminders, and
             personalization? Get FixSleep on mobile.
@@ -74,4 +79,4 @@ const Calculate = () => {
   );
 };
 
-export default Calculate;
+export default SleepCalculator;
