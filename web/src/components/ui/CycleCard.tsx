@@ -20,8 +20,8 @@ const CycleCard = ({ hrSleep, cycle, time }: Props) => {
   };
 
   return (
-    <div className="w-full max-w-2xs rounded-xl p-4 font-medium flex flex-col-reverse sm:flex-row justify-between bg-primary shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)] text-center sm:text-left gap-2">
-      <div className="flex flex-col justify-between">
+    <div className="w-full max-w-2xs rounded-xl p-4 font-medium flex flex-col-reverse sm:flex-row justify-between bg-primary shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)] text-center sm:text-left gap-2 sm:gap-4">
+      <div className="flex flex-col-reverse sm:flex-col justify-between">
         <p className="text-lg sm:text-xl">
           {hrSleep}
           {"hr"}
@@ -30,7 +30,7 @@ const CycleCard = ({ hrSleep, cycle, time }: Props) => {
           {cycle} {cycle === 1 ? "Cycle" : "Cycles"}
         </p>
       </div>
-      <div className="flex flex-row justify-between items-center gap-4">
+      <div className="flex flex-row justify-between items-center sm:gap-4">
         <p className="text-2xl sm:text-3xl">{time}</p>
         {getIconForCycle(cycle)}
       </div>

@@ -24,7 +24,7 @@ export default function RootLayout({
         <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#1A1A1E_40%,#9A73E8)]"></div>
         <div className="w-full flex justify-center">
           <div className="flex-grow w-full max-w-[1920px]">
-            <div className="min-h-screen flex flex-col items-center p-6 pt-36 2xl:pt-48">
+            <div className="min-h-screen flex flex-col items-center p-6 min-[360px]:px-12 pt-36 2xl:pt-48">
               <Navbar />
               {children}
               <Footer />

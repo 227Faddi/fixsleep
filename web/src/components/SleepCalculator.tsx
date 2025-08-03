@@ -46,18 +46,18 @@ const SleepCalculator = ({ mode, time }: Props) => {
           <span>minutes to fall asleep.</span>
         </div>
       </div>
-      <div className="w-full max-w-xl space-y-18">
-        <div className="grid grid-cols-2 justify-items-center gap-4 md:gap-6">
-          {cycles.map((item) => (
-            <CycleCard
-              key={item.cycle}
-              cycle={item.cycle}
-              hrSleep={item.hrSleep}
-              time={timeCycles[item.cycle as keyof typeof timeCycles]}
-            />
-          ))}
-        </div>
-        <div className="flex flex-col justify-center items-center gap-8">
+      <div className="w-full max-w-xl space-y-24">
+        <div className="w-full flex flex-col justify-center items-center gap-10">
+          <div className="w-full grid grid-cols-2 justify-items-center gap-4 md:gap-6">
+            {cycles.map((item) => (
+              <CycleCard
+                key={item.cycle}
+                cycle={item.cycle}
+                hrSleep={item.hrSleep}
+                time={timeCycles[item.cycle as keyof typeof timeCycles]}
+              />
+            ))}
+          </div>
           <Link
             href="/"
             className="btn btn-accent text-xl lg:text-2xl text-white rounded-xl py-6 px-8"
@@ -65,6 +65,8 @@ const SleepCalculator = ({ mode, time }: Props) => {
             <IoArrowBack />
             Back
           </Link>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-8">
           <p className="text-lg sm:text-xl lg:text-2xl text-center font-bold">
             Want more features like sleep sounds, reminders, and
             personalization? Get FixSleep on mobile.
