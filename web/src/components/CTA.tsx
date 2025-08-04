@@ -8,7 +8,7 @@ const CTA = () => {
   return (
     <section
       id="cta"
-      className="py-28 flex flex-col justify-center items-center"
+      className="py-36 flex flex-col justify-center items-center"
     >
       <motion.div
         initial={{ opacity: 0, y: 50 }}
