@@ -43,9 +43,6 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-10 space-x-6 text-lg">
             <li>
-              <Link href="/calculate">Calculator</Link>
-            </li>
-            <li>
               <Link href="/#features">Features</Link>
             </li>
             <li>
