@@ -10,7 +10,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Platform, View } from "react-native";
+import { View } from "react-native";
 
 const HomeScreen = () => {
   const navigation = useNavigation<TabNav>();
@@ -69,7 +69,7 @@ const HomeScreen = () => {
           onPress={() => getSleepCycles(formatTimeNow())}
           text={t("restNow")}
           icon={iconsData["alarm"]()}
-          textClass={`text-2xl text-center text-textPrimary ${Platform.OS === "ios" ? "font-bold" : "!font-fredokaBold"}`}
+          textClass={`text-2xl text-center text-textPrimary ios:font-bold !font-fredokaBold`}
           containerClass={`p-6 bg-accent shadow-[inset_0_0_20px_-10px_rgba(255,255,255,0.5)]`}
           style={{
             elevation: 10,

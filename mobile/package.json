@@ -10,7 +10,8 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "prebuild": "expo prebuild --clean"
+    "prebuild": "expo prebuild --clean",
+    "check": "npx expo install --check && npx expo-doctor"
   },
   "jest": {
     "preset": "jest-expo"
@@ -60,7 +61,8 @@
     "react-native-web": "^0.20.0",
     "react-native-webview": "13.13.5",
     "tailwindcss": "^3.4.17",
-    "zustand": "^5.0.6"
+    "zustand": "^5.0.6",
+    "expo-audio": "~0.4.8"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -76,7 +78,7 @@
     "jest-expo": "~53.0.9",
     "prettier": "^3.5.3",
     "react-test-renderer": "^19.0.0",
-    "typescript": "^5.3.3"
+    "typescript": "~5.8.3"
   },
   "private": true
 }

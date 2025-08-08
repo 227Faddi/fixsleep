@@ -26,6 +26,9 @@ const iconsData = {
   alarm: (props?: object) => (
     <Ionicons name="alarm" size={24} color="#fff" {...props} />
   ),
+  alarmOutline: (props?: object) => (
+    <Ionicons name="alarm-outline" size={24} color="#fff" {...props} />
+  ),
   timer: (props?: object) => (
     <Ionicons name="timer" size={24} color="#fff" {...props} />
   ),
@@ -67,6 +70,9 @@ const iconsData = {
   ),
   notifications: (props?: object) => (
     <Ionicons name="notifications" size={24} color="#fff" {...props} />
+  ),
+  notificationsOutline: (props?: object) => (
+    <Ionicons name="notifications-outline" size={24} color="#fff" {...props} />
   ),
   bed: (props?: object) => (
     <Ionicons name="bed" size={24} color="#fff" {...props} />

@@ -93,11 +93,11 @@
     "pickTime": "Pick a time",
     "restNow": "Rest Now",
     "cycles": {
-      "wakeUpTime": "Wake up Time",
-      "bedtime": "Bedtime",
+      "wakeUpTime": "Wake up Times",
+      "bedtime": "Bedtimes",
       "descriptionSleep": "If you go to sleep at {{time}}, try waking up at one of these times.",
       "descriptionWake": "To wake up at {{time}}, try falling asleep at one of these times.",
-      "hrOfSleep": "hr of Sleep",
+      "hrOfSleep": "hr",
       "cycle": "Cycle",
       "cycles": "Cycles"
     }
