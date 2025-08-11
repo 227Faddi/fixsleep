@@ -40,7 +40,7 @@ const SleepScreen = () => {
               <MyText>{t("card.body")}</MyText>
               <View className="flex-row justify-between">
                 <TextBold className="text-2xl">{t("card.current")}</TextBold>
-                <TextBold className="text-2xl">{timetofall} m</TextBold>
+                <TextBold className="text-2xl">{timetofall} min</TextBold>
               </View>
               <MainButton
                 onPress={() => setShowTimePicker(true)}

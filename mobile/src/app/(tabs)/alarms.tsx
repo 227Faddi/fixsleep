@@ -19,18 +19,21 @@ const AlarmsScreen = () => {
         <View className="border-b border-primary pb-3 px-4">
           <View className="flex-row justify-between">
             <TextBold className="text-4xl">{"Alarms"}</TextBold>
-            <TouchableOpacity onPress={() => alert("New")}>
-              {iconsData["addCircle"]({ size: 35 })}
+            <TouchableOpacity
+              className="bg-accent rounded-full p-2"
+              onPress={() => alert("New")}
+            >
+              {iconsData["add"]({ size: 25 })}
             </TouchableOpacity>
           </View>
         </View>
         <View className="flex-1 px-4 py-8">
           <View className="w-full gap-4">
-            <AlarmCard sound={"rainfall"} />
-            <AlarmCard sound={"rainfall"} />
-            <AlarmCard sound={"rainfall"} />
-            <AlarmCard sound={"rainfall"} />
-            <AlarmCard sound={"rainfall"} />
+            <AlarmCard />
+            <AlarmCard />
+            <AlarmCard />
+            <AlarmCard />
+            <AlarmCard />
           </View>
         </View>
       </View>

@@ -56,7 +56,10 @@ const TabBarButton = ({
       onLongPress={onLongPress}
       className="flex-1 items-center"
     >
-      <Animated.View style={[animatedIcon]}>
+      <Animated.View
+        style={[animatedIcon]}
+        className={`${isFocused ? "bg-accent p-2 rounded-full" : ""}`}
+      >
         {icon[routeName as keyof typeof icon]({ ...color, size: 25 })}
       </Animated.View>
       <Animated.Text

@@ -143,11 +143,14 @@ const iconsData = {
   add: (props?: object) => (
     <Ionicons name="add" size={24} color="#fff" {...props} />
   ),
-  flame: (props?: object) => (
-    <Ionicons name="flame" size={24} color="#fff" {...props} />
-  ),
   removeCircle: (props?: object) => (
     <Ionicons name="remove-circle" size={24} color="#fff" {...props} />
+  ),
+  remove: (props?: object) => (
+    <Ionicons name="remove" size={24} color="#fff" {...props} />
+  ),
+  flame: (props?: object) => (
+    <Ionicons name="flame" size={24} color="#fff" {...props} />
   ),
   checkmarkDone: (props?: object) => (
     <Ionicons name="checkmark-done" size={24} color="#fff" {...props} />

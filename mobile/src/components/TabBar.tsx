@@ -43,9 +43,9 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
         style={[
           animatedStyle,
           {
-            height: dimensions.height * 0.85,
-            width: buttonWidth * 0.8,
-            marginHorizontal: "2.5%",
+            height: dimensions.height * 0.7,
+            width: buttonWidth * 0.49,
+            marginHorizontal: "6.5%",
           },
         ]}
         className="absolute rounded-full"
