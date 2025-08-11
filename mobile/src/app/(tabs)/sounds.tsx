@@ -15,17 +15,43 @@ const SoundsScreen = () => {
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <View className="flex-1 flex flex-col gap-14 items-center pt-6 px-8 pb-32">
-        <View className="gap-3">
-          <TextBold className="text-4xl text-center">{t("title")}</TextBold>
-          {/* <MyText className="text-xl text-center max-w-xs">
-              {t("subtitle")}
-            </MyText> */}
+      <View className="flex-1 flex flex-col pt-3">
+        <View className="border-b border-primary pb-3 px-4">
+          <TextBold className="text-4xl">{t("title")}</TextBold>
         </View>
-        <View className="flex-1 w-full px-8 gap-4">
-          {sounds.map((item, index) => (
-            <SoundCard key={index} sound={item.name} />
-          ))}
+        <View className="flex-1 justify-center items-center px-4 py-8">
+          <View className="w-full gap-6">
+            <View className="gap-3">
+              <View className="flex-row justify-end">
+                <TextBold className="text-lg bg-accent px-4 py-2 rounded-xl">
+                  Nature
+                </TextBold>
+              </View>
+              {sounds.map((item, index) => (
+                <SoundCard key={index} sound={item.name} />
+              ))}
+            </View>
+            <View className="gap-3">
+              <View className="flex-row justify-end">
+                <TextBold className="text-lg bg-accent px-4 py-2 rounded-xl">
+                  Noises
+                </TextBold>
+              </View>
+              {sounds.map((item, index) => (
+                <SoundCard key={index} sound={item.name} />
+              ))}
+            </View>
+            <View className="gap-3">
+              <View className="flex-row justify-end">
+                <TextBold className="text-lg bg-accent px-4 py-2 rounded-xl">
+                  Meditation
+                </TextBold>
+              </View>
+              {sounds.map((item, index) => (
+                <SoundCard key={index} sound={item.name} />
+              ))}
+            </View>
+          </View>
         </View>
       </View>
     </ScrollView>

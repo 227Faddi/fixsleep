@@ -8,6 +8,9 @@ const iconsData = {
   home: (props?: object) => (
     <Ionicons name="bed" size={24} color="#fff" {...props} />
   ),
+  alarms: (props?: object) => (
+    <Ionicons name="alarm" size={24} color="#fff" {...props} />
+  ),
   sounds: (props?: object) => (
     <Ionicons
       name="musical-notes"
@@ -136,6 +139,12 @@ const iconsData = {
   ),
   addCircle: (props?: object) => (
     <Ionicons name="add-circle" size={24} color="#fff" {...props} />
+  ),
+  add: (props?: object) => (
+    <Ionicons name="add" size={24} color="#fff" {...props} />
+  ),
+  flame: (props?: object) => (
+    <Ionicons name="flame" size={24} color="#fff" {...props} />
   ),
   removeCircle: (props?: object) => (
     <Ionicons name="remove-circle" size={24} color="#fff" {...props} />

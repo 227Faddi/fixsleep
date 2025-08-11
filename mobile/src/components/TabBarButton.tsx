@@ -57,7 +57,7 @@ const TabBarButton = ({
       className="flex-1 items-center"
     >
       <Animated.View style={[animatedIcon]}>
-        {icon[routeName as keyof typeof icon](color)}
+        {icon[routeName as keyof typeof icon]({ ...color, size: 25 })}
       </Animated.View>
       <Animated.Text
         style={[color, animatedText]}

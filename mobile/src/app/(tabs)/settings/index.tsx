@@ -57,35 +57,31 @@ const SettingsScreen = () => {
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <View className="flex-1 flex flex-col gap-14 items-center pt-6 px-8 pb-32">
-        <View className="gap-3">
-          <TextBold className="text-4xl text-center">{t("title")}</TextBold>
-          {/* <MyText className="text-xl text-center max-w-xs">
-              {t("subtitle")}
-            </MyText> */}
+      <View className="flex-1 flex flex-col pt-3">
+        <View className="border-b border-primary pb-3 px-4">
+          <TextBold className="text-4xl">{t("title")}</TextBold>
         </View>
-        <View className="w-full bg-primary rounded-3xl">
-          {settings.map((item, index) => (
-            <SettingsRow
-              index={index}
-              key={index}
-              title={item.title!}
-              icon={item.icon!}
-              route={item.route!}
-            />
-          ))}
+        <View className="flex-1 px-4 py-8 gap-12">
           <TouchableOpacity
             onPress={rateApp}
-            className="w-full p-6 flex-row gap-4 items-center justify-between border-t border-[#ffffff09]"
+            className="rounded-xl w-full p-6 flex-row gap-4 items-center justify-between border-4 bg-accent border-white"
           >
-            <View className="flex-row gap-4">
-              {iconsData["star"]({ justifySelf: "flex-end" })}
-              <MyText className="text-xl text-textPrimary">
-                {t("options.rateus")}
-              </MyText>
-            </View>
-            {Platform.OS === "ios" && iconsData["arrowForward"]()}
+            {iconsData["star"]({ justifySelf: "flex-end" })}
+            <MyText className="text-textPrimary text-2xl">
+              {t("options.rateus")}
+            </MyText>
           </TouchableOpacity>
+          <View className="w-full bg-primary rounded-3xl">
+            {settings.map((item, index) => (
+              <SettingsRow
+                index={index}
+                key={index}
+                title={item.title!}
+                icon={item.icon!}
+                route={item.route!}
+              />
+            ))}
+          </View>
         </View>
       </View>
     </ScrollView>

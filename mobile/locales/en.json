@@ -66,6 +66,7 @@
   "navigation": {
     "Sleep": "Sleep",
     "Sounds": "Sounds",
+    "Alarms": "Alarms",
     "Settings": "Settings"
   },
   "timePicker": {

@@ -16,7 +16,7 @@ const SoundCard = ({ sound }: Props) => {
       className="p-6 rounded-3xl flex-row gap-4 bg-primary"
     >
       {icon[sound]()}
-      <MyText className="text-xl">{i18n.t(`sounds.cards.${sound}`)}</MyText>
+      <MyText className="text-lg">{i18n.t(`sounds.cards.${sound}`)}</MyText>
     </TouchableOpacity>
   );
 };

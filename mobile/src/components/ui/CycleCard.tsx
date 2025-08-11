@@ -30,8 +30,8 @@ const CycleCard = ({
   return (
     <TouchableOpacity
       onPress={onSelect}
-      className={`rounded-xl p-4 bg-primary gap-4 flex-1 ${
-        isSelected && "border border-accent"
+      className={`rounded-xl p-4 bg-primary gap-4 flex-1 border-2 ${
+        isSelected ? "border-accent" : "border-primary"
       }`}
     >
       <View className="flex-row justify-between items-center">
@@ -49,19 +49,21 @@ const CycleCard = ({
           {t("hrOfSleep")}
         </MyText>
 
-        <MyText className="text-base font-medium !text-accent">
-          {cycle} {cycle === 1 ? t("cycle") : t("cycles")}
-        </MyText>
-
         <View className="flex-row items-center justify-center gap-1">
           {mode === "sleep"
-            ? iconsData[isSelected ? "alarm" : "alarmOutline"]({
+            ? isSelected &&
+              iconsData["alarm"]({
                 size: 18,
               })
-            : iconsData[isSelected ? "notifications" : "notificationsOutline"]({
+            : isSelected &&
+              iconsData["notifications"]({
                 size: 18,
               })}
         </View>
+
+        <MyText className="text-base font-medium !text-accent">
+          {cycle} {cycle === 1 ? t("cycle") : t("cycles")}
+        </MyText>
       </View>
     </TouchableOpacity>
   );

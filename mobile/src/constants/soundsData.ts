@@ -22,16 +22,6 @@ const soundsData: SoundData[] = [
     src: require("@/assets/audio/mountainStream.mp3"),
     img: require("@/assets/images/mountainStream.webp"),
   },
-  {
-    name: "airplaneCabin",
-    src: require("@/assets/audio/airplaneCabin.mp3"),
-    img: require("@/assets/images/airplaneCabin.webp"),
-  },
-  {
-    name: "brownNoise",
-    src: require("@/assets/audio/brownNoise.mp3"),
-    img: require("@/assets/images/brownNoise.webp"),
-  },
 ];
 
 export default soundsData;

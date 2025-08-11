@@ -21,6 +21,10 @@ export default function MainLayout() {
         options={{ title: "Sounds", headerShown: false }}
       />
       <Tabs.Screen
+        name="alarms"
+        options={{ title: "Alarms", headerShown: false }}
+      />
+      <Tabs.Screen
         name="settings"
         options={{ title: "Settings", headerShown: false }}
       />
