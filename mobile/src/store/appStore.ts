@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { Alarm, HourTime, SupportedLanguage } from "../types";
+import { Alarm, SleepTime, SupportedLanguage } from "../types";
 import zustandStorage from "./storage";
 
 type SoundPlayerStore = {
@@ -58,19 +58,27 @@ export const useTimetofallStore = create<TimetofallStore>()(
 );
 
 type SleepTimeStore = {
-  sleepTime: HourTime | null;
-  setSleepTime: (s: HourTime) => void;
-  removeSleepTime: () => void;
+  sleepTime: SleepTime | null;
+  setSleepTime: (s: SleepTime) => void;
+  changeStatus: (notificationId?: string) => void;
 };
 
 export const useSleepTimeStore = create<SleepTimeStore>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       sleepTime: null,
       setSleepTime: (s) => set({ sleepTime: s }),
-      removeSleepTime: () => {
-        set({ sleepTime: null });
-        zustandStorage.removeItem("sleepTime-storage");
+      changeStatus: (notificationId) => {
+        const current = get().sleepTime;
+        if (current) {
+          set({
+            sleepTime: {
+              ...current,
+              notificationId: notificationId || current.notificationId,
+              isEnabled: !(current.isEnabled ?? true),
+            },
+          });
+        }
       },
     }),
     {
