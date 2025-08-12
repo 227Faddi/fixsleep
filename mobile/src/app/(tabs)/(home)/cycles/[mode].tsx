@@ -43,7 +43,7 @@ const CyclesScreen = () => {
   return (
     <View className="bg-background flex-1">
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View className="flex flex-col gap-14 items-center py-8 px-4 pb-32">
+        <View className="flex flex-col gap-12 items-center py-8 px-4 pb-32">
           <BackButton />
           <View className="gap-2">
             <View className="flex-row items-center justify-center gap-2">
@@ -61,6 +61,26 @@ const CyclesScreen = () => {
             </MyText>
           </View>
           <View className="flex-1 w-full justify-center items-center gap-12">
+            <View className="gap-3">
+              <MyText className="text-center text-lg">I'll Sleep in...</MyText>
+              <View className="flex-row justify-center items-center gap-4">
+                <TouchableOpacity
+                  className="bg-accent rounded-full p-2"
+                  onPress={() => setTimetofall(timetofall - 1)}
+                >
+                  {iconsData["remove"]({ size: 30 })}
+                </TouchableOpacity>
+                <MyText className="text-2xl border-b border-white p-2">
+                  {timetofall} {"min"}
+                </MyText>
+                <TouchableOpacity
+                  className="bg-accent rounded-full p-2"
+                  onPress={() => setTimetofall(timetofall + 1)}
+                >
+                  {iconsData["add"]({ size: 30 })}
+                </TouchableOpacity>
+              </View>
+            </View>
             <View className="flex-1 w-full gap-4 flex-col">
               {Array.from({ length: Math.ceil(cycles.length / 2) }).map(
                 (_, rowIndex) => (
@@ -85,24 +105,14 @@ const CyclesScreen = () => {
                 )
               )}
             </View>
-            <View className="gap-3">
-              <MyText className="text-center text-lg">I'll Sleep in...</MyText>
-              <View className="flex-row justify-center items-center gap-4">
-                <TouchableOpacity
-                  className="bg-accent rounded-full p-2"
-                  onPress={() => setTimetofall(timetofall - 1)}
-                >
-                  {iconsData["remove"]({ size: 30 })}
-                </TouchableOpacity>
-                <MyText className="text-2xl border-b border-white p-2">
-                  {timetofall} {"min"}
-                </MyText>
-                <TouchableOpacity
-                  className="bg-accent rounded-full p-2"
-                  onPress={() => setTimetofall(timetofall + 1)}
-                >
-                  {iconsData["add"]({ size: 30 })}
-                </TouchableOpacity>
+            <View className="flex-row items-center gap-2">
+              <TextBold>
+                {mode === "sleep"
+                  ? "Click on a time cycle to set an Alarm"
+                  : "Click on a time cycle to set a reminder"}
+              </TextBold>
+              <View className="bg-accent rounded-full p-2">
+                {iconsData.arrowUp()}
               </View>
             </View>
           </View>

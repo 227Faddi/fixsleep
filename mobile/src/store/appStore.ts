@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { HourTime, SupportedLanguage } from "../types";
+import { Alarm, HourTime, SupportedLanguage } from "../types";
 import zustandStorage from "./storage";
 
 type SoundPlayerStore = {
@@ -115,6 +115,40 @@ export const useAskReviewStore = create<AskReviewStore>()(
     }),
     {
       name: "askReview-storage",
+      storage: createJSONStorage(() => zustandStorage),
+    }
+  )
+);
+
+type AlarmStore = {
+  alarms: Alarm[];
+  addAlarm: (newAlarm: Alarm) => boolean;
+  updateAlarm: (updatedAlarm: Alarm) => void;
+  removeAlarm: (alarmId: string) => void;
+};
+
+export const useAlarmStore = create<AlarmStore>()(
+  persist(
+    (set, get) => ({
+      alarms: [],
+      addAlarm: (newAlarm) => {
+        if (get().alarms.length >= 10) {
+          return false;
+        }
+        set({ alarms: [...get().alarms, newAlarm] });
+        return true;
+      },
+      updateAlarm: (updatedAlarm) =>
+        set({
+          alarms: get().alarms.map((alarm) =>
+            alarm.id === updatedAlarm.id ? updatedAlarm : alarm
+          ),
+        }),
+      removeAlarm: (alarmId) =>
+        set({ alarms: get().alarms.filter((alarm) => alarm.id !== alarmId) }),
+    }),
+    {
+      name: "alarm-storage",
       storage: createJSONStorage(() => zustandStorage),
     }
   )

@@ -101,6 +101,9 @@ const iconsData = {
   arrowForward: (props?: object) => (
     <Ionicons name="chevron-forward" size={24} color="#fff" {...props} />
   ),
+  arrowUp: (props?: object) => (
+    <Ionicons name="arrow-up" size={24} color="#fff" {...props} />
+  ),
   play: (props?: object) => (
     <Ionicons name="play" size={24} color="#fff" {...props} />
   ),

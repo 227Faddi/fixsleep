@@ -49,7 +49,13 @@ const End = () => {
           />
         </View>
       </View>
-      <Confetti fadeOutOnEnd={true} verticalSpacing={150} />
+      <Confetti
+        fadeOutOnEnd={true}
+        fallDuration={5000}
+        blastDuration={150}
+        randomSpeed={{ min: 1.5, max: 2.0 }}
+        verticalSpacing={100}
+      />
     </>
   );
 };
