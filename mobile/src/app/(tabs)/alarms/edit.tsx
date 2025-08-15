@@ -1,10 +1,13 @@
+import AlarmEditRow from "@/src/components/ui/AlarmEditRow";
 import MyText from "@/src/components/ui/MyText";
+import { formatDateToTime } from "@/src/lib/formatTime";
 import { useAlarmStore } from "@/src/store/appStore";
-import { Alarm } from "@/src/types";
-import { router, useLocalSearchParams } from "expo-router";
-import { useEffect, useState } from "react";
+import { HourTime } from "@/src/types";
+import RNDateTimePicker from "@react-native-community/datetimepicker";
+import { Route, router, useLocalSearchParams } from "expo-router";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Alert, Button, ScrollView, TextInput, View } from "react-native";
+import { ScrollView, TouchableOpacity, View } from "react-native";
 
 const AlarmEditScreen = () => {
   const { t } = useTranslation("translation", {
@@ -14,70 +17,90 @@ const AlarmEditScreen = () => {
     alarmId?: string;
     new?: string;
   }>();
-  const { alarms, addAlarm, updateAlarm } = useAlarmStore();
 
-  const [alarm, setAlarm] = useState<Partial<Alarm>>({
-    time: "",
-    label: "",
-    days: [],
-    isEnabled: true,
-    sound: "rainfall",
-  });
+  const { alarms, removeAlarm } = useAlarmStore();
+
+  const [timePicked, setTimePicked] = useState<HourTime | undefined>();
+  const [date, setDate] = useState(new Date());
 
   const isNewAlarm = isNew === "true";
 
-  useEffect(() => {
-    if (alarmId) {
-      const existingAlarm = alarms.find((a) => a.id === alarmId);
-      if (existingAlarm) {
-        setAlarm(existingAlarm);
-      }
-    }
-  }, [alarmId, alarms]);
-
   const handleSave = () => {
-    if (isNewAlarm) {
-      const success = addAlarm({
-        ...alarm,
-        id: Date.now().toString(),
-      } as Alarm);
-      if (!success) {
-        Alert.alert(
-          "Alarm Limit Reached",
-          "You can only have up to 10 alarms."
-        );
-        return;
-      }
-    } else {
-      updateAlarm(alarm as Alarm);
-    }
     router.back();
   };
 
+  const handleDelete = async () => {
+    router.back();
+  };
+
+  const options: { title: string; icon: "sounds"; route: Route }[] = [
+    {
+      title: "Label",
+      icon: "sounds",
+      route: "/(tabs)/(home)",
+    },
+    {
+      title: "Sound",
+      icon: "sounds",
+      route: "/(tabs)/(home)",
+    },
+    {
+      title: "Recurrence",
+      icon: "sounds",
+      route: "/(tabs)/(home)",
+    },
+  ];
+
   return (
-    <View className="bg-background flex-1 p-4">
+    <View className="bg-background flex-1 p-4 gap-8">
       <ScrollView showsVerticalScrollIndicator={false}>
-        <MyText className="text-2xl mb-4">
-          {isNewAlarm ? "Create New Alarm" : "Edit Alarm"}
-        </MyText>
-
-        <View className="gap-4">
-          <TextInput
-            className="bg-primary text-white p-4 rounded-lg"
-            placeholder="Label"
-            value={alarm.label}
-            onChangeText={(text) => setAlarm({ ...alarm, label: text })}
-          />
-          <TextInput
-            className="bg-primary text-white p-4 rounded-lg"
-            placeholder="Time (HH:mm)"
-            value={alarm.time}
-            onChangeText={(text) => setAlarm({ ...alarm, time: text })}
-          />
+        <View className="flex-row justify-between">
+          <TouchableOpacity onPress={() => router.back()}>
+            <MyText className="text-lg !text-accent">Cancel</MyText>
+          </TouchableOpacity>
+          <MyText className="text-xl mb-4">
+            {isNewAlarm ? "New Alarm" : "Edit Alarm"}
+          </MyText>
+          <TouchableOpacity onPress={handleSave}>
+            <MyText className="text-lg !text-accent">Save</MyText>
+          </TouchableOpacity>
         </View>
-
-        <View className="mt-8">
-          <Button title="Save" onPress={handleSave} />
+        <View className="flex-1 flex-col items-center ">
+          <RNDateTimePicker
+            themeVariant="dark"
+            value={date}
+            mode="time"
+            is24Hour={true}
+            display="spinner"
+            onChange={(_, selectedDate) => {
+              if (selectedDate) {
+                const time = formatDateToTime(selectedDate);
+                setDate(selectedDate);
+                setTimePicked(time);
+              }
+            }}
+          />
+          <View className="w-full gap-6">
+            <View className="w-full bg-primary rounded-xl">
+              {options.map((item, index) => (
+                <AlarmEditRow
+                  key={index}
+                  title={item.title}
+                  icon={item.icon}
+                  route={item.route}
+                  index={index}
+                />
+              ))}
+            </View>
+            {!isNew && (
+              <TouchableOpacity
+                className="w-full bg-red-500 p-4 rounded-xl mb-4"
+                onPress={handleDelete}
+              >
+                <MyText className="text-center text-lg">Delete Alarm</MyText>
+              </TouchableOpacity>
+            )}
+          </View>
         </View>
       </ScrollView>
     </View>

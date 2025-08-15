@@ -19,4 +19,10 @@ const formatTimer = (secs: number) => {
   return `${min}:${sec}`;
 };
 
-export { formatTime, formatTimeNow, formatTimer };
+const formatDateToTime = (date: Date) => {
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  return { hours, minutes };
+};
+
+export { formatDateToTime, formatTime, formatTimeNow, formatTimer };

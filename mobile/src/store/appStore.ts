@@ -149,11 +149,17 @@ export const useAlarmStore = create<AlarmStore>()(
       updateAlarm: (updatedAlarm) =>
         set({
           alarms: get().alarms.map((alarm) =>
-            alarm.id === updatedAlarm.id ? updatedAlarm : alarm
+            alarm.notificationId === updatedAlarm.notificationId
+              ? updatedAlarm
+              : alarm
           ),
         }),
       removeAlarm: (alarmId) =>
-        set({ alarms: get().alarms.filter((alarm) => alarm.id !== alarmId) }),
+        set({
+          alarms: get().alarms.filter(
+            (alarm) => alarm.notificationId !== alarmId
+          ),
+        }),
     }),
     {
       name: "alarm-storage",

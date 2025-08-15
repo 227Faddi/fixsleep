@@ -54,13 +54,16 @@ const TabBarButton = ({
     <TouchableOpacity
       onPress={onPress}
       onLongPress={onLongPress}
-      className="flex-1 items-center"
+      className="flex-1 items-center pt-0.5"
     >
       <Animated.View
         style={[animatedIcon]}
-        className={`${isFocused ? "bg-accent p-2 rounded-full" : ""}`}
+        className={`${isFocused ? "bg-accent p-1 rounded-xl" : ""}`}
       >
-        {icon[routeName as keyof typeof icon]({ ...color, size: 25 })}
+        {icon[routeName as keyof typeof icon]({
+          ...color,
+          size: isFocused ? 26 : 22,
+        })}
       </Animated.View>
       <Animated.Text
         style={[color, animatedText]}

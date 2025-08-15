@@ -51,7 +51,7 @@ const HomeScreen = () => {
           </View>
           <View className="flex-row items-center gap-1 bg-accent px-4 py-2 rounded-xl">
             <MyText className="text-lg">1</MyText>
-            {iconsData["flame"]({ size: 25 })}{" "}
+            {iconsData["flame"]({ size: 25 })}
           </View>
         </View>
       </View>

@@ -15,7 +15,7 @@ const AlarmCard = ({ alarm }: Props) => {
   const editAlarm = () => {
     router.push({
       pathname: "/(tabs)/alarms/edit",
-      params: { alarmId: alarm.id },
+      params: { alarmId: alarm.notificationId },
     });
   };
 
@@ -38,7 +38,7 @@ const AlarmCard = ({ alarm }: Props) => {
     return (
       <View className="flex-row items-center gap-2">
         {activeDays.map((day, index) => (
-          <MyText key={index} className="text-accent text-xl">
+          <MyText key={index} className="text-accent text-md">
             {day}
           </MyText>
         ))}
@@ -51,12 +51,8 @@ const AlarmCard = ({ alarm }: Props) => {
       onPress={editAlarm}
       className={`p-6 rounded-3xl gap-4 bg-primary border-2 ${alarm.isEnabled ? "border-[#C4A9F2]" : "border-primary"}`}
     >
-      <View className="flex-row items-center justify-between">
-        {formatDays()}
-        <MyText className="text-xl">{alarm.label}</MyText>
-      </View>
       <View className="flex-row justify-between">
-        <MyText className="text-3xl">{alarm.time}</MyText>
+        <MyText className="text-4xl">{"49:03"}</MyText>
         <Switch
           value={alarm.isEnabled}
           onValueChange={toggleSwitch}
@@ -64,6 +60,10 @@ const AlarmCard = ({ alarm }: Props) => {
           thumbColor={color.textPrimary}
           ios_backgroundColor={color.primary}
         />
+      </View>
+      <View className="flex-row items-center justify-between">
+        {formatDays()}
+        <MyText className="text-lg">{alarm.label}</MyText>
       </View>
     </TouchableOpacity>
   );

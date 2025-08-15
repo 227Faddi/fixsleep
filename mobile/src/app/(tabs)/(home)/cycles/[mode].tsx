@@ -48,7 +48,7 @@ const CyclesScreen = () => {
           <View className="gap-2">
             <View className="flex-row items-center justify-center gap-2">
               {mode === "sleep"
-                ? iconsData["sun"]({ color: color.yellow })
+                ? iconsData["sun"]({ color: color.myYellow })
                 : iconsData["moon"]({ color: "#8FB3FF" })}
               <TextBold className="text-center text-4xl">
                 {mode === "sleep" ? t("wakeUpTime") : t("bedtime")}

@@ -37,7 +37,7 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   return (
     <View
       onLayout={onTabBarLayout}
-      className="flex-row justify-between items-center py-4 border-t-2 border-primary"
+      className="flex-row justify-between items-center border-t-2 border-primary"
     >
       <Animated.View
         style={[

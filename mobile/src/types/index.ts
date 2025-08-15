@@ -16,11 +16,12 @@ export type TabNav = BottomTabNavigationProp<RootTabParamList>;
 
 export type Alarm = {
   notificationId: string;
-  time: string;
+  hours: number;
+  minutes: number;
   label: string;
   days: number[];
-  isEnabled: boolean;
   sound: string;
+  isEnabled: boolean;
 };
 
 export type SleepTime = {

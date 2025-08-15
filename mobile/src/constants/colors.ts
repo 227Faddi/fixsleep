@@ -4,9 +4,9 @@ const color = {
   accent: "#9A73E8",
   textPrimary: "#FFFFFF",
   textSecondary: "#C6C6C6",
-  yellow: "#f39c12",
-  green: "#2ecc71",
-  red: "#e74c3c",
+  myYellow: "#f39c12",
+  myGreen: "#2ecc71",
+  myRed: "#e74c3c",
 };
 
 export default color;
